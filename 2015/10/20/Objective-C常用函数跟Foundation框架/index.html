@@ -3,17 +3,39 @@
 <head>
   <meta charset="utf-8">
   
-  <title>thinkloki</title>
+  <title>Objective-C常用函数跟Foundation框架 | thinkloki</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在路上">
-<meta property="og:type" content="website">
-<meta property="og:title" content="thinkloki">
-<meta property="og:url" content="http://wait.im/index.html">
+  <meta name="description" content="数学运算(math)函数算术运算函数
+rand()函数：产生随机数
+abs()函数/labs()函数：整数的绝对值
+fabs()/fabsf()/fabsl()函数：浮点数的绝对值
+floor()/floorf()/floorl()函数：向下取整
+ceil()/ceilf()/ceill()函数：向上取整
+round()/roundf()/roundl()函数：四舍五入
+sqrt()/sqrtf(">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Objective-C常用函数跟Foundation框架">
+<meta property="og:url" content="http://wait.im/2015/10/20/Objective-C常用函数跟Foundation框架/index.html">
 <meta property="og:site_name" content="thinkloki">
-<meta property="og:description" content="在路上">
+<meta property="og:description" content="数学运算(math)函数算术运算函数
+rand()函数：产生随机数
+abs()函数/labs()函数：整数的绝对值
+fabs()/fabsf()/fabsl()函数：浮点数的绝对值
+floor()/floorf()/floorl()函数：向下取整
+ceil()/ceilf()/ceill()函数：向上取整
+round()/roundf()/roundl()函数：四舍五入
+sqrt()/sqrtf(">
+<meta property="og:updated_time" content="2015-10-22T02:15:03.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="thinkloki">
-<meta name="twitter:description" content="在路上">
+<meta name="twitter:title" content="Objective-C常用函数跟Foundation框架">
+<meta name="twitter:description" content="数学运算(math)函数算术运算函数
+rand()函数：产生随机数
+abs()函数/labs()函数：整数的绝对值
+fabs()/fabsf()/fabsl()函数：浮点数的绝对值
+floor()/floorf()/floorl()函数：向下取整
+ceil()/ceilf()/ceill()函数：向上取整
+round()/roundf()/roundl()函数：四舍五入
+sqrt()/sqrtf(">
   
     <link rel="alternative" href="/atom.xml" title="thinkloki" type="application/atom+xml">
   
@@ -201,9 +223,7 @@ var _hmt = _hmt || [];
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap">
-  
-    <article id="post-Objective-C常用函数跟Foundation框架" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Objective-C常用函数跟Foundation框架" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
       <a href="/2015/10/20/Objective-C常用函数跟Foundation框架/" class="article-date">
@@ -219,12 +239,23 @@ var _hmt = _hmt || [];
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/20/Objective-C常用函数跟Foundation框架/">Objective-C常用函数跟Foundation框架</a>
+    <h1 class="article-title" itemprop="name">
+      Objective-C常用函数跟Foundation框架
     </h1>
   
 
       </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IOS/">IOS</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
       
     
     <div class="article-entry" itemprop="articleBody">
@@ -348,464 +379,62 @@ var _hmt = _hmt || [];
       
     </div>
     
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IOS/">IOS</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/07/31/Facebook新闻页优化的分析/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">关于 Facebook新闻页优化 的分析</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
   
 </article>
 
 
-
-
-
-
-
-  
-    <article id="post-Facebook新闻页优化的分析" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/07/31/Facebook新闻页优化的分析/" class="article-date">
-  	<time datetime="2015-07-30T16:18:36.000Z" itemprop="datePublished">2015-07-31</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/31/Facebook新闻页优化的分析/">关于 Facebook新闻页优化 的分析</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>关于 Facebook新闻页优化 的分析</p>
-<h1 id="私货">私货</h1><p>简单一点概括，就是Facebook在ListView页面中，将原来的View-Model-Binder再次拆解成粒度更细的模型。<br>在原本的View-Model-Binder模型中，依靠将部分的View设置成visible 或 gone 来控制功能块的显示 （转帖/图片/etc）<br>在优化过的模型中，原本的View被拆解成更细粒度的小View，然后只加载需要的部分<br>原文没有提及，但应当是利用</p>
-<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">int</span> <span class="title">getItemViewType</span><span class="params">(<span class="keyword">int</span> position)</span> </span>&#123;</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">int</span> <span class="title">getViewTypeCount</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>实现的。<br>翻了一下ListView源代码<br>不同type的View被分类cache在RecycleBin中</p>
-<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">setViewTypeCount</span><span class="params">(<span class="keyword">int</span> viewTypeCount)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (viewTypeCount &amp;lt; <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"Can't have a viewTypeCount &amp;lt; 1"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//noinspection unchecked</span></span><br><span class="line">    ArrayList&amp;lt;View&amp;gt;[] scrapViews = <span class="keyword">new</span> ArrayList[viewTypeCount];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &amp;lt; viewTypeCount; i++) &#123;</span><br><span class="line">        scrapViews[i] = <span class="keyword">new</span> ArrayList&amp;lt;View&amp;gt;();</span><br><span class="line">    &#125;</span><br><span class="line">    mViewTypeCount = viewTypeCount;</span><br><span class="line">    mCurrentScrap = scrapViews[<span class="number">0</span>];</span><br><span class="line">    mScrapViews = scrapViews;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>参考RecycleBin的setViewTypeCount部分，此处用ArrayList[]来cache所有type的view<br>不过由于被设置成gone的View本身就不参与meaure和layout,也不会参与draw,只会额外占据一些内存。<br>所以Facebook做了这些优化以后 性能只提升了10%<br>在View的性能优化中，我觉得10%太少了，而新的模型复杂度变高了很多。<br>原本由于ViewType的原因，需要将Model和View的实现细节暴露在 Adapter中，Facebook这个优化实现似乎为了保持其封装性<br>于是将View-Model-Binder又通过Definition又封装了一层。<br>综合考虑的话….我觉得意义不大。<br>优化掉了一些无用View,但是增加了额外的中间层，很难说这样的改动是好是坏。<br>IOS开发可能更习惯View-Binder写法<br>Android开发可能会更习惯直接使用ViewHolder去操作</p>
-<h2 id="而Facebook这个写法更复杂，增加了额外的Definition层，Binder也根据ViewType被拆解成多个。">而Facebook这个写法更复杂，增加了额外的Definition层，Binder也根据ViewType被拆解成多个。</h2><p>考虑一下直接用最大粒度的View来做ViewType区分？<br>思考了一下….参考Faacebook或微博这个界面…应当是不行的…<br>同屏最多也就 2~4条 post<br>直接用Item做type区分的话….由于数据随机性的问题<br>cache会被经常性的加载和释放…..反而起不到作用…</p>
-<h2 id="使用细粒度的子View做type区分的话，在cache上有优势的多-">使用细粒度的子View做type区分的话，在cache上有优势的多..</h2><p>结论：有用，必要性不足。<br>鉴于这个Definition模型的复杂度，非微博，facebook,朋友圈类型的复杂Item，并不需要使用此优化方法。</p>
-<h2 id="正常使用View-model-binder模型就好了">正常使用View-model-binder模型就好了</h2><p>中文版<br><a href="">http://blog.aaapei.com/article/2015/02/facebookxin-wen-ye-listviewyou-hua</a></p>
-<h2 id="基础知识">基础知识</h2><p>android系统每隔16.7ms发出一个渲染信号，通知ui线程进行界面的渲染。为了达到流畅的体验，应用程序需要在这个时间内完成应用逻辑，使系统达到60fps。当一个Listview被添加到布局时，其关联的adapter的getView方法将会被回调。在16.7毫秒这样一个时间单元内，可见listitem单元的getView方法将被按照顺序执行。在大多数情况下，由于其他绘图行为的存在，例如measure和draw，getVIew实际分配到执行时间远低于16ms。一旦listview包含复杂控件时，在16毫秒内不能完成渲染，用户只能看到上一祯的结果，这时就发生了掉帧。</p>
-<h2 id="Facebook新闻页介绍">Facebook新闻页介绍</h2><p>Facebook的新闻页是一个复杂的listview控件，如何使它获得流畅的滚动体验一直困扰我们。 首先，新闻页的每一条新闻的可见区域非常大，包含一系列的文本以及照片；其次，新闻的展现类型也很多样，除了文本以及照片，新闻的附件还可包含链接、音频、视频等。除此之外，新闻还可以被点赞、被转载，导致一个新闻会被其他新闻包含在内。当新闻被大量用户转载时，甚至会出现一条新闻占据两个屏幕的情况。加上android用户的机型多为中低端设备，这使我们在16.7ms内完成新闻页的渲染变的非常困难。<br><img src="https://fbcdn-dragon-a.akamaihd.net/hphotos-ak-xpa1/t39.2365-6/10935993_1534797460105141_1373600061_n.png" alt=""></p>
-<h2 id="新闻页最初架构">新闻页最初架构</h2><p>在2012年，我们将新闻页从web-view转化成本地控件，在最初的那个版本中，基于View-Model-Binder设计模型，我们为新闻listitem创建了一个自定义StoryView类，这个类有一个bindModel方法，该方法用于和数据进行绑定。代码是这样的：<br><img src="https://fbcdn-dragon-a.akamaihd.net/hphotos-ak-xap1/t39.2365-6/10935990_1412843022342801_1297058886_n.png" alt=""><br>StoryView的包含的子控件都会有一个bindModel方法，例如HeadVIew通过该方法与其相关的数据进行绑定。<br>这种设计，代码非常直观清晰，但他的缺点也很明显：</p>
-<p><em>listview复用机制不能有效的工作,Android’s recycling mechanism does not work well in this case: Every item in the ListView was usually a StoryView, but once bound to a story, two StoryViews would be radically different and recycling one into the other wasn’t effective.（这一段存疑，直接放原文）
-</em>逻辑嵌套：采用bindModel绑定控件和数据，业务逻辑与视图逻辑耦合，导致逻辑类层次非常深；<br><em>布局嵌套非常深：不但导致低效的视图渲染，例如新闻被不停的转载的极端场景下还会导致栈溢出；
-</em>bindModel方法逻辑过重：bindModel方法在当用户滚动列表时被ui线程回调，由于所有的数据解析都在这个方法内，导致该方法耗时<br>以上这些问题虽有他们单独的解决方法，例如我们可以自己设计一套回收机制解决storyView复用问题。但基于维护成本和开发时间考虑，我们决定进行一次重构。</p>
-<h2 id="重构方案">重构方案</h2><p><img src="https://fbcdn-dragon-a.akamaihd.net/hphotos-ak-xap1/t39.2365-6/10935983_984256741587871_980206636_n.png" alt=""></p>
-<p>另一个大的修改是，我们将视图逻辑和数据逻辑分离，StoryView被分离成两个类： 只负责展现的视图类，以及一个Binder类。视图类仅包含set方法（例如HeaderView包含了setTitle，setSubTitle。setProfiePic等等）。Binder类包含了原来的bindMethod的逻辑，binder类包含三个方法：prepare，bind，unbind。 bind方法调用view的set方法设置数据，unbind清理视图数据，prepare方法在cpu空闲期间做一些预初始化工作，例如进行click事件绑定、数据格式化、创建spannable等等，它会在getView方法之前被调用 </p>
-<p><img src="https://fbcdn-dragon-a.akamaihd.net/hphotos-ak-xfp1/t39.2365-6/10956894_918624611495337_1619622974_n.png" alt=""></p>
-<p>我们遇到的技术难点是Binder的设计，由于StoryView被拆分不同的子控件，一条新闻可能会包含多个不同的Binder。而在之前，我们只需要根据视图的树结构进行结构化赋值。因此，我们引进了PartDefinition类，PartDefinition负责维护一条新闻包含哪些子控件、包含Binder的类型以及为新闻创建Binder类，有两种类型的PartDefinition：单个PartDefinition以及PartDefinition集合。</p>
-<p><img src="https://fbcdn-dragon-a.akamaihd.net/hphotos-ak-xfa1/t39.2365-6/10935981_1536551233276267_1103658334_n.png" alt=""></p>
-<p>一个新闻在重构之后的PartDefinition结构是这样的：</p>
-<p><img src="https://fbcdn-dragon-a.akamaihd.net/hphotos-ak-xaf1/t39.2365-6/10935975_856616717694467_1297407005_n.png" alt=""></p>
-<h2 id="结论">结论</h2><p><em>采取新的架构，内存错误减少了17%，总crash率减少了8%，彻底解决涨溢出问题
-</em>渲染时间减少了10%，大新闻场景不再掉帧<br>*精简了原来的自定义回收机制，同时在重构过程中增加了单元测试</p>
-<p>英文原文：</p>
-<p><a href="">https://code.facebook.com/posts/879498888759525/fast-rendering-news-feed-on-android/</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
 	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
-      
 
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
 
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Objective-C常用函数跟Foundation框架" data-title="Objective-C常用函数跟Foundation框架" data-url="http://wait.im/2015/10/20/Objective-C常用函数跟Foundation框架/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
 
 
 
-
-
-  
-    <article id="post-面对对象基础跟内部类" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/07/30/面对对象基础跟内部类/" class="article-date">
-  	<time datetime="2015-07-29T16:18:36.000Z" itemprop="datePublished">2015-07-30</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/30/面对对象基础跟内部类/">面对对象基础跟内部类</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>一、面对对象的三大特征：封装、继承、多态。</p>
-<font color="#24130c" face="Arial, Helvetica, simsun, u5b8bu4f53">    <font size="3">抽象：</font></font><font size="3">把现实中需要处理的事物通过数据的方法表达出来就是抽象。将现实的东西编程计算机的模式。</font>
-
-<font size="3"><font face="arial, courier new, courier, 宋体, monospace">    封装：</font>把事物的数据和方法用类的方式集合起来就是封装，封装的数据和方法通过继承来实现重用。</font>
-
-<font size="3"><font face="arial, courier new, courier, 宋体, monospace">    多态：</font>同一个方法通过方法的重载实现不同的逻辑即多态。</font>
-
-<p>二、面对对象软件开发的大体分为，面向对象的分析，面向对象的设计，面向对象的实现。</p>
-<p>分析用户的需求，从问题中抽取对象模型，细化模型，设计类，包括类的属性和类间的相互关系。同时观察是否有可以直接引用的已有的类或部件；使用Java语言，在开发中引入测试，并完善整个解决方案。</p>
-<p>三、类</p>
-<p>class前的修饰符分为访问控制符和非访问控制符两类。访问控制符包括public和private。非访问控制符包括abstract和final。</p>
-<p>final是最终类，是不能有子类的，abstract和final不能修饰同一个类，因为抽象类本身没有具体的对象，需要派生出子类后在创建子类的对象。而最终不可能有子类。</p>
-<p>创建对象的格式：类名+对象名=new 构造方法（参数）；前面是类名，后面是构造方法。</p>
-<p>构造方法（构造函数）没有返回类型，也不能用void，主要完成对对象的初始化工作，一般不能直接由编程直接调用，而是用new运算符来调用。</p>
-<p>如果class前面用public修饰，则默认构造方法的前面也是public修饰符。类中有static修饰的域或方法，可用类名或对象名进行访问。否则只能用对象名访问。</p>
-<p><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'宋体';"><span style="white-space:pre;">    </span>内部类的总结：</span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'宋体';"></span></p>
-<p><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'宋体';">&nbsp;<span style="white-space:pre;">    </span></span><span style="line-height: 23px; font-family: 宋体; font-size: 10.5pt;">内部类是指在一个外部类的内部再定义一个类。内部类作为外部类的一个成员，并且依附于外部类而存在的。</span></p>
-<p><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'宋体';">&nbsp;<span style="white-space:pre;">    </span></span><span style="line-height: 23px; font-family: 宋体; font-size: 10.5pt;">内部类同时具有成员和类的特性（特性不冲突）。&nbsp;内部类的分类：</span></p>
-<p><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'宋体';">&nbsp;<span style="white-space:pre;">    </span></span><span style="line-height: 23px; font-family: 宋体; font-size: 10.5pt;">成员内部类、</span><span style="line-height: 23px; font-family: 宋体; font-size: 10.5pt;">局部内部类、</span><span style="line-height: 23px; font-family: 宋体; font-size: 10.5pt;">静态内部类、</span><span style="line-height: 23px; font-family: 宋体; font-size: 10.5pt;">匿名内部类（图形是要用到，必须掌握）。</span></p>
-<p><span style="white-space:pre;">        </span>1.成员内部类</p>
-<p>成员内部类是定义在一个类中的类，他将信息更好的封装于一个类中，定义成员内部类后在使用它时可将其当成外部类的成员来使用，但若要使用内部类中的成员则需要创建内部类的实例。</p>
-<p><span style="white-space:pre;">    </span>成员内部类和外部类之间的访问权限。</p>
-<p>在类里面定义的类称之为内部类（Inner Class），内部类是外部类的一个成员。</p>
-<p>内部类必须创建外部类对象才能使用。而创建内部类对象时必须先创建一个外部类对象，通过一个外部类对象才能创建内部类对象。</p>
-<p>外部类名.内部类名&nbsp;变量名&nbsp;=&nbsp;new&nbsp;外部类名().new&nbsp;内部类名();</p>
-<pre class="prettyprint">
-
-class&nbsp;Inner{
-<font color="#333333">//static&nbsp;int&nbsp;inner_i&nbsp;=100;&nbsp;//</font><font face="宋体"><font color="#333333">内部类中不允</font>许定</font>义<font color="#0000ff">静态</font><font color="#0000ff">变量</font>
-<font color="#333333">int&nbsp;j=100;//</font><font face="宋体"><font color="#333333">内部类中外部类的</font><font color="#0000ff">实例变量</font></font>可以共存
-int&nbsp;inner_i=1;
-void&nbsp;inner_f1()
-
-{
-&nbsp;&nbsp;&nbsp;&nbsp;        System.out.println(i);//<font face="宋体">外部类的变量如果和内部类的变量没有同名的，则可以直接用变量名访问外部类的变量</font>
-&nbsp;&nbsp;&nbsp;&nbsp;        System.out.println(j);//<font face="宋体">在内部类中访问内部类自己的变量直接用变量名</font>
-&nbsp;&nbsp;&nbsp;    &nbsp;    System.out.println(this.j);//<font face="宋体">也可以在内部类中用</font><font face="Arial">"this.</font><font face="宋体">变量名</font><font face="Arial">"</font><font face="宋体">来访问内部类变量</font>
-&nbsp;&nbsp;&nbsp;&nbsp;        //<font face="宋体">访问外部类中与内部类同名的</font>实例变量可用<font face="Arial">"</font><font face="宋体">外部类名</font><font face="Arial">.this.</font><font face="宋体">变量名</font><font face="Arial">"</font><font face="宋体">。</font>
-&nbsp;&nbsp;&nbsp;&nbsp;        System.out.println(k);//<font face="宋体">外部类的变量如果和内部类的变量没有同名的，则可以直接用变量名访问外部类的变量</font>
-&nbsp;&nbsp;&nbsp;&nbsp;        outer_f1();
-&nbsp;&nbsp;&nbsp;&nbsp;        outer_f2();
-}
-}
-</pre>
-
-<p>成员内部类的优点：</p>
-<pre id="best-content-521589254" accuse="aContent" style="margin-top: 0px; margin-bottom: 10px; padding: 0px; font-family: arial, 'courier new', courier, 宋体, monospace; white-space: pre-wrap; word-wrap: break-word; line-height: 24px;">    ⑴ 内部类作为外部类的成员，可以访问外部类的私有成员或属性。（即使将外部类声明为PRIVATE，但是对于处于其内部的内部类还是可见的。）
-⑵ 用内部类定义在外部类中不可访问的属性。这样就在外部类中实现了比外部类的private还要小的访问权限。
-注意：内部类是一个编译时的概念，一旦编译成功，就会成为完全不同的两类。对于一个名为outer的外部类和其内部定义的名为inner的内部类。编译完成后出现outer.class和outer$inner.class两类。</pre><pre id="best-content-521589254" accuse="aContent" style="margin-top: 0px; margin-bottom: 10px; padding: 0px; font-family: arial, 'courier new', courier, 宋体, monospace; white-space: pre-wrap; word-wrap: break-word; line-height: 24px;"><span style="white-space:pre;">    </span>2.局部内部类</pre><pre id="best-content-521589254" accuse="aContent" style="margin-top: 0px; margin-bottom: 10px; padding: 0px; font-family: arial, 'courier new', courier, 宋体, monospace; white-space: pre-wrap; word-wrap: break-word; line-height: 24px;">
-
-<span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'宋体';"><span style="white-space:pre;">    </span>在方法中定义的内部类称为局部内部类。与局部变量类似，在局部内部类前不加修饰符<font face="Times New Roman">public</font><font face="宋体">和</font><font face="Times New Roman">private</font><font face="宋体">，其范围为定义它的代码块。</font></span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'宋体';"></span>
-
-<span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'宋体';"><span style="white-space:pre;">    </span>注意：局部内部类不仅可以访问外部类实例变量，还可以访问外部类的局部变量（但此时要求外部类的局部变量必须为<font face="Times New Roman">final</font><font face="宋体">）？？</font></span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'宋体';"></span>
-
-<span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'宋体';"><span style="white-space:pre;">    </span>在类外不可直接生成局部内部类（保证局部内部类对外是不可见的）。</span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'宋体';"></span>
-
-<span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'宋体';"><span style="white-space:pre;">    </span>要想使用局部内部类时需要生成对象，对象调用方法，在方法中才能调用其局部内部类。</span><span style="font-size: 10.5pt; font-family: Arial;"></span>
-</pre><pre id="best-content-521589254" accuse="aContent" style="margin-top: 0px; margin-bottom: 10px; padding: 0px; white-space: pre-wrap; word-wrap: break-word;">    3.静态内部类</pre><pre id="best-content-521589254" accuse="aContent" style="margin-top: 0px; margin-bottom: 10px; padding: 0px; white-space: pre-wrap; word-wrap: break-word; line-height: 24px;">    用static修饰的内部类就是静态内部类，和内部类不同，其实力的创建不需要外部对象。它只能访问外部类的静态成员和静态方法，不能访问非静态成员，但却可以访问自身内部的非静态成员变量。</pre>
-
-<p>静态内部类可以用public，protected，private修饰，静态内部类中可以定义静态成员或非静态成员。</p>
-<font face="宋体">&nbsp; &nbsp;&nbsp;</font>生成（new）一个静态内部类不需要外部类成员：这是静态内部类和成员内部类的区别。静态内部类的对象可以直接生成：<br><pre id="best-content-521589254" accuse="aContent" style="margin-top: 0px; margin-bottom: 10px; padding: 0px; font-family: arial, 'courier new', courier, 宋体, monospace; white-space: pre-wrap; word-wrap: break-word; line-height: 24px;">    Outer.Inner in=new Outer.Inner()；<br>而不需要通过生成外部类对象来生成。这样实际上使静态内部类成为了一个顶级类。静态内部类不可用private来进行定义。</pre><pre id="best-content-521589254" accuse="aContent" style="margin-top: 0px; margin-bottom: 10px; padding: 0px; font-family: arial, 'courier new', courier, 宋体, monospace; white-space: pre-wrap; word-wrap: break-word;">    4.匿名内部类</pre><pre id="best-content-521589254" accuse="aContent" style="margin-top: 0px; margin-bottom: 10px; padding: 0px; font-family: arial, 'courier new', courier, 宋体, monospace; white-space: pre-wrap; word-wrap: break-word;"><pre id="best-content-521589254" accuse="aContent" style="margin-top: 0px; margin-bottom: 10px; padding: 0px; font-family: arial, 'courier new', courier, 宋体, monospace; white-space: pre-wrap; word-wrap: break-word; color: rgb(51, 51, 51);">    匿名内部类是一种特殊的局部内部类，它是通过匿名类实现接口。<br>IA被定义为接口。<br>IA I=new IA(){};<br>匿名内部类的特点：<br>1，一个类用于继承其他类或是实现接口，并不需要增加额外的方法，只是对继承方法的事先或是覆盖。其实就是一个匿名子类对象。<br>2，只是为了获得一个对象实例，不需要知道其实际类型。<br>3，类名没有意义，也就是不需要使用到。</pre><pre id="best-content-521589254" accuse="aContent" style="margin-top: 0px; margin-bottom: 10px; padding: 0px; font-family: arial, 'courier new', courier, 宋体, monospace; white-space: pre-wrap; word-wrap: break-word; color: rgb(51, 51, 51);"><span style="white-space:pre;">    </span>4， new  父类OR 接口名{}。<br></pre></pre><br><br><wbr><br><pre class="prettyprint"><br><br>interface Test //定义一个接口，接口中有方法。<br>{<br>&nbsp; &nbsp; &nbsp; &nbsp; void func();<br>}<br>class Outer<br>{<br>&nbsp; &nbsp; &nbsp; &nbsp; public void method()<br>&nbsp; &nbsp; &nbsp; &nbsp; {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Test T=new Test()//new一个接口对象，然后调用接口中的func方法<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; public void func()<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {&nbsp; &nbsp; &nbsp;&nbsp;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;     }<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; };<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; T.func();//通过new的对象可以实现调用接口中的多个引用，但最终不超过三个。<br>&nbsp; &nbsp; &nbsp; &nbsp; }&nbsp; &nbsp; &nbsp;<br>}<br>public class Demo {<br><br>&nbsp; &nbsp; &nbsp; &nbsp; public static void main(String[] args) {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // TODO Auto-generated method stub<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; func(new Test()<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; public void func(){}<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; });<br>&nbsp; &nbsp; &nbsp; &nbsp; }<br>&nbsp; &nbsp; &nbsp; &nbsp; public static void func(Test in)<br>&nbsp; &nbsp; &nbsp; &nbsp; {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; in.func();<br>&nbsp; &nbsp; &nbsp; &nbsp; }<br>}<br></pre><span style="white-space:pre;">    </span>匿名内部类的一般好处是：是代码更加简洁，紧凑，但带来的是易读性下降。它<font color="#ff0000" style="font-family: Arial; line-height: 26px;">一般用在GUI编程中实现事件处理</font>等等。<div><span style="line-height: 23px; font-size: 10.5pt;"><span style="white-space: pre;">    </span>匿名内部类是唯一一种无构造方法类。</span><div><div><br><br><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'宋体';">&nbsp; &nbsp; &nbsp;</span><span style="line-height: 23px; font-family: 宋体; font-size: 10.5pt;">匿名内部类在编译的时候由系统自动起名</span><font face="Times New Roman" style="line-height: 23px; font-size: 10.5pt;">Out$1.class</font><font face="宋体" style="line-height: 23px; font-family: 宋体; font-size: 10.5pt;">。</font>
-
-<p><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'宋体';">&nbsp; &nbsp; &nbsp;</span><span style="line-height: 23px; font-family: 宋体; font-size: 10.5pt;">如果一个对象编译时的类型是接口，那么其运行的类型为实现这个接口的类。因匿名内部类无构造方法，所以其使用范围非常的有限。 &nbsp;</span></p>
-<p>一、面对对象的三大特征：封装、继承、多态。</p>
-<font color="#24130c" face="Arial, Helvetica, simsun, u5b8bu4f53">    <font size="3">抽象：</font></font><font size="3">把现实中需要处理的事物通过数据的方法表达出来就是抽象。将现实的东西编程计算机的模式。</font>
-
-<font size="3"><font face="arial, courier new, courier, 宋体, monospace">    封装：</font>把事物的数据和方法用类的方式集合起来就是封装，封装的数据和方法通过继承来实现重用。</font>
-
-<font size="3"><font face="arial, courier new, courier, 宋体, monospace">    多态：</font>同一个方法通过方法的重载实现不同的逻辑即多态。</font>
-
-<p>二、面对对象软件开发的大体分为，面向对象的分析，面向对象的设计，面向对象的实现。</p>
-<p>分析用户的需求，从问题中抽取对象模型，细化模型，设计类，包括类的属性和类间的相互关系。同时观察是否有可以直接引用的已有的类或部件；使用Java语言，在开发中引入测试，并完善整个解决方案。</p>
-<p>三、类</p>
-<p>class前的修饰符分为访问控制符和非访问控制符两类。访问控制符包括public和private。非访问控制符包括abstract和final。</p>
-<p>final是最终类，是不能有子类的，abstract和final不能修饰同一个类，因为抽象类本身没有具体的对象，需要派生出子类后在创建子类的对象。而最终不可能有子类。</p>
-<p>创建对象的格式：类名+对象名=new 构造方法（参数）；前面是类名，后面是构造方法。</p>
-<p>构造方法（构造函数）没有返回类型，也不能用void，主要完成对对象的初始化工作，一般不能直接由编程直接调用，而是用new运算符来调用。</p>
-<p>如果class前面用public修饰，则默认构造方法的前面也是public修饰符。类中有static修饰的域或方法，可用类名或对象名进行访问。否则只能用对象名访问。</p>
-<p><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'宋体';"><span style="white-space:pre;">    </span>内部类的总结：</span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'宋体';"></span></p>
-<p><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'宋体';">&nbsp;<span style="white-space:pre;">    </span></span><span style="line-height: 23px; font-family: 宋体; font-size: 10.5pt;">内部类是指在一个外部类的内部再定义一个类。内部类作为外部类的一个成员，并且依附于外部类而存在的。</span></p>
-<p><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'宋体';">&nbsp;<span style="white-space:pre;">    </span></span><span style="line-height: 23px; font-family: 宋体; font-size: 10.5pt;">内部类同时具有成员和类的特性（特性不冲突）。&nbsp;内部类的分类：</span></p>
-<p><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'宋体';">&nbsp;<span style="white-space:pre;">    </span></span><span style="line-height: 23px; font-family: 宋体; font-size: 10.5pt;">成员内部类、</span><span style="line-height: 23px; font-family: 宋体; font-size: 10.5pt;">局部内部类、</span><span style="line-height: 23px; font-family: 宋体; font-size: 10.5pt;">静态内部类、</span><span style="line-height: 23px; font-family: 宋体; font-size: 10.5pt;">匿名内部类（图形是要用到，必须掌握）。</span></p>
-<p><span style="white-space:pre;">        </span>1.成员内部类</p>
-<p>成员内部类是定义在一个类中的类，他将信息更好的封装于一个类中，定义成员内部类后在使用它时可将其当成外部类的成员来使用，但若要使用内部类中的成员则需要创建内部类的实例。</p>
-<p><span style="white-space:pre;">    </span>成员内部类和外部类之间的访问权限。</p>
-<p>在类里面定义的类称之为内部类（Inner Class），内部类是外部类的一个成员。</p>
-<p>内部类必须创建外部类对象才能使用。而创建内部类对象时必须先创建一个外部类对象，通过一个外部类对象才能创建内部类对象。</p>
-<p>外部类名.内部类名&nbsp;变量名&nbsp;=&nbsp;new&nbsp;外部类名().new&nbsp;内部类名();</p>
-<pre class="prettyprint">
-
-class&nbsp;Inner{
-<font color="#333333">//static&nbsp;int&nbsp;inner_i&nbsp;=100;&nbsp;//</font><font face="宋体"><font color="#333333">内部类中不允</font>许定</font>义<font color="#0000ff">静态</font><font color="#0000ff">变量</font>
-<font color="#333333">int&nbsp;j=100;//</font><font face="宋体"><font color="#333333">内部类中外部类的</font><font color="#0000ff">实例变量</font></font>可以共存
-int&nbsp;inner_i=1;
-void&nbsp;inner_f1()
-
-{
-&nbsp;&nbsp;&nbsp;&nbsp;        System.out.println(i);//<font face="宋体">外部类的变量如果和内部类的变量没有同名的，则可以直接用变量名访问外部类的变量</font>
-&nbsp;&nbsp;&nbsp;&nbsp;        System.out.println(j);//<font face="宋体">在内部类中访问内部类自己的变量直接用变量名</font>
-&nbsp;&nbsp;&nbsp;    &nbsp;    System.out.println(this.j);//<font face="宋体">也可以在内部类中用</font><font face="Arial">"this.</font><font face="宋体">变量名</font><font face="Arial">"</font><font face="宋体">来访问内部类变量</font>
-&nbsp;&nbsp;&nbsp;&nbsp;        //<font face="宋体">访问外部类中与内部类同名的</font>实例变量可用<font face="Arial">"</font><font face="宋体">外部类名</font><font face="Arial">.this.</font><font face="宋体">变量名</font><font face="Arial">"</font><font face="宋体">。</font>
-&nbsp;&nbsp;&nbsp;&nbsp;        System.out.println(k);//<font face="宋体">外部类的变量如果和内部类的变量没有同名的，则可以直接用变量名访问外部类的变量</font>
-&nbsp;&nbsp;&nbsp;&nbsp;        outer_f1();
-&nbsp;&nbsp;&nbsp;&nbsp;        outer_f2();
-}
-}
-</pre>
-
-<p>成员内部类的优点：</p>
-<pre id="best-content-521589254" accuse="aContent" style="margin-top: 0px; margin-bottom: 10px; padding: 0px; font-family: arial, 'courier new', courier, 宋体, monospace; white-space: pre-wrap; word-wrap: break-word; line-height: 24px;">    ⑴ 内部类作为外部类的成员，可以访问外部类的私有成员或属性。（即使将外部类声明为PRIVATE，但是对于处于其内部的内部类还是可见的。）
-⑵ 用内部类定义在外部类中不可访问的属性。这样就在外部类中实现了比外部类的private还要小的访问权限。
-注意：内部类是一个编译时的概念，一旦编译成功，就会成为完全不同的两类。对于一个名为outer的外部类和其内部定义的名为inner的内部类。编译完成后出现outer.class和outer$inner.class两类。</pre><pre id="best-content-521589254" accuse="aContent" style="margin-top: 0px; margin-bottom: 10px; padding: 0px; font-family: arial, 'courier new', courier, 宋体, monospace; white-space: pre-wrap; word-wrap: break-word; line-height: 24px;"><span style="white-space:pre;">    </span>2.局部内部类</pre><pre id="best-content-521589254" accuse="aContent" style="margin-top: 0px; margin-bottom: 10px; padding: 0px; font-family: arial, 'courier new', courier, 宋体, monospace; white-space: pre-wrap; word-wrap: break-word; line-height: 24px;">
-
-<span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'宋体';"><span style="white-space:pre;">    </span>在方法中定义的内部类称为局部内部类。与局部变量类似，在局部内部类前不加修饰符<font face="Times New Roman">public</font><font face="宋体">和</font><font face="Times New Roman">private</font><font face="宋体">，其范围为定义它的代码块。</font></span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'宋体';"></span>
-
-<span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'宋体';"><span style="white-space:pre;">    </span>注意：局部内部类不仅可以访问外部类实例变量，还可以访问外部类的局部变量（但此时要求外部类的局部变量必须为<font face="Times New Roman">final</font><font face="宋体">）？？</font></span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'宋体';"></span>
-
-<span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'宋体';"><span style="white-space:pre;">    </span>在类外不可直接生成局部内部类（保证局部内部类对外是不可见的）。</span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'宋体';"></span>
-
-<span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'宋体';"><span style="white-space:pre;">    </span>要想使用局部内部类时需要生成对象，对象调用方法，在方法中才能调用其局部内部类。</span><span style="font-size: 10.5pt; font-family: Arial;"></span>
-</pre><pre id="best-content-521589254" accuse="aContent" style="margin-top: 0px; margin-bottom: 10px; padding: 0px; white-space: pre-wrap; word-wrap: break-word;">    3.静态内部类</pre><pre id="best-content-521589254" accuse="aContent" style="margin-top: 0px; margin-bottom: 10px; padding: 0px; white-space: pre-wrap; word-wrap: break-word; line-height: 24px;">    用static修饰的内部类就是静态内部类，和内部类不同，其实力的创建不需要外部对象。它只能访问外部类的静态成员和静态方法，不能访问非静态成员，但却可以访问自身内部的非静态成员变量。</pre>
-
-<p>静态内部类可以用public，protected，private修饰，静态内部类中可以定义静态成员或非静态成员。</p>
-<font face="宋体">&nbsp; &nbsp;&nbsp;</font>生成（new）一个静态内部类不需要外部类成员：这是静态内部类和成员内部类的区别。静态内部类的对象可以直接生成：<br><pre id="best-content-521589254" accuse="aContent" style="margin-top: 0px; margin-bottom: 10px; padding: 0px; font-family: arial, 'courier new', courier, 宋体, monospace; white-space: pre-wrap; word-wrap: break-word; line-height: 24px;">    Outer.Inner in=new Outer.Inner()；<br>而不需要通过生成外部类对象来生成。这样实际上使静态内部类成为了一个顶级类。静态内部类不可用private来进行定义。</pre><pre id="best-content-521589254" accuse="aContent" style="margin-top: 0px; margin-bottom: 10px; padding: 0px; font-family: arial, 'courier new', courier, 宋体, monospace; white-space: pre-wrap; word-wrap: break-word;">    4.匿名内部类</pre><pre id="best-content-521589254" accuse="aContent" style="margin-top: 0px; margin-bottom: 10px; padding: 0px; font-family: arial, 'courier new', courier, 宋体, monospace; white-space: pre-wrap; word-wrap: break-word;"><pre id="best-content-521589254" accuse="aContent" style="margin-top: 0px; margin-bottom: 10px; padding: 0px; font-family: arial, 'courier new', courier, 宋体, monospace; white-space: pre-wrap; word-wrap: break-word; color: rgb(51, 51, 51);">    匿名内部类是一种特殊的局部内部类，它是通过匿名类实现接口。<br>IA被定义为接口。<br>IA I=new IA(){};<br>匿名内部类的特点：<br>1，一个类用于继承其他类或是实现接口，并不需要增加额外的方法，只是对继承方法的事先或是覆盖。其实就是一个匿名子类对象。<br>2，只是为了获得一个对象实例，不需要知道其实际类型。<br>3，类名没有意义，也就是不需要使用到。</pre><pre id="best-content-521589254" accuse="aContent" style="margin-top: 0px; margin-bottom: 10px; padding: 0px; font-family: arial, 'courier new', courier, 宋体, monospace; white-space: pre-wrap; word-wrap: break-word; color: rgb(51, 51, 51);"><span style="white-space:pre;">    </span>4， new  父类OR 接口名{}。<br></pre></pre><br><br><wbr><br><pre class="prettyprint"><br><br>interface Test //定义一个接口，接口中有方法。<br>{<br>&nbsp; &nbsp; &nbsp; &nbsp; void func();<br>}<br>class Outer<br>{<br>&nbsp; &nbsp; &nbsp; &nbsp; public void method()<br>&nbsp; &nbsp; &nbsp; &nbsp; {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Test T=new Test()//new一个接口对象，然后调用接口中的func方法<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; public void func()<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {&nbsp; &nbsp; &nbsp;&nbsp;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;     }<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; };<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; T.func();//通过new的对象可以实现调用接口中的多个引用，但最终不超过三个。<br>&nbsp; &nbsp; &nbsp; &nbsp; }&nbsp; &nbsp; &nbsp;<br>}<br>public class Demo {<br><br>&nbsp; &nbsp; &nbsp; &nbsp; public static void main(String[] args) {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // TODO Auto-generated method stub<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; func(new Test()<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; public void func(){}<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; });<br>&nbsp; &nbsp; &nbsp; &nbsp; }<br>&nbsp; &nbsp; &nbsp; &nbsp; public static void func(Test in)<br>&nbsp; &nbsp; &nbsp; &nbsp; {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; in.func();<br>&nbsp; &nbsp; &nbsp; &nbsp; }<br>}<br></pre><span style="white-space:pre;">    </span>匿名内部类的一般好处是：是代码更加简洁，紧凑，但带来的是易读性下降。它<font color="#ff0000" style="font-family: Arial; line-height: 26px;">一般用在GUI编程中实现事件处理</font>等等。<div><span style="line-height: 23px; font-size: 10.5pt;"><span style="white-space: pre;">    </span>匿名内部类是唯一一种无构造方法类。</span><div><div><br><br><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'宋体';">&nbsp; &nbsp; &nbsp;</span><span style="line-height: 23px; font-family: 宋体; font-size: 10.5pt;">匿名内部类在编译的时候由系统自动起名</span><font face="Times New Roman" style="line-height: 23px; font-size: 10.5pt;">Out$1.class</font><font face="宋体" style="line-height: 23px; font-family: 宋体; font-size: 10.5pt;">。</font>
-
-<p><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'宋体';">&nbsp; &nbsp; &nbsp;</span><span style="line-height: 23px; font-family: 宋体; font-size: 10.5pt;">如果一个对象编译时的类型是接口，那么其运行的类型为实现这个接口的类。因匿名内部类无构造方法，所以其使用范围非常的有限。 &nbsp;</span></p>
-</div></div></div></div></div></div>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA/">JAVA</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-多线程线程通讯和生产者" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/07/30/多线程线程通讯和生产者/" class="article-date">
-  	<time datetime="2015-07-29T16:18:36.000Z" itemprop="datePublished">2015-07-30</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/30/多线程线程通讯和生产者/">多线程线程通讯和生产者</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>线程间通讯——等待唤醒机制<br>1，wait()；是让线程处于冻结状态，被wait线程会被存储到线程池中。<br>2,notify()；唤醒线程池中的一个线程(任意)。<br>3,notifyAll()；唤醒线程池中的所有线程，让线程具备了执行资格。<br>使用时要注意使用在同步中，因为只有同步才会具有锁。<br>调用时需要明确对象，明确是哪个监视器。<br>任意对象可以调用的方法定义在Object里面。</p>
-<p>锁可以是任意对象。<br>为什么这些操作线程方法要定义在Object类中：因为这些方法在操作同步中线程时，都必须要标识它们所操作线程特有的锁，<br>只有同一个锁上的被等待线程，可以被同一个锁上的notify唤醒。<br>不可以对不同锁中的线程进行唤醒。等待和唤醒必须是同一个锁。而锁的对象是任意的，所以可以被任意对象调用的方法定义在Object类中。<br>一、线程间通信：<br>class Res<br>{<br>private String name;<br>private String sex;<br>private boolean flag = false;</p>
-<p>public synchronized void set(String name,String sex)<br>{<br>if(flag)<br>try{this.wait();}catch(Exception e){}<br>this.name = name;</p>
-<p>this.sex = sex;<br>flag = true;<br>this.notify();<br>}<br>public synchronized void out()<br>{<br>if(!flag)<br>try{this.wait();}catch(Exception e){}<br>System.out.println(name+”……..”+sex);<br>flag = false;<br>this.notify();<br>}<br>}</p>
-<p>class Input implements Runnable<br>{<br>private Res r ;<br>Input(Res r)<br>{<br>this.r = r;<br>}<br>public void run()<br>{<br>int x = 0;<br>while(true)<br>{<br>if(x==0)<br>r.set(“mike”,”man”);<br>else<br>r.set(“丽丽”,”女女女女女”);<br>x = (x+1)%2;<br>}<br>}<br>}</p>
-<p>class Output implements Runnable<br>{<br>private Res r ;</p>
-<p>Output(Res r)<br>{<br>this.r = r;<br>}<br>public void run()<br>{<br>while(true)<br>{<br>r.out();<br>}<br>}<br>}</p>
-<p>class  InputOutputDemo2<br>{<br>public static void main(String[] args)<br>{<br>Res r = new Res();</p>
-<p>new Thread(new Input(r)).start();<br>new Thread(new Output(r)).start();<br>/*<br>Input in = new Input(r);<br>Output out = new Output(r);</p>
-<p>Thread t1 = new Thread(in);<br>Thread t2 = new Thread(out);</p>
-<p>t1.start();<br>t2.start();<br>*/<br>}<br>}<br>二、线程间通信-生产者和消费者<br>全部wait，生产和消费者多次判断，用while循环，唤醒时需要唤醒两方的人，这时我们用this.notifyAll().<br>对于多生产者和多消费者。<br>为什么要定义while判断标记。<br>原因：让被唤醒的线程在判断一次标记。<br>定义notifyAll，因为需要唤醒对方线程，只用notify，会出现只唤醒本方线程的情况。导致程序中所有线程都等待。<br>class ProducerConsumerDemo<br>{<br>public static void main(String[] args)<br>{<br>Resource r = new Resource();</p>
-<p>Producer pro = new Producer(r);<br>Consumer con = new Consumer(r);</p>
-<p>Thread t1 = new Thread(pro);<br>Thread t2 = new Thread(pro);<br>Thread t3 = new Thread(con);<br>Thread t4 = new Thread(con);</p>
-<p>t1.start();<br>t2.start();<br>t3.start();<br>t4.start();</p>
-<p>}<br>}</p>
-<p>/*<br>对于多个生产者和消费者。<br>为什么要定义while判断标记。<br>原因：让被唤醒的线程再一次判断标记。</p>
-<p>为什么定义notifyAll，<br>因为需要唤醒对方线程。<br>因为只用notify，容易出现只唤醒本方线程的情况。导致程序中的所有线程都等待。</p>
-<p>*/</p>
-<p>class Resource<br>{<br>private String name;<br>private int count = 1;<br>private boolean flag = false;<br>//  t1    t2<br>public synchronized void set(String name)<br>{<br>while(flag)<br>try{this.wait();}catch(Exception e){}//t1(放弃资格)  t2(获取资格)<br>this.name = name+”—“+count++;</p>
-<p>System.out.println(Thread.currentThread().getName()+”…生产者..”+this.name);<br>flag = true;<br>this.notifyAll();<br>}</p>
-<p>//  t3   t4<br>public synchronized void out()<br>{<br>while(!flag)<br>try{wait();}catch(Exception e){}//t3(放弃资格) t4(放弃资格)<br>System.out.println(Thread.currentThread().getName()+”…消费者………”+this.name);<br>flag = false;<br>this.notifyAll();<br>}<br>}</p>
-<p>class Producer implements Runnable<br>{<br>private Resource res;</p>
-<p>Producer(Resource res)<br>{<br>this.res = res;<br>}<br>public void run()<br>{<br>while(true)<br>{<br>res.set(“+商品+”);<br>}<br>}<br>}</p>
-<p>class Consumer implements Runnable<br>{<br>private Resource res;</p>
-<p>Consumer(Resource res)<br>{<br>this.res = res;<br>}<br>public void run()<br>{<br>while(true)<br>{<br>res.out();<br>}<br>}<br>}<br>三、JDK1.5中提供多线程解决方案。<br>将同步Synchronized替换成现实的Lock操作。<br>将Object中的wait，notify notifyAll，替换了Condition对象。<br>该对象可以Lock锁 进行获取。<br>该示例中，实现了本方只唤醒对方操作。<br>生产者、消费者有什么替代方案？<br>答：1.5版本以后，它提供了显示的锁机制以及显示的锁对象的等待唤醒操作机制，同时对等待唤醒进行了封装。一个锁可以对象多个Condition对象。<br>import java.util.concurrent.locks.*;</p>
-<p>class ProducerConsumerDemo2<br>{<br>public static void main(String[] args)<br>{<br>Resource r = new Resource();</p>
-<p>Producer pro = new Producer(r);<br>Consumer con = new Consumer(r);</p>
-<p>Thread t1 = new Thread(pro);<br>Thread t2 = new Thread(pro);<br>Thread t3 = new Thread(con);<br>Thread t4 = new Thread(con);</p>
-<p>t1.start();<br>t2.start();<br>t3.start();<br>t4.start();</p>
-<p>}<br>}</p>
-<p>/*<br>JDK1.5 中提供了多线程升级解决方案。<br>将同步Synchronized替换成现实Lock操作。<br>将Object中的wait，notify notifyAll，替换了Condition对象。<br>该对象可以Lock锁 进行获取。<br>该示例中，实现了本方只唤醒对方操作。</p>
-<p>Lock:替代了Synchronized<br>lock<br>unlock<br>newCondition()</p>
-<p>Condition：替代了Object wait notify notifyAll<br>await();<br>signal();<br>signalAll();<br>*/<br>class Resource<br>{<br>private String name;<br>private int count = 1;<br>private boolean flag = false;<br>//  t1    t2<br>private Lock lock = new ReentrantLock();</p>
-<p>private Condition condition_pro = lock.newCondition();<br>private Condition condition_con = lock.newCondition();</p>
-<p>public  void set(String name)throws InterruptedException<br>{<br>lock.lock();<br>try<br>{<br>while(flag)<br>condition_pro.await();//t1,t2<br>this.name = name+”—“+count++;</p>
-<p>System.out.println(Thread.currentThread().getName()+”…生产者..”+this.name);<br>flag = true;<br>condition_con.signal();<br>}<br>finally<br>{<br>lock.unlock();//释放锁的动作一定要执行。<br>}<br>}</p>
-<p>//  t3   t4<br>public  void out()throws InterruptedException<br>{<br>lock.lock();<br>try<br>{<br>while(!flag)<br>condition_con.await();<br>System.out.println(Thread.currentThread().getName()+”…消费者………”+this.name);<br>flag = false;<br>condition_pro.signal();<br>}<br>finally<br>{<br>lock.unlock();<br>}</p>
-<p>}<br>}</p>
-<p>class Producer implements Runnable<br>{<br>private Resource res;</p>
-<p>Producer(Resource res)<br>{<br>this.res = res;<br>}<br>public void run()<br>{<br>while(true)<br>{<br>try<br>{<br>res.set(“+商品+”);<br>}<br>catch (InterruptedException e)<br>{<br>}</p>
-<p>}<br>}<br>}</p>
-<p>class Consumer implements Runnable<br>{<br>private Resource res;</p>
-<p>Consumer(Resource res)<br>{<br>this.res = res;<br>}<br>public void run()<br>{<br>while(true)<br>{<br>try<br>{<br>res.out();<br>}<br>catch (InterruptedException e)<br>{<br>}<br>}<br>}<br>}</p>
-<p>四、停止线程<br>只有一种，run方法结束。<br>开启多线程运行，运行代码通常是循环结构。只要控制住循环，就可以让run方法结束，也就是线程结束。<br>特殊情况：<br>当线程处于了冻结状态。就不会读取到标记。那么线程就不会结束。<br>当没有指定的方式让冻结的线程恢复到运行状态是，这时需要对冻结进行清除。强制让线程恢复到运行状态中来。这样就可以操作标记让线程结束。<br>Thread类提供该方法 interrupt();<br>class StopThread implements Runnable<br>{<br>private boolean flag =true;<br>public  void run()<br>{<br>while(flag)<br>{</p>
-<p>System.out.println(Thread.currentThread().getName()+”….run”);<br>}<br>}<br>public void changeFlag()<br>{<br>flag = false;<br>}<br>}</p>
-<p>class  StopThreadDemo<br>{<br>public static void main(String[] args)<br>{<br>StopThread st = new StopThread();</p>
-<p>Thread t1 = new Thread(st);<br>Thread t2 = new Thread(st);</p>
-<p>t1.setDaemon(true);<br>t2.setDaemon(true);<br>t1.start();<br>t2.start();</p>
-<p>int num = 0;</p>
-<p>while(true)<br>{<br>if(num++ == 60)<br>{<br>//st.changeFlag();<br>//t1.interrupt();<br>//t2.interrupt();<br>break;<br>}<br>System.out.println(Thread.currentThread().getName()+”…….”+num);<br>}<br>System.out.println(“over”);<br>}<br>}<br>五、守护线程</p>
-<p>后台进程和前台进程共同抢夺CPU的执行权。</p>
-<p>在启动线程时调用，当正在运行的此案称都是守护线程时，java虚拟机退出。</p>
-<p>六.Join方法</p>
-<p>主线程在向下执行的时候，遇到了join的时候是要申请加入到运行中来（通常来讲就是要有限取得cpu的执行权）主线程的执行权就给了它，此时主线程执行就处于冻结状态，当join结束时，主线程才复活。</p>
-<p>join（）：当需要临时加入一个线程时。</p>
-<p>join的特点：</p>
-<p>当A线程执行到B线程的join（）方法时。A就会等待，等B线程都执行完，A才会执行，join可以用来临时加入线程执行。</p>
-<p>join可以用来临时加入线程执行。</p>
-<p>优先级&amp;yield方法</p>
-<p>线程默认的优先级是5（1—10级）</p>
-<p>MAX_PRIORITY 线程具有的最高优先级。</p>
-<p>MIN_PRIORITY 分配给线程的默认优先级。</p>
-<p>NORM_PRIORITY 线程可以具有的最低优先级。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA/">JAVA</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-Hexo上第一篇博文" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/07/30/Hexo上第一篇博文/" class="article-date">
-  	<time datetime="2015-07-29T16:18:36.000Z" itemprop="datePublished">2015-07-30</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/30/Hexo上第一篇博文/">Hexo上的第一篇博文</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>这是使用Hexo搭建的博客后写的第一篇博文，搭建的过程还算顺利，写代码也写了两年了，觉得去总结一下也挺好，以后会把自己平时遇到的一些问题总结出来，码农也要学会总结，去提高自己。</p>
-<p><a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>，特别感谢Hexo，上面的介绍已经非常详细了，感觉比搜出来的一些博文稍微靠谱一点。Node.js装环境的时候遇到不少问题，Hexo官网上都有非常好的解决方案，言简意赅。还要感谢前辈们的总结，在建博客的时候对我的帮助也不少。加油！！！</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-  
 </div>
       <footer id="footer">
   <div class="outer">
@@ -829,8 +458,8 @@ void&nbsp;inner_f1()
 		fancybox: true,
 		mathjax: true,
 		animate: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
