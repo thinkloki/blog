@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Android Design Support Library简单使用 | thinkloki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Android 5.0 Lollipop为我们带来了Material Design,这是一个全新的设计语言，给Android带来了全新的体验，我个人决定Material很漂亮，然而那时候官方的支持却不太完善，FAB（Float Action Button）、想写一个漂亮的NavigationView都需要用一些开源库，而在GoogleIO大会上，谷歌为我们带来了Android Design Sup">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android Design Support Library简单使用">
+<meta property="og:url" content="http://wait.im/2015/01/24/Android Design Support Library简单使用/index.html">
+<meta property="og:site_name" content="thinkloki">
+<meta property="og:description" content="Android 5.0 Lollipop为我们带来了Material Design,这是一个全新的设计语言，给Android带来了全新的体验，我个人决定Material很漂亮，然而那时候官方的支持却不太完善，FAB（Float Action Button）、想写一个漂亮的NavigationView都需要用一些开源库，而在GoogleIO大会上，谷歌为我们带来了Android Design Sup">
+<meta property="og:image" content="http://source.wait.im/QQ20151111-1@2x.png">
+<meta property="og:image" content="http://source.wait.im/QQ20151111-2@2x.png">
+<meta property="og:image" content="http://source.wait.im/QQ20151111-3@2x.png">
+<meta property="og:updated_time" content="2015-11-11T07:05:13.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android Design Support Library简单使用">
+<meta name="twitter:description" content="Android 5.0 Lollipop为我们带来了Material Design,这是一个全新的设计语言，给Android带来了全新的体验，我个人决定Material很漂亮，然而那时候官方的支持却不太完善，FAB（Float Action Button）、想写一个漂亮的NavigationView都需要用一些开源库，而在GoogleIO大会上，谷歌为我们带来了Android Design Sup">
+<meta name="twitter:image" content="http://source.wait.im/QQ20151111-1@2x.png">
+  
+    <link rel="alternative" href="/atom.xml" title="thinkloki" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.jpg">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?548c9c362ce8ce4647fe98eaedd4e6e8";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://source.wait.im/QNbCS5A.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">thinkloki</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">做人不卖萌和咸鱼有什么区别</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/随笔">随笔</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/thinkloki" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/u/2697700571" title="weibo">weibo</a>
+					        
+								<a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=aVhRUFlYWl9ZKRgYRwoGBA" title="mail">mail</a>
+					        
+								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Foundation/" style="font-size: 10px;">Foundation</a> <a href="/tags/Google/" style="font-size: 10px;">Google</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IOS/" style="font-size: 15px;">IOS</a> <a href="/tags/JAVA/" style="font-size: 17.5px;">JAVA</a> <a href="/tags/MAC-OS/" style="font-size: 10px;">MAC OS</a> <a href="/tags/Material-Design/" style="font-size: 12.5px;">Material Design</a> <a href="/tags/Objective-C/" style="font-size: 10px;">Objective-C</a> <a href="/tags/open/" style="font-size: 10px;">open</a> <a href="/tags/swift/" style="font-size: 10px;">swift</a> <a href="/tags/优化/" style="font-size: 10px;">优化</a> <a href="/tags/内存/" style="font-size: 15px;">内存</a> <a href="/tags/动画/" style="font-size: 10px;">动画</a> <a href="/tags/多线程/" style="font-size: 10px;">多线程</a> <a href="/tags/热点/" style="font-size: 10px;">热点</a> <a href="/tags/调试/" style="font-size: 10px;">调试</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://heisenbean.me">何老师</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://v2ex.com">V2EX</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com">GitHub</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.tuijiankan.com">向阳乔木</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://jumi.xyz/">聚米</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://imququ.com/">Jerry Qu</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">Android资深码农，Objective-C、swift、python、php入门，励志成为全栈。资深手艺人，电子竞技爱好者。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">thinkloki</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://source.wait.im/QNbCS5A.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">thinkloki</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">做人不卖萌和咸鱼有什么区别</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/thinkloki" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/u/2697700571" title="weibo">weibo</a>
+			        
+						<a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=aVhRUFlYWl9ZKRgYRwoGBA" title="mail">mail</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-Android Design Support Library简单使用" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/01/24/Android Design Support Library简单使用/" class="article-date">
+  	<time datetime="2015-01-24T08:23:36.000Z" itemprop="datePublished">2015-01-24</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Android Design Support Library简单使用
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Material-Design/">Material Design</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Android 5.0 Lollipop为我们带来了<strong>Material Design</strong>,这是一个全新的设计语言，给Android带来了全新的体验，我个人决定Material很漂亮，然而那时候官方的支持却不太完善，FAB（Float Action Button）、想写一个漂亮的NavigationView都需要用一些开源库，而在<strong>GoogleIO</strong>大会上，谷歌为我们带来了<strong>Android Design Support Library</strong>,其中包括了很多原生的MD控件，例如：navigation drawer view, floating labels,floating action button, snackbar, tabs, CoordinatorLayout，CollapsingToolbarLayout等，更重要的是兼容到了Android2.1以上的设备，现在还有什么理由不上MD风格呢？</p>
+<p>####请看下面的视频，是这个教程的最终效果。</p>
+<iframe src="https://player.vimeo.com/video/134689608" width="500" height="888" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen></iframe>
+
+<p>####Step One</p>
+<p>首先要引入Android Design Support Library到你项目中，在build.gradle中加入一行代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">compile &apos;com.android.support:design:22.2.0&apos;</div></pre></td></tr></table></figure>
+<p>Design Library依赖于 Support v4 和 AppCompat v7，DesignLibrary会自动引入这两个库文件。</p>
+<p>####Step Two</p>
+<p>1.新建color.xml，加入以下代码，颜色值可以参考<a href="http://www.google.com/design/spec/style/color.html#color-color-palette" target="_blank" rel="external">Google Corlor Spec</a>:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;color name=&quot;colorPrimaryDark&quot;&gt;#303F9F&lt;/color&gt;</div><div class="line">&lt;color name=&quot;colorPrimary&quot;&gt;#3F51B5&lt;/color&gt;</div><div class="line">&lt;color name=&quot;colorAccent&quot;&gt;#FF4081&lt;/color&gt;</div><div class="line">&lt;color name=&quot;textColorLight&quot;&gt;#FFF&lt;/color&gt;</div><div class="line">&lt;color name=&quot;textColorPrimary&quot;&gt;#212121&lt;/color&gt;</div><div class="line">&lt;color name=&quot;textColorSecondary&quot;&gt;#727272&lt;/color&gt;</div></pre></td></tr></table></figure>
+<p>2.打开styles.xml,添加以下代码，BaseTheme继承了Light.NoActionBar，取消了默认的ActionBar，谷歌现在推荐用Toolbar，colorPrimary代表toolbar的背景颜色，colorPrimaryDark代表状态栏的颜色，colorAccent代表一些UI组件的颜色，比如Checkbox等</p>
+<p><img src="http://source.wait.im/QQ20151111-1@2x.png" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;!-- Base application theme. --&gt;</div><div class="line">&lt;style name=&quot;AppTheme&quot; parent=&quot;AppTheme.Base&quot;&gt;</div><div class="line">&lt;/style&gt;</div><div class="line"></div><div class="line">&lt;style name=&quot;AppTheme.Base&quot; parent=&quot;Theme.AppCompat.Light.NoActionBar&quot;&gt;</div><div class="line">    &lt;item name=&quot;colorPrimaryDark&quot;&gt;@color/colorPrimaryDark&lt;/item&gt;</div><div class="line">    &lt;item name=&quot;colorPrimary&quot;&gt;@color/colorPrimary&lt;/item&gt;</div><div class="line">    &lt;item name=&quot;colorAccent&quot;&gt;@color/colorAccent&lt;/item&gt;</div><div class="line">    &lt;item name=&quot;android:textColorPrimary&quot;&gt;@color/textColorPrimary&lt;/item&gt;</div><div class="line">    &lt;item name=&quot;android:textColorSecondary&quot;&gt;@color/textColorSecondary&lt;/item&gt;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
+<p>####Step Three</p>
+<ol>
+<li><a href="https://developer.android.com/intl/zh-cn/reference/android/support/v4/widget/DrawerLayout.html" target="_blank" rel="external">DrawerLayout</a>是一个可以侧滑的内容的容器，将DrawerLayout作为父视图，增加一个view包含主体内容(即导航栏关闭时你的默认布局)，另一个子节点包含导航栏的内容,NavigationView的layout_gravity可以设置为start|end或者left|right，代表左滑或者右滑，暂时不用管CoordinatorLayout和AppBarLayout，代码如下：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</div><div class="line">&lt;FrameLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</div><div class="line">    android:layout_width=&quot;match_parent&quot;</div><div class="line">    android:layout_height=&quot;190dp&quot;</div><div class="line">    android:background=&quot;?attr/colorPrimary&quot;</div><div class="line">    android:orientation=&quot;vertical&quot;&gt;</div><div class="line"></div><div class="line">    &lt;RelativeLayout</div><div class="line">        android:layout_width=&quot;match_parent&quot;</div><div class="line">        android:layout_height=&quot;match_parent&quot;</div><div class="line">        &gt;</div><div class="line"></div><div class="line">        &lt;com.example.RoundedImageView</div><div class="line">            android:id=&quot;@+id/header_image&quot;</div><div class="line">            android:layout_width=&quot;72dp&quot;</div><div class="line">            android:layout_height=&quot;72dp&quot;</div><div class="line">            android:padding=&quot;18dp&quot;</div><div class="line">            android:src=&quot;@drawable/header_girl&quot;</div><div class="line">            android:layout_above=&quot;@+id/header_text_title&quot;</div><div class="line">            android:layout_alignParentLeft=&quot;true&quot;</div><div class="line">            android:layout_alignParentStart=&quot;true&quot;</div><div class="line">            android:layout_marginLeft=&quot;16dp&quot;</div><div class="line">            android:layout_marginStart=&quot;16dp&quot; /&gt;</div><div class="line"></div><div class="line">        &lt;TextView</div><div class="line">            android:id=&quot;@+id/header_text_title&quot;</div><div class="line">            android:layout_width=&quot;match_parent&quot;</div><div class="line">            android:layout_height=&quot;wrap_content&quot;</div><div class="line">            android:layout_above=&quot;@+id/header_email&quot;</div><div class="line">            android:gravity=&quot;left&quot;</div><div class="line">            android:paddingTop=&quot;16dp&quot;</div><div class="line">            android:paddingLeft=&quot;16dp&quot;</div><div class="line">            android:text=&quot;松开你的手&quot;</div><div class="line">            android:textSize=&quot;14sp&quot;</div><div class="line">            android:textStyle=&quot;bold&quot;</div><div class="line">            android:textColor=&quot;@color/textColorLight&quot; /&gt;</div><div class="line"></div><div class="line">        &lt;TextView</div><div class="line">            android:id=&quot;@+id/header_email&quot;</div><div class="line">            android:layout_width=&quot;match_parent&quot;</div><div class="line">            android:layout_height=&quot;wrap_content&quot;</div><div class="line">            android:paddingTop=&quot;8dp&quot;</div><div class="line">            android:paddingLeft=&quot;16dp&quot;</div><div class="line">            android:paddingBottom=&quot;8dp&quot;</div><div class="line">            android:layout_alignParentBottom=&quot;true&quot;</div><div class="line">            android:text=&quot;aCoder2013@163.com&quot;</div><div class="line">            android:textStyle=&quot;bold&quot;</div><div class="line">            android:textSize=&quot;14sp&quot;</div><div class="line">            android:textColor=&quot;@color/textColorLight&quot;</div><div class="line">            /&gt;</div><div class="line">    &lt;/RelativeLayout&gt;</div><div class="line"></div><div class="line"></div><div class="line">&lt;/FrameLayout&gt;</div></pre></td></tr></table></figure>
+<ol>
+<li>headerLayout代表导航栏上方的布局，其中FrameLayout的layout_height 我这里设置为190dp,也可以设置为wrap_content,RoundedImageView是一个自定义ImageView,将图片转换成圆形的，这样比较美观。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</div><div class="line">&lt;FrameLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</div><div class="line">    android:layout_width=&quot;match_parent&quot;</div><div class="line">    android:layout_height=&quot;190dp&quot;</div><div class="line">    android:background=&quot;?attr/colorPrimary&quot;</div><div class="line">    android:orientation=&quot;vertical&quot;&gt;</div><div class="line"></div><div class="line">    &lt;RelativeLayout</div><div class="line">        android:layout_width=&quot;match_parent&quot;</div><div class="line">        android:layout_height=&quot;match_parent&quot;</div><div class="line">        &gt;</div><div class="line"></div><div class="line">        &lt;com.example.RoundedImageView</div><div class="line">            android:id=&quot;@+id/header_image&quot;</div><div class="line">            android:layout_width=&quot;72dp&quot;</div><div class="line">            android:layout_height=&quot;72dp&quot;</div><div class="line">            android:padding=&quot;18dp&quot;</div><div class="line">            android:src=&quot;@drawable/header_girl&quot;</div><div class="line">            android:layout_above=&quot;@+id/header_text_title&quot;</div><div class="line">            android:layout_alignParentLeft=&quot;true&quot;</div><div class="line">            android:layout_alignParentStart=&quot;true&quot;</div><div class="line">            android:layout_marginLeft=&quot;16dp&quot;</div><div class="line">            android:layout_marginStart=&quot;16dp&quot; /&gt;</div><div class="line"></div><div class="line">        &lt;TextView</div><div class="line">            android:id=&quot;@+id/header_text_title&quot;</div><div class="line">            android:layout_width=&quot;match_parent&quot;</div><div class="line">            android:layout_height=&quot;wrap_content&quot;</div><div class="line">            android:layout_above=&quot;@+id/header_email&quot;</div><div class="line">            android:gravity=&quot;left&quot;</div><div class="line">            android:paddingTop=&quot;16dp&quot;</div><div class="line">            android:paddingLeft=&quot;16dp&quot;</div><div class="line">            android:text=&quot;松开你的手&quot;</div><div class="line">            android:textSize=&quot;14sp&quot;</div><div class="line">            android:textStyle=&quot;bold&quot;</div><div class="line">            android:textColor=&quot;@color/textColorLight&quot; /&gt;</div><div class="line"></div><div class="line">        &lt;TextView</div><div class="line">            android:id=&quot;@+id/header_email&quot;</div><div class="line">            android:layout_width=&quot;match_parent&quot;</div><div class="line">            android:layout_height=&quot;wrap_content&quot;</div><div class="line">            android:paddingTop=&quot;8dp&quot;</div><div class="line">            android:paddingLeft=&quot;16dp&quot;</div><div class="line">            android:paddingBottom=&quot;8dp&quot;</div><div class="line">            android:layout_alignParentBottom=&quot;true&quot;</div><div class="line">            android:text=&quot;aCoder2013@163.com&quot;</div><div class="line">            android:textStyle=&quot;bold&quot;</div><div class="line">            android:textSize=&quot;14sp&quot;</div><div class="line">            android:textColor=&quot;@color/textColorLight&quot;</div><div class="line">            /&gt;</div><div class="line">    &lt;/RelativeLayout&gt;</div><div class="line"></div><div class="line"></div><div class="line">&lt;/FrameLayout&gt;</div></pre></td></tr></table></figure>
+<ol>
+<li>新建一个菜单文件menu_nav_drawer，表示header_layout下方的所有选项，例如主页，设置等；android:checkableBehavior的可选项有：none代表无法选中，all代表所有的项都可以被选中(用CheckBoxes)，single代表是有一个项可以被 选中，android:checked表示选中状态，android:icon表示其显示的图标，谷歌提供了默认的：<a href="http://www.google.com/design/icons/" target="_blank" rel="external">Icon</a></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</div><div class="line">&lt;menu xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;&gt;</div><div class="line"></div><div class="line">    &lt;group android:checkableBehavior=&quot;single&quot;&gt;</div><div class="line">        &lt;item</div><div class="line">            android:id=&quot;@+id/action_home_page&quot;</div><div class="line">            android:checked=&quot;true&quot;</div><div class="line">            android:icon=&quot;@drawable/ic_home_white_24dp&quot;</div><div class="line">            android:title=&quot;@string/home_page&quot;/&gt;</div><div class="line"></div><div class="line">        &lt;item</div><div class="line">            android:id=&quot;@+id/action_follow&quot;</div><div class="line">            android:icon=&quot;@drawable/ic_stars_white_24dp&quot;</div><div class="line">            android:title=&quot;@string/my_follow_site&quot;/&gt;</div><div class="line"></div><div class="line">        &lt;item   android:id=&quot;@+id/action_offline_cache&quot;</div><div class="line">                android:title=&quot;@string/offline_cache&quot;</div><div class="line">                android:icon=&quot;@drawable/ic_file_download_white_24dp&quot;</div><div class="line">            /&gt;</div><div class="line">        &lt;item   android:id=&quot;@+id/search_content&quot;</div><div class="line">                android:icon=&quot;@drawable/ic_search_white_24dp&quot;</div><div class="line">                android:title=&quot;@string/search_content&quot;/&gt;</div><div class="line"></div><div class="line">        &lt;item   android:id=&quot;@+id/action_nav_settings&quot;</div><div class="line">                android:title=&quot;@string/setting&quot;</div><div class="line">                android:icon=&quot;@drawable/ic_settings_white_24dp&quot;</div><div class="line">            /&gt;</div><div class="line">    &lt;/group&gt;</div><div class="line">&lt;/menu&gt;</div></pre></td></tr></table></figure>
+<p>####Step Four</p>
+<p>在Activity中初始化所有的组件，<code>DrawerLayout</code>等，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line">private Toolbar toolbar;</div><div class="line">private DrawerLayout drawerLayout;</div><div class="line">private ActionBarDrawerToggle actionBarDrawerToggle ;</div><div class="line">private NavigationView navigationView;</div><div class="line">private CoordinatorLayout rootLayout;</div><div class="line">@Override</div><div class="line">public void onCreate(Bundle savedInstanceState) &#123;</div><div class="line">    super.onCreate(savedInstanceState);</div><div class="line">    setContentView(R.layout.activity_main);</div><div class="line">    initToolbar();</div><div class="line">    initDrawer();</div><div class="line">    initNavigation();</div><div class="line">&#125;</div><div class="line">private void initToolbar() &#123;</div><div class="line">    toolbar = (Toolbar) findViewById(R.id.tool_bar);</div><div class="line">    setSupportActionBar(toolbar);//用toolbar代替默认的ActionBar</div><div class="line">    //getSupportActionBar()方法得到ActionBar进而更改默认的行为</div><div class="line">&#125;</div><div class="line">private void initDrawer() &#123;</div><div class="line">    drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);</div><div class="line">    actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar,</div><div class="line">            R.string.navigation_drawer_open,</div><div class="line">            R.string.navigation_drawer_close)&#123;</div><div class="line">        @Override</div><div class="line">        public void onDrawerClosed(View drawerView) &#123;</div><div class="line">            super.onDrawerClosed(drawerView);</div><div class="line">        &#125;</div><div class="line">        @Override</div><div class="line">        public void onDrawerOpened(View drawerView) &#123;</div><div class="line">            super.onDrawerOpened(drawerView);</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">    drawerLayout.setDrawerListener(actionBarDrawerToggle);/设置监听器</div><div class="line">    //calling sync state is necessay or else your hamburger icon wont show up</div><div class="line">    actionBarDrawerToggle.syncState();</div><div class="line">&#125;    </div><div class="line">private void initNavigation() &#123;</div><div class="line">    navigationView = (NavigationView) findViewById(R.id.nav_view);</div><div class="line">    //监听导航栏菜单点击事件</div><div class="line">    navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() &#123;</div><div class="line">        @Override</div><div class="line">        public boolean onNavigationItemSelected(MenuItem menuItem) &#123;</div><div class="line">            int id = menuItem.getItemId();</div><div class="line">            switch (id)&#123;</div><div class="line">                case R.id.action_nav_settings:</div><div class="line">                    menuItem.setChecked(true);</div><div class="line">                    drawerLayout.closeDrawers();</div><div class="line">                    Intent intent = new Intent(MainActivity.this, SettingActivity.class);</div><div class="line">                    startActivity(intent);</div><div class="line">                    break;</div><div class="line">            &#125;</div><div class="line">            return false;</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>####Step Five: Just Run it<br><img src="http://source.wait.im/QQ20151111-2@2x.png" alt=""><br><img src="http://source.wait.im/QQ20151111-3@2x.png" alt=""></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/04/21/Google 2015 Material Design Summit/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Google 2015 Material Design Summit
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/01/12/Android性能调优的技术点/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Android性能调优的技术点</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Android Design Support Library简单使用" data-title="Android Design Support Library简单使用" data-url="http://wait.im/2015/01/24/Android Design Support Library简单使用/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"wait"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 thinkloki
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

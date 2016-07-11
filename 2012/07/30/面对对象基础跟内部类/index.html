@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>面对对象基础跟内部类 | thinkloki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一、面对对象的三大特征：封装、继承、多态。
+    抽象：把现实中需要处理的事物通过数据的方法表达出来就是抽象。将现实的东西编程计算机的模式。
+
+    封装：把事物的数据和方法用类的方式集合起来就是封装，封装的数据和方法通过继承来实现重用。
+
+    多态：同一个方法通过方法的重载实现不同的逻辑即多态。
+
+二、面对对象软件开发的大体分为，面向对象的分析，面向对象的设计，面向对象的实现。
+分析用户">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面对对象基础跟内部类">
+<meta property="og:url" content="http://wait.im/2012/07/30/面对对象基础跟内部类/index.html">
+<meta property="og:site_name" content="thinkloki">
+<meta property="og:description" content="一、面对对象的三大特征：封装、继承、多态。
+    抽象：把现实中需要处理的事物通过数据的方法表达出来就是抽象。将现实的东西编程计算机的模式。
+
+    封装：把事物的数据和方法用类的方式集合起来就是封装，封装的数据和方法通过继承来实现重用。
+
+    多态：同一个方法通过方法的重载实现不同的逻辑即多态。
+
+二、面对对象软件开发的大体分为，面向对象的分析，面向对象的设计，面向对象的实现。
+分析用户">
+<meta property="og:updated_time" content="2015-11-09T16:47:42.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="面对对象基础跟内部类">
+<meta name="twitter:description" content="一、面对对象的三大特征：封装、继承、多态。
+    抽象：把现实中需要处理的事物通过数据的方法表达出来就是抽象。将现实的东西编程计算机的模式。
+
+    封装：把事物的数据和方法用类的方式集合起来就是封装，封装的数据和方法通过继承来实现重用。
+
+    多态：同一个方法通过方法的重载实现不同的逻辑即多态。
+
+二、面对对象软件开发的大体分为，面向对象的分析，面向对象的设计，面向对象的实现。
+分析用户">
+  
+    <link rel="alternative" href="/atom.xml" title="thinkloki" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.jpg">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?548c9c362ce8ce4647fe98eaedd4e6e8";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://source.wait.im/QNbCS5A.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">thinkloki</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">做人不卖萌和咸鱼有什么区别</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/随笔">随笔</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/thinkloki" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/u/2697700571" title="weibo">weibo</a>
+					        
+								<a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=aVhRUFlYWl9ZKRgYRwoGBA" title="mail">mail</a>
+					        
+								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Foundation/" style="font-size: 10px;">Foundation</a> <a href="/tags/Google/" style="font-size: 10px;">Google</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IOS/" style="font-size: 15px;">IOS</a> <a href="/tags/JAVA/" style="font-size: 17.5px;">JAVA</a> <a href="/tags/MAC-OS/" style="font-size: 10px;">MAC OS</a> <a href="/tags/Material-Design/" style="font-size: 12.5px;">Material Design</a> <a href="/tags/Objective-C/" style="font-size: 10px;">Objective-C</a> <a href="/tags/open/" style="font-size: 10px;">open</a> <a href="/tags/swift/" style="font-size: 10px;">swift</a> <a href="/tags/优化/" style="font-size: 10px;">优化</a> <a href="/tags/内存/" style="font-size: 15px;">内存</a> <a href="/tags/动画/" style="font-size: 10px;">动画</a> <a href="/tags/多线程/" style="font-size: 10px;">多线程</a> <a href="/tags/热点/" style="font-size: 10px;">热点</a> <a href="/tags/调试/" style="font-size: 10px;">调试</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://heisenbean.me">何老师</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://v2ex.com">V2EX</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com">GitHub</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.tuijiankan.com">向阳乔木</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://jumi.xyz/">聚米</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://imququ.com/">Jerry Qu</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">Android资深码农，Objective-C、swift、python、php入门，励志成为全栈。资深手艺人，电子竞技爱好者。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">thinkloki</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://source.wait.im/QNbCS5A.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">thinkloki</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">做人不卖萌和咸鱼有什么区别</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/thinkloki" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/u/2697700571" title="weibo">weibo</a>
+			        
+						<a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=aVhRUFlYWl9ZKRgYRwoGBA" title="mail">mail</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-面对对象基础跟内部类" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2012/07/30/面对对象基础跟内部类/" class="article-date">
+  	<time datetime="2012-07-29T16:18:36.000Z" itemprop="datePublished">2012-07-30</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      面对对象基础跟内部类
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA/">JAVA</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一、面对对象的三大特征：封装、继承、多态。</p>
+<font color="#24130c" face="Arial, Helvetica, simsun, u5b8bu4f53">    <font size="3">抽象：</font></font><font size="3">把现实中需要处理的事物通过数据的方法表达出来就是抽象。将现实的东西编程计算机的模式。</font>
+
+<font size="3"><font face="arial, courier new, courier, 宋体, monospace">    封装：</font>把事物的数据和方法用类的方式集合起来就是封装，封装的数据和方法通过继承来实现重用。</font>
+
+<font size="3"><font face="arial, courier new, courier, 宋体, monospace">    多态：</font>同一个方法通过方法的重载实现不同的逻辑即多态。</font>
+
+<p>二、面对对象软件开发的大体分为，面向对象的分析，面向对象的设计，面向对象的实现。</p>
+<p>分析用户的需求，从问题中抽取对象模型，细化模型，设计类，包括类的属性和类间的相互关系。同时观察是否有可以直接引用的已有的类或部件；使用Java语言，在开发中引入测试，并完善整个解决方案。</p>
+<p>三、类</p>
+<p>class前的修饰符分为访问控制符和非访问控制符两类。访问控制符包括public和private。非访问控制符包括abstract和final。</p>
+<p>final是最终类，是不能有子类的，abstract和final不能修饰同一个类，因为抽象类本身没有具体的对象，需要派生出子类后在创建子类的对象。而最终不可能有子类。</p>
+<p>创建对象的格式：类名+对象名=new 构造方法（参数）；前面是类名，后面是构造方法。</p>
+<p>构造方法（构造函数）没有返回类型，也不能用void，主要完成对对象的初始化工作，一般不能直接由编程直接调用，而是用new运算符来调用。</p>
+<p>如果class前面用public修饰，则默认构造方法的前面也是public修饰符。类中有static修饰的域或方法，可用类名或对象名进行访问。否则只能用对象名访问。</p>
+<p><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'宋体';"><span style="white-space:pre;">    </span>内部类的总结：</span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'宋体';"></span></p>
+<p><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'宋体';">&nbsp;<span style="white-space:pre;">    </span></span><span style="line-height: 23px; font-family: 宋体; font-size: 10.5pt;">内部类是指在一个外部类的内部再定义一个类。内部类作为外部类的一个成员，并且依附于外部类而存在的。</span></p>
+<p><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'宋体';">&nbsp;<span style="white-space:pre;">    </span></span><span style="line-height: 23px; font-family: 宋体; font-size: 10.5pt;">内部类同时具有成员和类的特性（特性不冲突）。&nbsp;内部类的分类：</span></p>
+<p><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'宋体';">&nbsp;<span style="white-space:pre;">    </span></span><span style="line-height: 23px; font-family: 宋体; font-size: 10.5pt;">成员内部类、</span><span style="line-height: 23px; font-family: 宋体; font-size: 10.5pt;">局部内部类、</span><span style="line-height: 23px; font-family: 宋体; font-size: 10.5pt;">静态内部类、</span><span style="line-height: 23px; font-family: 宋体; font-size: 10.5pt;">匿名内部类（图形是要用到，必须掌握）。</span></p>
+<p><span style="white-space:pre;">        </span>1.成员内部类</p>
+<p>成员内部类是定义在一个类中的类，他将信息更好的封装于一个类中，定义成员内部类后在使用它时可将其当成外部类的成员来使用，但若要使用内部类中的成员则需要创建内部类的实例。</p>
+<p><span style="white-space:pre;">    </span>成员内部类和外部类之间的访问权限。</p>
+<p>在类里面定义的类称之为内部类（Inner Class），内部类是外部类的一个成员。</p>
+<p>内部类必须创建外部类对象才能使用。而创建内部类对象时必须先创建一个外部类对象，通过一个外部类对象才能创建内部类对象。</p>
+<p>外部类名.内部类名&nbsp;变量名&nbsp;=&nbsp;new&nbsp;外部类名().new&nbsp;内部类名();</p>
+<pre class="prettyprint">
+
+class&nbsp;Inner{
+<font color="#333333">//static&nbsp;int&nbsp;inner_i&nbsp;=100;&nbsp;//</font><font face="宋体"><font color="#333333">内部类中不允</font>许定</font>义<font color="#0000ff">静态</font><font color="#0000ff">变量</font>
+<font color="#333333">int&nbsp;j=100;//</font><font face="宋体"><font color="#333333">内部类中外部类的</font><font color="#0000ff">实例变量</font></font>可以共存
+int&nbsp;inner_i=1;
+void&nbsp;inner_f1()
+
+{
+&nbsp;&nbsp;&nbsp;&nbsp;        System.out.println(i);//<font face="宋体">外部类的变量如果和内部类的变量没有同名的，则可以直接用变量名访问外部类的变量</font>
+&nbsp;&nbsp;&nbsp;&nbsp;        System.out.println(j);//<font face="宋体">在内部类中访问内部类自己的变量直接用变量名</font>
+&nbsp;&nbsp;&nbsp;    &nbsp;    System.out.println(this.j);//<font face="宋体">也可以在内部类中用</font><font face="Arial">"this.</font><font face="宋体">变量名</font><font face="Arial">"</font><font face="宋体">来访问内部类变量</font>
+&nbsp;&nbsp;&nbsp;&nbsp;        //<font face="宋体">访问外部类中与内部类同名的</font>实例变量可用<font face="Arial">"</font><font face="宋体">外部类名</font><font face="Arial">.this.</font><font face="宋体">变量名</font><font face="Arial">"</font><font face="宋体">。</font>
+&nbsp;&nbsp;&nbsp;&nbsp;        System.out.println(k);//<font face="宋体">外部类的变量如果和内部类的变量没有同名的，则可以直接用变量名访问外部类的变量</font>
+&nbsp;&nbsp;&nbsp;&nbsp;        outer_f1();
+&nbsp;&nbsp;&nbsp;&nbsp;        outer_f2();
+}
+}
+</pre>
+
+<p>成员内部类的优点：</p>
+<pre id="best-content-521589254" accuse="aContent" style="margin-top: 0px; margin-bottom: 10px; padding: 0px; font-family: arial, 'courier new', courier, 宋体, monospace; white-space: pre-wrap; word-wrap: break-word; line-height: 24px;">    ⑴ 内部类作为外部类的成员，可以访问外部类的私有成员或属性。（即使将外部类声明为PRIVATE，但是对于处于其内部的内部类还是可见的。）
+⑵ 用内部类定义在外部类中不可访问的属性。这样就在外部类中实现了比外部类的private还要小的访问权限。
+注意：内部类是一个编译时的概念，一旦编译成功，就会成为完全不同的两类。对于一个名为outer的外部类和其内部定义的名为inner的内部类。编译完成后出现outer.class和outer$inner.class两类。</pre><pre id="best-content-521589254" accuse="aContent" style="margin-top: 0px; margin-bottom: 10px; padding: 0px; font-family: arial, 'courier new', courier, 宋体, monospace; white-space: pre-wrap; word-wrap: break-word; line-height: 24px;"><span style="white-space:pre;">    </span>2.局部内部类</pre><pre id="best-content-521589254" accuse="aContent" style="margin-top: 0px; margin-bottom: 10px; padding: 0px; font-family: arial, 'courier new', courier, 宋体, monospace; white-space: pre-wrap; word-wrap: break-word; line-height: 24px;">
+
+<span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'宋体';"><span style="white-space:pre;">    </span>在方法中定义的内部类称为局部内部类。与局部变量类似，在局部内部类前不加修饰符<font face="Times New Roman">public</font><font face="宋体">和</font><font face="Times New Roman">private</font><font face="宋体">，其范围为定义它的代码块。</font></span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'宋体';"></span>
+
+<span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'宋体';"><span style="white-space:pre;">    </span>注意：局部内部类不仅可以访问外部类实例变量，还可以访问外部类的局部变量（但此时要求外部类的局部变量必须为<font face="Times New Roman">final</font><font face="宋体">）？？</font></span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'宋体';"></span>
+
+<span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'宋体';"><span style="white-space:pre;">    </span>在类外不可直接生成局部内部类（保证局部内部类对外是不可见的）。</span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'宋体';"></span>
+
+<span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'宋体';"><span style="white-space:pre;">    </span>要想使用局部内部类时需要生成对象，对象调用方法，在方法中才能调用其局部内部类。</span><span style="font-size: 10.5pt; font-family: Arial;"></span>
+</pre><pre id="best-content-521589254" accuse="aContent" style="margin-top: 0px; margin-bottom: 10px; padding: 0px; white-space: pre-wrap; word-wrap: break-word;">    3.静态内部类</pre><pre id="best-content-521589254" accuse="aContent" style="margin-top: 0px; margin-bottom: 10px; padding: 0px; white-space: pre-wrap; word-wrap: break-word; line-height: 24px;">    用static修饰的内部类就是静态内部类，和内部类不同，其实力的创建不需要外部对象。它只能访问外部类的静态成员和静态方法，不能访问非静态成员，但却可以访问自身内部的非静态成员变量。</pre>
+
+<p>静态内部类可以用public，protected，private修饰，静态内部类中可以定义静态成员或非静态成员。</p>
+<font face="宋体">&nbsp; &nbsp;&nbsp;</font>生成（new）一个静态内部类不需要外部类成员：这是静态内部类和成员内部类的区别。静态内部类的对象可以直接生成：<br><pre id="best-content-521589254" accuse="aContent" style="margin-top: 0px; margin-bottom: 10px; padding: 0px; font-family: arial, 'courier new', courier, 宋体, monospace; white-space: pre-wrap; word-wrap: break-word; line-height: 24px;">    Outer.Inner in=new Outer.Inner()；<br>而不需要通过生成外部类对象来生成。这样实际上使静态内部类成为了一个顶级类。静态内部类不可用private来进行定义。</pre><pre id="best-content-521589254" accuse="aContent" style="margin-top: 0px; margin-bottom: 10px; padding: 0px; font-family: arial, 'courier new', courier, 宋体, monospace; white-space: pre-wrap; word-wrap: break-word;">    4.匿名内部类</pre><pre id="best-content-521589254" accuse="aContent" style="margin-top: 0px; margin-bottom: 10px; padding: 0px; font-family: arial, 'courier new', courier, 宋体, monospace; white-space: pre-wrap; word-wrap: break-word;"><pre id="best-content-521589254" accuse="aContent" style="margin-top: 0px; margin-bottom: 10px; padding: 0px; font-family: arial, 'courier new', courier, 宋体, monospace; white-space: pre-wrap; word-wrap: break-word; color: rgb(51, 51, 51);">    匿名内部类是一种特殊的局部内部类，它是通过匿名类实现接口。<br>IA被定义为接口。<br>IA I=new IA(){};<br>匿名内部类的特点：<br>1，一个类用于继承其他类或是实现接口，并不需要增加额外的方法，只是对继承方法的事先或是覆盖。其实就是一个匿名子类对象。<br>2，只是为了获得一个对象实例，不需要知道其实际类型。<br>3，类名没有意义，也就是不需要使用到。</pre><pre id="best-content-521589254" accuse="aContent" style="margin-top: 0px; margin-bottom: 10px; padding: 0px; font-family: arial, 'courier new', courier, 宋体, monospace; white-space: pre-wrap; word-wrap: break-word; color: rgb(51, 51, 51);"><span style="white-space:pre;">    </span>4， new  父类OR 接口名{}。<br></pre></pre><br><br><wbr><br><pre class="prettyprint"><br><br>interface Test //定义一个接口，接口中有方法。<br>{<br>&nbsp; &nbsp; &nbsp; &nbsp; void func();<br>}<br>class Outer<br>{<br>&nbsp; &nbsp; &nbsp; &nbsp; public void method()<br>&nbsp; &nbsp; &nbsp; &nbsp; {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Test T=new Test()//new一个接口对象，然后调用接口中的func方法<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; public void func()<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {&nbsp; &nbsp; &nbsp;&nbsp;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;     }<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; };<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; T.func();//通过new的对象可以实现调用接口中的多个引用，但最终不超过三个。<br>&nbsp; &nbsp; &nbsp; &nbsp; }&nbsp; &nbsp; &nbsp;<br>}<br>public class Demo {<br><br>&nbsp; &nbsp; &nbsp; &nbsp; public static void main(String[] args) {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // TODO Auto-generated method stub<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; func(new Test()<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; public void func(){}<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; });<br>&nbsp; &nbsp; &nbsp; &nbsp; }<br>&nbsp; &nbsp; &nbsp; &nbsp; public static void func(Test in)<br>&nbsp; &nbsp; &nbsp; &nbsp; {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; in.func();<br>&nbsp; &nbsp; &nbsp; &nbsp; }<br>}<br></pre><span style="white-space:pre;">    </span>匿名内部类的一般好处是：是代码更加简洁，紧凑，但带来的是易读性下降。它<font color="#ff0000" style="font-family: Arial; line-height: 26px;">一般用在GUI编程中实现事件处理</font>等等。<div><span style="line-height: 23px; font-size: 10.5pt;"><span style="white-space: pre;">    </span>匿名内部类是唯一一种无构造方法类。</span><div><div><br><br><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'宋体';">&nbsp; &nbsp; &nbsp;</span><span style="line-height: 23px; font-family: 宋体; font-size: 10.5pt;">匿名内部类在编译的时候由系统自动起名</span><font face="Times New Roman" style="line-height: 23px; font-size: 10.5pt;">Out$1.class</font><font face="宋体" style="line-height: 23px; font-family: 宋体; font-size: 10.5pt;">。</font>
+
+<p><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'宋体';">&nbsp; &nbsp; &nbsp;</span><span style="line-height: 23px; font-family: 宋体; font-size: 10.5pt;">如果一个对象编译时的类型是接口，那么其运行的类型为实现这个接口的类。因匿名内部类无构造方法，所以其使用范围非常的有限。 &nbsp;</span></p>
+<p>一、面对对象的三大特征：封装、继承、多态。</p>
+<font color="#24130c" face="Arial, Helvetica, simsun, u5b8bu4f53">    <font size="3">抽象：</font></font><font size="3">把现实中需要处理的事物通过数据的方法表达出来就是抽象。将现实的东西编程计算机的模式。</font>
+
+<font size="3"><font face="arial, courier new, courier, 宋体, monospace">    封装：</font>把事物的数据和方法用类的方式集合起来就是封装，封装的数据和方法通过继承来实现重用。</font>
+
+<font size="3"><font face="arial, courier new, courier, 宋体, monospace">    多态：</font>同一个方法通过方法的重载实现不同的逻辑即多态。</font>
+
+<p>二、面对对象软件开发的大体分为，面向对象的分析，面向对象的设计，面向对象的实现。</p>
+<p>分析用户的需求，从问题中抽取对象模型，细化模型，设计类，包括类的属性和类间的相互关系。同时观察是否有可以直接引用的已有的类或部件；使用Java语言，在开发中引入测试，并完善整个解决方案。</p>
+<p>三、类</p>
+<p>class前的修饰符分为访问控制符和非访问控制符两类。访问控制符包括public和private。非访问控制符包括abstract和final。</p>
+<p>final是最终类，是不能有子类的，abstract和final不能修饰同一个类，因为抽象类本身没有具体的对象，需要派生出子类后在创建子类的对象。而最终不可能有子类。</p>
+<p>创建对象的格式：类名+对象名=new 构造方法（参数）；前面是类名，后面是构造方法。</p>
+<p>构造方法（构造函数）没有返回类型，也不能用void，主要完成对对象的初始化工作，一般不能直接由编程直接调用，而是用new运算符来调用。</p>
+<p>如果class前面用public修饰，则默认构造方法的前面也是public修饰符。类中有static修饰的域或方法，可用类名或对象名进行访问。否则只能用对象名访问。</p>
+<p><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'宋体';"><span style="white-space:pre;">    </span>内部类的总结：</span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'宋体';"></span></p>
+<p><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'宋体';">&nbsp;<span style="white-space:pre;">    </span></span><span style="line-height: 23px; font-family: 宋体; font-size: 10.5pt;">内部类是指在一个外部类的内部再定义一个类。内部类作为外部类的一个成员，并且依附于外部类而存在的。</span></p>
+<p><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'宋体';">&nbsp;<span style="white-space:pre;">    </span></span><span style="line-height: 23px; font-family: 宋体; font-size: 10.5pt;">内部类同时具有成员和类的特性（特性不冲突）。&nbsp;内部类的分类：</span></p>
+<p><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'宋体';">&nbsp;<span style="white-space:pre;">    </span></span><span style="line-height: 23px; font-family: 宋体; font-size: 10.5pt;">成员内部类、</span><span style="line-height: 23px; font-family: 宋体; font-size: 10.5pt;">局部内部类、</span><span style="line-height: 23px; font-family: 宋体; font-size: 10.5pt;">静态内部类、</span><span style="line-height: 23px; font-family: 宋体; font-size: 10.5pt;">匿名内部类（图形是要用到，必须掌握）。</span></p>
+<p><span style="white-space:pre;">        </span>1.成员内部类</p>
+<p>成员内部类是定义在一个类中的类，他将信息更好的封装于一个类中，定义成员内部类后在使用它时可将其当成外部类的成员来使用，但若要使用内部类中的成员则需要创建内部类的实例。</p>
+<p><span style="white-space:pre;">    </span>成员内部类和外部类之间的访问权限。</p>
+<p>在类里面定义的类称之为内部类（Inner Class），内部类是外部类的一个成员。</p>
+<p>内部类必须创建外部类对象才能使用。而创建内部类对象时必须先创建一个外部类对象，通过一个外部类对象才能创建内部类对象。</p>
+<p>外部类名.内部类名&nbsp;变量名&nbsp;=&nbsp;new&nbsp;外部类名().new&nbsp;内部类名();</p>
+<pre class="prettyprint">
+
+class&nbsp;Inner{
+<font color="#333333">//static&nbsp;int&nbsp;inner_i&nbsp;=100;&nbsp;//</font><font face="宋体"><font color="#333333">内部类中不允</font>许定</font>义<font color="#0000ff">静态</font><font color="#0000ff">变量</font>
+<font color="#333333">int&nbsp;j=100;//</font><font face="宋体"><font color="#333333">内部类中外部类的</font><font color="#0000ff">实例变量</font></font>可以共存
+int&nbsp;inner_i=1;
+void&nbsp;inner_f1()
+
+{
+&nbsp;&nbsp;&nbsp;&nbsp;        System.out.println(i);//<font face="宋体">外部类的变量如果和内部类的变量没有同名的，则可以直接用变量名访问外部类的变量</font>
+&nbsp;&nbsp;&nbsp;&nbsp;        System.out.println(j);//<font face="宋体">在内部类中访问内部类自己的变量直接用变量名</font>
+&nbsp;&nbsp;&nbsp;    &nbsp;    System.out.println(this.j);//<font face="宋体">也可以在内部类中用</font><font face="Arial">"this.</font><font face="宋体">变量名</font><font face="Arial">"</font><font face="宋体">来访问内部类变量</font>
+&nbsp;&nbsp;&nbsp;&nbsp;        //<font face="宋体">访问外部类中与内部类同名的</font>实例变量可用<font face="Arial">"</font><font face="宋体">外部类名</font><font face="Arial">.this.</font><font face="宋体">变量名</font><font face="Arial">"</font><font face="宋体">。</font>
+&nbsp;&nbsp;&nbsp;&nbsp;        System.out.println(k);//<font face="宋体">外部类的变量如果和内部类的变量没有同名的，则可以直接用变量名访问外部类的变量</font>
+&nbsp;&nbsp;&nbsp;&nbsp;        outer_f1();
+&nbsp;&nbsp;&nbsp;&nbsp;        outer_f2();
+}
+}
+</pre>
+
+<p>成员内部类的优点：</p>
+<pre id="best-content-521589254" accuse="aContent" style="margin-top: 0px; margin-bottom: 10px; padding: 0px; font-family: arial, 'courier new', courier, 宋体, monospace; white-space: pre-wrap; word-wrap: break-word; line-height: 24px;">    ⑴ 内部类作为外部类的成员，可以访问外部类的私有成员或属性。（即使将外部类声明为PRIVATE，但是对于处于其内部的内部类还是可见的。）
+⑵ 用内部类定义在外部类中不可访问的属性。这样就在外部类中实现了比外部类的private还要小的访问权限。
+注意：内部类是一个编译时的概念，一旦编译成功，就会成为完全不同的两类。对于一个名为outer的外部类和其内部定义的名为inner的内部类。编译完成后出现outer.class和outer$inner.class两类。</pre><pre id="best-content-521589254" accuse="aContent" style="margin-top: 0px; margin-bottom: 10px; padding: 0px; font-family: arial, 'courier new', courier, 宋体, monospace; white-space: pre-wrap; word-wrap: break-word; line-height: 24px;"><span style="white-space:pre;">    </span>2.局部内部类</pre><pre id="best-content-521589254" accuse="aContent" style="margin-top: 0px; margin-bottom: 10px; padding: 0px; font-family: arial, 'courier new', courier, 宋体, monospace; white-space: pre-wrap; word-wrap: break-word; line-height: 24px;">
+
+<span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'宋体';"><span style="white-space:pre;">    </span>在方法中定义的内部类称为局部内部类。与局部变量类似，在局部内部类前不加修饰符<font face="Times New Roman">public</font><font face="宋体">和</font><font face="Times New Roman">private</font><font face="宋体">，其范围为定义它的代码块。</font></span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'宋体';"></span>
+
+<span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'宋体';"><span style="white-space:pre;">    </span>注意：局部内部类不仅可以访问外部类实例变量，还可以访问外部类的局部变量（但此时要求外部类的局部变量必须为<font face="Times New Roman">final</font><font face="宋体">）？？</font></span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'宋体';"></span>
+
+<span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'宋体';"><span style="white-space:pre;">    </span>在类外不可直接生成局部内部类（保证局部内部类对外是不可见的）。</span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'宋体';"></span>
+
+<span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'宋体';"><span style="white-space:pre;">    </span>要想使用局部内部类时需要生成对象，对象调用方法，在方法中才能调用其局部内部类。</span><span style="font-size: 10.5pt; font-family: Arial;"></span>
+</pre><pre id="best-content-521589254" accuse="aContent" style="margin-top: 0px; margin-bottom: 10px; padding: 0px; white-space: pre-wrap; word-wrap: break-word;">    3.静态内部类</pre><pre id="best-content-521589254" accuse="aContent" style="margin-top: 0px; margin-bottom: 10px; padding: 0px; white-space: pre-wrap; word-wrap: break-word; line-height: 24px;">    用static修饰的内部类就是静态内部类，和内部类不同，其实力的创建不需要外部对象。它只能访问外部类的静态成员和静态方法，不能访问非静态成员，但却可以访问自身内部的非静态成员变量。</pre>
+
+<p>静态内部类可以用public，protected，private修饰，静态内部类中可以定义静态成员或非静态成员。</p>
+<font face="宋体">&nbsp; &nbsp;&nbsp;</font>生成（new）一个静态内部类不需要外部类成员：这是静态内部类和成员内部类的区别。静态内部类的对象可以直接生成：<br><pre id="best-content-521589254" accuse="aContent" style="margin-top: 0px; margin-bottom: 10px; padding: 0px; font-family: arial, 'courier new', courier, 宋体, monospace; white-space: pre-wrap; word-wrap: break-word; line-height: 24px;">    Outer.Inner in=new Outer.Inner()；<br>而不需要通过生成外部类对象来生成。这样实际上使静态内部类成为了一个顶级类。静态内部类不可用private来进行定义。</pre><pre id="best-content-521589254" accuse="aContent" style="margin-top: 0px; margin-bottom: 10px; padding: 0px; font-family: arial, 'courier new', courier, 宋体, monospace; white-space: pre-wrap; word-wrap: break-word;">    4.匿名内部类</pre><pre id="best-content-521589254" accuse="aContent" style="margin-top: 0px; margin-bottom: 10px; padding: 0px; font-family: arial, 'courier new', courier, 宋体, monospace; white-space: pre-wrap; word-wrap: break-word;"><pre id="best-content-521589254" accuse="aContent" style="margin-top: 0px; margin-bottom: 10px; padding: 0px; font-family: arial, 'courier new', courier, 宋体, monospace; white-space: pre-wrap; word-wrap: break-word; color: rgb(51, 51, 51);">    匿名内部类是一种特殊的局部内部类，它是通过匿名类实现接口。<br>IA被定义为接口。<br>IA I=new IA(){};<br>匿名内部类的特点：<br>1，一个类用于继承其他类或是实现接口，并不需要增加额外的方法，只是对继承方法的事先或是覆盖。其实就是一个匿名子类对象。<br>2，只是为了获得一个对象实例，不需要知道其实际类型。<br>3，类名没有意义，也就是不需要使用到。</pre><pre id="best-content-521589254" accuse="aContent" style="margin-top: 0px; margin-bottom: 10px; padding: 0px; font-family: arial, 'courier new', courier, 宋体, monospace; white-space: pre-wrap; word-wrap: break-word; color: rgb(51, 51, 51);"><span style="white-space:pre;">    </span>4， new  父类OR 接口名{}。<br></pre></pre><br><br><wbr><br><pre class="prettyprint"><br><br>interface Test //定义一个接口，接口中有方法。<br>{<br>&nbsp; &nbsp; &nbsp; &nbsp; void func();<br>}<br>class Outer<br>{<br>&nbsp; &nbsp; &nbsp; &nbsp; public void method()<br>&nbsp; &nbsp; &nbsp; &nbsp; {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Test T=new Test()//new一个接口对象，然后调用接口中的func方法<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; public void func()<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {&nbsp; &nbsp; &nbsp;&nbsp;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;     }<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; };<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; T.func();//通过new的对象可以实现调用接口中的多个引用，但最终不超过三个。<br>&nbsp; &nbsp; &nbsp; &nbsp; }&nbsp; &nbsp; &nbsp;<br>}<br>public class Demo {<br><br>&nbsp; &nbsp; &nbsp; &nbsp; public static void main(String[] args) {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // TODO Auto-generated method stub<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; func(new Test()<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; public void func(){}<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; });<br>&nbsp; &nbsp; &nbsp; &nbsp; }<br>&nbsp; &nbsp; &nbsp; &nbsp; public static void func(Test in)<br>&nbsp; &nbsp; &nbsp; &nbsp; {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; in.func();<br>&nbsp; &nbsp; &nbsp; &nbsp; }<br>}<br></pre><span style="white-space:pre;">    </span>匿名内部类的一般好处是：是代码更加简洁，紧凑，但带来的是易读性下降。它<font color="#ff0000" style="font-family: Arial; line-height: 26px;">一般用在GUI编程中实现事件处理</font>等等。<div><span style="line-height: 23px; font-size: 10.5pt;"><span style="white-space: pre;">    </span>匿名内部类是唯一一种无构造方法类。</span><div><div><br><br><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'宋体';">&nbsp; &nbsp; &nbsp;</span><span style="line-height: 23px; font-family: 宋体; font-size: 10.5pt;">匿名内部类在编译的时候由系统自动起名</span><font face="Times New Roman" style="line-height: 23px; font-size: 10.5pt;">Out$1.class</font><font face="宋体" style="line-height: 23px; font-family: 宋体; font-size: 10.5pt;">。</font>
+
+<p><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'宋体';">&nbsp; &nbsp; &nbsp;</span><span style="line-height: 23px; font-family: 宋体; font-size: 10.5pt;">如果一个对象编译时的类型是接口，那么其运行的类型为实现这个接口的类。因匿名内部类无构造方法，所以其使用范围非常的有限。 &nbsp;</span></p>
+</div></div></div></div></div></div>
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2012/07/30/多线程线程通讯和生产者/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          多线程线程通讯和生产者
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="面对对象基础跟内部类" data-title="面对对象基础跟内部类" data-url="http://wait.im/2012/07/30/面对对象基础跟内部类/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"wait"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 thinkloki
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

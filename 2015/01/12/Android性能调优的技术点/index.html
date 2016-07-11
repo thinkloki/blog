@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Android性能调优的技术点 | thinkloki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="##要点
+###使用异步
+
+保持 APP 的高度响应，不要在 UI 线程做耗时操作，多使用异步任务
+使用线程时要做好线程控制；使用队列、线程池
+谨慎使用糟糕的 AysncTask 、 Timer
+警惕异步任务引起的内存泄露
+应该异步任务分类，比如 HTTP ，图片下载，文件读写，每一类的异步任务维护一个任务队列，而不是每一个任务都开一个线程（ Volley 表示我一个可以搞定这些全部 (:з」∠)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android性能调优的技术点">
+<meta property="og:url" content="http://wait.im/2015/01/12/Android性能调优的技术点/index.html">
+<meta property="og:site_name" content="thinkloki">
+<meta property="og:description" content="##要点
+###使用异步
+
+保持 APP 的高度响应，不要在 UI 线程做耗时操作，多使用异步任务
+使用线程时要做好线程控制；使用队列、线程池
+谨慎使用糟糕的 AysncTask 、 Timer
+警惕异步任务引起的内存泄露
+应该异步任务分类，比如 HTTP ，图片下载，文件读写，每一类的异步任务维护一个任务队列，而不是每一个任务都开一个线程（ Volley 表示我一个可以搞定这些全部 (:з」∠)">
+<meta property="og:updated_time" content="2015-11-11T05:42:42.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android性能调优的技术点">
+<meta name="twitter:description" content="##要点
+###使用异步
+
+保持 APP 的高度响应，不要在 UI 线程做耗时操作，多使用异步任务
+使用线程时要做好线程控制；使用队列、线程池
+谨慎使用糟糕的 AysncTask 、 Timer
+警惕异步任务引起的内存泄露
+应该异步任务分类，比如 HTTP ，图片下载，文件读写，每一类的异步任务维护一个任务队列，而不是每一个任务都开一个线程（ Volley 表示我一个可以搞定这些全部 (:з」∠)">
+  
+    <link rel="alternative" href="/atom.xml" title="thinkloki" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.jpg">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?548c9c362ce8ce4647fe98eaedd4e6e8";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://source.wait.im/QNbCS5A.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">thinkloki</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">做人不卖萌和咸鱼有什么区别</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/随笔">随笔</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/thinkloki" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/u/2697700571" title="weibo">weibo</a>
+					        
+								<a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=aVhRUFlYWl9ZKRgYRwoGBA" title="mail">mail</a>
+					        
+								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Foundation/" style="font-size: 10px;">Foundation</a> <a href="/tags/Google/" style="font-size: 10px;">Google</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IOS/" style="font-size: 15px;">IOS</a> <a href="/tags/JAVA/" style="font-size: 17.5px;">JAVA</a> <a href="/tags/MAC-OS/" style="font-size: 10px;">MAC OS</a> <a href="/tags/Material-Design/" style="font-size: 12.5px;">Material Design</a> <a href="/tags/Objective-C/" style="font-size: 10px;">Objective-C</a> <a href="/tags/open/" style="font-size: 10px;">open</a> <a href="/tags/swift/" style="font-size: 10px;">swift</a> <a href="/tags/优化/" style="font-size: 10px;">优化</a> <a href="/tags/内存/" style="font-size: 15px;">内存</a> <a href="/tags/动画/" style="font-size: 10px;">动画</a> <a href="/tags/多线程/" style="font-size: 10px;">多线程</a> <a href="/tags/热点/" style="font-size: 10px;">热点</a> <a href="/tags/调试/" style="font-size: 10px;">调试</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://heisenbean.me">何老师</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://v2ex.com">V2EX</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com">GitHub</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.tuijiankan.com">向阳乔木</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://jumi.xyz/">聚米</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://imququ.com/">Jerry Qu</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">Android资深码农，Objective-C、swift、python、php入门，励志成为全栈。资深手艺人，电子竞技爱好者。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">thinkloki</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://source.wait.im/QNbCS5A.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">thinkloki</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">做人不卖萌和咸鱼有什么区别</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/thinkloki" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/u/2697700571" title="weibo">weibo</a>
+			        
+						<a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=aVhRUFlYWl9ZKRgYRwoGBA" title="mail">mail</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-Android性能调优的技术点" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/01/12/Android性能调优的技术点/" class="article-date">
+  	<time datetime="2015-01-12T04:23:36.000Z" itemprop="datePublished">2015-01-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Android性能调优的技术点
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/优化/">优化</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/内存/">内存</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##要点</p>
+<p>###使用异步</p>
+<ul>
+<li>保持 APP 的高度响应，不要在 UI 线程做耗时操作，多使用异步任务</li>
+<li>使用线程时要做好线程控制；使用队列、线程池</li>
+<li>谨慎使用糟糕的 AysncTask 、 Timer</li>
+<li>警惕异步任务引起的内存泄露</li>
+<li>应该异步任务分类，比如 HTTP ，图片下载，文件读写，每一类的异步任务维护一个任务队列，而不是每一个任务都开一个线程（ Volley 表示我一个可以搞定这些全部 <em>(:з」∠)</em>）</li>
+<li>这些常用的任务应该做好优先级处理（一般 JSON 数据优先于图片等静态数据的请求）</li>
+<li>一般异步任务应该开启一个 SingleAsyncTask ，保证一时只有一个线程在工作</li>
+<li>HTTP 和图片下载尽量使用同一套网络请求</li>
+<li>使用 MVP 模式规范大型 Activity 类的行为，避免异步任务造成的内存泄露</li>
+<li>避免内存泄露</li>
+</ul>
+<p>###了解虚拟机内存回收机制</p>
+<ul>
+<li>频繁 GC 也会造成卡顿，避免不必要的内存开销</li>
+<li>错误的引用姿♂势造成的内存泄露（啊~要泄了~）</li>
+<li>常见的 Activity 泄露（单例、 Application 、后台线程、无限动画、静态引用）</li>
+<li>Bitmap 泄露（ HoneyComb 这个问题之前压力好大）</li>
+<li>尽量使用 IntentService 代替 Service ，前者会自动 StopItself</li>
+<li>排查内存泄露问题的方法（我一直以来都是简单暴力的人肉 dump 检查大法）</li>
+<li>使用 LeakCanary 自动检查 Activity 泄露问题</li>
+<li>对内存负载要保持敏感（ Sharp ）</li>
+<li>视图优化</li>
+</ul>
+<p>###布局优化、减少层次， Include Merge</p>
+<ul>
+<li>使用 ViewStub 避免不必要的 LayoutInflate ，使用 GONE 代替重复 LayoutInflate 同一个布局</li>
+<li>避免过度绘制，应该减少不必要的布局背景；布局层次太深会造成过度绘制以及 Measure 、 Layout 等方法时间复杂度的指数增长</li>
+<li>使用过渡动画，比如给图片的呈现加一个轻量的淡入效果会让视觉上变得流畅许多</li>
+<li>避免过度的动画，不要让一个界面同时出现多出动画，比如 List 滚动时 Item 项要停止播放动画或者 GIF</li>
+<li>复杂动画使用 SurfaceView 或 TextureView</li>
+<li>尽量提供多套分辨率的图片，使用矢量图</li>
+</ul>
+<p>##Adapter 优化</p>
+<ul>
+<li>复用 convertView ，用 ViewHolder 代替频繁 findViewById</li>
+<li>不要重复 setListener ，要使用 v.getId 来复用 Listener ，不然会创建一堆 Listener 导致频繁 GC</li>
+<li>多布局要采用 MutilItemView ，而不是使用一个大布局然后动态控制需要现实的部分</li>
+<li>不要在 getView 方法做做耗时的操作</li>
+<li>快速滚动列表的时候，可以停止加载列表项的图片，停止列表项的动画，不要在这时候改变列表项的布局</li>
+<li>尽量用 RecyclerView （增量 Notify 和 RecycledViewPool 带你飞）</li>
+</ul>
+<p>####代码优化</p>
+<ul>
+<li>算法优化，减少时间复杂度，参考一些经典的优化算法</li>
+<li>尽量使用 int ，而不是 float 或者 double</li>
+<li>尽量采用基本类型，避免无必要的自动装箱和拆箱，浪费时间和空间</li>
+<li>选用合适的集合类（尽量以空间换时间）、选用 Android 家的 SparseArray,SparseBooleanArray 和 LongSparseArray</li>
+<li>避免创建额外的对象（ StringBuilder ）</li>
+<li>使用 SO 库完成一些比较独立的功能（高斯模糊）</li>
+<li>预处理（提前操作）一些比较耗时的初始化工作统一放到启动图处理</li>
+<li>懒加载（延迟处理）规避 Activity 的敏感生命周期</li>
+<li>Log 工具类，要在编译时删掉调试代码，而不是在运行时通过判断条件规避</li>
+<li>优先使用静态方法、公有方法还是公有方法？速度区别很大哦</li>
+<li>类内部直接对成员变量进行操作，不要使用 getter/setter 方法，调用方法耗额外的时间</li>
+<li>给内部类访问的外部类成员变量要声明称包内可访问，而不是私有，不然编译的时候还是会自动创建用于访问外部类成员变量的方法</li>
+<li>遍历集合时，使用 i++代替 Iterator ，后者需要额外的对象操作，应在循环体内避免这种情况</li>
+<li>如果一个基本类型或者 String 的值不会改变，尽量用 final static ，编译时会直接用变量的值替换变量，也就不需要在查询变量的值了</li>
+</ul>
+<p>##其他优化</p>
+<ul>
+<li>数据库优化：使用索引、使用异步线程</li>
+<li>网络优化 …… 一堆优秀的轮子</li>
+<li>避免过度使用依赖注入框架，大量的反射</li>
+<li>不过过度设计 /抽象，多态看起来很有设计感，代价就是额外的代码、空间、时间</li>
+<li>尽量不要开启多进程，进程的开销很大</li>
+</ul>
+<p>####APK 瘦身</p>
+<ul>
+<li>开启混淆</li>
+<li>使用 zipalign 工具优化 APK</li>
+<li>适当有损图片压缩、使用矢量图</li>
+<li>删除项目中冗余的资源，之前写过一些删除没有 res 资源的脚本</li>
+<li>动态加载模块化，项目拆分啊！</li>
+</ul>
+<p>####性能问题的排查方法</p>
+<ul>
+<li>GPU 条形图，没事开来看看淘宝</li>
+<li>过度绘制颜色，嗯，不要一篇姨妈红就好</li>
+<li>LeakCanary ，自动检测 Activity 泄露，挺好用的</li>
+<li>TraceView （ Device Monitor ）， Systrace ，分析哪些代码占用的 CPU 时间太大，屡试不爽</li>
+<li>Lint ，检查不合理的 res 资源</li>
+<li>layoutopt （还是 optlayout ？），对当前布局提出优化建议，已被 lint 替代，但是还能用</li>
+<li>HierarchyViewer ，查看手机当前界面的布局层次，布局优化时常用（只用于模拟器，真机上用要 ROOT ，不想 ROOT 加得使用 ViewServer ）</li>
+<li>StrictMode ， UI 操作、网络操作等容易出现性能问题的地方，如果出现异常情况 StrictMode 会报警</li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/01/24/Android Design Support Library简单使用/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Android Design Support Library简单使用
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2014/11/25/Leakcanary Square的一款Android:Java内存泄漏检测工具/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Leakcanary Square的一款Android/Java内存泄漏检测工具</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Android性能调优的技术点" data-title="Android性能调优的技术点" data-url="http://wait.im/2015/01/12/Android性能调优的技术点/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"wait"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 thinkloki
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>SVG Android应用探究之路 | thinkloki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="#####优点:
+
+vector
+在所有大小分辨率屏幕上完美显示
+SVG图片更小
+一张图片可以更具需求多次使用？(One picture is used some times for different permissions)
+减少加载时间
+
+#####缺点:
+图片只能按照比例缩放不支持透明度？svg文件还可以近一步优化，里面有一些不可取（The schedule needs to be sim">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SVG Android应用探究之路">
+<meta property="og:url" content="http://wait.im/2014/06/21/SVG Android应用探究之路/index.html">
+<meta property="og:site_name" content="thinkloki">
+<meta property="og:description" content="#####优点:
+
+vector
+在所有大小分辨率屏幕上完美显示
+SVG图片更小
+一张图片可以更具需求多次使用？(One picture is used some times for different permissions)
+减少加载时间
+
+#####缺点:
+图片只能按照比例缩放不支持透明度？svg文件还可以近一步优化，里面有一些不可取（The schedule needs to be sim">
+<meta property="og:image" content="http://blog.dreamtobe.cn/img/svg-k-1.png">
+<meta property="og:image" content="http://blog.dreamtobe.cn/img/svg-k-2.png">
+<meta property="og:updated_time" content="2015-11-09T16:49:34.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SVG Android应用探究之路">
+<meta name="twitter:description" content="#####优点:
+
+vector
+在所有大小分辨率屏幕上完美显示
+SVG图片更小
+一张图片可以更具需求多次使用？(One picture is used some times for different permissions)
+减少加载时间
+
+#####缺点:
+图片只能按照比例缩放不支持透明度？svg文件还可以近一步优化，里面有一些不可取（The schedule needs to be sim">
+<meta name="twitter:image" content="http://blog.dreamtobe.cn/img/svg-k-1.png">
+  
+    <link rel="alternative" href="/atom.xml" title="thinkloki" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.jpg">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?548c9c362ce8ce4647fe98eaedd4e6e8";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://source.wait.im/QNbCS5A.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">thinkloki</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">做人不卖萌和咸鱼有什么区别</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/随笔">随笔</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/thinkloki" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/u/2697700571" title="weibo">weibo</a>
+					        
+								<a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=aVhRUFlYWl9ZKRgYRwoGBA" title="mail">mail</a>
+					        
+								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Foundation/" style="font-size: 10px;">Foundation</a> <a href="/tags/Google/" style="font-size: 10px;">Google</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IOS/" style="font-size: 15px;">IOS</a> <a href="/tags/JAVA/" style="font-size: 17.5px;">JAVA</a> <a href="/tags/MAC-OS/" style="font-size: 10px;">MAC OS</a> <a href="/tags/Material-Design/" style="font-size: 12.5px;">Material Design</a> <a href="/tags/Objective-C/" style="font-size: 10px;">Objective-C</a> <a href="/tags/open/" style="font-size: 10px;">open</a> <a href="/tags/swift/" style="font-size: 10px;">swift</a> <a href="/tags/优化/" style="font-size: 10px;">优化</a> <a href="/tags/内存/" style="font-size: 15px;">内存</a> <a href="/tags/动画/" style="font-size: 10px;">动画</a> <a href="/tags/多线程/" style="font-size: 10px;">多线程</a> <a href="/tags/热点/" style="font-size: 10px;">热点</a> <a href="/tags/调试/" style="font-size: 10px;">调试</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://heisenbean.me">何老师</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://v2ex.com">V2EX</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com">GitHub</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.tuijiankan.com">向阳乔木</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://jumi.xyz/">聚米</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://imququ.com/">Jerry Qu</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">Android资深码农，Objective-C、swift、python、php入门，励志成为全栈。资深手艺人，电子竞技爱好者。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">thinkloki</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://source.wait.im/QNbCS5A.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">thinkloki</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">做人不卖萌和咸鱼有什么区别</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/thinkloki" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/u/2697700571" title="weibo">weibo</a>
+			        
+						<a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=aVhRUFlYWl9ZKRgYRwoGBA" title="mail">mail</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-SVG Android应用探究之路" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2014/06/21/SVG Android应用探究之路/" class="article-date">
+  	<time datetime="2014-06-20T16:12:36.000Z" itemprop="datePublished">2014-06-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      SVG Android应用探究之路
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA/">JAVA</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#####优点:</p>
+<ul>
+<li>vector</li>
+<li>在所有大小分辨率屏幕上完美显示</li>
+<li>SVG图片更小</li>
+<li>一张图片可以更具需求多次使用？(One picture is used some times for different permissions)</li>
+<li>减少加载时间</li>
+</ul>
+<p>#####缺点:</p>
+<p>图片只能按照比例缩放<br>不支持透明度？<br>svg文件还可以近一步优化，里面有一些不可取（The schedule needs to be simplified — the more vector elements, the the file more weighs. It is undesirable to use shades and luminescences as it in times increases the size of SVG-files）</p>
+<p>####SVG 的探索来源于：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">No sooner said than done. So, under katom history of introduction of vector images </div><div class="line">in one of our applications. In article we will impart experience also features of </div><div class="line">use of vector images in format SVG in applications Android.</div></pre></td></tr></table></figure></p>
+<p>####编辑器：Adobe Illustrator 、Inkscape work.</p>
+<p>####Google “android svg”:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">projects on guglokode:</div><div class="line">code.google.com/p/svg-android/</div><div class="line">code.google.com/p/svg-android-2/</div><div class="line">Detailed article about use NDK:</div><div class="line">horribileru.blogspot.ru/2011/10/android-imageview-svg.html</div><div class="line">And some links to dead projects at different forums.</div></pre></td></tr></table></figure></p>
+<p>####一、SVG-Android：</p>
+<p>#####GitHub: <a href="https://github.com/search?utf8=✓&amp;q=SVG-Android" target="_blank" rel="external">https://github.com/search?utf8=✓&amp;q=SVG-Android</a><br>他们项目通过底层封装的接口方式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">SVG svg = SVGParser.getSVGFromResource(getResources(), R.raw.filename);</div><div class="line">Drawable drawable = svg.createPictureDrawable();</div><div class="line">imageView.setImageDrawable(drawable);</div></pre></td></tr></table></figure>
+<p>缺点: 只支持 SVG basic 1.1(不支持Inkspace编辑、只支持AdobeIllustrator编辑)</p>
+<p>####二、 SVG-Android-2:</p>
+<p>####URL: <a href="https://code.google.com/p/svg-android-2/wiki/Introduction" target="_blank" rel="external">https://code.google.com/p/svg-android-2/wiki/Introduction</a></p>
+<p>#####第一个发现：SVG在包含 阴影的情况下大小会飙升：<br><img src="http://blog.dreamtobe.cn/img/svg-k-1.png" alt="ICON1"><br>izorbrazhenija with a shade and without: 118 KB vs 1 KB</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">解决方法：删除对应的阴影</div></pre></td></tr></table></figure>
+<p>#####第二个发现：显示梯度颜色，不支持！</p>
+<p>The problem with gradients has dared removal of superfluous tags from svg (it is described further in article). But basically, and with it it would be possible to live and in our simple images to replace a gradient with homogeneous pouring, if not other nuance — considerable load time of images.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">解决方法：用简单的图片代替</div></pre></td></tr></table></figure>
+<p>后文(第三个发现)提到解决方法： After we have got rid of the given links, having edited code SVG in some images, the gradient began to be displayed correctly.<br><img src="http://blog.dreamtobe.cn/img/svg-k-2.png" alt="icon 2"><br>at the left — the black sky in the form of a gradient, on the right — a correct picture.</p>
+<p>#####第三个发现：加载时间</p>
+<p>根源：为什么SVG-Android-2这么耗时，</p>
+<p>原因：SVGParser 解析Image XML file ，解析了两次，第一次 为第二次解析收集多余的属性。多余信息是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">that the most interesting, — is analyzed only attribute xlink:href which is a</div><div class="line">semblance of hyperlinks in the document. In our problem images just there were</div><div class="line">such links, and they conducted anywhere.</div></pre></td></tr></table></figure>
+<p>成果：耗时，加载35个SVG的图片(PNG 500px*500px)：从原8s 减少到 1.8-2s。</p>
+<p>#####第四个发现：透明与颜色适配器</p>
+<p>原因：库不是加载 典型的bitmapDrawable与pictureDrawable,并且源码中的setColorFilter、setAlpha方法都是空的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">public void setColorFilter(ColorFilter colorFilter) &#123;&#125;</div><div class="line">@Override</div><div class="line">public void setAlpha(int alpha) &#123;&#125;</div></pre></td></tr></table></figure>
+<p>成果：在SVGHandler中发现一个Paint类型的fillPaint组件，如果能够在加载元素之前 创建colorFilter即可，略微调整SVGHandler加载SVG的代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">public void setFilterColor(int filterColor) &#123;</div><div class="line">    fillPaint.setColorFilter(new PorterDuffColorFilter(filterColor, Mode.MULTIPLY));</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<p>接口调整为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">SVG svg = SVGParser.getSVGFromResource(getResources(), rawSvgId, filterColor);</div></pre></td></tr></table></figure>
+<p>因此我们能够在多张图片上通过引用一张图片使用不同的阴影颜色（As a result we could receive some images of different shades from one picture.）</p>
+<p>对于透明度，建议并不适用setAlpha去实现（实际上是可以的通过fillPaint）:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Also it is possible to establish and Alpha for fillPaint, but in games this property is required in the dynamic form (have pressed an element — has become translucent), and podgruzhat each time the new image is inconvenient. Therefore this effect have replaced with scaling (have pressed — the element has decreased).</div></pre></td></tr></table></figure>
+<p>#####第五个发现：异常处理：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">java.lang.UnsupportedOperationException</div><div class="line">  at android.view.GLES20Canvas.drawPicture(GLES20Canvas.java:895)</div><div class="line">  at android.graphics.drawable.PictureDrawable.draw(PictureDrawable.java:73)</div></pre></td></tr></table></figure>
+<p>低版本不支持gpu(api &lt; 11)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">public static void setSoftwareLayerType(View view) &#123;</div><div class="line">   try &#123;</div><div class="line">     view.setLayerType(View.LAYER_TYPE_SOFTWARE, null);</div><div class="line">   &#125; catch (NoSuchMethodError e) &#123;</div><div class="line">       //Do nothing - this happens on API &lt; 11</div><div class="line">   &#125;</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<p>####使用SVG的项目：</p>
+<p><a href="http://play.google.com/store/apps/details?id=com.whisperarts.kids.forms" target="_blank" rel="external">http://play.google.com/store/apps/details?id=com.whisperarts.kids.forms</a></p>
+<blockquote>
+<p>本文总结自：<a href="http://sysmagazine.com/posts/166093/" target="_blank" rel="external">http://sysmagazine.com/posts/166093/</a></p>
+</blockquote>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2014/11/25/Leakcanary Square的一款Android:Java内存泄漏检测工具/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Leakcanary Square的一款Android/Java内存泄漏检测工具
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2014/03/02/Hexo上第一篇博文/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hexo上的第一篇博文</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="SVG Android应用探究之路" data-title="SVG Android应用探究之路" data-url="http://wait.im/2014/06/21/SVG Android应用探究之路/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"wait"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 thinkloki
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

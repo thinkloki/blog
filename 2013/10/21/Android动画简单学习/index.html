@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Android动画简单学习 | thinkloki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="再复杂的动画，都是简单动画的结合
+
+###I. Tween Animation(补间动画)形式|备注—|—alpha    |渐变透明度scale    |渐变尺寸translate|画面位置移动rotate|画面旋转
+####实现方式Animation配合AnimationUtils，结合xml中set
+###II. Frame Animation(关键帧动画)
+
+顺序播放关键帧
+
+####实">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android动画简单学习">
+<meta property="og:url" content="http://wait.im/2013/10/21/Android动画简单学习/index.html">
+<meta property="og:site_name" content="thinkloki">
+<meta property="og:description" content="再复杂的动画，都是简单动画的结合
+
+###I. Tween Animation(补间动画)形式|备注—|—alpha    |渐变透明度scale    |渐变尺寸translate|画面位置移动rotate|画面旋转
+####实现方式Animation配合AnimationUtils，结合xml中set
+###II. Frame Animation(关键帧动画)
+
+顺序播放关键帧
+
+####实">
+<meta property="og:updated_time" content="2015-11-10T02:32:58.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android动画简单学习">
+<meta name="twitter:description" content="再复杂的动画，都是简单动画的结合
+
+###I. Tween Animation(补间动画)形式|备注—|—alpha    |渐变透明度scale    |渐变尺寸translate|画面位置移动rotate|画面旋转
+####实现方式Animation配合AnimationUtils，结合xml中set
+###II. Frame Animation(关键帧动画)
+
+顺序播放关键帧
+
+####实">
+  
+    <link rel="alternative" href="/atom.xml" title="thinkloki" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.jpg">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?548c9c362ce8ce4647fe98eaedd4e6e8";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://source.wait.im/QNbCS5A.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">thinkloki</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">做人不卖萌和咸鱼有什么区别</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/随笔">随笔</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/thinkloki" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/u/2697700571" title="weibo">weibo</a>
+					        
+								<a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=aVhRUFlYWl9ZKRgYRwoGBA" title="mail">mail</a>
+					        
+								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Foundation/" style="font-size: 10px;">Foundation</a> <a href="/tags/Google/" style="font-size: 10px;">Google</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IOS/" style="font-size: 15px;">IOS</a> <a href="/tags/JAVA/" style="font-size: 17.5px;">JAVA</a> <a href="/tags/MAC-OS/" style="font-size: 10px;">MAC OS</a> <a href="/tags/Material-Design/" style="font-size: 12.5px;">Material Design</a> <a href="/tags/Objective-C/" style="font-size: 10px;">Objective-C</a> <a href="/tags/open/" style="font-size: 10px;">open</a> <a href="/tags/swift/" style="font-size: 10px;">swift</a> <a href="/tags/优化/" style="font-size: 10px;">优化</a> <a href="/tags/内存/" style="font-size: 15px;">内存</a> <a href="/tags/动画/" style="font-size: 10px;">动画</a> <a href="/tags/多线程/" style="font-size: 10px;">多线程</a> <a href="/tags/热点/" style="font-size: 10px;">热点</a> <a href="/tags/调试/" style="font-size: 10px;">调试</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://heisenbean.me">何老师</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://v2ex.com">V2EX</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com">GitHub</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.tuijiankan.com">向阳乔木</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://jumi.xyz/">聚米</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://imququ.com/">Jerry Qu</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">Android资深码农，Objective-C、swift、python、php入门，励志成为全栈。资深手艺人，电子竞技爱好者。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">thinkloki</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://source.wait.im/QNbCS5A.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">thinkloki</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">做人不卖萌和咸鱼有什么区别</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/thinkloki" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/u/2697700571" title="weibo">weibo</a>
+			        
+						<a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=aVhRUFlYWl9ZKRgYRwoGBA" title="mail">mail</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-Android动画简单学习" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2013/10/21/Android动画简单学习/" class="article-date">
+  	<time datetime="2013-10-20T16:16:36.000Z" itemprop="datePublished">2013-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Android动画简单学习
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA/">JAVA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/动画/">动画</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>再复杂的动画，都是简单动画的结合</p>
+</blockquote>
+<p>###I. Tween Animation(补间动画)<br>形式|备注<br>—|—<br>alpha    |渐变透明度<br>scale    |渐变尺寸<br>translate|画面位置移动<br>rotate|画面旋转</p>
+<p>####实现方式<br>Animation配合AnimationUtils，结合xml中set</p>
+<p>###II. Frame Animation(关键帧动画)</p>
+<blockquote>
+<p>顺序播放关键帧</p>
+</blockquote>
+<p>####实现方式</p>
+<p>AnimationDrawable结合xml中定义animation-list标签</p>
+<blockquote>
+<p>AnimationDrawable本身无法监听动画状态</p>
+</blockquote>
+<p>###III. 对象属性动画</p>
+<blockquote>
+<p>Andorid 3.0加入(如果3.0以下想用使用，可以参考开源动画库: <a href="http://nineoldandroids.com/" target="_blank" rel="external">http://nineoldandroids.com/</a>)<br>基本概念: 可以对对象属性进行动画，不仅仅是View</p>
+</blockquote>
+<p>动画的默认帧率是一帧10ms(100帧/s(Android正常绘制60帧/s))</p>
+<p>#####1. TimeInterpolator(时间插值器)</p>
+<blockquote>
+<p>根据时间流逝的百分比来计算出当前属性值改变的百分比</p>
+</blockquote>
+<p>######系统默认提供的</p>
+<ul>
+<li>LinearInterpolator: 线性插值器，匀速动画</li>
+<li>AccelerateDecelerateInterpolator: 加速减速插值器，动画两头慢中间快</li>
+<li>DecelerateInterpolator: 减速插值器，动画越来越慢</li>
+<li>AccelerateInterpolator: 加速插值器，动画越来越快</li>
+<li>…</li>
+</ul>
+<p>#####2. TypeEvaluator(类型估值算法)</p>
+<blockquote>
+<p>根据当前属性改变的百分比来计算改变后的属性值</p>
+</blockquote>
+<p>######系统默认提供的</p>
+<ul>
+<li>IntEvaluator: 针对整型属性</li>
+<li>FloatEvaluator: 针对浮点型属性</li>
+<li>ArgbEvaluator: 针对Color属性</li>
+<li>…</li>
+</ul>
+<blockquote>
+<p>TypeEvaluator与TimeInterpolator是实现非匀速动画的神器。</p>
+</blockquote>
+<p>####实现方式</p>
+<p>TimeInterpolator与TypeEvaluator两者是配合使用的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">public class LinearInterpolator implements Interpolator &#123;</div><div class="line"></div><div class="line">    ...</div><div class="line">    public float getInterpolation(float input) &#123;</div><div class="line">        // 返回时间流逝的百分比 input = (当前时间 - 开始时间)/ 总时间</div><div class="line">        return input; // 匀速</div><div class="line">        //return input * input; //加速</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">public class IntEvaluator implements TypeEvaluator&lt;Integer&gt; &#123;</div><div class="line"></div><div class="line">    public Integer evaluate(float fraction, Integer startValue, Integer endValue) &#123;</div><div class="line">        // 返回需要变化的整型</div><div class="line">        int startInt = startValue;</div><div class="line">        // fraction: LinearInterpolator返回的流逝百分比</div><div class="line">        return (int)(startInt + fraction * (endValue - startInt));</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>#####3. ObjectAnimator、ValueAnimator、AnimatorSet</p>
+<blockquote>
+<p>都可以直接在xml中定义 / 直接代码中实现，结合TimeInterpolator与TypeEvaluator，几乎可以实现所有想要的动画</p>
+</blockquote>
+<hr>
+<p>###例子<br>以下例子来自: <a href="http://blog.csdn.net/singwhatiwanna/article/details/17639987" target="_blank" rel="external">Android动画进阶—使用开源动画库nineoldandroids</a>与<a href="http://blog.csdn.net/singwhatiwanna/article/details/17841165" target="_blank" rel="external">Android属性动画深入分析</a>：让你成为动画牛人</p>
+<p>#####第二个参数PropertyName</p>
+<blockquote>
+<p>PropertyName: 如第一个例子的”translationY”</p>
+<p>我们定义第一个例子中的myObject为target</p>
+</blockquote>
+<ol>
+<li>如果Animator中已经提供初始值，就只需要target包含Property的set方法(如第一个例子中myObject需要包含<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">setTranslationY(float)</div><div class="line">```)</div><div class="line">2. 如果Animator中未提供初始值，除了需要set方法，还需要包含Property的get方法(如地i一个例子中myObject需要包含</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>getTranslationY():float<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">3. 满足以上两条，就可以定义为Property</div><div class="line">&gt;如果View/某对象没有满足上面的条件，如果可以，未尝不可自己封装一层实现。</div></pre></td></tr></table></figure></p>
+<p>// 默认时间内，移动其高度的距离<br>ObjectAnimator.ofFloat(myObject, “translationY”, -myObject.getHeight()).start();<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure></p>
+<p>//  不断循环3s内背景颜色从红色渐变到蓝色再到红色<br>ValueAnimator colorAnim = ObjectAnimator.ofInt(<br>                this, “backgroundColor”,<br>                /<em>Red</em>/0xFFFF8080,/<em>Blue</em>/0xFF8080FF);<br>colorAnim.setDuration(3000);<br>colorAnim.setEvaluator(new ArgbEvaluator());<br>colorAnim.setRepeatCount(ValueAnimator.INFINITE);<br>colorAnim.setRepeatMode(ValueAnimator.REVERSE);<br>colorAnim.start();<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure></p>
+<p>// 5s内同时对View旋转、平移、缩放、透明都进行了改变<br>AnimatorSet set = new AnimatorSet();<br>set.playTogether(<br>    ObjectAnimator.ofFloat(myView, “rotationX”, 0, 360),<br>    ObjectAnimator.ofFloat(myView, “rotationY”, 0, 180),<br>    ObjectAnimator.ofFloat(myView, “rotation”, 0, -90),<br>    ObjectAnimator.ofFloat(myView, “translationX”, 0, 90),<br>    ObjectAnimator.ofFloat(myView, “translationY”, 0, 90),<br>    ObjectAnimator.ofFloat(myView, “scaleX”, 1, 1.5f),<br>    ObjectAnimator.ofFloat(myView, “scaleY”, 1, 0.5f),<br>    ObjectAnimator.ofFloat(myView, “alpha”, 1, 0.25f, 1)<br>);<br>set.setDuration(5 * 1000).start();<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure></p>
+<p>// ValueAnimator的使用<br>// 5s内匀速修改target的宽度<br>private void performAnimate(final View target, final int start, final int end) {<br>    ValueAnimator valueAnimator = ValueAnimator.ofInt(1, 100);</p>
+<pre><code>valueAnimator.addUpdateListener(new AnimatorUpdateListener() {
+
+    //持有一个IntEvaluator对象，方便下面估值的时候使用
+    private IntEvaluator mEvaluator = new IntEvaluator();
+
+    @Override
+    public void onAnimationUpdate(ValueAnimator animator) {
+        //获得当前动画的进度值，整型，1-100之间
+        int currentValue = (Integer)animator.getAnimatedValue();
+        Log.d(TAG, &quot;current value: &quot; + currentValue);
+
+        //计算当前进度占整个动画过程的比例，浮点型，0-1之间
+        float fraction = currentValue / 100f;
+
+        //直接调用整型估值器通过比例计算出宽度，然后再设给Button
+        target.getLayoutParams().width = mEvaluator.evaluate(fraction, start, end);
+        target.requestLayout();
+    }
+});
+
+valueAnimator.setDuration(5000).start();
+</code></pre><p>}<br>```</p>
+<ul>
+<li><a href="https://developer.android.com/intl/zh-cn/guide/topics/graphics/prop-animation.html" target="_blank" rel="external">Property Animation</a></li>
+<li><a href="http://blog.csdn.net/singwhatiwanna/article/details/9270275" target="_blank" rel="external">android动画简介</a></li>
+<li><a href="http://blog.csdn.net/singwhatiwanna/article/details/17639987" target="_blank" rel="external">Android动画进阶—使用开源动画库nineoldandroids</a></li>
+<li><a href="http://blog.csdn.net/qingye_love/article/details/8859347" target="_blank" rel="external">Animation 之 Interpolator 插补器理解</a></li>
+<li><a href="http://blog.csdn.net/singwhatiwanna/article/details/17841165" target="_blank" rel="external">Android属性动画深入分析：让你成为动画牛人</a></li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2013/10/25/Android清理内存/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Android清理内存
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2012/07/30/多线程线程通讯和生产者/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">多线程线程通讯和生产者</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Android动画简单学习" data-title="Android动画简单学习" data-url="http://wait.im/2013/10/21/Android动画简单学习/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"wait"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 thinkloki
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

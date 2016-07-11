@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>swift-open-project | thinkloki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="swift-open-project这里汇集了目前为止最为流行的Swift开源项目，选取SwiftGuide中的开源部分，这里将每周对项目进行总结，如果大家有推荐的可以联系thinkloki@gmail.com,或者issues，欢迎Star、Fork。感谢SwiftGuide。
+1. 实用类库
+以下实用类库做为快速参考，更多实用类库需求，也可以去这里（Swift toolbox is a com">
+<meta property="og:type" content="article">
+<meta property="og:title" content="swift-open-project">
+<meta property="og:url" content="http://wait.im/2015/11/12/swift-open-project/index.html">
+<meta property="og:site_name" content="thinkloki">
+<meta property="og:description" content="swift-open-project这里汇集了目前为止最为流行的Swift开源项目，选取SwiftGuide中的开源部分，这里将每周对项目进行总结，如果大家有推荐的可以联系thinkloki@gmail.com,或者issues，欢迎Star、Fork。感谢SwiftGuide。
+1. 实用类库
+以下实用类库做为快速参考，更多实用类库需求，也可以去这里（Swift toolbox is a com">
+<meta property="og:updated_time" content="2015-11-13T06:01:12.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="swift-open-project">
+<meta name="twitter:description" content="swift-open-project这里汇集了目前为止最为流行的Swift开源项目，选取SwiftGuide中的开源部分，这里将每周对项目进行总结，如果大家有推荐的可以联系thinkloki@gmail.com,或者issues，欢迎Star、Fork。感谢SwiftGuide。
+1. 实用类库
+以下实用类库做为快速参考，更多实用类库需求，也可以去这里（Swift toolbox is a com">
+  
+    <link rel="alternative" href="/atom.xml" title="thinkloki" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.jpg">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?548c9c362ce8ce4647fe98eaedd4e6e8";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://source.wait.im/QNbCS5A.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">thinkloki</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">做人不卖萌和咸鱼有什么区别</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/随笔">随笔</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/thinkloki" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/u/2697700571" title="weibo">weibo</a>
+					        
+								<a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=aVhRUFlYWl9ZKRgYRwoGBA" title="mail">mail</a>
+					        
+								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Foundation/" style="font-size: 10px;">Foundation</a> <a href="/tags/Google/" style="font-size: 10px;">Google</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IOS/" style="font-size: 15px;">IOS</a> <a href="/tags/JAVA/" style="font-size: 17.5px;">JAVA</a> <a href="/tags/MAC-OS/" style="font-size: 10px;">MAC OS</a> <a href="/tags/Material-Design/" style="font-size: 12.5px;">Material Design</a> <a href="/tags/Objective-C/" style="font-size: 10px;">Objective-C</a> <a href="/tags/open/" style="font-size: 10px;">open</a> <a href="/tags/swift/" style="font-size: 10px;">swift</a> <a href="/tags/优化/" style="font-size: 10px;">优化</a> <a href="/tags/内存/" style="font-size: 15px;">内存</a> <a href="/tags/动画/" style="font-size: 10px;">动画</a> <a href="/tags/多线程/" style="font-size: 10px;">多线程</a> <a href="/tags/热点/" style="font-size: 10px;">热点</a> <a href="/tags/调试/" style="font-size: 10px;">调试</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://heisenbean.me">何老师</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://v2ex.com">V2EX</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com">GitHub</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.tuijiankan.com">向阳乔木</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://jumi.xyz/">聚米</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://imququ.com/">Jerry Qu</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">Android资深码农，Objective-C、swift、python、php入门，励志成为全栈。资深手艺人，电子竞技爱好者。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">thinkloki</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://source.wait.im/QNbCS5A.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">thinkloki</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">做人不卖萌和咸鱼有什么区别</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/thinkloki" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/u/2697700571" title="weibo">weibo</a>
+			        
+						<a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=aVhRUFlYWl9ZKRgYRwoGBA" title="mail">mail</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-swift-open-project" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/11/12/swift-open-project/" class="article-date">
+  	<time datetime="2015-11-12T04:23:36.000Z" itemprop="datePublished">2015-11-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      swift-open-project
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IOS/">IOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/open/">open</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/swift/">swift</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="swift-open-project"><a href="#swift-open-project" class="headerlink" title="swift-open-project"></a><a href="https://github.com/thinkloki/swift-open-project" target="_blank" rel="external">swift-open-project</a></h1><p>这里汇集了目前为止最为流行的Swift开源项目，选取SwiftGuide中的开源部分，这里将每周对项目进行总结，如果大家有推荐的可以联系thinkloki@gmail.com,或者issues，欢迎Star、Fork。感谢<a href="https://github.com/ipader/SwiftGuide" target="_blank" rel="external">SwiftGuide</a>。</p>
+<h3 id="1-实用类库"><a href="#1-实用类库" class="headerlink" title="1. 实用类库"></a><a id="open_api"></a>1. 实用类库</h3><blockquote>
+<p>以下实用类库做为快速参考，更多实用类库需求，也可以去这里<a href="http://www.swifttoolbox.io/" target="_blank" rel="external">（Swift toolbox is a community-supported catalog<br>of iOS and OSX libraries）</a> (By <a href="https://www.facebook.com/xpizzle" target="_blank" rel="external">Adam Leonard</a> from <a href="[http://swiftcast.tv">swiftcast.tv</a>), 这个网站收藏了 GitHub 开源社区中优质 Swift 资源库，并提供了分类及查询服务。</p>
+</blockquote>
+<ul>
+<li><p><a href="https://github.com/mattt" target="_blank" rel="external">Mattt Thompson </a>：著名开源作者，开发了知名的<a href="https://github.com/afnetworking/afnetworking" target="_blank" rel="external">AFNetworking</a>网络库。也是知名开发博客<a href="http://shipster.com/" target="_blank" rel="external">NSHipster</a>网站主。</p>
+<p>  类库 | 相关文章 | 备注<br>———— | ————- | ————-<br><a href="https://github.com/Alamofire/Alamofire" target="_blank" rel="external">Alamofire/Alamofire</a> | <a href="http://nshipster.com/alamofire/" target="_blank" rel="external">Alamofire</a>| 为其著名的 AFNetworking 用 Swift 重写的网络基础库<br><a href="https://github.com/mattt/Euler" target="_blank" rel="external">mattt/Euler</a> | <a href="http://nshipster.com/swift-operators/" target="_blank" rel="external">Swift Operators</a> | 这样写是否很数学、很逻辑？∛27÷3±5, ∑[3,1,2], ~0⊻1<br><a href="https://github.com/mattt/Surge" target="_blank" rel="external">mattt/Surge</a> || 基于苹果 Accelerate 高性能计算框架库，计算效率提升惊人<br><a href="https://github.com/mattt/Literally" target="_blank" rel="external">mattt/Literally</a>|<a href="http://nshipster.com/swift-literal-convertible/" target="_blank" rel="external">Swift Literal Convertibles</a>| 常用数据类型的使用及转换工具库</p>
+</li>
+<li><p>工具类</p>
+<ul>
+<li><a href="https://github.com/ankurp/Dollar.swift" target="_blank" rel="external">Dollar</a>：尤其在 Array 和 Dictionary 的支持上（实现类库仅一个 Dollar.swift 文件）。用过 Javascript 版的 Lo-Dash 或 underscore 就知道其实用程度。它是一套函数化编程的工具库。另一个类似的更完整的版本是 <a href="https://github.com/pNre/ExSwift" target="_blank" rel="external">ExSwift</a>，它的实现基于对象化扩展的。</li>
+<li><a href="https://github.com/pNre/ExSwift" target="_blank" rel="external">ExSwift</a>：实用类扩展库。另一个 Lo-Dash 或 underscore 的 Swift 版本实现，相对于 Dollar.swift，此版本有更完整的 API 实现。包括了对 Array, Int, String, Float, Range, Dictionary, NSArray 的扩展及其它实用方法。完全遵循面向对象的扩展原则。</li>
+<li><a href="https://github.com/lingoer/SwiftyJSON" target="_blank" rel="external">lingoer/SwiftyJSON</a>:这是解析 JSON 字符串封装类。实现功能与 Javascript中 的 JSON.parse 相近，使用方便。By <a href="http://weibo.com/u/1671421905" target="_blank" rel="external">@lingoer</a></li>
+<li><a href="https://github.com/SwiftyJSON/Alamofire-SwiftyJSON" target="_blank" rel="external">SwiftyJSON/Alamofire-SwiftyJSON</a> ：简单地整合 Alamofire 和 SwiftyJSON 后，远程 JSON 使用方便了。</li>
+<li><a href="https://github.com/matthewcheok/JSONCodable" target="_blank" rel="external">matthewcheok/JSONCodable</a>：基于 Swift 2.0 新特性（Protocol Extensions and Error Handling）的JSON 解析类。</li>
+<li><a href="https://github.com/typelift/Basis" target="_blank" rel="external">typelift/Basis</a>：这个实用类库支持范围很宽范，封装主要以简化及方便调用系统API为主，使程序代码看上去更优雅。遗憾地是，目前作者并没有提供 API 文档或示例代码，对于初学者使用会额外带来一点点学习成本。</li>
+<li><a href="https://github.com/owensd/json-swift" target="_blank" rel="external">owensd/json-swift</a>：功能与 Swifty 几乎一致，使用上要更方便。</li>
+<li><a href="https://github.com/gfx/Swift-JsonSerializer" target="_blank" rel="external">gfx/Swift-JsonSerializer</a>：JSON 解析又多了一种选择。</li>
+<li><a href="https://github.com/Ahmed-Ali/JSONExport" target="_blank" rel="external">Ahmed-Ali/JSONExport</a>：一款实用工 具，可以将 JSON 转换并输出为 Swift 语言类模型（也支持Android上的Java），支持简单的定制。</li>
+<li><a href="https://github.com/hubertr/Swell" target="_blank" rel="external">hubertr/Swell</a>： 同时支持 Swift 和 OBJC 的 Log 实用类。喜欢 Log4j 风格的日志管理类的同学可以收入。</li>
+<li><a href="https://github.com/yeahdongcn/RSBarcodes_Swift" target="_blank" rel="external">RSBarcodes_Swift</a>：”RSBarcodes allows you to read 1D and 2D barcodes using metadata scanning capabilities introduced with iOS 7 and generate the same set of barcode images for displaying and sharing.” By <a href="http://weibo.com/r0ckstar" target="_blank" rel="external">@yeahdongcn</a> Swift 语言版二维码识别及生成类库。</li>
+<li><a href="https://github.com/SwiftP2P/SwiftSSL" target="_blank" rel="external">SwiftP2P/SwiftSSL</a>：常用 Digest 和 HMAC 的封装。如此封装后，使用加密算法确实很方便。很不错的一个国产”轮子”！By <a href="http://weibo.com/chinawangchen" target="_blank" rel="external">@你全家都快到碗里来</a></li>
+<li><a href="https://github.com/Hearst-DD/ObjectMapper" target="_blank" rel="external">Hearst-DD/ObjectMapper</a>：对象与 JSON 互转实用类库。需要的同学可以收一下。</li>
+<li><a href="https://github.com/DaveWoodCom/XCGLogger" target="_blank" rel="external">DaveWoodCom/XCGLogger</a> ： 这是一款功能比较健全日志输出框架（Log4Swift）。之前推荐过一款类似的 hubertr/Swell，但它的功能明显没有这款强大。</li>
+<li><a href="https://github.com/air/JSONHelper" target="_blank" rel="external">isair/JSONHelper</a> ：又一款JSON转对象类库，算上，lingoer/SwiftyJSON，owensd/json-swift，gfx/Swift-JsonSerializer，已经有四款了。同学们根据喜好及需求，择优使用吧。</li>
+<li><a href="https://github.com/kylef/Stencil" target="_blank" rel="external">kylef/Stencil</a>：通过在模板中支持 if, for, ifnot 等语法标签，实现更强大、更灵活的数据及格式输出。</li>
+<li><a href="https://github.com/kylef/PathKit" target="_blank" rel="external">kylef/PathKit</a>： 简单、实用的文件路径操作类，常用功能一个也不少。</li>
+<li><a href="https://github.com/thoughtbot/Argo" target="_blank" rel="external">thoughtbot/Argo</a>：一个带有实战说明的 JSON 解析方案及类库。</li>
+<li><a href="https://github.com/typelift/swiftz" target="_blank" rel="external">typelift/swiftz</a>： 一个帮助实现函数式编程的类库，定义了一系列相应的数据结构。</li>
+<li><a href="https://github.com/dongri/OAuthSwift" target="_blank" rel="external">dongri/OAuthSwift</a>：Swift 版 OAuth(1/2) 授权类库。对于作者提供的 API，看着舒服，用着方便。</li>
+<li><a href="https://github.com/p2/OAuth2" target="_blank" rel="external">p2/OAuth2</a>：独立又纯粹的 OAuth2 认证授权类库，作者所提供的示例及流程说明清晰又简洁。</li>
+<li><a href="https://github.com/tadija/AEXML" target="_blank" rel="external">tadija/AEXML</a>：简单又易于使用的XML解析类。作者提供了完整的示例程序。</li>
+<li><a href="https://github.com/duemunk/Async" target="_blank" rel="external">duemunk/Async</a>：一个后台执行代码封装库，它可以让你的后台代码封装语法更简洁。</li>
+<li><a href="https://github.com/jquave/EasyCast" target="_blank" rel="external">jquave/EasyCast</a>：这是一个自动强制转换操作符左右类型及常用数学函数参数类型无障碍使用的类库。<a href="http://weibo.com/onevcat" target="_blank" rel="external">@onevcat</a>几个月前也写过类似功能库 <a href="https://github.com/onevcat/Easy-Cal-Swift" target="_blank" rel="external">onevcat/Easy-Cal-Swift</a>，不过，停滞更新很久了。</li>
+<li><a href="https://github.com/ArtSabintsev/Siren" target="_blank" rel="external">ArtSabintsev/Siren</a>：当应用更新时，通知用户并提供 App Store 链接供用户更新的开源库。P.S. 该开发者也曾提供 Objectvie-C 语言版<a href="https://github.com/ArtSabintsev/Harpy" target="_blank" rel="external">ArtSabintsev/Harpy</a>。</li>
+<li><a href="https://github.com/kishikawakatsumi/KeychainAccess" target="_blank" rel="external">kishikawakatsumi/KeychainAccess</a>：这套Keychain管理比较完整。支持本地应用，网络应用，以及与Touch ID的集成应用。</li>
+<li><a href="https://github.com/nori0620/SwiftFilePath" target="_blank" rel="external">nori0620/SwiftFilePath</a>：功能强大的文件及路径管理封装类库。</li>
+<li><a href="https://github.com/onevcat/RandomColorSwift" target="_blank" rel="external">onevcat/RandomColorSwift</a>：”刚刚开源了一个自动生成好看的颜色的 Swift 库，这是 <a href="https://github.com/davidmerfield/randomColor" target="_blank" rel="external">randomColor.js</a> 项目的 Swift 移植版本。在学习 Swift 的童鞋不妨一看，如果可以对于大家在 Swift 实际使用中的某些概念和写法有所启迪的话就再好不过了。” By <a href="http://weibo.com/onevcat" target="_blank" rel="external">@onevcat</a></li>
+<li><a href="https://github.com/beltex/SMCKit" target="_blank" rel="external">beltex/SMCKit</a>：Mac 系统管理控制器 SMC（System Management Controller）Swift 语言版封装库。通过该类库，简单的几行代码就可知 CPU 温度，风扇转速，电池状态等硬件状态或活动状态。</li>
+<li><a href="https://github.com/radex/SwiftyUserDefaults" target="_blank" rel="external">radex/SwiftyUserDefaults</a>：轻量级数据存储类 NSUserDefaults 扩展类，它使类型数据访问和存储更为便捷、直观。</li>
+<li><a href="https://github.com/akosma/SwiftMoment" target="_blank" rel="external">akosma/SwiftMoment</a>：时间和日历函数封装库，也是经典的 <a href="http://momentjs.com/" target="_blank" rel="external">moment.js</a> 的 Swift 语言版本实现。</li>
+<li><a href="https://github.com/imaginary-cloud/CameraManager" target="_blank" rel="external">imaginary-cloud/CameraManager</a>：相机管理封装类库。看着极好用的样子。</li>
+<li><a href="https://github.com/yannickl/QRCodeReader.swift" target="_blank" rel="external">yannickl/QRCodeReader.swift</a>：一款简单的 QR 二维码阅读组件及示例，提供前后相机切换功能。</li>
+<li><a href="https://github.com/aaronabentheuer/AAFaceDetection" target="_blank" rel="external">aaronabentheuer/AAFaceDetection</a>：简单、实用的面部识别封装库。虽然该技术从 iOS 5 发展，不过真正有趣的应用还不多。例如：在视频直播中可以检测观众情感（微笑或眨眼），或注意力（看着屏幕或没有）。因此，作者对其抱以很高的期待，并已经着手开发实验室类大项目。</li>
+<li><a href="https://github.com/zenangst/Versions" target="_blank" rel="external">zenangst/Versions</a>：版本比较小工具。</li>
+<li><a href="https://github.com/NorthernRealities/Rainbow" target="_blank" rel="external">NorthernRealities/Rainbow</a>：旨在提高代码可读性及易用性的 UIColor 扩展，它使原先有限的预定义颜色（方法）选择，扩展至超过 1200 种。</li>
+<li><a href="https://github.com/jpotts18/swift-validator" target="_blank" rel="external">jpotts18/swift-validator</a>：基于规则的输入验证类库。项目良好的面向对象设计思想，使规则的扩展及自定义非常方便。P.S. 对于规则，若有更复杂的需求，则需要有更专业的规则引擎（甚至是基于自然语言的规则配置）解决方案。比如：开源的 Drools，商用的 ILOG 等。</li>
+<li><a href="https://github.com/nghialv/Transporter" target="_blank" rel="external">nghialv/Transporter</a>：短小、精悍、易用的多文件（并发或顺序）上传和下载传输库。还支持后台运行、传输进程跟踪、暂停/续传/取消/重试控制等功能。</li>
+<li><a href="https://github.com/krzyzanowskim/CryptoSwift" target="_blank" rel="external">krzyzanowskim/CryptoSwift</a>：纯 Swift 版 Crypto 算法及相关功能类库。是一套易用、易扩展、完整、不可或缺的功能库。</li>
+<li><a href="https://github.com/nomothetis/SemverKit" target="_blank" rel="external">nomothetis/SemverKit</a>：针对符合『语义化版本规范 2.0.0』版本号的解析、比较运算类库。不仅支持 Major, Minor, Patch，还支持 Alpha 和 Beta 预发布版本，以及相应地递增运算扩展。</li>
+<li><a href="https://github.com/harlanhaskins/Punctual.swift" target="_blank" rel="external">harlanhaskins/Punctual.swift</a>：通过一系列基础数据类型扩展，使日期访问及操作更加自然语言化。若没有动态语言化地超强扩展及定制能力，如此优雅的日期操作是无法实现的。</li>
+<li><a href="https://github.com/ayanonagon/Parsimmon" target="_blank" rel="external">ayanonagon/Parsimmon</a>：小而美的语言学类库封装工具包。提供分词、标记词性、词形归并、朴素贝页斯分类、决策树等自然语言分析小工具。P.S. 英语分词效果好于中文，感兴趣的同学可以针对中文做一些优化开发。参考译文 <a href="http://nshipster.cn/nslinguistictagger/" target="_blank" rel="external">NSHipster - NSLinguistic​Tagger</a></li>
+<li><a href="https://github.com/soffes/X" target="_blank" rel="external">soffes/X</a>：等不及苹果 iOS/OS X 平台统一的开发同学（Sam Soffes），启了一个项目，先将常用类库统一了。该项目刚开始，感兴趣的同学可以考虑参与其中。</li>
+<li><a href="https://github.com/naoty/Timepiece" target="_blank" rel="external">naoty/Timepiece</a>：直观（自然语言化）的日期类扩展。它使日期加减运算、初始设置、日期变更以及基于指定格式解析转换变得方便、易读。P.S. 相比前一段时间推荐另一个类似日期库（Punctual.swift O网页链接）功能更丰富。</li>
+<li><a href="https://github.com/macoscope/SwiftyStateMachine" target="_blank" rel="external">macoscope/SwiftyStateMachine</a>：应用好状态机，不仅提高程序可维护性，更大大增强了程序健壮性。</li>
+<li><a href="https://github.com/benzguo/MusicKit" target="_blank" rel="external">benzguo/MusicKit</a>：一套音乐编辑及创作框架。懂音乐、玩音乐的同学值得拥有。</li>
+<li><a href="https://github.com/ArtSabintsev/FontBlaster" target="_blank" rel="external">ArtSabintsev/FontBlaster</a>：调用自定义字体封装类。很实用、很方便。</li>
+<li><a href="https://github.com/phimage/Prephirences" target="_blank" rel="external">phimage/Prephirences</a>：这个库可以让开发者更方便管理、读写应用的配置信息。很实用。</li>
+<li><a href="https://github.com/radex/SwiftyTimer" target="_blank" rel="external">radex/SwiftyTimer</a>：一个更友好、更简单的时间操作 NSTimer 扩展。P.S. 类似针对日期有 Punctual.swift 和 Timepiece。</li>
+<li><a href="https://github.com/liufan321/SwiftQRCode" target="_blank" rel="external">liufan321/SwiftQRCode</a>：简单、实用的 QR Code 扫描识别及生成库。</li>
+<li><a href="https://github.com/emaloney/CleanroomLogger" target="_blank" rel="external">emaloney/CleanroomLogger</a>：相当于 CocoaLumberjack 或 Log4j 的 Swift 版本，功能上甚至更强大。另外，源代码中已经内含了完整的 API 文档，使用非常方便。</li>
+<li><a href="https://github.com/Khan/Prototope" target="_blank" rel="external">Khan/Prototope</a>：一款轻量的 Javascript 桥接 Swift 库。对于 JS 控，或许可以从玩这个项目开始 iOS 原型开发。</li>
+<li><a href="https://github.com/malcommac/SwiftDate" target="_blank" rel="external">malcommac/SwiftDate</a>：特别完整、强大的日期操作管理类库。它几乎涵盖了已知开源日期类库所有优秀特性。是一款值得毫不犹豫收录的类库。</li>
+<li><a href="https://github.com/nghialv/Future" target="_blank" rel="external">nghialv/Future</a>：基于微框架设计思想的异步执行及结果响应类。由示例发现，代码即简单又干净。</li>
+<li><a href="https://github.com/alexeyxo/protobuf-swift" target="_blank" rel="external">alexeyxo/protobuf-swift</a>：Protocol Buffers 的 Swift 语言实现库。P.S. Protocol Buffers 是 Google 开源项目，主要功能是实现直接序列化结构化的对象数据，方便跨平台快速传递，开发者也可以直接修改 protobuf 中的数据。相比 XML 和 JSON，protobuf 解析更快，存储更小。</li>
+<li><a href="https://github.com/soffes/SyntaxKit" target="_blank" rel="external">soffes/SyntaxKits</a>：TextMate 风格语法高亮类库（基于 Swift 2.0）。</li>
+<li><a href="https://github.com/glock45/swifter" target="_blank" rel="external">glock45/swifter</a>：一款极其轻量的 HTTP 服务器引擎。#Swift 2#</li>
+<li><a href="https://github.com/andreacremaschi/GEOSwift" target="_blank" rel="external">andreacremaschi/GEOSwift</a>：可轻松地处理地理对象模型和相关地形操作，是一个极其易用的地理封装库（集成 MapKit 和 Quicklook）。绝佳好轮子，不容错过。</li>
+</ul>
+</li>
+<li><p>图片</p>
+<ul>
+<li><a href="https://github.com/kaishin/ImageScout" target="_blank" rel="external">kaishin/ImageScout</a>：最小网络代价获得图片大小（宽和高）及类型，它对于很多场合，比如：布局和排版都有积极作用。</li>
+<li><a href="https://github.com/kaishin/gifu" target="_blank" rel="external">kaishin/gifu</a>：高性能 GIF 显示类库 Swift 版本。</li>
+<li><a href="https://github.com/indragiek/DominantColor" target="_blank" rel="external">indragiek/DominantColor</a>：采用YUV色域编码规则及K均值聚类算法提取图片代表色开源项目。很实用，很赞！</li>
+<li><a href="https://github.com/iSame7/Panoramic" target="_blank" rel="external">iSame7/Panoramic</a>：该项目通过 Core Motion 实现了变换角度移动手机时，使图片显示产生对应位置及角度的变换。从而达到了具有现场感的图片浏览功能。</li>
+<li><a href="https://github.com/gavinbunney/Toucan" target="_blank" rel="external">gavinbunney/Toucan</a>：小而美的图片变换及处理类（支持：resize, clip, crop, scale, Ellipse Mask, Rounded Rect Mask, Image Mask）。功能略有超预期的感觉。</li>
+<li><a href="https://github.com/schwa/SwiftGraphics" target="_blank" rel="external">schwa/SwiftGraphics</a>：一个易学、易用的绘图工具库封装。作者很勤劳，项目正在持续更新中。</li>
+<li><a href="https://github.com/contentful-labs/Concorde" target="_blank" rel="external">contentful-labs/Concorde</a>：一个可用于下载和解码渐进式 JPEG 的库。特定场合很有用。类库的调用方法也很自然、方便。</li>
+<li><a href="https://github.com/FlexMonkey/SnapSwift" target="_blank" rel="external">FlexMonkey/SnapSwift</a>：一款 Snapseed 风格滤镜及参数编辑菜单。弹出菜单项后，上下、左右滑动即可调整滤镜参数。</li>
+<li><a href="https://github.com/kiavashfaisali/KFSwiftImageLoader" target="_blank" rel="external">kiavashfaisali/KFSwiftImageLoader</a>：极高性能、轻量、低功耗网络图片异步加载扩展库（支持 iOS 和 WatchKit）。良好的缓存管理机制保证的作者设计初衷。P.S. 作者曾开发过 <a href="https://github.com/kiavashfaisali/KFWatchKitAnimations" target="_blank" rel="external">KFWatchKitAnimations</a>：一款为  Watch 提供 60 帧动画显示效果解决方案及示例。</li>
+<li><a href="https://github.com/yannickl/DynamicColor" target="_blank" rel="external">yannickl/DynamicColor</a>：强大的颜色操作扩展类。通过该类，你可以通过扩展方法基于某个颜色得到不同深浅、饱和度、灰度、色相，以及反转后的新颜色。是不可多得的好类库。</li>
+<li><a href="https://github.com/Jan0707/SwiftColorArt" target="_blank" rel="external">Jan0707/SwiftColorArt</a>：根据图片色系决定所在界面背景色及字体显示颜色。类库及示例代码也很简洁且易于使用。这样的项目真的带给我惊艳。何况，该开发者备注了这是他的第一个Swift项目。</li>
+<li><a href="https://github.com/jathu/UIImageColors" target="_blank" rel="external">jathu/UIImageColors</a>：又一款根据图片获取主色、次色、背景色、详细色的类。P.S. 另一款功能相同的类是 <a href="https://github.com/Jan0707/SwiftColorArt" target="_blank" rel="external">SwiftColorArt</a>。</li>
+</ul>
+</li>
+<li><p>存储</p>
+<ul>
+<li><a href="https://github.com/FahimF/SQLiteDB" target="_blank" rel="external">SQLiteDB in Swift</a>：”This is a basic SQLite wrapper for Swift. It is very simple at the moment and does not provide any advanced functionality. Additionally, it’s not pure Swift at the moment due to some difficulties in making all of the necessary sqlite C API calls from Swift.”</li>
+<li><a href="https://github.com/Alecrim/AlecrimCoreData" target="_blank" rel="external">Alecrim/AlecrimCoreData</a>：更容易地访问 CoreData 对象封装类库。除了 CRUD，还提供指针定位，强大的排序、筛选，异步数据获取，以及独立线程后台存取数据。</li>
+<li><a href="http://realm.io/" target="_blank" rel="external">Realm - a mobile database</a>：Realm主打移动数据库。除了更轻量，甚至还可以应用到可穿戴。低耦、面向对象的设计风格也是非常亮丽的。</li>
+<li><a href="https://github.com/nerdyc/Squeal" target="_blank" rel="external">nerdyc/Squeal</a>：一套非常完善的 SQLite 数据库访问 API，无论建库，建表，CRUD 等常用数据库操作命令都进行了很好的封装，另外，版本管理、事务管理、并发管理、命令执行及 Prepare Statement 等都提供相应支持。它是一套不可多得的SQLite管理访问库。</li>
+<li><a href="https://github.com/stephencelis" target="_blank" rel="external">stephencelis/SQLite.swift</a>：简单、轻量，或是使用上最 SQL 的 SQLit e封装库。</li>
+<li><a href="https://github.com/BjornRuud/Swiftache" target="_blank" rel="external">BjornRuud/Swiftache</a>：Mustache 的 Swift 语言实现版本。</li>
+<li><a href="https://github.com/Haneke/HanekeSwift" target="_blank" rel="external">Haneke/HanekeSwift</a>：貌似这个轻量地带缓存图片组件还不错。主要功能包括图片二级缓存、异步加载、后台执行、自动缩放等。感兴趣的同学可以试用一下。</li>
+<li><a href="https://github.com/SugarRecord/SugarRecord" target="_blank" rel="external">SugarRecord/SugarRecord</a>：相对于 SQL，CoreData 可以更方便、高效存储数据，而 SugarRecord 类库可以让你更方便的使用 CoreData，同时作者已经封装好 iCloud，使你的应用开发更如虎添翼。</li>
+<li><a href="https://github.com/michaelarmstrong/SuperRecord" target="_blank" rel="external">michaelarmstrong/SuperRecord</a> ： Swift 版 CoreData 框架扩展类库。相对于同类型 CoreData 框架库 <a href="https://github.com/SugarRecord/SugarRecord" target="_blank" rel="external">SugarRecord/SugarRecord</a>，SuperRecord 要简单、轻量得多。很棒的快速开发类库。</li>
+<li><a href="https://github.com/aschuch/AwesomeCache" target="_blank" rel="external">aschuch/AwesomeCache</a>：Swift 语言写的高效能缓存对象存储及管理，定义及使用简单、易于理解。支持为每个 Cache 对象设定缓存有效期。</li>
+<li><a href="https://github.com/daltoniam/Skeets" target="_blank" rel="external">daltoniam/Skeets</a>：网络图片的获取、缓存及显示类库，支持缓存的清理及时效性管理。</li>
+<li><a href="https://github.com/evermeer/EVCloudKitDao" target="_blank" rel="external">evermeer/EVCloudKitDao</a>：一套使用 CloudKit 简单封装库。作者还提供了示例项目及程序供开发者参考使用。</li>
+<li><a href="https://github.com/andrelind/Breeze" target="_blank" rel="external">andrelind/Breeze</a>：轻量 CoreData 管理封装库。支持 iCloud 。</li>
+<li><a href="https://github.com/arkverse/SwiftRecord" target="_blank" rel="external">arkverse/SwiftRecord</a>：基于 Core Data 极为轻量、易用的对象持久化工具库，相当于 ActiveRecord 的 Swift 版本。</li>
+<li><a href="https://github.com/JohnEstropia/CoreStore" target="_blank" rel="external">JohnEstropia/CoreStore</a>：提供高可读性，一致性及安全性的 Core Data 管理类库。 其中事务管理及查询是其比较大的亮点，整套 API 功能完整，风格传统又实用。非常值得收入。</li>
+</ul>
+</li>
+<li><p>远程访问</p>
+<ul>
+<li><a href="https://github.com/hallas/agent" target="_blank" rel="external">Minimalistic Swift HTTP request agent for iOS and OS X</a>：一个简单、小巧、实用的 HTTP 请求 Swift 语言实现类（仅一个 Agent.swift 类）</li>
+<li><a href="https://github.com/lingoer/GRequest" target="_blank" rel="external">lingoer/GRequest</a>:”@李洁信：个人认为 AFNetworking 这种较重的第三方网络库将逐渐淡出舞台，而像楼主这种基于 NSURLSession 并充分利用 Swift 特性写出来的小而美的库会受到更多人的青睐！” 作者解读<a href="http://swiftist.org/topics/178" target="_blank" rel="external">《GRequest for HTTP Request》</a>。</li>
+<li><a href="https://github.com/daltoniam/SwiftHTTP" target="_blank" rel="external">daltoniam/SwiftHTTP</a>：Thin wrapper around NSURLSession in swift. Simplifies HTTP requests。感兴趣的可以看看代码，比较与 lingoer/GRequest 差别。</li>
+<li><a href="https://github.com/AshFurrow/Moya" target="_blank" rel="external">AshFurrow/Moya</a>：如果你需要<a href="https://github.com/artsy/eidolon/issues/9" target="_blank" rel="external">如此功能</a>的 Swift 网络 API，可以考虑使用它。它基于 Alamofire, swfitz 等优秀开源类实现。</li>
+<li><a href="https://github.com/aleclarson/emitter-kit" target="_blank" rel="external">aleclarson/emitter-kit</a>:用 EmitterKit 代替 NSNotificationCenter。这个库貌似短小、精悍、实用的样子。更重要是语法精练。</li>
+<li><a href="https://github.com/daltoniam/starscream" target="_blank" rel="external">daltoniam/starscream</a>：Swift 版本 WebSocket 客户端类库，支持 iOS/OS X 。 使用方便，跨平台开发不可或缺的“轮子”。</li>
+<li><a href="https://github.com/shuoli84/SocketIOCocoa" target="_blank" rel="external">shuoli84/SocketIOCocoa</a>：又一款 WebSocket 实用客户端类库，作者提供了详细的测试用例可以做为<a href="https://github.com/shuoli84/SocketIOCocoa/blob/master/SocketIOCocoaTests/SocketIOTests.swift" target="_blank" rel="external">示例代码</a>使用。</li>
+<li><a href="https://github.com/socketio/socket.io-client-swift" target="_blank" rel="external">socketio/socket.io-client-swift</a>：WebSockect 客户端类库。开放的通讯协议，有利于构建强大地跨平台应用。</li>
+<li><a href="https://github.com/marcelofabri/BigBrother" target="_blank" rel="external">marcelofabri/BigBrother</a>：网络请求活动状态监视器类。由于 Alamofire 库并无此项特性，因此它可以做为 Alamofire 的一个扩展功能。</li>
+<li><a href="https://github.com/ishkawa/APIKit" target="_blank" rel="external">ishkawa/APIKit</a>：为不同来源或类型 Web 服务，提供安全地可定制化网络请求 API 的基础类库。很好的面向对象设计思路实例。</li>
+<li><a href="https://github.com/contentful-labs/Stargate" target="_blank" rel="external">contentful-labs/Stargate</a>：通过 iPhone 桥接实现 Mac 与 Watch 的即时通讯。Stargate 通过封装两个优秀的基础类库 MMWormhole 和 PeerKit 实现高效的通讯应用。</li>
+<li><a href="https://github.com/JustHTTP/Just" target="_blank" rel="external">JustHTTP/Just</a>：小而美的 HTTP 类。功能简单、直接、完整且健壮性高。</li>
+<li><a href="https://github.com/CloudKitSpace/CKSIncrementalStore" target="_blank" rel="external">CloudKitSpace/CKSIncrementalStore</a>：基于 CloudKit 服务器实现多终端数据同步。附示例动态图。</li>
+</ul>
+</li>
+<li><p>社交网络</p>
+<ul>
+<li><a href="https://github.com/lingoer/SwiftWeiboKit" target="_blank" rel="external">lingoer/SwiftWeiboKit</a>：”封装了整个 OAuth 2.0 的授权流程,并提供了几个简便易用的请求方法”</li>
+<li><a href="https://github.com/mattdonnelly/Swifter" target="_blank" rel="external">A Twitter framework for iOS &amp; OS X written in Swift</a>：一套很完整的 Twitter 访问框架类库，支持 iOS/OS X</li>
+</ul>
+</li>
+<li><p>框架</p>
+<ul>
+<li><a href="https://github.com/robb/Cartography" target="_blank" rel="external">robb/Cartography</a>：Set up your Auto Layout constraints declaratively. 这是有关自动布局约束一个实用的 Swift 项目，代码看似简单清晰，不过由于设计巧妙。<a href="http://cheunghy.github.io/blog/2014/10/12/intro-to-cartography/" target="_blank" rel="external">代码解读</a> By <a href="http://weibo.com/kaiyuz" target="_blank" rel="external">@kaiyuz</a></li>
+<li><a href="https://github.com/railsware/Sleipnir" target="_blank" rel="external">railsware/Sleipnir</a>：一个基于 Swift 的行为驱动开发框架(BDD-style framework)。API 安装，示例及说明相对比较齐全。</li>
+<li><a href="https://github.com/Quick/Quick" target="_blank" rel="external">Quick/Quick</a>：另一款基于 Swift 的行为驱动开发框架。</li>
+<li><a href="https://github.com/inamiy/SwiftTask" target="_blank" rel="external">inamiy/SwiftTask</a>： 一个很标准的任务及其生命周期管理类库。作者还附上了一个基于 Alamofire 库完成的网络文件下载的任务管理示例。</li>
+<li><a href="https://github.com/inamiy/SwiftState" target="_blank" rel="external">inamiy/SwiftState</a>：Swift 版本 State Machine，这是 SwiftTask 的姐妹篇。开发过 Workflow 类应用的同学有没有很亲切。</li>
+<li><a href="https://github.com/colemancda/NetworkObjects" target="_blank" rel="external">colemancda/NetworkObjects</a>：基于Swift的轻量版HttpServer框架，可以做为iOS/OS X分布式对象的替代。可惜缺少演示或示例代码。</li>
+<li><a href="https://github.com/Masonry/Snappy" target="_blank" rel="external">Masonry/Snappy</a>：一个基于 AutoLayout 封装，语法简洁的轻量级布局框架。当然，用代码还是 storyboard，全凭开发者喜好。若偏好可视化自动布局，@DevTalking 的两篇译文值得参考<a href="http://www.devtalking.com/articles/adaptive-layout-1/" target="_blank" rel="external">《Swift 自适应布局教程》</a>和<a href="http://www.devtalking.com/articles/adaptive-layout-for-iphone6-1/" target="_blank" rel="external">《为 iPhone 6 设计自适应布局》</a>。</li>
+<li><a href="https://github.com/jpsim/PeerKit" target="_blank" rel="external">jpsim/PeerKit</a>：基于事件驱动的多端对等连接开源框架。作者提供了该组件使用案例<a href="https://github.com/jpsim/CardsAgainst" target="_blank" rel="external">jpsim/CardsAgainst</a>，具体引用代码详见<a href="https://github.com/jpsim/CardsAgainst/blob/master/CardsAgainst/Controllers/ConnectionManager.swift" target="_blank" rel="external">这里</a>。</li>
+<li><a href="https://github.com/Quick/Nimble" target="_blank" rel="external">Quick/Nimble</a>：功能更强于Xcode自带测试框架（XCTest）的测试类库。</li>
+<li><a href="https://github.com/venmo/DVR" target="_blank" rel="external">venmo/DVR</a>：针对网络请求的测试框架，超实用的工具。且支持 iOS, OSX, watchOS 全平台。</li>
+<li><a href="https://github.com/owensd/swift-perf" target="_blank" rel="external">owensd/swift-perf</a>：针对 Swift 的性能测试方案。通过抽样场景关键代码与 C 或 Objective-C 的比较做为其测试基准。</li>
+<li><a href="https://github.com/nghialv/MaterialKit" target="_blank" rel="external">nghialv/MaterialKit</a>：Swift 版 Google Material Design 组件库。虽然个人并不推荐在 iOS 平台上使用非 iOS 风格界面，不过，对于 Android 强迫症“患者”，多一种选择也是友好的。顺带附上 Google 提供的开源<a href="https://github.com/google/material-design-icons" target="_blank" rel="external">Material Design 图标集</a>，可以一起收入。</li>
+<li><a href="https://github.com/facebook/AsyncDisplayKit" target="_blank" rel="external">facebook/AsyncDisplayKit</a>：它是由 Facebook 开发并用于其 Paper 应用的 iOS UI 框架，它主要解决问题是提供界面的高流畅性切换及更灵敏的响应，解决思路是将部分 UI 渲染及复杂计算交由独立于主线程的处理程序负责。中译教程《<a href="https://github.com/nixzhu/dev-blog/blob/master/2014-11-22-asyncdisplaykit-tutorial-achieving-60-fps-scrolling.md" target="_blank" rel="external">AsyncDisplayKit 教程 - 达到 60 FPS 的滚动帧率</a> By <a href="http://weibo.com/nixzhu" target="_blank" rel="external">@nixzhu</a>》，教程原文《<a href="http://www.raywenderlich.com/86365/asyncdisplaykit-tutorial-achieving-60-fps-scrolling" target="_blank" rel="external">AsyncDisplayKit Tutorial: Achieving 60 FPS scrolling</a>》。</li>
+<li><a href="https://github.com/mutualmobile/MMWormhole" target="_blank" rel="external">mutualmobile/MMWormhole</a>：提供了 iOS 应用与扩展之间的消息传递，其最有价值之处当属 iPhone 与  Watch 间的消息传递，从而实现相互操控的功能。</li>
+<li><a href="https://github.com/Thomvis/BrightFutures" target="_blank" rel="external">Thomvis/BrightFutures</a>：漫长或复杂计算由独立线程异步来完成。</li>
+<li><a href="https://github.com/Khan/Prototope" target="_blank" rel="external">Khan/Prototope</a>：虽然看不懂这套用户交互层面的轻量级原型框架用处在哪里（哪位同学能给俺提示一下）？不过，作者将这套框架的 Swift API完整桥接为 JS 接口倒是很有意思。</li>
+<li><a href="https://github.com/MHaroonBaig/MotionKit" target="_blank" rel="external">MHaroonBaig/MotionKit</a>：为核心运动框架（The Core Motion framework）提供友好的类库封装，以更方便使用三轴陀螺仪和加速感应器特性。</li>
+<li><a href="https://github.com/uber/jetstream-ios" target="_blank" rel="external">uber/jetstream-ios</a>：一款 Uber 的 MVC 框架。它同时提供了多用户实时通讯支持，一旦启动 JetStream 后端服务，通过 WebSocket 协议可以分分钟建立多用户实时通讯应用。</li>
+<li><a href="https://github.com/jessesquires/JSQNotificationObserverKit" target="_blank" rel="external">jessesquires/JSQNotificationObserverKit</a>：一款轻量、易用的通知发送及响应框架类库。作者是知名开源项目 JSQMessagesViewController（Objective-C 版即时聊天）的作者 Jesse Squires ，也是一位知名博主，收录过其文章『An analysis of sorts between Objective-C and Swift』。</li>
+<li><a href="https://github.com/morizotter/TouchVisualizer" target="_blank" rel="external">morizotter/TouchVisualizer</a>：实用的多点触摸可视化组件。扩展并作用于 UIWindows，结构上提供了简单地针对触摸显示定制，比如触摸点的颜色。这个组件对于需要做应用演示的同学尤其有用。</li>
+<li><a href="https://github.com/FutureKit/FutureKit" target="_blank" rel="external">FutureKit/FutureKit</a>：“是一个 100% Swift 实现的 Future/Promises 库，由 Swift Generic 带来的类型安全、由 GCD 带来的线程安全，通过 FutureKit 可以在 iOS/OS X 下灵活玩转 Future/Promises 式编程了”。推荐者：<a href="http://weibo.com/tualatrix" target="_blank" rel="external">@图拉鼎</a></li>
+<li><a href="https://github.com/SwiftBond/Bond" target="_blank" rel="external">SwiftBond/Bond</a>：使用简单、易于理解的对象绑定框架。比如：你可以使用代码 textField -&gt;&gt; label 将输入框文本映射到标签中的文字属性，当文本变化时，标签文字随动变化。 真的很方便。</li>
+<li><a href="https://github.com/nabilfreeman/ios-universal-webview-boilerplate" target="_blank" rel="external">nabilfreeman/ios-universal-webview-boilerplate</a>： 快速封装 WebApp 到 iOS 应用，即便你毫无 Swift 编程经验。</li>
+<li><a href="https://github.com/FabrizioBrancati/BFKit-Swift" target="_blank" rel="external">FabrizioBrancati/BFKit-Swift</a>：作者说这套工具库可以提高应用开发效率。不知效果如果？有兴趣的同学可以试用一下。</li>
+</ul>
+</li>
+<li><p>UI组件</p>
+<ul>
+<li><a href="https://github.com/jcavar/refresher" target="_blank" rel="external">jcavar/refresher</a>：一个常用的下拉即刷新列表工具类，提供开放接口定制刷新动态变换效果。</li>
+<li><a href="https://github.com/ariok/BWWalkthrough" target="_blank" rel="external">ariok/BWWalkthrough</a>：让你的页面切换动起来，示例效果杠杠的。作者还提供了比较完整的开发文档及示例解说。</li>
+<li><a href="https://github.com/vikmeup/SCLAlertView-Swift" target="_blank" rel="external">vikmeup/SCLAlertView-Swift</a>：动画效果弹出框封装库（管理于 CocoaPods），使用也足够方便。试着运行了一下，效果还不错。</li>
+<li><a href="https://github.com/varshylmobile/MapManager" target="_blank" rel="external">varshylmobile/MapManager</a>:地图管理封装库（默认支持Google和Apple地图服务）。</li>
+<li><a href="https://github.com/varshylmobile/LocationManager" target="_blank" rel="external">varshylmobile/LocationManager</a>：位置管理封装库（默认支持 Google 和 Apple 地图服务）。</li>
+<li><a href="https://github.com/neoneye/SwiftyFORM" target="_blank" rel="external">neoneye/SwiftyFORM</a>：表单输入框架（亮点是表单验证规则引擎），是我见过地最易用的 Swift 表单组件。</li>
+<li><a href="https://github.com/ortuman/SwiftForms" target="_blank" rel="external">ortuman/SwiftForms</a>：这个表单递交库简单实用，支持主要数据类型及定制。快速开发利器。</li>
+<li><a href="https://github.com/kentya6/KYCircularProgress" target="_blank" rel="external">kentya6/KYCircularProgress</a>：这个进程条类库实现及使用都很简单，支持进程路径的定制，灵活方便。</li>
+<li><a href="https://github.com/coolbeet/CBStoreHouseRefreshControl" target="_blank" rel="external">coolbeet/CBStoreHouseRefreshControl</a>：这个下拉刷新库，提供完全可定制进度变换效果，且极具艺术感。建议有能力的同学把 Objective-C 版本改写为Swift版本。</li>
+<li><a href="https://github.com/kevinzhow/PNChart-Swift" target="_blank" rel="external">kevinzhow/PNChart-Swift</a>：PNChart 的 Swift 版实现。PNChart <a href="http://t.cn/zRWXJCZ" target="_blank" rel="external">http://t.cn/zRWXJCZ</a> 是饼图、折线图、柱状图等常用可视化图表工具类库。开发者：<a href="http://weibo.com/kevinzhow" target="_blank" rel="external">@周楷雯Kevin</a></li>
+<li><a href="https://github.com/exchangegroup/Dodo" target="_blank" rel="external">exchangegroup/Dodo</a>：一款轻量地可定制信息栏小组件。包含 success, info, warning 及 error 类型消息展现。提供基本的按扭及事件绑定。</li>
+<li><a href="https://github.com/codestergit/SweetAlert-iOS" target="_blank" rel="external">codestergit/SweetAlert-iOS</a>：该弹窗控件设计简单直接，功能完整，动画效果恰如其分。实在不可多得，必须收录。</li>
+<li><a href="https://github.com/Ramotion/animated-tab-bar" target="_blank" rel="external">Ramotion/animated-tab-bar</a>：一款灵动的动画标签栏类库。可在 storyboard 中直接使用，非常方便。Demo 效果非常漂亮。连续三天 GitHub 分类排名第一，且迅速过 600 星。它的代码并非复杂或特别，相信大家中意它的还是其设计感。</li>
+<li><a href="https://github.com/Ramotion/paper-switch" target="_blank" rel="external">Ramotion/paper-switch</a>：类库实现了当 Switch 组件开/关切换时，平滑过渡到父视图的变换效果功能（核心类继承了 UISwitch）。P.S. 该开发者也是这几天热门项目 Ramotion/animated-tab-bar 的作者。</li>
+<li><a href="https://github.com/FahimF/FloatLabelFields" target="_blank" rel="external">FahimF/FloatLabelFields</a>： 基于”<a href="http://mattdsmith.com/float-label-pattern/" target="_blank" rel="external">Float Label Pattern</a>“的内嵌浮动标签输入效果 Swift 版实现类库。</li>
+<li><a href="https://github.com/cemolcay/ReorderableGridView-Swift" target="_blank" rel="external">cemolcay/ReorderableGridView</a>：可以拖拽排列 Grid 框格的 UI 组件。功能说明完整，使用方便，应该是一个不错的 UI “轮子”。</li>
+<li><a href="https://github.com/zhxnlai/ZLBalancedFlowLayout" target="_blank" rel="external">zhxnlai/ZLBalancedFlowLayout</a>：一个通过调整 cell 大小来利用空间的 UICollectionViewFlowLayout 子类。</li>
+<li><a href="https://github.com/uacaps/PageMenu" target="_blank" rel="external">uacaps/PageMenu</a>：分页式菜单控制及动态页视图切换。这款控件比较实用，且提供 CocoaPods 安装。</li>
+<li><a href="https://github.com/Yalantis/Side-Menu.iOS" target="_blank" rel="external">Yalantis/Side-Menu.iOS</a>：一款带动画效果可定制 Slide Menu，可以学习其动画实现思路。P.S. 对于 Hamburger 式菜单，虽然很常用，不过，苹果并不鼓励使用，甚至有开发小组对其弊病用自家上线应用前后数据对比<a href="https://redbooth.com/blog/hamburger-menu-iphone-app" target="_blank" rel="external">进行了抨击</a>，仅做参考。</li>
+<li><a href="https://github.com/Mozharovsky/CVCalendar" target="_blank" rel="external">Mozharovsky/CVCalendar</a>：开源 Swift 版日历组件及示例。该项目开发者充分使用了面向对象设计思想，让开发者可以更容易扩展及定制功能。同时，该开发者还提供了详细的组件使用方法（Storyboard 和代码方式指南）。</li>
+<li><a href="https://github.com/dekatotoro/SlideMenuControllerSwift" target="_blank" rel="external">dekatotoro/SlideMenuControllerSwift</a>：这是一个侧滑菜单弹窗 UI 组件，它提供高度可定制参数及完整示例。另外，组件代码集中，易用，仅一个核心类 <a href="https://github.com/dekatotoro/SlideMenuControllerSwift/blob/master/Source/SlideMenuController.swift" target="_blank" rel="external">SlideMenuController.swift</a> 。</li>
+<li><a href="https://github.com/rhcad/ShapeAnimation-Swift" target="_blank" rel="external">rhcad/ShapeAnimation-Swift</a>：功能强大、使用简单的矢量动画框架。支持多层级，多形状，渐变以及各种常见的动画变化效果。绘图核心基于该作者另一个近期很火的开源项目 <a href="https://github.com/schwa/SwiftGraphics" target="_blank" rel="external">schwa/SwiftGraphics</a>。</li>
+<li><a href="https://github.com/raulriera/TextFieldEffects" target="_blank" rel="external">raulriera/TextFieldEffects</a>：具有不同输入风格及变化效果的标签和文本框组件库。它的原型来自 <a href="http://tympanus.net/codrops/2015/01/08/inspiration-text-input-effects/" target="_blank" rel="external">codrops</a> 的 JS/CSS 项目。P.S. 我曾经还推荐过另一款基于 “Float Label Pattern” 风格类似项目 <a href="https://github.com/FahimF/FloatLabelFields" target="_blank" rel="external">FloatLabelFields</a>，与之一样优秀。</li>
+<li><a href="https://github.com/MengTo/Spring" target="_blank" rel="external">MengTo/Spring</a>：不仅具有极简制作动画的 API ，还提供 Demo 界面调试动画效果，并生成相应代码。建议同学们在 Xcode 中运行体验一次，相信这个开源项目足够让你惊艳。已将其收入《<a href="https://github.com/ipader/SwiftGuide/blob/master/Featured.md" target="_blank" rel="external">Swift 开源项目精选</a>》。</li>
+<li><a href="https://github.com/icanzilb/SwiftSpinner" target="_blank" rel="external">icanzilb/SwiftSpinner</a>：这个图文结合进程条功能完整，整体效果还很酷。当然，使用也很简单。值得收录。</li>
+<li><a href="https://github.com/ichaelbabiy/RMParallax" target="_blank" rel="external">michaelbabiy/RMParallax</a>：在应用启动时，提供简单帮助向导步骤的界面组件及示例程序。</li>
+<li><a href="https://github.com/ggamecrazy/LoadingImageView" target="_blank" rel="external">ggamecrazy/LoadingImageView</a>：简单实用的异步图片加载类库及示例。使用方便，功能独立、完整（离线存储也在计划中）。</li>
+<li><a href="https://github.com/pixyzehn/MediumScrollFullScreen" target="_blank" rel="external">pixyzehn/MediumScrollFullScreen</a>：上下滚动时，全屏显示内容，并自然消隐上下菜单。由此项目感知，作者是一位很注重细节的开发者，<a href="https://github.com/pixyzehn" target="_blank" rel="external">他</a>的另外几个菜单类项目也都不错，值得参考，比如：PathMenu, MediumMenu 等。</li>
+<li><a href="https://github.com/MoZhouqi/KMPlaceholderTextView" target="_blank" rel="external">MoZhouqi/KMPlaceholderTextView</a>：可显示多行 placeholder 的 textView，实现逻辑简单、巧妙。</li>
+<li><a href="https://github.com/prine/ROStorageBar" target="_blank" rel="external">prine/ROStorageBar</a>：存储器使用情况指示条组件，显示参数丰富，易于使用。开始以为它也包含了计算功能，可惜并没有，只是一个纯界面的小组件。不过，仍然有一定的实用性。</li>
+<li><a href="https://github.com/Yalantis/Persei" target="_blank" rel="external">Yalantis/Persei</a>：动画隐藏或显示顶部菜单支持库及示例项目。P.S. Yalantis 这个开发商，在 GitHub 上展示开发能力，Dribbble 上展示交互设计能力，并在 Behance 推广项目。整体展现了其出众的软件过程管理及综合开发实力。非常值得国内开发者学习。</li>
+<li><a href="https://github.com/KyleGoddard/KGFloatingDrawer" target="_blank" rel="external">KyleGoddard/KGFloatingDrawer</a>：一款适合于大屏手机或平板的浮动抽屉式导航界面组件。效果很赞。</li>
+<li><a href="https://github.com/zemirco/swift-linechart" target="_blank" rel="external">zemirco/swift-linechart</a>：功能完整、实用的折线图组件。使用方便，参数配置简单。是不可多得的优质组件。</li>
+<li><a href="https://github.com/khawars/KSTokenView" target="_blank" rel="external">khawars/KSTokenView</a>：带搜索、快捷输入、分段显示关键词的增强输入组件。作者提供了丰富地配置参数。主体功能同群发短信时选择、编辑好友群。</li>
+<li><a href="https://github.com/andreamazz/GearRefreshControl" target="_blank" rel="external">andreamazz/GearRefreshControl</a>：这款下拉刷新动画是我所看到最没违和感的一个。</li>
+<li><a href="https://github.com/micazeve/MAGearRefreshControl" target="_blank" rel="external">micazeve/MAGearRefreshControl</a>：同样是下拉即刷新，看看人家花了多大的心思写<a href="https://github.com/micazeve/MAGearRefreshControl/blob/master/Classes/MAGearRefreshControl.swift" target="_blank" rel="external">代码</a>。另一位开发者也实现在类似动画效果 <a href="https://github.com/andreamazz/GearRefreshControl" target="_blank" rel="external">andreamazz/GearRefreshControl</a>，可以感受一下编程的多变性。</li>
+<li><a href="https://github.com/gali8/Tesseract-OCR-iOS" target="_blank" rel="external">gali8/Tesseract-OCR-iOS</a>：OCR 文字识别也有相应 iOS 项目。虽然是 Objective C 版，不过，提供 CocoaPods 三方库引用。与 Android 版师出同门。属于主流开源项目。</li>
+<li><a href="https://github.com/Akkyie/AKPickerView-Swift" target="_blank" rel="external">Akkyie/AKPickerView-Swift</a>：AKPickerView O网页链接：一款小而美的 3D 效果选择器。P.S. 作者分别提供了 CocoaPods 和 Carthage 两种方式的三方接口对外引用和指南，Carthage 获得越来越多主流开发者重视了。</li>
+<li><a href="https://github.com/danielgindi/ios-charts" target="_blank" rel="external">danielgindi/ios-charts</a>：一款优秀 Android 图表开源库 MPAndroidChart 的 Swift 语言实现版（支持 Objective-C 和 Swift 调用）。缺省提供的示例代码为 Objective-C。P.S. 当然 <a href="http://weibo.com/kevinzhow" target="_blank" rel="external">@周楷雯Kevin</a> 同学的 <a href="https://github.com/kevinzhow/PNChart-Swift" target="_blank" rel="external">PNChart-Swift</a> 也不容错过，同学们可以各取所需比较使用。</li>
+<li><a href="https://github.com/scotteg/LayerPlayer" target="_blank" rel="external">scotteg/LayerPlayer</a>：一款全面展示核心动画 API 示例项目（<a href="https://itunes.apple.com/app/layer-player/id949768742" target="_blank" rel="external">上架应用</a>）。包括 CALayer, CAScrollLayer, CATextLayer, AVPlayerLayer, CAGradientLayer, CAReplicatorLayer, CATiledLayer, CAShapeLayer, CAEAGLLayer, CATransformLayer, CAEmitterLayer 等使用的互动演示。RayWenderlich 有针对该项目的 <a href="http://www.raywenderlich.com/90488/calayer-in-ios-with-swift-10-examples" target="_blank" rel="external">撰文解读</a>（<a href="http://www.cocoachina.com/ios/20150318/11350.html" target="_blank" rel="external">中译文</a> By <a href="http://weibo.com/u/2708375871" target="_blank" rel="external">@TurtleFromMars</a>），与开发者 Scott Gardner 的 <a href="http://www.raywenderlich.com/90919/great-calayer-tour-tech-talk-video" target="_blank" rel="external">视频讨论</a>。</li>
+<li><a href="https://github.com/ReactiveCocoa/ReactiveAnimation" target="_blank" rel="external">ReactiveCocoa/ReactiveAnimation</a>：“ReactiveCocoa 推出了一个叫 ReactiveAnimation 的子项目，直接用完全用 Swift 来实现了。国外开发者社区就是拽啊！ By <a href="http://weibo.com/tualatrix" target="_blank" rel="external">@图拉鼎</a>”。</li>
+<li><a href="https://github.com/larcus94/BRNImagePickerSheet" target="_blank" rel="external">larcus94/BRNImagePickerSheet</a>：图片或视频选择器（可多选）组件及其示例项目。P.S. 作者推荐低藕、非侵入式三方库依赖引用方案 Carthage，从 iOS 8 开始，越来越多开发者推荐 Carthage 做为标配了。</li>
+<li><a href="https://github.com/JayGajjar/JGTransitionCollectionView" target="_blank" rel="external">JayGajjar/JGTransitionCollectionView</a>：基于集合视图扩展实现完成自动布局及单元项 Flip 式动画效果（效果很赞）。组件使用方便、自然（只需设置集合视图数据源的标准方式即可）。</li>
+<li><a href="https://github.com/knutigro/COBezierTableView" target="_blank" rel="external">knutigro/COBezierTableView</a>：通过编辑 Bezier 曲线四点位置设置 TableView 内 Cell 及对应按扭位置。实验效果很赞。#为开源点赞#</li>
+<li><a href="https://github.com/jozsef-vesza/ExpandingStackCells" target="_blank" rel="external">jozsef-vesza/ExpandingStackCells</a>：采用 UIStackView 实现表格单元格扩展内容显示示例及解决方案。</li>
+<li><a href="https://github.com/szk-atmosphere/SAHistoryNavigationViewController" target="_blank" rel="external">szk-atmosphere/SAHistoryNavigationViewController</a>：通过继承 UIViewController 并扩展 UICollectionView，UINavigationController，NSLayoutConstraint 等界面及布局控制核心类，应用内模拟实现 iOS 任务管理界面及切换组件。</li>
+<li><a href="https://github.com/szk-atmosphere/SABlurImageView" target="_blank" rel="external">szk-atmosphere/SABlurImageView</a>：支持渐变动画效果的图像模糊化类库。P.S. 与前几天推存类库 SAHistoryNavigationViewController 是同一位作者。</li>
+<li><a href="https://github.com/cocoatoucher/AIFlatSwitch" target="_blank" rel="external">cocoatoucher/AIFlatSwitch</a>：一款带平滑过渡动画的 Switch 组件类。记得之前收录过两款相同风格的 <a href="https://github.com/robb/hamburger-button" target="_blank" rel="external">Hamburger - Menu/Close</a> 和 <a href="https://github.com/fastred/HamburgerButton" target="_blank" rel="external">Hamburger - Menu/Back</a>。都是精细之作。</li>
+<li><a href="https://github.com/GabrielAlva/Swift-Prompts" target="_blank" rel="external">GabrielAlva/Swift-Prompts</a>：一款漂亮、实用的提示弹窗。使用简单，参数定制完整，还支持窗口拖拽操作。</li>
+<li><a href="https://github.com/inFullMobile/WobbleView" target="_blank" rel="external">inFullMobile/WobbleView</a>：当界面组件过渡时，带波纹摆动效果的组件扩展实现类及示例项目。</li>
+<li><a href="https://github.com/cjwirth/RichEditorView" target="_blank" rel="external">cjwirth/RichEditorView</a>：一套可定制富文本编辑器组件及示例。功能完整、代码简练、实现逻辑巧妙（编辑器核心与 WebView 结合，采用 HTML5 contentEditable 编辑模式，执行JS 配套命令 execCommand 实现富文本编辑功能）。</li>
+<li><a href="https://github.com/SemperIdem/MKMapView-Extension" target="_blank" rel="external">SemperIdem/MKMapView-Extension</a>：“在用     MapKit 的时候发现MKMapView缺少了极其重要的 ZoomLevel 这一个功能，因此便参照了网上的一些OC例程写了一个Swift版本的扩展，允许开发者获取当前地图的缩放级别和设置缩放级别。By <a href="http://weibo.com/moonisky" target="_blank" rel="external">@星夜暮晨</a>”。</li>
+<li><a href="https://github.com/didierbrun/DBPathRecognizer" target="_blank" rel="external">didierbrun/DBPathRecognizer</a>：基于路径模型的手势识别工具（仅一个核心类）。妙处在于作者通过示例项目设置好 A-Z 字母的路径模型后，可以进行相应的手写识别。尽管它可能无法替代专业的手写识别输入，不过对于普通的手势识别还是搓搓有余了。</li>
+<li><a href="https://github.com/Yalantis/GuillotineMenu" target="_blank" rel="external">Yalantis/GuillotineMenu</a>：正如其项目名字一样，这是一款极具创意及突破精神的动画演示项目。P.S. 这家公司（Yalantis）做动画，尤其界面特效出神入化。且 iOS / Android 通吃。</li>
+<li><a href="https://github.com/aryaxt/ScrollPager" target="_blank" rel="external">aryaxt/ScrollPager</a>：一款小巧、易用的页滚界面组件。结合 storyboard 及滚动视图，轻易实现拖拽页滚功能。</li>
+<li><a href="https://github.com/wltrup/iOS-Swift-Circular-Progress-View" target="_blank" rel="external">wltrup/iOS-Swift-Circular-Progress-View</a>：小而精悍地可定制类似 Apple Watch 圆型进程条组件。该组件同时支持代码及 Interface Builder 两种使用方式。</li>
+<li><a href="https://github.com/haaakon/SingleLineShakeAnimation" target="_blank" rel="external">haaakon/SingleLineShakeAnimation</a>：用一行代码给视图加上抖动效果。</li>
+<li><a href="https://github.com/indragiek/MarkdownTextView" target="_blank" rel="external">indragiek/MarkdownTextView</a>：非常轻量、简洁、高效的 Markdown 编辑组件及示例。这样的开源项目太喜欢了。</li>
+<li><a href="https://github.com/nickoneill/PermissionScope" target="_blank" rel="external">nickoneill/PermissionScope</a>：向用户请求 iOS 权限的封装组件。封装库 API 调用非常方便，调用代码也很精简。一个很好的“轮子”，值得收录。</li>
+<li><a href="https://github.com/zhxnlai/UIColor-ChineseTraditionalColors" target="_blank" rel="external">zhxnlai/UIColor-ChineseTraditionalColors</a>：中国传统颜色引用 UIColor 扩展。“UIColor.桃红()，UIColor.竹青() …”，如此引用是否感觉亲切多了。P.S. 好的项目，源于用心，技术次之。这位同学已经深谙其道了。</li>
+<li><a href="https://github.com/zhxnlai/ZLSwipeableViewSwift" target="_blank" rel="external">zhxnlai/ZLSwipeableViewSwift</a>：多变的卡片切换转场动画封装类库。</li>
+<li><a href="https://github.com/FlexMonkey/ShinpuruLayout" target="_blank" rel="external">FlexMonkey/ShinpuruLayout</a>：通过水平和垂直分组模块实现简单、快速布局的组件库。作者提供了多种不同类型的布局示例。</li>
+<li><a href="https://github.com/ziligy/JGFlipMenu" target="_blank" rel="external">ziligy/JGFlipMenu</a>：Flip 式菜单及其对应动画组件。使用也很简单直接 Interface Builder 。赞不赞自己看。</li>
+<li><a href="https://github.com/Draveness/DKChainableAnimationKit" target="_blank" rel="external">Draveness/DKChainableAnimationKit</a>：高可读、链式代码风格动画框架库。</li>
+<li><a href="https://github.com/icanzilb/EasyAnimation" target="_blank" rel="external">icanzilb/EasyAnimation</a>：又一款使用简单、功能强大的动画类库。</li>
+<li><a href="https://github.com/andreamazz/BubbleTransition" target="_blank" rel="external">andreamazz/BubbleTransition</a>：以气泡膨胀和缩小的动画效果来显示切换界面。代码实现很简单，效果很突出。</li>
+<li><a href="https://github.com/KittenYang/KYFloatingBubble" target="_blank" rel="external">KittenYang/KYFloatingBubble</a>：实现iOS7 Game Center浮动气泡的一种思路。示例代码不多，效果还真得赞。</li>
+<li><a href="https://github.com/i-schuetz/SwiftCharts" target="_blank" rel="external">i-schuetz/SwiftCharts</a>：基于层架构设计思想的图表类库。基于层架构，无论定制新的图表类型还是已有图表的叠加，都变得非常的容易。</li>
+<li><a href="https://github.com/tristanhimmelman/ZoomTransition" target="_blank" rel="external">tristanhimmelman/ZoomTransition</a>：通过手势操控图片的放大、缩小、旋转等自由变化效果的组件及示例。</li>
+<li><a href="https://github.com/Yalantis/PullToRefresh" target="_blank" rel="external">Yalantis/PullToRefresh</a>：刷新动画可定制的下拉数据请求更新组件（类库非常简洁易用）。该组件由知名开源开发商 Yalantis 开发，并且还提供了完整动画定制演示项目 <a href="https://github.com/Yalantis/PullToMakeSoup" target="_blank" rel="external">PullToMakeSoup</a></li>
+<li><a href="https://github.com/mikaoj/BSImagePicker" target="_blank" rel="external">mikaoj/BSImagePicker</a>：图片多选组件。接口简单，使用很方便。</li>
+<li><a href="https://github.com/skywinder/GaugeKit" target="_blank" rel="external">skywinder/GaugeKit</a>：模拟实现  Watch 风格运动进程表盘示例。P.S. 顺附  Watch 另一个圆型进程条参考项目 <a href="https://github.com/wltrup/iOS-Swift-Circular-Progress-View" target="_blank" rel="external">iOS-Swift-Circular-Progress-View</a></li>
+<li><a href="https://github.com/wongzigii/Butterfly" target="_blank" rel="external">wongzigii/Butterfly</a>：一款轻量、优雅的缺陷报告及反馈组件。与应用集成极为简单（仅需 2 行代码）。这个“轮子”实在太实用了，强烈推荐。附演示示例动态图。作者：<a href="http://weibo.com/wongzigii" target="_blank" rel="external">@Wongzigii</a></li>
+</ul>
+</li>
+<li><p>测试相关</p>
+<ul>
+<li><a href="https://github.com/kylef/Mockingjay" target="_blank" rel="external">kylef/Mockingjay</a>：在单元测试时，模拟匹配条件的任意 HTTP 请求，该类库集成于 XCTest 框架内。是一套不可多得的快速开发工具库。</li>
+<li><a href="https://github.com/practicalswift/swift-compiler-crashes" target="_blank" rel="external">practicalswift/swift-compiler-crashes</a>：旨在收集使 Swift 编译器崩溃的测试用例。这是一个疯狂又非常有意义的开源项目。可以定期关注一下。P.S. 该开源项目作者最新提示：Xcode 6.3 beta 与 Swift 1.2 已修复了其已发现编译器崩溃级缺陷的 83% 。</li>
+<li><a href="https://github.com/czechboy0/Buildasaur" target="_blank" rel="external">czechboy0/Buildasaur</a>：自动测试 GitHub Pull Requests，以提高团队生产力。Buildasaur 安装条件：Xcode 6+, Xcode Server 4+ 和 GitHub 仓库证书。</li>
+<li><a href="https://github.com/czechboy0/XcodeServerSDK" target="_blank" rel="external">czechboy0/XcodeServerSDK</a>：非官方 Xcode Server SDK 封装库。 P.S. 该 SDK 分离自之前推荐的由该作者开发的自动测试框架 <a href="https://github.com/czechboy0/Buildasaur" target="_blank" rel="external">Buildasaur</a>。</li>
+<li><a href="https://github.com/realm/SwiftCov" target="_blank" rel="external">realm/SwiftCov</a>：Realm 开发的 Swift 代码测试覆盖率命令行工具。大家可以用用看，试试效果如何？</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-示例项目"><a href="#2-示例项目" class="headerlink" title="2. 示例项目"></a><a id="examples"></a>2. 示例项目</h3><ul>
+<li><a href="https://developer.apple.com/wwdc/resources/sample-code/" target="_blank" rel="external">官方示例</a>：”比起 GitHub 上的开源项目来说，官方的代码我觉得是更有参考价值的，比如 Session 406 的代码，Lister，就用一个 Swift 实现的包含 OSX 和 iOS 的” By <a href="http://weibo.com/lancy1014" target="_blank" rel="external">@晨钰Lancy</a></li>
+<li><a href="https://developer.apple.com/library/ios/samplecode/Lister/Introduction/Intro.html" target="_blank" rel="external">官方示例 － Lister</a>：“Lister 这个官方 demo 也跑起来了。Apple 还是很用心的，不仅做了 iOS、Mac 和 Apple Watch 版本，并且为这个 demo 分别用 Objective-C 和 Swift 实现了一遍，最后还配了整整 30 页的文档！By <a href="http://weibo.com/tualatrix" target="_blank" rel="external">@图拉鼎</a>”。官方示例一份顶十份，学走路从官方文档及示例开始。</li>
+<li><a href="https://github.com/tsunghao/learn-swift" target="_blank" rel="external">tsunghao/learn-swift</a>：该项目是 <a href="https://github.com/nettlep/learn-swift" target="_blank" rel="external">nettlep/learn-swift</a> 项目的（正体）中译版。最难能可贵的是原项目最后更新是 6 个多月前了。而中译项目已经更新至 Xcode 6.2(6C131e) ，且下一版（Swift 1.2）正式发布后，作者还会继续更新。</li>
+<li><a href="https://github.com/ipader/SwiftGuide/tree/master/VirtualGS" target="_blank" rel="external">VirtualGS教程示例</a>：以下示例程序来源于林泰前老师<a href="http://weibo.com/limtc" target="_blank" rel="external">微博</a>或<a href="http://blog.sina.com.cn/virtualgs" target="_blank" rel="external">博客</a>发布，为方便大家学习 Swift 编程，有幸获得林老师的准许在这里发布。</li>
+<li><a href="https://github.com/onevcat/Easy-Cal-Swift" target="_blank" rel="external">Easy-Cal-Swift</a>：”实在忍不了 Swift 的数字计算时候的好麻烦的强制转换了，重载了一下加减乘除之类的操作符，这样就不用显式地转换类型了…（对于像我这样现在连补全都没有的孩子来说，能省好多时间啊- -）” By <a href="http://weibo.com/onevcat" target="_blank" rel="external">@onevcat</a></li>
+<li><a href="https://github.com/roadfire/SwiftFonts" target="_blank" rel="external">An app to list the available fonts on iOS</a>：用 Swift 语言调用 UIKit，列出设备内所有字体名称的小程序。</li>
+<li><a href="https://github.com/jxd001/Swift-ZhihuDaily" target="_blank" rel="external">Swift版的知乎日报</a>：学习一门新语言，光看是没有用的，想要快速的掌握它，就得投入到真实项目的开发中，仿照 @YANGReal 的糗事百科，做了一个 Swift 版的知乎日报</li>
+<li><a href="https://github.com/wantedly/swift-rss-sample" target="_blank" rel="external">Swift RSS Sample</a>：用 Swift 语言开发的 RSS 阅读器</li>
+<li><a href="https://github.com/sxyx2008/Swift-PM25" target="_blank" rel="external">Swift版PM2.5的例子</a>：一个很好的 Swift 与 Objective C 协同工作 GitHub 开源项目。用到的开源类库有 <a href="https://github.com/topfunky/hpple" target="_blank" rel="external">TFHpple</a>：以 XPath 方式解析 HTML，<a href="https://github.com/vikmeup/SCLAlertView-Swift" target="_blank" rel="external">SCLAlertView</a>：使用 Swift 写的 AlertView SVProgressHUD 进度条 By <a href="http://weibo.com/qq184675420" target="_blank" rel="external">@荧星诉语</a></li>
+<li><a href="https://github.com/lexrus/LTMorphingLabel" target="_blank" rel="external">lexrus/LTMorphingLabel</a>：实现文字飘入飘出的效果。效果非常赞！</li>
+<li><a href="https://github.com/android1989/CharacterText" target="_blank" rel="external">android1989/CharacterText</a>：相比<a href="https://github.com/lexrus/LTMorphingLabel" target="_blank" rel="external">lexrus/LTMorphingLabel</a> 的各种酷炫效果，这个版本比较简单实用。</li>
+<li><a href="http://t.cn/RveAZ53" target="_blank" rel="external">practicalswift/Pythonic.swift</a>：用 Swift 语言实现 Python 标准库的一部分。然后，用 Swift 写一段 Python 风格的程序，这是 Python 程序员想要的吗？相信这不过是一个实验，以此说明 Swift 语言的多变性、动态性的能力。</li>
+<li><a href="https://github.com/AshRobinson/GoogleWearAlert" target="_blank" rel="external">AshRobinson/GoogleWearAlert</a>：Swift 语言实现模拟 Google Wear 风格 Alert 窗口。</li>
+<li><a href="https://github.com/rafaelconde/ios8-ui-kit" target="_blank" rel="external">rafaelconde/ios8-ui-kit</a>：IOS 8 UI KIT + FOR SKETCH — 最新IOS8免费设计资源</li>
+<li><a href="https://github.com/gemtot/iBeacon" target="_blank" rel="external">gemtot/iBeacon</a>：Swift 版 iBeacon 简单项目（支持最新Beta 6编译）。感兴趣的同学可以学习一下。有关于 Passbook 应用及 Passkit 框架编程知识这里有一篇网友较早发布的<a href="http://blog.csdn.net/eqera/article/details/8136880" target="_blank" rel="external">《iOS 6 - PassKit 编程指南》</a></li>
+<li><a href="https://github.com/evnaz/ENSwiftSideMenu" target="_blank" rel="external">evnaz/ENSwiftSideMenu</a>：一个简单的 Slide 侧拉菜单实现。使用很方便：sideMenu = SideMenu(sourceView: self.view, menuData: [“UIDynamics”, “UIGestures”, “UIBlurEffect”])</li>
+<li><a href="https://github.com/iluuu1994/Pathfinder" target="_blank" rel="external">iluuu1994/Pathfinder</a>：一个有趣的算法类项目。虽然目前只是个演示项目，不过，作者有计划加入更多算法优化程序，同时，也有计划支持3D地图。</li>
+<li><a href="https://github.com/KhaosT/HomeKit-Demo" target="_blank" rel="external">KhaosT/HomeKit-Demo</a> ：HomeKit 演示项目，可以与HomeKit模拟器协同工作。由此进一步思考：HomeKit 配合 iBeacon、蓝牙，甚至更具DIY潜力的树莓派（Raspberry Pi）组成未来家居智控中心，这个方向上的开发潜力巨大。感兴趣的同学可以关注一下。</li>
+<li><a href="https://github.com/mathewsanders/Animated-Transitions-Swift-Tutorial" target="_blank" rel="external">mathewsanders/Animated-Transitions-Swift-Tutorial</a>：结合 Xcode 开发步聚介绍如何开发动画过渡 <a href="http://mathewsanders.com/custom-menu-transitions-in-swift/" target="_blank" rel="external">Prototyping Animatted Transition in Swift(Part I)</a></li>
+<li><a href="http://mathewsanders.com/custom-menu-transitions-in-swift/" target="_blank" rel="external">mathewsanders/Custom-Menu-Transition-Swift-Tutorial](https://github.com/mathewsanders/Custom-Menu-Transition-Swift-Tutorial)：结合Xcode开发步聚介绍如何开发动画过渡 Transition in Swift(Part II)</a></li>
+<li><a href="https://github.com/vandadnp/iOS-8-Swift-Programming-Cookbook" target="_blank" rel="external">vandadnp/iOS-8-Swift-Programming-Cookbook</a>：来自《 O’Reilly’s iOS 8 Swift Programming Cookbook》的配套示例。书买不买另说，如此即时、完整、丰富的新书示例项目真不多见。悟性好的同学，开发时参考一下示例是不是就不用买书了？</li>
+<li><a href="https://github.com/ide/UIVisualEffects" target="_blank" rel="external">ide/UIVisualEffects</a>：Swift 实现模糊化等视觉效果示例代码。代码详见<a href="https://github.com/ide/UIVisualEffects/blob/master/UIVisualEffects/ViewController.swift" target="_blank" rel="external">这里</a></li>
+<li><a href="https://github.com/sxyx2008/FoodPin" target="_blank" rel="external">sxyx2008/FoodPin</a>：如此完整的 Swift 示例项目，可以帮助学习到不少Swift编程技巧。”用Swift写的一个功能比较完善的App，参照 Beginning iOS 8 Programming with Swift 一书。功能比较完善。AutoLayout、Core Animation、Core Data、国际化等。” By <a href="http://weibo.com/qq184675420" target="_blank" rel="external">@荧星诉语</a></li>
+<li><a href="https://github.com/MoZhouqi/PhotoBrowser" target="_blank" rel="external">PhotoBrowser</a>：”展示 Instagram 授权用户发布的照片的 App，参考了Ray Wenderlich 的 Alamofire 教程，还用了 SwiftyJSON 和 FastImageCache。” By <a href="http://weibo.com/u/2626996387" target="_blank" rel="external">@Kyrrr</a></li>
+<li><a href="https://github.com/dekatotoro/SlideMenuControllerSwift" target="_blank" rel="external">dekatotoro/SlideMenuControllerSwift</a>：这是一个侧滑菜单弹窗 UI 组件，它提供高度可定制参数及完整示例。另外，组件代码集中，易用，仅一个核心类 <a href="https://github.com/dekatotoro/SlideMenuControllerSwift/blob/master/Source/SlideMenuController.swift" target="_blank" rel="external">SlideMenuController.swift</a> 。</li>
+<li><a href="https://github.com/mslathrop/SwiftNote" target="_blank" rel="external">mslathrop/SwiftNote</a>：一款简单的笔记应用及其 Today 插件。可惜开发者还不知道如何与 iCloud 进行数据同步，有兴趣的同学可以参与一下。</li>
+<li><a href="https://github.com/gcollazo/mongodbapp" target="_blank" rel="external">gcollazo/mongodbapp</a>：实现在Mac系统菜单栏上快捷启动/停止 MongoDB 的 Swift 项目。代码简单、易读，且核心代码全部在 <a href="https://github.com/gcollazo/mongodbapp/blob/master/MongoDB/AppDelegate.swift" target="_blank" rel="external">AppDelegate.swift</a></li>
+<li><a href="https://github.com/441088327/SYKeyboardTextField" target="_blank" rel="external">441088327/SYKeyboardTextField</a>：“开源一个我自己写的键盘附随输入框，为Swift做些贡献”。 作者：<a href="http://weibo.com/ysy441088327" target="_blank" rel="external">@余书懿</a></li>
+<li><a href="https://github.com/dasdom/BreakOutToRefresh" target="_blank" rel="external">dasdom/BreakOutToRefresh</a>：下拉加载刷新时，嵌入了用 SpriteKit 框架写的有趣的小游戏播放页。P.S. 此例中作者嵌入的或许并没有让你耳目一新，甚至感到有点牵强，不过，若嵌入更合适的呢？</li>
+<li><a href="https://github.com/eleks/rnd-apple-watch-tesla" target="_blank" rel="external">eleks/rnd-apple-watch-tesla</a>：Apple Watch 操作 Tesla 汽车。可惜是 Objective C 版本的，否则，Swift 同学又是一次很好的学习机会。</li>
+<li><a href="https://github.com/kenshin03/Cherry" target="_blank" rel="external">kenshin03/Cherry</a>：定时器应用，功能包括在手表上新建活动，启动/停止活动，持久化活动数据在 iPhone，在 Glances 中查看活动状态并可直接切换至该应用。P.S. 该应用由作者之前开发的 Objective-C 项目采用 Swift 重写后获得。</li>
+<li><a href="https://github.com/slazyk/SINQ" target="_blank" rel="external">slazyk/SINQ</a>：该项目把来自 C#和VB 的 LINQ 集成查询功能吸收了进来。是不是又一次证明了 Swift 吸纳各语言精华的能力很强大，是不是又一次向”大一统”的编程/编译环境迈进了一步？</li>
+<li><a href="https://github.com/MengTo/DesignerNewsApp" target="_blank" rel="external">MengTo/DesignerNewsApp</a>：一款针对 Designer News 网站的完整 iOS 应用，最具特色地是开发者对动画技术得心应手的应用。P.S. 该开发者发布过一套非常完整、实用的优秀动画封装库及演示工具 <a href="http://weibo.com/5167456916/C2l95BHar" target="_blank" rel="external">Spring</a>。</li>
+<li><a href="https://github.com/MoZhouqi/VoiceMemos" target="_blank" rel="external">MoZhouqi/VoiceMemos</a>：“语音笔记本应用。用到了一些 iOS 8 新技术，比如 UISplitViewController、UISearchController、UIAlertController、自定义 Presentations、可视化开发，还有一些语音相关的用法。界面开发的新技术介绍可以参考 <a href="http//weibo.com/onevcat">@onevcat</a> 的 <a href="http://onevcat.com/2014/07/ios-ui-unique/" target="_blank" rel="external">这个帖子</a>”。</li>
+<li><a href="https://github.com/schwa/TimingFunctionEditor" target="_blank" rel="external">schwa/TimingFunctionEditor</a>：贝塞尔曲线编辑器，编辑后可以预览或拷贝代码片段直接使用。P.S. 该项目采用更简单的依赖管理器 <a href="https://github.com/Carthage/Carthage" target="_blank" rel="external">Carthage</a>。</li>
+<li><a href="https://github.com/CarlosButron/Swift" target="_blank" rel="external">CarlosButron/Swift</a>：60 多个 Swift 示例项目及代码集锦，技术及品类几乎涉足方方面面。</li>
+<li><a href="https://github.com/lizyyy/Homeoff" target="_blank" rel="external">lizyyy/Homeoff</a>：“用swift写了一个模仿Launcher通知中心快捷方式的应用。支持 20 个应用，并增加了一个返回到桌面来解放Home键的功能 By <a href="http://weibo.com/u/2028497043" target="_blank" rel="external">@Swift攻略</a>”。</li>
+<li><a href="https://github.com/MakeZL/ZLSwiftRefresh" target="_blank" rel="external">MakeZL/ZLSwiftRefresh</a>：下拉刷新/上拉加载组件扩展及示例。“支持自定义动画，集成简单，兼容 UITableView，CollectionView，ScrollView，WebView”。</li>
+<li><a href="https://github.com/philcn/Auto-Layout-Showcase" target="_blank" rel="external">philcn/Auto-Layout-Showcase</a>：几项常用自动布局技巧示例代码及演示。搭建简单应用够使了。</li>
+<li><a href="https://github.com/FlexMonkey/MetalParticles" target="_blank" rel="external">FlexMonkey/MetalParticles</a>：超强计算、极致渲染，发挥 GPU 最高效能 Metal 框架演示项目。P.S. Metal 框架是并驾于 OpenGL ES 的底层图形计算接口。相比于 OpenGL，它甚至更底层、更接近 GPU。它是需求超强计算及渲染性能要求的游<br>戏平台不二之选。</li>
+<li><a href="https://github.com/Mav3r1ck/Project-RainMan" target="_blank" rel="external">Mav3r1ck/Project-RainMan</a>：一款很酷的天气预报应用。Forcast.io 提供的天气预报 API 很赞。</li>
+<li><a href="https://github.com/kongtomorrow/WatchTransition" target="_blank" rel="external">kongtomorrow/WatchTransition</a>：模拟 Apple Watch 上的动画过渡效果。Objective-C 和 Swift 混搭开发学习参考。</li>
+<li><a href="https://github.com/jessesquires/JSQWebViewController" target="_blank" rel="external">jessesquires/JSQWebViewControlle</a>：一款轻量的 WebKit 浏览器视图控制封装库（使用 WKWebView）。</li>
+<li><a href="https://github.com/radex/DiffyTables" target="_blank" rel="external">radex/DiffyTables</a>：提供在 WatchKit 应用中有效使用表格的实例。完整实现思路作者已经撰写长文 <a href="http://radex.io/watch/diffing/" target="_blank" rel="external">Practical and efficient WatchKit tables with view model diffing</a>。充分理解该文章作者推荐阅读 <a href="http://techblog.thescore.com/2015/05/20/reducing-watchkit-traffic-with-view-models/" target="_blank" rel="external">Reducing WatchKit Traffic With View Models</a></li>
+<li>WWDC 2015 watchOS应用示例：1. <a href="https://developer.apple.com/library/prerelease/watchos/samplecode/Lister/Introduction/Intro.html" target="_blank" rel="external">Lister</a>(大家比较熟了); 2. <a href="https://developer.apple.com/library/prerelease/watchos/samplecode/PotLoc/Introduction/Intro.html" target="_blank" rel="external">PotLoc</a>：使用 CoreLocation 定位；3.<a href="https://developer.apple.com/library/prerelease/watchos/samplecode/WatchKitMoviePlayer/Introduction/Intro.html" target="_blank" rel="external">WatchKitMoviePlayer</a>: 使用 WKInterfaceMovie播放视频。</li>
+<li><a href="https://github.com/mengxiangyue/The-Swift-2.0-Programming-Language-playground" target="_blank" rel="external">The-Swift-2.0-Programming-Language-playground</a>：“自己整理的对应最新发布《The Swift Programming Language》Swift 2.0 一书中的内容的Playground，基本在Playground中包含了书中描述的知识点 By <a href="http://weibo.com/u/1750643861" target="_blank" rel="external">@孟祥月</a>”。</li>
+<li><a href="https://github.com/alskipp/Swift-Diagram-Playgrounds" target="_blank" rel="external">alskipp/Swift-Diagram-Playgrounds</a>：面向协议的编程示例 Playgrounds 。P.S. 编程技术真是日新月异啊。</li>
+<li><a href="https://github.com/jstart/UIStackView-Playground" target="_blank" rel="external">jstart/UIStackView-Playground</a>：采用 UIStackView 平铺式自动布局演示示例 Playground。#为开源点赞# P.S. 顺附 <a href="http://www.cnblogs.com/tieria/p/4572882.html" target="_blank" rel="external">UIStackView 官方文档译文</a> By <a href="http://weibo.com/tieria0512" target="_blank" rel="external">@潇湘TT</a>。</li>
+<li><a href="https://github.com/phpmaple/Stick-Hero-Swift" target="_blank" rel="external">phpmaple/Stick-Hero-Swift</a>：“开源小游戏Stick-Hero，和大家一起学习Swift2和Spritekit，基础功能完成，后续添加一些细节方面设计 By <a href="http://weibo.com/phpmaple" target="_blank" rel="external">@KooFrank</a>”。#Swift 2#</li>
+</ul>
+<h3 id="3-完整项目"><a href="#3-完整项目" class="headerlink" title="3. 完整项目"></a><a id="projects"></a>3. 完整项目</h3><ul>
+<li><a href="https://github.com/insidegui/WWDC" target="_blank" rel="external">WWDC app for OS X</a>：去年还只是一个会后的脑补演示项目。而今年已然成为追剧观看的超实用项目。连编译都懒得做的同学直接<a href="https://github.com/insidegui/WWDC/blob/master/Releases/WWDC_latest.zip?raw=true" target="_blank" rel="external">下载应用</a>即可。</li>
+<li><a href="https://github.com/fullstackio/FlappySwift" target="_blank" rel="external">fullstackio/FlappySwift</a>：用 Swift 语言实现的 FlappyBird</li>
+<li><a href="https://github.com/JakeLin/SwiftWeather" target="_blank" rel="external">JakeLin/SwiftWeather</a>：天气预报iOS项目，新界面还不错，简单，还带点卡通的味道</li>
+<li><a href="https://github.com/TakeFiveInteractive/WeatherMap" target="_blank" rel="external">akeFiveInteractive/WeatherMap</a>：基于地图的天气预报（上架）应用。比较适合长途自驾游的同学。</li>
+<li><a href="https://github.com/tnantoka/edhita" target="_blank" rel="external">tnantoka/edhita</a>：edhita 是一款用 Swift 重写并完全开源的文本编辑器。AppStore 上已经有更新版下载。试用后感觉还不错。它甚至支持 Markdown, HTML 等文件编辑后的预览显示。</li>
+<li><a href="https://github.com/jurre/TravisToday" target="_blank" rel="external">jurre/TravisToday</a>：一个功能相对完整的服务于 Travis CI 系统的 OS X 应用扩展 Today 项目案例。</li>
+<li><a href="https://github.com/stakes/Frameless" target="_blank" rel="external">stakes/Frameless</a>：一款基于 WKWebView 的最小化全屏浏览器，主要功能是方便开发者采用HTML5做原型设计或 App 发布。对于测试工程师或喜欢极简、全屏浏览用户，可以直接在<a href="https://itunes.apple.com/us/app/id933580264" target="_blank" rel="external">AppStore下载</a>使用。</li>
+<li><a href="https://github.com/mozilla/firefox-ios" target="_blank" rel="external">mozilla/firefox-ios</a>：Swift 写的 iOS 版 Firefox。P.S. 第三方库用到了 Alamofire, Snappy, swift-json 等，内置阅读器还使用了 Readability。</li>
+<li><a href="https://github.com/lexrus/VPNOn" target="_blank" rel="external">lexrus/VPNOn</a>：一款驻在通知中心内的基于 Today 扩展的 VPN 开关应用。</li>
+<li><a href="https://github.com/victor/whereami" target="_blank" rel="external">victor/whereami</a>：一款用 Swift 语言写的通过命令行获得当前设备地理位置程序。虽然很简单，不过，实用性及学习性俱佳。</li>
+<li><a href="https://github.com/Ahmed-Ali/RealmObjectEditor" target="_blank" rel="external">Ahmed-Ali/RealmObjectEditor</a>：Realm 数据库 Swift 版开源编辑器。提供针对实体，属性及关系的编辑功能，完成后可以将实体结构导出为 Swift, Objective-C 或 Java 类模型。非常实用。</li>
+<li><a href="https://github.com/jpsim/DeckRocket" target="_blank" rel="external">jpsim/DeckRocket</a>：在相同 WiFi 网络环境内，通过 iPhone 控制并播放 Mac 中的 PDF 文档。ft 编译器崩溃的测试用例。这是一个疯狂又非常有意义的开源项目。可以定期关注一下。P.S. 该开源项目作者最新提示：Xcode 6.3 beta 与 Swift 1.2 已修复了其已发现编译器崩溃级缺陷的 83%。</li>
+<li><a href="https://github.com/Carthage/Carthage" target="_blank" rel="external">Carthage/Carthage</a>：更简单的方式来管理 Cocoa 第三方框架。有了 CocoaPods 为何还要使用 Carthage，作者在 README.md（<a href="http://www.cocoachina.com/ios/20141204/10528.html" target="_blank" rel="external">中译</a>） 已经做了充分说明。</li>
+<li><a href="https://github.com/artsy/eidolon" target="_blank" rel="external">artsy/eidolon</a>：艺术品拍卖的投标亭平台。作者提供了一个<a href="http://artsy.github.io/blog/2014/11/13/eidolon-retrospective/" target="_blank" rel="external">很励志的开发故事</a>：从商业创意到最终实现。心路历程从不开源到开源，从 Objective-C 到 Swift（去年夏天的事，现在当然是 Swift），以及选择时髦的反应式编程框架 ReactiveCocoa……</li>
+<li><a href="https://github.com/mortenjust/androidtool-mac" target="_blank" rel="external">mortenjust/androidtool-mac</a>：“一款用 Swift 写的可在 Mac 上使用的 Android 工具, 支持一键截屏, 视频录制, APK 安装等功能”。</li>
+<li><a href="https://github.com/lexrus/JSCoreDemo" target="_blank" rel="external">lexrus/JSCoreDemo</a>：“演示了一下怎样在 Swift 里用 JavaScriptCore 把原生功能桥接给 JS 用，代码少很容易理解”。简单、易懂的基础演示代码。P.S. 希望进阶学习的同学，这里有一个完整项目供参考 <a href="https://github.com/cjwirth/RichEditorView" target="_blank" rel="external">RichEditorView</a>：基于 HTML 5 的可定制富文本编辑器组件及示例。</li>
+<li><a href="https://github.com/gilesvangruisen/Swift-YouTube-Player" target="_blank" rel="external">gilesvangruisen/Swift-YouTube-Player</a>：用不了的同学就当学习吧。或参考并试着写个 Swift-(…)-Player。</li>
+<li><a href="https://github.com/Imperiopolis/WatchScreenshotMagic" target="_blank" rel="external">Imperiopolis/WatchScreenshotMagic</a>：快速生成干净、漂亮的 Apple Watch 截图的实用工具应用。</li>
+<li><a href="https://github.com/beltex/dshb" target="_blank" rel="external">beltex/dshb</a>：OS X 系统状态（CPU、电池、内存、温度传感器、风扇及杂项）监视器应用。每秒刷新文本界面，极低系统开销。</li>
+<li><a href="https://github.com/nscoding/sleep-osx" target="_blank" rel="external">nscoding/sleep-osx</a>：在 Spotlight 中输入 sleep 即休眠你的 Mac。实现特别简单，几行代码而已。</li>
+<li><a href="https://github.com/dasdom/Tomate" target="_blank" rel="external">dasdom/Tomate</a>：这个圆盘式计时器让你更专注于工作或学习。P.S. <a href="https://itunes.apple.com/de/app/fojusi/id923044693" target="_blank" rel="external">App Store 上架收费应用</a>（0.99 欧），开发者福利呀。</li>
+</ul>
+<h3 id="3-项目评测"><a href="#3-项目评测" class="headerlink" title="3. 项目评测"></a><a id="project_reviews"></a>3. 项目评测</h3><ul>
+<li><a href="http://jbguide.me/2014/12/18/workflow-review-what-is-workflow/" target="_blank" rel="external">【Workflow 测评】Workflow 是款什么软件？</a>（作者：<a href="http://weibo.com/jailbreakhum" target="_blank" rel="external">@JailbreakHum</a>）：”除了圣诞降价以外最近最火的软件话题应当是 #Workflow# 了。如果你没接触过此类软件,或许会纳闷它有何魅力。我们针对这款软件的测评系列的第一篇就是来向你概述它是什么软件的,所以文中给出大多是基本知识,不过相信也会给老手一定的启发。”</li>
+</ul>
+<h2 id="相关工具"><a href="#相关工具" class="headerlink" title="相关工具"></a><a id="tools"></a>相关工具</h2><h3 id="1-开发工具"><a href="#1-开发工具" class="headerlink" title="1. 开发工具"></a>1. 开发工具</h3><ul>
+<li><a href="https://developer.apple.com/swift/resources/" target="_blank" rel="external">Xcode 6 beta下载</a>：苹果应用集成开发环境。支持 C/C++, Objective C, Swift 等。不用购买开发者计划，直接下载。</li>
+<li><a href="http://macromates.com/" target="_blank" rel="external">Textmate</a>：Mac OS X 上一个可高度自定义的编辑器，尤其在我想做出一个快速改变但又不想等待 Xcode 加载的时候。该工具目前已经<a href="https://github.com/textmate/textmate" target="_blank" rel="external">开源</a></li>
+<li><a href="http://mouapp.com/" target="_blank" rel="external">Mou</a>：OS X 上一款 Markdown 的编辑器。非常适用于编写自述文件、变更日志以及其他方面的内容。作者：<a href="http://chenluois.com/" target="_blank" rel="external">罗晨</a></li>
+<li><a href="http://www.sublimetext.com/" target="_blank" rel="external">Sublime Text ($)</a>：Mac OS X 上另一款非常受欢迎的轻量级，可高度自定义的编辑器。</li>
+<li><a href="http://www.runswiftlang.com/" target="_blank" rel="external">RunSwift</a>:正在犹豫是否入手苹果电脑开始一段 Swift 编程旅程的同学们，或仅仅为了试验一段简单 Swift 代码又懒得打开 Xcode，可以试试这款 Web 版 Swift 编译环境 RunSwift。</li>
+<li><a href="http://infinitapps.com/bezel" target="_blank" rel="external">InfinitApps - Bezel</a>：“嫌 Xcode 6 目前提供的 Watch 模拟器不够直观？Bezel 是一个用于视觉预览 WatchKit 所开发程序效果的小工具，前提是你安装了 xScope 软件（Mac端）或 xScopeMirror（iPhone端）。 By <a href="http://weibo.com/twios" target="_blank" rel="external">@WatchKit开发</a>”</li>
+<li><a href="https://github.com/jas/playground" target="_blank" rel="external">Markdown -&gt; Playground</a>：该开源项目可将内含有 Swift 代码的 Markdown 自动转换为 Xcode Playgrounds 文件。喜欢用 Markdown 编辑的同学很激动吧。P.S. 这款工具写于 NodeJS，原因作者有交待。</li>
+<li><a href="http://constraints.icodeforlove.com/" target="_blank" rel="external">iOS/Mac Autolayout Constraints</a>：这个工具不错，很直观，布局时可以省不少工夫。推荐者：<a href="http://weibo.com/qq184675420" target="_blank" rel="external">@荧星诉语</a></li>
+<li><a href="https://appscreens.io/yK7cLuBNij" target="_blank" rel="external">在线生成 AppStore 审核用截图</a>：便捷的生产力工具。免费，易操作，可自定义。</li>
+</ul>
+<h3 id="2-代码管理"><a href="#2-代码管理" class="headerlink" title="2. 代码管理"></a>2. 代码管理</h3><ul>
+<li><a href="http://github.com/" target="_blank" rel="external">GitHub</a>：声望日盛的资源分享之地。</li>
+<li><a href="https://mac.github.com/" target="_blank" rel="external">GitHub for Mac</a>：一个设计的非常美观的 git 客户端，不能取代你从命令行获得的所有功能，但使用起来非常简单。</li>
+<li><a href="http://gitcafe.com" target="_blank" rel="external">GitCafe</a>：GitCafe is a source code hosting service based on version control system Git。国内的代码托管服务，基于 Git，值得一提的是最近也推出了和 GitHub Pages 类似的服务 Gitcafe Pages。因为是在国内，所以相比较 GitHub 有速度优势，在网络环境差的情况下也许可以作为 GitHub 的备用。</li>
+<li><a href="https://bitbucket.org/" target="_blank" rel="external">Bitbucket</a>：国外的代码托管服务，不同于 GitHub 的是，Bitbucket 可以免费建立 private 项目。</li>
+<li><a href="http://git-scm.com/" target="_blank" rel="external">Git</a>：分布式版本控制系统和源码管理系统，其优点是：快和简单易用。对于新手来说，可在此查看免费电子书籍。</li>
+</ul>
+<h3 id="3-Xcode-插件"><a href="#3-Xcode-插件" class="headerlink" title="3. Xcode 插件"></a>3. Xcode 插件</h3><ul>
+<li><a href="http://beta.cocoapods.org/" target="_blank" rel="external">CocoaPods</a>：第三方库的管理利器，允许你简单地把第三方库整合进自己的应用中。对我个人来说，我基本上每个项目都使用 CocoaPods。</li>
+<li><a href="https://github.com/kattrali/cocoapods-xcode-plugin" target="_blank" rel="external">CocoaPods Xcode Plugin</a>：一款 Xcode 插件，允许你直接从 Xcode 管理 CocoaPod 依赖。</li>
+<li><a href="https://github.com/onevcat/VVDocumenter-Xcode" target="_blank" rel="external">onevcat/VVDocumenter-Xcode</a>：快捷注释 Xcode 插件。By <a href="http://weibo.com/onevcat" target="_blank" rel="external">@onevcat</a></li>
+<li><a href="https://github.com/omz/ColorSense-for-Xcode" target="_blank" rel="external">ColorSense</a>：一款显示颜色数值的插件，还可以直接通过系统的ColorPicker来自动生成对应颜色代码</li>
+<li><a href="https://github.com/ddapps/DeepIniOS" target="_blank" rel="external">Xcode 优秀插件整理</a>:持续保持整理更新的 Xcode 插件整理 By <a href="https://github.com/ddapps" target="_blank" rel="external">@ddapps</a></li>
+<li><a href="https://github.com/CodeEagle/SwiftCodeSnippets" target="_blank" rel="external">CodeEagle/SwiftCodeSnippets</a>：自动下载指定 Xcode Snippet 源的 Xcode Plugin。项目缺省提供 Snippet 代码源 <a href="https://github.com/burczyk/XcodeSwiftSnippets/tree/master/plist" target="_blank" rel="external">burczyk/XcodeSwiftSnippets</a> 。</li>
+<li><a href="https://github.com/realm/SwiftLint" target="_blank" rel="external">realm/SwiftLint</a>：Realm 采用 Swift 编写的基于 GitHub’s Swift Style Guide 规则的检查工具。除了命令行运行方式，也提供集成 Xcode 的方法。对于新团队，这样的工具可以自动约束大家遵循编程规范。</li>
+<li><a href="http://joeshang.github.io/2015/04/10/fix-xcode-upgrade-plugin-invalid/" target="_blank" rel="external">XCode 升级后插件失效的原理与修复办法</a>：由一条命令引发的分析文章。<a href="http://weibo.com/u/2068840121" target="_blank" rel="external">@_TongJZ</a></li>
+<li><a href="https://github.com/feinstruktur/CoPilot" target="_blank" rel="external">feinstruktur/CoPilot</a>：通过此插件，Xcode 可以协同编程了（采用 WebSocket 通讯）。如此强大的“黑工具”，不爱它能行吗。<a href="https://vimeo.com/128713880" target="_blank" rel="external">演示视频</a></li>
+</ul>
+<h3 id="4-管理工具"><a href="#4-管理工具" class="headerlink" title="4. 管理工具"></a>4. 管理工具</h3><ul>
+<li><a href="http://brew.sh/index_zh-cn.html" target="_blank" rel="external">HomeBrew</a>：OS X 上非常出色的包管理工具。</li>
+<li><a href="http://panic.com/transmit/" target="_blank" rel="external">Transmit ($)</a>：一个Mac OS X 上 FTP 客户端，有着非常漂亮的用户界面和有用的功能。</li>
+</ul>
+<h3 id="5-调试工具"><a href="#5-调试工具" class="headerlink" title="5. 调试工具"></a>5. 调试工具</h3><ul>
+<li><a href="http://fuckingclangwarnings.com/" target="_blank" rel="external">mattt/fuckingclangwarnings.com</a>：警告与语义对照表。以后再也不用为 Xcode 各种警告纠结啦！By <a href="http://weibo.com/foogry" target="_blank" rel="external">@foogry</a></li>
+</ul>
+<h3 id="6-参考文章"><a href="#6-参考文章" class="headerlink" title="6. 参考文章"></a>6. 参考文章</h3><ul>
+<li><a href="http://www.cocoachina.com/newbie/basic/2014/0417/8187.html" target="_blank" rel="external">iOS 开发工具</a>：”这是我们多篇 iOS 开发工具系列篇中的一篇，此前的文章比如：那些不能错过的 Xcode 插件，iOS 开发者有价值的工具集，iOS/OS X 开发：各种工具快到碗里来！，App 原型设计工具使用心得（上）&amp; App 原型设计工具使用心得（下），你用哪种工具进行 iOS app 自动化功能测试？iOS 开发者必知的 75 个工具” By @CocoaChina</li>
+<li><a href="http://www.cnblogs.com/daiweilai/p/4421340.html" target="_blank" rel="external">IOS 各种调试技巧豪华套餐</a>：讲得很细。对于初学 Xcode 开发的同学值得参考，对于有经验的同学可以略过。作者：<a href="http://weibo.com/daiweilai" target="_blank" rel="external">@David戴未来</a></li>
+<li><a href="http://www.cocoachina.com/ios/20150423/11658.html" target="_blank" rel="external">详解Xcode 6的视图调试</a>：教程非常实用，值得学习。另外，教程选用的开源项目（<a href="https://github.com/jessesquires/JSQMessagesViewController" target="_blank" rel="external">jessesquires/JSQMessagesViewController</a>）也很经典。来源：Ray Wenderlich，译者：<a href="http://weibo.com/cocoachina" target="_blank" rel="external">@CocoaChina</a> 翻译组</li>
+</ul>
+<h3 id="7-示例项目"><a href="#7-示例项目" class="headerlink" title="7. 示例项目"></a>7. 示例项目</h3><ul>
+<li><a href="https://github.com/dominic/ViewSource" target="_blank" rel="external">ViewSource(Swift+Objective-C)</a>：通过 iOS 8 Extension 实现让 Web 工程师喜欢的”显示网页源代码”。</li>
+<li><a href="https://github.com/indragiek/Unzip" target="_blank" rel="external">indragiek/Unzip</a>：浏览ZIP文件的 iOS 8 Action 扩展。</li>
+</ul>
+<h3 id="8-实用资源"><a href="#8-实用资源" class="headerlink" title="8. 实用资源"></a>8. 实用资源</h3><ul>
+<li><a href="https://github.com/google/material-design-icons" target="_blank" rel="external">google/material-design-icons</a> ：对于喜欢 Material Design 风格的同学，这是难得好资源。Google 提供了极为完整的各种图标（包含 iOS 各种精度及 SVG）设计资源。</li>
+<li><a href="https://github.com/hxgdzyuyi/tang_poetry" target="_blank" rel="external">全唐诗数据库</a>：SQLite 数据库脚本。</li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/01/20/Android蓝牙链接有关问题总结/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Android蓝牙链接有关问题总结
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/10/27/IOS9AdaptationTips/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">IOS9AdaptationTips</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="swift-open-project" data-title="swift-open-project" data-url="http://wait.im/2015/11/12/swift-open-project/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"wait"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 thinkloki
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
