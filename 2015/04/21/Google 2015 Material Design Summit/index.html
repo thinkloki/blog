@@ -290,32 +290,32 @@ var _hmt = _hmt || [];
 <li>新分级制度(IARC)(5月前没做，就会列入未分级，甚至会被下架或找不到)</li>
 <li>符合不同年龄层的app</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">严禁app有root行为; </div><div class="line">不能自己升级; </div><div class="line">不允许应用内部的应用推荐（必须经过Google Play）</div></pre></td></tr></table></figure>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">严禁app有root行为<span class="comment">; </span></div><div class="line">不能自己升级<span class="comment">; </span></div><div class="line">不允许应用内部的应用推荐（必须经过Google Play）</div></pre></td></tr></table></figure>
 <p>###II. 应用质量</p>
 <p>####该做</p>
 <ul>
 <li>返回键:</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">应该回到上个界面 ，上部分返回键(up)可以相同与不同。</div><div class="line">Webview: back button: 返回上一页; up button(通常会更重一些): 返回上一个Activity</div></pre></td></tr></table></figure>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">应该回到上个界面 ，上部分返回键(up)可以相同与不同。</div><div class="line"><span class="symbol">Webview:</span> <span class="keyword">back </span><span class="keyword">button: </span>返回上一页<span class="comment">; up button(通常会更重一些): 返回上一个Activity</span></div></pre></td></tr></table></figure>
 <ul>
 <li>正确支持ActionBar</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">推荐使用Google主题的 </div><div class="line">推荐widget用 Android 标准的; </div><div class="line">TabBar推荐放上面 </div><div class="line">可以考虑不需要返回键(up); </div><div class="line">推荐不用右箭头 </div><div class="line">不推荐使用弃用的一些UI（如：右下角三点推荐不用, 放在ActionBar右上角(overflow)）</div></pre></td></tr></table></figure>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">推荐使用Google主题的 </div><div class="line">推荐widget用 <span class="keyword">Android </span>标准的<span class="comment">; </span></div><div class="line">TabBar推荐放上面 </div><div class="line">可以考虑不需要返回键(up)<span class="comment">; </span></div><div class="line">推荐不用右箭头 </div><div class="line">不推荐使用弃用的一些UI（如：右下角三点推荐不用, 放在ActionBar右上角(overflow)）</div></pre></td></tr></table></figure>
 <ul>
 <li>参考Android语言风格</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">尽量简短、精简。</div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">尽量简短、精简。</div></pre></td></tr></table></figure>
 <ul>
 <li>在Tabs上支持滑动手势</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">强烈建议</div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">强烈建议</div></pre></td></tr></table></figure>
 <p>####不该做的</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">风格上不该模范平台上的用户体验（应该用Android的标准）</div><div class="line">不该使用其他平台的图标（应该用: github上Google有发布一些通用的图标）</div><div class="line">不该两个bar都放在下面，（应该分上bar与下bar）(上bar浏览、nav通常是下)</div><div class="line">不该使用 标记back buttons</div><div class="line">不应该使用右箭头按钮</div><div class="line">不应该(不建议)使用一些弃用的按钮(如底部的menu button)(Target SDK尽量高)</div></pre></td></tr></table></figure>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">风格上不该模范平台上的用户体验（应该用<span class="keyword">Android的标准）</span></div><div class="line">不该使用其他平台的图标（应该用: github上Google有发布一些通用的图标）</div><div class="line">不该两个<span class="keyword">bar都放在下面，（应该分上bar与下bar）(上bar浏览、nav通常是下)</span></div><div class="line">不该使用 标记<span class="keyword">back </span><span class="keyword">buttons</span></div><div class="line">不应该使用右箭头按钮</div><div class="line">不应该(不建议)使用一些弃用的按钮(如底部的menu <span class="keyword">button)(Target </span>SDK尽量高)</div></pre></td></tr></table></figure>
 <p>###III. Android风格演进</p>
 <blockquote>
 <p>获得2014 UX Awards Gold Award Winner<br>宗旨: 界面由电子的纸 z轴叠加而成</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">会叠加影子(**android.support.v7.cardview**带有md属性)</div><div class="line">高度可能根据交互变化</div><div class="line">用影子的深度来诠释当前内容的重要性(如dialog)）</div><div class="line">顶部黏合</div><div class="line">规范的字体大小、颜色深浅来呈现整体布局</div><div class="line">字体大小规范，google有给出建议</div><div class="line">字体类型也有建议(英文(**ROBOTO**))</div><div class="line">整体排版Android Studio给出排版工具</div><div class="line">颜色重要性(primary、primaryDark、accent)</div><div class="line">Google Api，给一张图片，会给出几种颜色</div><div class="line">有意义的动画（考虑动作的连接性）(交互反馈)(可以有一些调皮的动画(取悦用户))</div></pre></td></tr></table></figure>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">会叠加影子<span class="comment">(**android.support.v7.cardview**带有md属性)</span></div><div class="line">高度可能根据交互变化</div><div class="line">用影子的深度来诠释当前内容的重要性(如dialog)）</div><div class="line">顶部黏合</div><div class="line">规范的字体大小、颜色深浅来呈现整体布局</div><div class="line">字体大小规范，google有给出建议</div><div class="line">字体类型也有建议(英文(**ROBOTO**))</div><div class="line">整体排版Android Studio给出排版工具</div><div class="line">颜色重要性(primary、primaryDark、accent)</div><div class="line">Google Api，给一张图片，会给出几种颜色</div><div class="line">有意义的动画（考虑动作的连接性）(交互反馈)(可以有一些调皮的动画(取悦用户))</div></pre></td></tr></table></figure>
 <p>###IV. Links</p>
 <ul>
 <li><a href="http://google.com/design" target="_blank" rel="external">Google Design</a></li>
