@@ -127,7 +127,7 @@ var _hmt = _hmt || [];
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Foundation/" style="font-size: 10px;">Foundation</a> <a href="/tags/Google/" style="font-size: 10px;">Google</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IOS/" style="font-size: 15px;">IOS</a> <a href="/tags/JAVA/" style="font-size: 17.5px;">JAVA</a> <a href="/tags/MAC-OS/" style="font-size: 10px;">MAC OS</a> <a href="/tags/Material-Design/" style="font-size: 12.5px;">Material Design</a> <a href="/tags/Objective-C/" style="font-size: 10px;">Objective-C</a> <a href="/tags/open/" style="font-size: 10px;">open</a> <a href="/tags/swift/" style="font-size: 10px;">swift</a> <a href="/tags/优化/" style="font-size: 10px;">优化</a> <a href="/tags/内存/" style="font-size: 15px;">内存</a> <a href="/tags/动画/" style="font-size: 10px;">动画</a> <a href="/tags/多线程/" style="font-size: 10px;">多线程</a> <a href="/tags/热点/" style="font-size: 10px;">热点</a> <a href="/tags/调试/" style="font-size: 10px;">调试</a> <a href="/tags/随笔/" style="font-size: 12.5px;">随笔</a>
+						<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Foundation/" style="font-size: 10px;">Foundation</a> <a href="/tags/Google/" style="font-size: 10px;">Google</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IOS/" style="font-size: 15px;">IOS</a> <a href="/tags/JAVA/" style="font-size: 17.5px;">JAVA</a> <a href="/tags/MAC-OS/" style="font-size: 10px;">MAC OS</a> <a href="/tags/Material-Design/" style="font-size: 12.5px;">Material Design</a> <a href="/tags/Objective-C/" style="font-size: 10px;">Objective-C</a> <a href="/tags/open/" style="font-size: 10px;">open</a> <a href="/tags/swift/" style="font-size: 10px;">swift</a> <a href="/tags/优化/" style="font-size: 10px;">优化</a> <a href="/tags/内存/" style="font-size: 15px;">内存</a> <a href="/tags/动画/" style="font-size: 10px;">动画</a> <a href="/tags/多线程/" style="font-size: 10px;">多线程</a> <a href="/tags/热点/" style="font-size: 10px;">热点</a> <a href="/tags/调试/" style="font-size: 10px;">调试</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
 					</div>
 				</section>
 				
@@ -210,91 +210,6 @@ var _hmt = _hmt || [];
 	</div>
 </nav>
       <div class="body-wrap">
-  
-    <article id="post-Android Design Support Library简单使用" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/01/24/Android Design Support Library简单使用/" class="article-date">
-  	<time datetime="2015-01-24T08:23:36.000Z" itemprop="datePublished">2015-01-24</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/24/Android Design Support Library简单使用/">Android Design Support Library简单使用</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Android 5.0 Lollipop为我们带来了<strong>Material Design</strong>,这是一个全新的设计语言，给Android带来了全新的体验，我个人决定Material很漂亮，然而那时候官方的支持却不太完善，FAB（Float Action Button）、想写一个漂亮的NavigationView都需要用一些开源库，而在<strong>GoogleIO</strong>大会上，谷歌为我们带来了<strong>Android Design Support Library</strong>,其中包括了很多原生的MD控件，例如：navigation drawer view, floating labels,floating action button, snackbar, tabs, CoordinatorLayout，CollapsingToolbarLayout等，更重要的是兼容到了Android2.1以上的设备，现在还有什么理由不上MD风格呢？</p>
-<p>####请看下面的视频，是这个教程的最终效果。</p>
-<iframe src="https://player.vimeo.com/video/134689608" width="500" height="888" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen></iframe>
-
-<p>####Step One</p>
-<p>首先要引入Android Design Support Library到你项目中，在build.gradle中加入一行代码：</p>
-<figure class="highlight gauss"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">compile</span> 'com.android.support:<span class="built_in">design</span>:<span class="number">22.2</span><span class="number">.0</span>'</div></pre></td></tr></table></figure>
-<p>Design Library依赖于 Support v4 和 AppCompat v7，DesignLibrary会自动引入这两个库文件。</p>
-<p>####Step Two</p>
-<p>1.新建color.xml，加入以下代码，颜色值可以参考<a href="http://www.google.com/design/spec/style/color.html#color-color-palette" target="_blank" rel="external">Google Corlor Spec</a>:</p>
-<figure class="highlight xl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;<span class="built_in">color</span> <span class="keyword">name</span>=<span class="string">"colorPrimaryDark"</span>&gt;#<span class="number">303</span>F9F&lt;/<span class="built_in">color</span>&gt;</div><div class="line">&lt;<span class="built_in">color</span> <span class="keyword">name</span>=<span class="string">"colorPrimary"</span>&gt;#<span class="number">3</span>F51B5&lt;/<span class="built_in">color</span>&gt;</div><div class="line">&lt;<span class="built_in">color</span> <span class="keyword">name</span>=<span class="string">"colorAccent"</span>&gt;#FF4081&lt;/<span class="built_in">color</span>&gt;</div><div class="line">&lt;<span class="built_in">color</span> <span class="keyword">name</span>=<span class="string">"textColorLight"</span>&gt;#FFF&lt;/<span class="built_in">color</span>&gt;</div><div class="line">&lt;<span class="built_in">color</span> <span class="keyword">name</span>=<span class="string">"textColorPrimary"</span>&gt;#<span class="number">212121</span>&lt;/<span class="built_in">color</span>&gt;</div><div class="line">&lt;<span class="built_in">color</span> <span class="keyword">name</span>=<span class="string">"textColorSecondary"</span>&gt;#<span class="number">727272</span>&lt;/<span class="built_in">color</span>&gt;</div></pre></td></tr></table></figure>
-<p>2.打开styles.xml,添加以下代码，BaseTheme继承了Light.NoActionBar，取消了默认的ActionBar，谷歌现在推荐用Toolbar，colorPrimary代表toolbar的背景颜色，colorPrimaryDark代表状态栏的颜色，colorAccent代表一些UI组件的颜色，比如Checkbox等</p>
-<p><img src="http://source.wait.im/QQ20151111-1@2x.png" alt=""></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- Base application theme. --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"AppTheme"</span> <span class="attr">parent</span>=<span class="string">"AppTheme.Base"</span>&gt;</span><span class="undefined"></span></div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"AppTheme.Base"</span> <span class="attr">parent</span>=<span class="string">"Theme.AppCompat.Light.NoActionBar"</span>&gt;</span><span class="xml"></span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorPrimaryDark"</span>&gt;</span>@color/colorPrimaryDark<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorPrimary"</span>&gt;</span>@color/colorPrimary<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorAccent"</span>&gt;</span>@color/colorAccent<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:textColorPrimary"</span>&gt;</span>@color/textColorPrimary<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:textColorSecondary"</span>&gt;</span>@color/textColorSecondary<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>####Step Three</p>
-<ol>
-<li><a href="https://developer.android.com/intl/zh-cn/reference/android/support/v4/widget/DrawerLayout.html" target="_blank" rel="external">DrawerLayout</a>是一个可以侧滑的内容的容器，将DrawerLayout作为父视图，增加一个view包含主体内容(即导航栏关闭时你的默认布局)，另一个子节点包含导航栏的内容,NavigationView的layout_gravity可以设置为start|end或者left|right，代表左滑或者右滑，暂时不用管CoordinatorLayout和AppBarLayout，代码如下：</li>
-</ol>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span><span class="meta">?&gt;</span></span></div><div class="line"><span class="tag">&lt;<span class="name">FrameLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"190dp"</span></div><div class="line">    <span class="attr">android:background</span>=<span class="string">"?attr/colorPrimary"</span></div><div class="line">    <span class="attr">android:orientation</span>=<span class="string">"vertical"</span>&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">RelativeLayout</span></span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">        &gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">com.example.RoundedImageView</span></span></div><div class="line">            <span class="attr">android:id</span>=<span class="string">"@+id/header_image"</span></div><div class="line">            <span class="attr">android:layout_width</span>=<span class="string">"72dp"</span></div><div class="line">            <span class="attr">android:layout_height</span>=<span class="string">"72dp"</span></div><div class="line">            <span class="attr">android:padding</span>=<span class="string">"18dp"</span></div><div class="line">            <span class="attr">android:src</span>=<span class="string">"@drawable/header_girl"</span></div><div class="line">            <span class="attr">android:layout_above</span>=<span class="string">"@+id/header_text_title"</span></div><div class="line">            <span class="attr">android:layout_alignParentLeft</span>=<span class="string">"true"</span></div><div class="line">            <span class="attr">android:layout_alignParentStart</span>=<span class="string">"true"</span></div><div class="line">            <span class="attr">android:layout_marginLeft</span>=<span class="string">"16dp"</span></div><div class="line">            <span class="attr">android:layout_marginStart</span>=<span class="string">"16dp"</span> /&gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line">            <span class="attr">android:id</span>=<span class="string">"@+id/header_text_title"</span></div><div class="line">            <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">            <span class="attr">android:layout_above</span>=<span class="string">"@+id/header_email"</span></div><div class="line">            <span class="attr">android:gravity</span>=<span class="string">"left"</span></div><div class="line">            <span class="attr">android:paddingTop</span>=<span class="string">"16dp"</span></div><div class="line">            <span class="attr">android:paddingLeft</span>=<span class="string">"16dp"</span></div><div class="line">            <span class="attr">android:text</span>=<span class="string">"松开你的手"</span></div><div class="line">            <span class="attr">android:textSize</span>=<span class="string">"14sp"</span></div><div class="line">            <span class="attr">android:textStyle</span>=<span class="string">"bold"</span></div><div class="line">            <span class="attr">android:textColor</span>=<span class="string">"@color/textColorLight"</span> /&gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line">            <span class="attr">android:id</span>=<span class="string">"@+id/header_email"</span></div><div class="line">            <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">            <span class="attr">android:paddingTop</span>=<span class="string">"8dp"</span></div><div class="line">            <span class="attr">android:paddingLeft</span>=<span class="string">"16dp"</span></div><div class="line">            <span class="attr">android:paddingBottom</span>=<span class="string">"8dp"</span></div><div class="line">            <span class="attr">android:layout_alignParentBottom</span>=<span class="string">"true"</span></div><div class="line">            <span class="attr">android:text</span>=<span class="string">"aCoder2013@163.com"</span></div><div class="line">            <span class="attr">android:textStyle</span>=<span class="string">"bold"</span></div><div class="line">            <span class="attr">android:textSize</span>=<span class="string">"14sp"</span></div><div class="line">            <span class="attr">android:textColor</span>=<span class="string">"@color/textColorLight"</span></div><div class="line">            /&gt;</div><div class="line">    <span class="tag">&lt;/<span class="name">RelativeLayout</span>&gt;</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">FrameLayout</span>&gt;</span></div></pre></td></tr></table></figure>
-<ol>
-<li>headerLayout代表导航栏上方的布局，其中FrameLayout的layout_height 我这里设置为190dp,也可以设置为wrap_content,RoundedImageView是一个自定义ImageView,将图片转换成圆形的，这样比较美观。</li>
-</ol>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span><span class="meta">?&gt;</span></span></div><div class="line"><span class="tag">&lt;<span class="name">FrameLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"190dp"</span></div><div class="line">    <span class="attr">android:background</span>=<span class="string">"?attr/colorPrimary"</span></div><div class="line">    <span class="attr">android:orientation</span>=<span class="string">"vertical"</span>&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">RelativeLayout</span></span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">        &gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">com.example.RoundedImageView</span></span></div><div class="line">            <span class="attr">android:id</span>=<span class="string">"@+id/header_image"</span></div><div class="line">            <span class="attr">android:layout_width</span>=<span class="string">"72dp"</span></div><div class="line">            <span class="attr">android:layout_height</span>=<span class="string">"72dp"</span></div><div class="line">            <span class="attr">android:padding</span>=<span class="string">"18dp"</span></div><div class="line">            <span class="attr">android:src</span>=<span class="string">"@drawable/header_girl"</span></div><div class="line">            <span class="attr">android:layout_above</span>=<span class="string">"@+id/header_text_title"</span></div><div class="line">            <span class="attr">android:layout_alignParentLeft</span>=<span class="string">"true"</span></div><div class="line">            <span class="attr">android:layout_alignParentStart</span>=<span class="string">"true"</span></div><div class="line">            <span class="attr">android:layout_marginLeft</span>=<span class="string">"16dp"</span></div><div class="line">            <span class="attr">android:layout_marginStart</span>=<span class="string">"16dp"</span> /&gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line">            <span class="attr">android:id</span>=<span class="string">"@+id/header_text_title"</span></div><div class="line">            <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">            <span class="attr">android:layout_above</span>=<span class="string">"@+id/header_email"</span></div><div class="line">            <span class="attr">android:gravity</span>=<span class="string">"left"</span></div><div class="line">            <span class="attr">android:paddingTop</span>=<span class="string">"16dp"</span></div><div class="line">            <span class="attr">android:paddingLeft</span>=<span class="string">"16dp"</span></div><div class="line">            <span class="attr">android:text</span>=<span class="string">"松开你的手"</span></div><div class="line">            <span class="attr">android:textSize</span>=<span class="string">"14sp"</span></div><div class="line">            <span class="attr">android:textStyle</span>=<span class="string">"bold"</span></div><div class="line">            <span class="attr">android:textColor</span>=<span class="string">"@color/textColorLight"</span> /&gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line">            <span class="attr">android:id</span>=<span class="string">"@+id/header_email"</span></div><div class="line">            <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">            <span class="attr">android:paddingTop</span>=<span class="string">"8dp"</span></div><div class="line">            <span class="attr">android:paddingLeft</span>=<span class="string">"16dp"</span></div><div class="line">            <span class="attr">android:paddingBottom</span>=<span class="string">"8dp"</span></div><div class="line">            <span class="attr">android:layout_alignParentBottom</span>=<span class="string">"true"</span></div><div class="line">            <span class="attr">android:text</span>=<span class="string">"aCoder2013@163.com"</span></div><div class="line">            <span class="attr">android:textStyle</span>=<span class="string">"bold"</span></div><div class="line">            <span class="attr">android:textSize</span>=<span class="string">"14sp"</span></div><div class="line">            <span class="attr">android:textColor</span>=<span class="string">"@color/textColorLight"</span></div><div class="line">            /&gt;</div><div class="line">    <span class="tag">&lt;/<span class="name">RelativeLayout</span>&gt;</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">FrameLayout</span>&gt;</span></div></pre></td></tr></table></figure>
-<ol>
-<li>新建一个菜单文件menu_nav_drawer，表示header_layout下方的所有选项，例如主页，设置等；android:checkableBehavior的可选项有：none代表无法选中，all代表所有的项都可以被选中(用CheckBoxes)，single代表是有一个项可以被 选中，android:checked表示选中状态，android:icon表示其显示的图标，谷歌提供了默认的：<a href="http://www.google.com/design/icons/" target="_blank" rel="external">Icon</a></li>
-</ol>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span><span class="meta">?&gt;</span></span></div><div class="line"><span class="tag">&lt;<span class="name">menu</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">group</span> <span class="attr">android:checkableBehavior</span>=<span class="string">"single"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span></span></div><div class="line">            <span class="attr">android:id</span>=<span class="string">"@+id/action_home_page"</span></div><div class="line">            <span class="attr">android:checked</span>=<span class="string">"true"</span></div><div class="line">            <span class="attr">android:icon</span>=<span class="string">"@drawable/ic_home_white_24dp"</span></div><div class="line">            <span class="attr">android:title</span>=<span class="string">"@string/home_page"</span>/&gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">item</span></span></div><div class="line">            <span class="attr">android:id</span>=<span class="string">"@+id/action_follow"</span></div><div class="line">            <span class="attr">android:icon</span>=<span class="string">"@drawable/ic_stars_white_24dp"</span></div><div class="line">            <span class="attr">android:title</span>=<span class="string">"@string/my_follow_site"</span>/&gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">item</span>   <span class="attr">android:id</span>=<span class="string">"@+id/action_offline_cache"</span></span></div><div class="line">                <span class="attr">android:title</span>=<span class="string">"@string/offline_cache"</span></div><div class="line">                <span class="attr">android:icon</span>=<span class="string">"@drawable/ic_file_download_white_24dp"</span></div><div class="line">            /&gt;</div><div class="line">        <span class="tag">&lt;<span class="name">item</span>   <span class="attr">android:id</span>=<span class="string">"@+id/search_content"</span></span></div><div class="line">                <span class="attr">android:icon</span>=<span class="string">"@drawable/ic_search_white_24dp"</span></div><div class="line">                <span class="attr">android:title</span>=<span class="string">"@string/search_content"</span>/&gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">item</span>   <span class="attr">android:id</span>=<span class="string">"@+id/action_nav_settings"</span></span></div><div class="line">                <span class="attr">android:title</span>=<span class="string">"@string/setting"</span></div><div class="line">                <span class="attr">android:icon</span>=<span class="string">"@drawable/ic_settings_white_24dp"</span></div><div class="line">            /&gt;</div><div class="line">    <span class="tag">&lt;/<span class="name">group</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">menu</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>####Step Four</p>
-<p>在Activity中初始化所有的组件，<code>DrawerLayout</code>等，</p>
-<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> Toolbar toolbar;</div><div class="line"><span class="keyword">private</span> DrawerLayout drawerLayout;</div><div class="line"><span class="keyword">private</span> ActionBarDrawerToggle actionBarDrawerToggle ;</div><div class="line"><span class="keyword">private</span> NavigationView navigationView;</div><div class="line"><span class="keyword">private</span> CoordinatorLayout rootLayout;</div><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">    setContentView(R.layout.activity_main);</div><div class="line">    initToolbar();</div><div class="line">    initDrawer();</div><div class="line">    initNavigation();</div><div class="line">&#125;</div><div class="line"><span class="keyword">private</span> <span class="function"><span class="keyword">void</span> <span class="title">initToolbar</span><span class="params">()</span> </span>&#123;</div><div class="line">    toolbar = (Toolbar) findViewById(R.id.tool_bar);</div><div class="line">    setSupportActionBar(toolbar);<span class="comment">//用toolbar代替默认的ActionBar</span></div><div class="line">    <span class="comment">//getSupportActionBar()方法得到ActionBar进而更改默认的行为</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">private</span> <span class="function"><span class="keyword">void</span> <span class="title">initDrawer</span><span class="params">()</span> </span>&#123;</div><div class="line">    drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);</div><div class="line">    actionBarDrawerToggle = <span class="keyword">new</span> ActionBarDrawerToggle(<span class="keyword">this</span>, drawerLayout, toolbar,</div><div class="line">            R.string.navigation_drawer_open,</div><div class="line">            R.string.navigation_drawer_close)&#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onDrawerClosed</span><span class="params">(View drawerView)</span> </span>&#123;</div><div class="line">            <span class="keyword">super</span>.onDrawerClosed(drawerView);</div><div class="line">        &#125;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onDrawerOpened</span><span class="params">(View drawerView)</span> </span>&#123;</div><div class="line">            <span class="keyword">super</span>.onDrawerOpened(drawerView);</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">    drawerLayout.setDrawerListener(actionBarDrawerToggle);/设置监听器</div><div class="line">    <span class="comment">//calling sync state is necessay or else your hamburger icon wont show up</span></div><div class="line">    actionBarDrawerToggle.syncState();</div><div class="line">&#125;    </div><div class="line"><span class="keyword">private</span> <span class="function"><span class="keyword">void</span> <span class="title">initNavigation</span><span class="params">()</span> </span>&#123;</div><div class="line">    navigationView = (NavigationView) findViewById(R.id.nav_view);</div><div class="line">    <span class="comment">//监听导航栏菜单点击事件</span></div><div class="line">    navigationView.setNavigationItemSelectedListener(<span class="keyword">new</span> NavigationView.OnNavigationItemSelectedListener() &#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">onNavigationItemSelected</span><span class="params">(MenuItem menuItem)</span> </span>&#123;</div><div class="line">            <span class="keyword">int</span> id = menuItem.getItemId();</div><div class="line">            <span class="keyword">switch</span> (id)&#123;</div><div class="line">                <span class="keyword">case</span> R.id.action_nav_settings:</div><div class="line">                    menuItem.setChecked(<span class="keyword">true</span>);</div><div class="line">                    drawerLayout.closeDrawers();</div><div class="line">                    Intent intent = <span class="keyword">new</span> Intent(MainActivity.<span class="keyword">this</span>, SettingActivity.class);</div><div class="line">                    startActivity(intent);</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>####Step Five: Just Run it<br><img src="http://source.wait.im/QQ20151111-2@2x.png" alt=""><br><img src="http://source.wait.im/QQ20151111-3@2x.png" alt=""></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Material-Design/">Material Design</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
   
     <article id="post-Android性能调优的技术点" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -915,123 +830,6 @@ valueAnimator.setDuration(5000).start();
 
 
   
-    <article id="post-多线程线程通讯和生产者" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2012/07/30/多线程线程通讯和生产者/" class="article-date">
-  	<time datetime="2012-07-29T16:18:36.000Z" itemprop="datePublished">2012-07-30</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2012/07/30/多线程线程通讯和生产者/">多线程线程通讯和生产者</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>线程间通讯——等待唤醒机制<br>1，wait()；是让线程处于冻结状态，被wait线程会被存储到线程池中。<br>2,notify()；唤醒线程池中的一个线程(任意)。<br>3,notifyAll()；唤醒线程池中的所有线程，让线程具备了执行资格。<br>使用时要注意使用在同步中，因为只有同步才会具有锁。<br>调用时需要明确对象，明确是哪个监视器。<br>任意对象可以调用的方法定义在Object里面。</p>
-<p>锁可以是任意对象。<br>为什么这些操作线程方法要定义在Object类中：因为这些方法在操作同步中线程时，都必须要标识它们所操作线程特有的锁，<br>只有同一个锁上的被等待线程，可以被同一个锁上的notify唤醒。<br>不可以对不同锁中的线程进行唤醒。等待和唤醒必须是同一个锁。而锁的对象是任意的，所以可以被任意对象调用的方法定义在Object类中。<br>一、线程间通信：<br>class Res<br>{<br>private String name;<br>private String sex;<br>private boolean flag = false;</p>
-<p>public synchronized void set(String name,String sex)<br>{<br>if(flag)<br>try{this.wait();}catch(Exception e){}<br>this.name = name;</p>
-<p>this.sex = sex;<br>flag = true;<br>this.notify();<br>}<br>public synchronized void out()<br>{<br>if(!flag)<br>try{this.wait();}catch(Exception e){}<br>System.out.println(name+”……..”+sex);<br>flag = false;<br>this.notify();<br>}<br>}</p>
-<p>class Input implements Runnable<br>{<br>private Res r ;<br>Input(Res r)<br>{<br>this.r = r;<br>}<br>public void run()<br>{<br>int x = 0;<br>while(true)<br>{<br>if(x==0)<br>r.set(“mike”,”man”);<br>else<br>r.set(“丽丽”,”女女女女女”);<br>x = (x+1)%2;<br>}<br>}<br>}</p>
-<p>class Output implements Runnable<br>{<br>private Res r ;</p>
-<p>Output(Res r)<br>{<br>this.r = r;<br>}<br>public void run()<br>{<br>while(true)<br>{<br>r.out();<br>}<br>}<br>}</p>
-<p>class  InputOutputDemo2<br>{<br>public static void main(String[] args)<br>{<br>Res r = new Res();</p>
-<p>new Thread(new Input(r)).start();<br>new Thread(new Output(r)).start();<br>/*<br>Input in = new Input(r);<br>Output out = new Output(r);</p>
-<p>Thread t1 = new Thread(in);<br>Thread t2 = new Thread(out);</p>
-<p>t1.start();<br>t2.start();<br>*/<br>}<br>}<br>二、线程间通信-生产者和消费者<br>全部wait，生产和消费者多次判断，用while循环，唤醒时需要唤醒两方的人，这时我们用this.notifyAll().<br>对于多生产者和多消费者。<br>为什么要定义while判断标记。<br>原因：让被唤醒的线程在判断一次标记。<br>定义notifyAll，因为需要唤醒对方线程，只用notify，会出现只唤醒本方线程的情况。导致程序中所有线程都等待。<br>class ProducerConsumerDemo<br>{<br>public static void main(String[] args)<br>{<br>Resource r = new Resource();</p>
-<p>Producer pro = new Producer(r);<br>Consumer con = new Consumer(r);</p>
-<p>Thread t1 = new Thread(pro);<br>Thread t2 = new Thread(pro);<br>Thread t3 = new Thread(con);<br>Thread t4 = new Thread(con);</p>
-<p>t1.start();<br>t2.start();<br>t3.start();<br>t4.start();</p>
-<p>}<br>}</p>
-<p>/*<br>对于多个生产者和消费者。<br>为什么要定义while判断标记。<br>原因：让被唤醒的线程再一次判断标记。</p>
-<p>为什么定义notifyAll，<br>因为需要唤醒对方线程。<br>因为只用notify，容易出现只唤醒本方线程的情况。导致程序中的所有线程都等待。</p>
-<p>*/</p>
-<p>class Resource<br>{<br>private String name;<br>private int count = 1;<br>private boolean flag = false;<br>//  t1    t2<br>public synchronized void set(String name)<br>{<br>while(flag)<br>try{this.wait();}catch(Exception e){}//t1(放弃资格)  t2(获取资格)<br>this.name = name+”–”+count++;</p>
-<p>System.out.println(Thread.currentThread().getName()+”…生产者..”+this.name);<br>flag = true;<br>this.notifyAll();<br>}</p>
-<p>//  t3   t4<br>public synchronized void out()<br>{<br>while(!flag)<br>try{wait();}catch(Exception e){}//t3(放弃资格) t4(放弃资格)<br>System.out.println(Thread.currentThread().getName()+”…消费者………”+this.name);<br>flag = false;<br>this.notifyAll();<br>}<br>}</p>
-<p>class Producer implements Runnable<br>{<br>private Resource res;</p>
-<p>Producer(Resource res)<br>{<br>this.res = res;<br>}<br>public void run()<br>{<br>while(true)<br>{<br>res.set(“+商品+”);<br>}<br>}<br>}</p>
-<p>class Consumer implements Runnable<br>{<br>private Resource res;</p>
-<p>Consumer(Resource res)<br>{<br>this.res = res;<br>}<br>public void run()<br>{<br>while(true)<br>{<br>res.out();<br>}<br>}<br>}<br>三、JDK1.5中提供多线程解决方案。<br>将同步Synchronized替换成现实的Lock操作。<br>将Object中的wait，notify notifyAll，替换了Condition对象。<br>该对象可以Lock锁 进行获取。<br>该示例中，实现了本方只唤醒对方操作。<br>生产者、消费者有什么替代方案？<br>答：1.5版本以后，它提供了显示的锁机制以及显示的锁对象的等待唤醒操作机制，同时对等待唤醒进行了封装。一个锁可以对象多个Condition对象。<br>import java.util.concurrent.locks.*;</p>
-<p>class ProducerConsumerDemo2<br>{<br>public static void main(String[] args)<br>{<br>Resource r = new Resource();</p>
-<p>Producer pro = new Producer(r);<br>Consumer con = new Consumer(r);</p>
-<p>Thread t1 = new Thread(pro);<br>Thread t2 = new Thread(pro);<br>Thread t3 = new Thread(con);<br>Thread t4 = new Thread(con);</p>
-<p>t1.start();<br>t2.start();<br>t3.start();<br>t4.start();</p>
-<p>}<br>}</p>
-<p>/*<br>JDK1.5 中提供了多线程升级解决方案。<br>将同步Synchronized替换成现实Lock操作。<br>将Object中的wait，notify notifyAll，替换了Condition对象。<br>该对象可以Lock锁 进行获取。<br>该示例中，实现了本方只唤醒对方操作。</p>
-<p>Lock:替代了Synchronized<br>lock<br>unlock<br>newCondition()</p>
-<p>Condition：替代了Object wait notify notifyAll<br>await();<br>signal();<br>signalAll();<br>*/<br>class Resource<br>{<br>private String name;<br>private int count = 1;<br>private boolean flag = false;<br>//  t1    t2<br>private Lock lock = new ReentrantLock();</p>
-<p>private Condition condition_pro = lock.newCondition();<br>private Condition condition_con = lock.newCondition();</p>
-<p>public  void set(String name)throws InterruptedException<br>{<br>lock.lock();<br>try<br>{<br>while(flag)<br>condition_pro.await();//t1,t2<br>this.name = name+”–”+count++;</p>
-<p>System.out.println(Thread.currentThread().getName()+”…生产者..”+this.name);<br>flag = true;<br>condition_con.signal();<br>}<br>finally<br>{<br>lock.unlock();//释放锁的动作一定要执行。<br>}<br>}</p>
-<p>//  t3   t4<br>public  void out()throws InterruptedException<br>{<br>lock.lock();<br>try<br>{<br>while(!flag)<br>condition_con.await();<br>System.out.println(Thread.currentThread().getName()+”…消费者………”+this.name);<br>flag = false;<br>condition_pro.signal();<br>}<br>finally<br>{<br>lock.unlock();<br>}</p>
-<p>}<br>}</p>
-<p>class Producer implements Runnable<br>{<br>private Resource res;</p>
-<p>Producer(Resource res)<br>{<br>this.res = res;<br>}<br>public void run()<br>{<br>while(true)<br>{<br>try<br>{<br>res.set(“+商品+”);<br>}<br>catch (InterruptedException e)<br>{<br>}</p>
-<p>}<br>}<br>}</p>
-<p>class Consumer implements Runnable<br>{<br>private Resource res;</p>
-<p>Consumer(Resource res)<br>{<br>this.res = res;<br>}<br>public void run()<br>{<br>while(true)<br>{<br>try<br>{<br>res.out();<br>}<br>catch (InterruptedException e)<br>{<br>}<br>}<br>}<br>}</p>
-<p>四、停止线程<br>只有一种，run方法结束。<br>开启多线程运行，运行代码通常是循环结构。只要控制住循环，就可以让run方法结束，也就是线程结束。<br>特殊情况：<br>当线程处于了冻结状态。就不会读取到标记。那么线程就不会结束。<br>当没有指定的方式让冻结的线程恢复到运行状态是，这时需要对冻结进行清除。强制让线程恢复到运行状态中来。这样就可以操作标记让线程结束。<br>Thread类提供该方法 interrupt();<br>class StopThread implements Runnable<br>{<br>private boolean flag =true;<br>public  void run()<br>{<br>while(flag)<br>{</p>
-<p>System.out.println(Thread.currentThread().getName()+”….run”);<br>}<br>}<br>public void changeFlag()<br>{<br>flag = false;<br>}<br>}</p>
-<p>class  StopThreadDemo<br>{<br>public static void main(String[] args)<br>{<br>StopThread st = new StopThread();</p>
-<p>Thread t1 = new Thread(st);<br>Thread t2 = new Thread(st);</p>
-<p>t1.setDaemon(true);<br>t2.setDaemon(true);<br>t1.start();<br>t2.start();</p>
-<p>int num = 0;</p>
-<p>while(true)<br>{<br>if(num++ == 60)<br>{<br>//st.changeFlag();<br>//t1.interrupt();<br>//t2.interrupt();<br>break;<br>}<br>System.out.println(Thread.currentThread().getName()+”…….”+num);<br>}<br>System.out.println(“over”);<br>}<br>}<br>五、守护线程</p>
-<p>后台进程和前台进程共同抢夺CPU的执行权。</p>
-<p>在启动线程时调用，当正在运行的此案称都是守护线程时，java虚拟机退出。</p>
-<p>六.Join方法</p>
-<p>主线程在向下执行的时候，遇到了join的时候是要申请加入到运行中来（通常来讲就是要有限取得cpu的执行权）主线程的执行权就给了它，此时主线程执行就处于冻结状态，当join结束时，主线程才复活。</p>
-<p>join（）：当需要临时加入一个线程时。</p>
-<p>join的特点：</p>
-<p>当A线程执行到B线程的join（）方法时。A就会等待，等B线程都执行完，A才会执行，join可以用来临时加入线程执行。</p>
-<p>join可以用来临时加入线程执行。</p>
-<p>优先级&amp;yield方法</p>
-<p>线程默认的优先级是5（1—10级）</p>
-<p>MAX_PRIORITY 线程具有的最高优先级。</p>
-<p>MIN_PRIORITY 分配给线程的默认优先级。</p>
-<p>NORM_PRIORITY 线程可以具有的最低优先级。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA/">JAVA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/多线程/">多线程</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
     <article id="post-面对对象基础跟内部类" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -1193,6 +991,123 @@ void&nbsp;inner_f1()
       
 	<div class="article-tag tagcloud">
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA/">JAVA</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-多线程线程通讯和生产者" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2012/07/30/多线程线程通讯和生产者/" class="article-date">
+  	<time datetime="2012-07-29T16:18:36.000Z" itemprop="datePublished">2012-07-30</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/07/30/多线程线程通讯和生产者/">多线程线程通讯和生产者</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>线程间通讯——等待唤醒机制<br>1，wait()；是让线程处于冻结状态，被wait线程会被存储到线程池中。<br>2,notify()；唤醒线程池中的一个线程(任意)。<br>3,notifyAll()；唤醒线程池中的所有线程，让线程具备了执行资格。<br>使用时要注意使用在同步中，因为只有同步才会具有锁。<br>调用时需要明确对象，明确是哪个监视器。<br>任意对象可以调用的方法定义在Object里面。</p>
+<p>锁可以是任意对象。<br>为什么这些操作线程方法要定义在Object类中：因为这些方法在操作同步中线程时，都必须要标识它们所操作线程特有的锁，<br>只有同一个锁上的被等待线程，可以被同一个锁上的notify唤醒。<br>不可以对不同锁中的线程进行唤醒。等待和唤醒必须是同一个锁。而锁的对象是任意的，所以可以被任意对象调用的方法定义在Object类中。<br>一、线程间通信：<br>class Res<br>{<br>private String name;<br>private String sex;<br>private boolean flag = false;</p>
+<p>public synchronized void set(String name,String sex)<br>{<br>if(flag)<br>try{this.wait();}catch(Exception e){}<br>this.name = name;</p>
+<p>this.sex = sex;<br>flag = true;<br>this.notify();<br>}<br>public synchronized void out()<br>{<br>if(!flag)<br>try{this.wait();}catch(Exception e){}<br>System.out.println(name+”……..”+sex);<br>flag = false;<br>this.notify();<br>}<br>}</p>
+<p>class Input implements Runnable<br>{<br>private Res r ;<br>Input(Res r)<br>{<br>this.r = r;<br>}<br>public void run()<br>{<br>int x = 0;<br>while(true)<br>{<br>if(x==0)<br>r.set(“mike”,”man”);<br>else<br>r.set(“丽丽”,”女女女女女”);<br>x = (x+1)%2;<br>}<br>}<br>}</p>
+<p>class Output implements Runnable<br>{<br>private Res r ;</p>
+<p>Output(Res r)<br>{<br>this.r = r;<br>}<br>public void run()<br>{<br>while(true)<br>{<br>r.out();<br>}<br>}<br>}</p>
+<p>class  InputOutputDemo2<br>{<br>public static void main(String[] args)<br>{<br>Res r = new Res();</p>
+<p>new Thread(new Input(r)).start();<br>new Thread(new Output(r)).start();<br>/*<br>Input in = new Input(r);<br>Output out = new Output(r);</p>
+<p>Thread t1 = new Thread(in);<br>Thread t2 = new Thread(out);</p>
+<p>t1.start();<br>t2.start();<br>*/<br>}<br>}<br>二、线程间通信-生产者和消费者<br>全部wait，生产和消费者多次判断，用while循环，唤醒时需要唤醒两方的人，这时我们用this.notifyAll().<br>对于多生产者和多消费者。<br>为什么要定义while判断标记。<br>原因：让被唤醒的线程在判断一次标记。<br>定义notifyAll，因为需要唤醒对方线程，只用notify，会出现只唤醒本方线程的情况。导致程序中所有线程都等待。<br>class ProducerConsumerDemo<br>{<br>public static void main(String[] args)<br>{<br>Resource r = new Resource();</p>
+<p>Producer pro = new Producer(r);<br>Consumer con = new Consumer(r);</p>
+<p>Thread t1 = new Thread(pro);<br>Thread t2 = new Thread(pro);<br>Thread t3 = new Thread(con);<br>Thread t4 = new Thread(con);</p>
+<p>t1.start();<br>t2.start();<br>t3.start();<br>t4.start();</p>
+<p>}<br>}</p>
+<p>/*<br>对于多个生产者和消费者。<br>为什么要定义while判断标记。<br>原因：让被唤醒的线程再一次判断标记。</p>
+<p>为什么定义notifyAll，<br>因为需要唤醒对方线程。<br>因为只用notify，容易出现只唤醒本方线程的情况。导致程序中的所有线程都等待。</p>
+<p>*/</p>
+<p>class Resource<br>{<br>private String name;<br>private int count = 1;<br>private boolean flag = false;<br>//  t1    t2<br>public synchronized void set(String name)<br>{<br>while(flag)<br>try{this.wait();}catch(Exception e){}//t1(放弃资格)  t2(获取资格)<br>this.name = name+”–”+count++;</p>
+<p>System.out.println(Thread.currentThread().getName()+”…生产者..”+this.name);<br>flag = true;<br>this.notifyAll();<br>}</p>
+<p>//  t3   t4<br>public synchronized void out()<br>{<br>while(!flag)<br>try{wait();}catch(Exception e){}//t3(放弃资格) t4(放弃资格)<br>System.out.println(Thread.currentThread().getName()+”…消费者………”+this.name);<br>flag = false;<br>this.notifyAll();<br>}<br>}</p>
+<p>class Producer implements Runnable<br>{<br>private Resource res;</p>
+<p>Producer(Resource res)<br>{<br>this.res = res;<br>}<br>public void run()<br>{<br>while(true)<br>{<br>res.set(“+商品+”);<br>}<br>}<br>}</p>
+<p>class Consumer implements Runnable<br>{<br>private Resource res;</p>
+<p>Consumer(Resource res)<br>{<br>this.res = res;<br>}<br>public void run()<br>{<br>while(true)<br>{<br>res.out();<br>}<br>}<br>}<br>三、JDK1.5中提供多线程解决方案。<br>将同步Synchronized替换成现实的Lock操作。<br>将Object中的wait，notify notifyAll，替换了Condition对象。<br>该对象可以Lock锁 进行获取。<br>该示例中，实现了本方只唤醒对方操作。<br>生产者、消费者有什么替代方案？<br>答：1.5版本以后，它提供了显示的锁机制以及显示的锁对象的等待唤醒操作机制，同时对等待唤醒进行了封装。一个锁可以对象多个Condition对象。<br>import java.util.concurrent.locks.*;</p>
+<p>class ProducerConsumerDemo2<br>{<br>public static void main(String[] args)<br>{<br>Resource r = new Resource();</p>
+<p>Producer pro = new Producer(r);<br>Consumer con = new Consumer(r);</p>
+<p>Thread t1 = new Thread(pro);<br>Thread t2 = new Thread(pro);<br>Thread t3 = new Thread(con);<br>Thread t4 = new Thread(con);</p>
+<p>t1.start();<br>t2.start();<br>t3.start();<br>t4.start();</p>
+<p>}<br>}</p>
+<p>/*<br>JDK1.5 中提供了多线程升级解决方案。<br>将同步Synchronized替换成现实Lock操作。<br>将Object中的wait，notify notifyAll，替换了Condition对象。<br>该对象可以Lock锁 进行获取。<br>该示例中，实现了本方只唤醒对方操作。</p>
+<p>Lock:替代了Synchronized<br>lock<br>unlock<br>newCondition()</p>
+<p>Condition：替代了Object wait notify notifyAll<br>await();<br>signal();<br>signalAll();<br>*/<br>class Resource<br>{<br>private String name;<br>private int count = 1;<br>private boolean flag = false;<br>//  t1    t2<br>private Lock lock = new ReentrantLock();</p>
+<p>private Condition condition_pro = lock.newCondition();<br>private Condition condition_con = lock.newCondition();</p>
+<p>public  void set(String name)throws InterruptedException<br>{<br>lock.lock();<br>try<br>{<br>while(flag)<br>condition_pro.await();//t1,t2<br>this.name = name+”–”+count++;</p>
+<p>System.out.println(Thread.currentThread().getName()+”…生产者..”+this.name);<br>flag = true;<br>condition_con.signal();<br>}<br>finally<br>{<br>lock.unlock();//释放锁的动作一定要执行。<br>}<br>}</p>
+<p>//  t3   t4<br>public  void out()throws InterruptedException<br>{<br>lock.lock();<br>try<br>{<br>while(!flag)<br>condition_con.await();<br>System.out.println(Thread.currentThread().getName()+”…消费者………”+this.name);<br>flag = false;<br>condition_pro.signal();<br>}<br>finally<br>{<br>lock.unlock();<br>}</p>
+<p>}<br>}</p>
+<p>class Producer implements Runnable<br>{<br>private Resource res;</p>
+<p>Producer(Resource res)<br>{<br>this.res = res;<br>}<br>public void run()<br>{<br>while(true)<br>{<br>try<br>{<br>res.set(“+商品+”);<br>}<br>catch (InterruptedException e)<br>{<br>}</p>
+<p>}<br>}<br>}</p>
+<p>class Consumer implements Runnable<br>{<br>private Resource res;</p>
+<p>Consumer(Resource res)<br>{<br>this.res = res;<br>}<br>public void run()<br>{<br>while(true)<br>{<br>try<br>{<br>res.out();<br>}<br>catch (InterruptedException e)<br>{<br>}<br>}<br>}<br>}</p>
+<p>四、停止线程<br>只有一种，run方法结束。<br>开启多线程运行，运行代码通常是循环结构。只要控制住循环，就可以让run方法结束，也就是线程结束。<br>特殊情况：<br>当线程处于了冻结状态。就不会读取到标记。那么线程就不会结束。<br>当没有指定的方式让冻结的线程恢复到运行状态是，这时需要对冻结进行清除。强制让线程恢复到运行状态中来。这样就可以操作标记让线程结束。<br>Thread类提供该方法 interrupt();<br>class StopThread implements Runnable<br>{<br>private boolean flag =true;<br>public  void run()<br>{<br>while(flag)<br>{</p>
+<p>System.out.println(Thread.currentThread().getName()+”….run”);<br>}<br>}<br>public void changeFlag()<br>{<br>flag = false;<br>}<br>}</p>
+<p>class  StopThreadDemo<br>{<br>public static void main(String[] args)<br>{<br>StopThread st = new StopThread();</p>
+<p>Thread t1 = new Thread(st);<br>Thread t2 = new Thread(st);</p>
+<p>t1.setDaemon(true);<br>t2.setDaemon(true);<br>t1.start();<br>t2.start();</p>
+<p>int num = 0;</p>
+<p>while(true)<br>{<br>if(num++ == 60)<br>{<br>//st.changeFlag();<br>//t1.interrupt();<br>//t2.interrupt();<br>break;<br>}<br>System.out.println(Thread.currentThread().getName()+”…….”+num);<br>}<br>System.out.println(“over”);<br>}<br>}<br>五、守护线程</p>
+<p>后台进程和前台进程共同抢夺CPU的执行权。</p>
+<p>在启动线程时调用，当正在运行的此案称都是守护线程时，java虚拟机退出。</p>
+<p>六.Join方法</p>
+<p>主线程在向下执行的时候，遇到了join的时候是要申请加入到运行中来（通常来讲就是要有限取得cpu的执行权）主线程的执行权就给了它，此时主线程执行就处于冻结状态，当join结束时，主线程才复活。</p>
+<p>join（）：当需要临时加入一个线程时。</p>
+<p>join的特点：</p>
+<p>当A线程执行到B线程的join（）方法时。A就会等待，等B线程都执行完，A才会执行，join可以用来临时加入线程执行。</p>
+<p>join可以用来临时加入线程执行。</p>
+<p>优先级&amp;yield方法</p>
+<p>线程默认的优先级是5（1—10级）</p>
+<p>MAX_PRIORITY 线程具有的最高优先级。</p>
+<p>MIN_PRIORITY 分配给线程的默认优先级。</p>
+<p>NORM_PRIORITY 线程可以具有的最低优先级。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA/">JAVA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/多线程/">多线程</a></li></ul>
 	</div>
 
       
