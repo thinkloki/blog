@@ -830,6 +830,123 @@ valueAnimator.setDuration(5000).start();
 
 
   
+    <article id="post-多线程线程通讯和生产者" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2012/07/30/多线程线程通讯和生产者/" class="article-date">
+  	<time datetime="2012-07-29T16:18:36.000Z" itemprop="datePublished">2012-07-30</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/07/30/多线程线程通讯和生产者/">多线程线程通讯和生产者</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>线程间通讯——等待唤醒机制<br>1，wait()；是让线程处于冻结状态，被wait线程会被存储到线程池中。<br>2,notify()；唤醒线程池中的一个线程(任意)。<br>3,notifyAll()；唤醒线程池中的所有线程，让线程具备了执行资格。<br>使用时要注意使用在同步中，因为只有同步才会具有锁。<br>调用时需要明确对象，明确是哪个监视器。<br>任意对象可以调用的方法定义在Object里面。</p>
+<p>锁可以是任意对象。<br>为什么这些操作线程方法要定义在Object类中：因为这些方法在操作同步中线程时，都必须要标识它们所操作线程特有的锁，<br>只有同一个锁上的被等待线程，可以被同一个锁上的notify唤醒。<br>不可以对不同锁中的线程进行唤醒。等待和唤醒必须是同一个锁。而锁的对象是任意的，所以可以被任意对象调用的方法定义在Object类中。<br>一、线程间通信：<br>class Res<br>{<br>private String name;<br>private String sex;<br>private boolean flag = false;</p>
+<p>public synchronized void set(String name,String sex)<br>{<br>if(flag)<br>try{this.wait();}catch(Exception e){}<br>this.name = name;</p>
+<p>this.sex = sex;<br>flag = true;<br>this.notify();<br>}<br>public synchronized void out()<br>{<br>if(!flag)<br>try{this.wait();}catch(Exception e){}<br>System.out.println(name+”……..”+sex);<br>flag = false;<br>this.notify();<br>}<br>}</p>
+<p>class Input implements Runnable<br>{<br>private Res r ;<br>Input(Res r)<br>{<br>this.r = r;<br>}<br>public void run()<br>{<br>int x = 0;<br>while(true)<br>{<br>if(x==0)<br>r.set(“mike”,”man”);<br>else<br>r.set(“丽丽”,”女女女女女”);<br>x = (x+1)%2;<br>}<br>}<br>}</p>
+<p>class Output implements Runnable<br>{<br>private Res r ;</p>
+<p>Output(Res r)<br>{<br>this.r = r;<br>}<br>public void run()<br>{<br>while(true)<br>{<br>r.out();<br>}<br>}<br>}</p>
+<p>class  InputOutputDemo2<br>{<br>public static void main(String[] args)<br>{<br>Res r = new Res();</p>
+<p>new Thread(new Input(r)).start();<br>new Thread(new Output(r)).start();<br>/*<br>Input in = new Input(r);<br>Output out = new Output(r);</p>
+<p>Thread t1 = new Thread(in);<br>Thread t2 = new Thread(out);</p>
+<p>t1.start();<br>t2.start();<br>*/<br>}<br>}<br>二、线程间通信-生产者和消费者<br>全部wait，生产和消费者多次判断，用while循环，唤醒时需要唤醒两方的人，这时我们用this.notifyAll().<br>对于多生产者和多消费者。<br>为什么要定义while判断标记。<br>原因：让被唤醒的线程在判断一次标记。<br>定义notifyAll，因为需要唤醒对方线程，只用notify，会出现只唤醒本方线程的情况。导致程序中所有线程都等待。<br>class ProducerConsumerDemo<br>{<br>public static void main(String[] args)<br>{<br>Resource r = new Resource();</p>
+<p>Producer pro = new Producer(r);<br>Consumer con = new Consumer(r);</p>
+<p>Thread t1 = new Thread(pro);<br>Thread t2 = new Thread(pro);<br>Thread t3 = new Thread(con);<br>Thread t4 = new Thread(con);</p>
+<p>t1.start();<br>t2.start();<br>t3.start();<br>t4.start();</p>
+<p>}<br>}</p>
+<p>/*<br>对于多个生产者和消费者。<br>为什么要定义while判断标记。<br>原因：让被唤醒的线程再一次判断标记。</p>
+<p>为什么定义notifyAll，<br>因为需要唤醒对方线程。<br>因为只用notify，容易出现只唤醒本方线程的情况。导致程序中的所有线程都等待。</p>
+<p>*/</p>
+<p>class Resource<br>{<br>private String name;<br>private int count = 1;<br>private boolean flag = false;<br>//  t1    t2<br>public synchronized void set(String name)<br>{<br>while(flag)<br>try{this.wait();}catch(Exception e){}//t1(放弃资格)  t2(获取资格)<br>this.name = name+”–”+count++;</p>
+<p>System.out.println(Thread.currentThread().getName()+”…生产者..”+this.name);<br>flag = true;<br>this.notifyAll();<br>}</p>
+<p>//  t3   t4<br>public synchronized void out()<br>{<br>while(!flag)<br>try{wait();}catch(Exception e){}//t3(放弃资格) t4(放弃资格)<br>System.out.println(Thread.currentThread().getName()+”…消费者………”+this.name);<br>flag = false;<br>this.notifyAll();<br>}<br>}</p>
+<p>class Producer implements Runnable<br>{<br>private Resource res;</p>
+<p>Producer(Resource res)<br>{<br>this.res = res;<br>}<br>public void run()<br>{<br>while(true)<br>{<br>res.set(“+商品+”);<br>}<br>}<br>}</p>
+<p>class Consumer implements Runnable<br>{<br>private Resource res;</p>
+<p>Consumer(Resource res)<br>{<br>this.res = res;<br>}<br>public void run()<br>{<br>while(true)<br>{<br>res.out();<br>}<br>}<br>}<br>三、JDK1.5中提供多线程解决方案。<br>将同步Synchronized替换成现实的Lock操作。<br>将Object中的wait，notify notifyAll，替换了Condition对象。<br>该对象可以Lock锁 进行获取。<br>该示例中，实现了本方只唤醒对方操作。<br>生产者、消费者有什么替代方案？<br>答：1.5版本以后，它提供了显示的锁机制以及显示的锁对象的等待唤醒操作机制，同时对等待唤醒进行了封装。一个锁可以对象多个Condition对象。<br>import java.util.concurrent.locks.*;</p>
+<p>class ProducerConsumerDemo2<br>{<br>public static void main(String[] args)<br>{<br>Resource r = new Resource();</p>
+<p>Producer pro = new Producer(r);<br>Consumer con = new Consumer(r);</p>
+<p>Thread t1 = new Thread(pro);<br>Thread t2 = new Thread(pro);<br>Thread t3 = new Thread(con);<br>Thread t4 = new Thread(con);</p>
+<p>t1.start();<br>t2.start();<br>t3.start();<br>t4.start();</p>
+<p>}<br>}</p>
+<p>/*<br>JDK1.5 中提供了多线程升级解决方案。<br>将同步Synchronized替换成现实Lock操作。<br>将Object中的wait，notify notifyAll，替换了Condition对象。<br>该对象可以Lock锁 进行获取。<br>该示例中，实现了本方只唤醒对方操作。</p>
+<p>Lock:替代了Synchronized<br>lock<br>unlock<br>newCondition()</p>
+<p>Condition：替代了Object wait notify notifyAll<br>await();<br>signal();<br>signalAll();<br>*/<br>class Resource<br>{<br>private String name;<br>private int count = 1;<br>private boolean flag = false;<br>//  t1    t2<br>private Lock lock = new ReentrantLock();</p>
+<p>private Condition condition_pro = lock.newCondition();<br>private Condition condition_con = lock.newCondition();</p>
+<p>public  void set(String name)throws InterruptedException<br>{<br>lock.lock();<br>try<br>{<br>while(flag)<br>condition_pro.await();//t1,t2<br>this.name = name+”–”+count++;</p>
+<p>System.out.println(Thread.currentThread().getName()+”…生产者..”+this.name);<br>flag = true;<br>condition_con.signal();<br>}<br>finally<br>{<br>lock.unlock();//释放锁的动作一定要执行。<br>}<br>}</p>
+<p>//  t3   t4<br>public  void out()throws InterruptedException<br>{<br>lock.lock();<br>try<br>{<br>while(!flag)<br>condition_con.await();<br>System.out.println(Thread.currentThread().getName()+”…消费者………”+this.name);<br>flag = false;<br>condition_pro.signal();<br>}<br>finally<br>{<br>lock.unlock();<br>}</p>
+<p>}<br>}</p>
+<p>class Producer implements Runnable<br>{<br>private Resource res;</p>
+<p>Producer(Resource res)<br>{<br>this.res = res;<br>}<br>public void run()<br>{<br>while(true)<br>{<br>try<br>{<br>res.set(“+商品+”);<br>}<br>catch (InterruptedException e)<br>{<br>}</p>
+<p>}<br>}<br>}</p>
+<p>class Consumer implements Runnable<br>{<br>private Resource res;</p>
+<p>Consumer(Resource res)<br>{<br>this.res = res;<br>}<br>public void run()<br>{<br>while(true)<br>{<br>try<br>{<br>res.out();<br>}<br>catch (InterruptedException e)<br>{<br>}<br>}<br>}<br>}</p>
+<p>四、停止线程<br>只有一种，run方法结束。<br>开启多线程运行，运行代码通常是循环结构。只要控制住循环，就可以让run方法结束，也就是线程结束。<br>特殊情况：<br>当线程处于了冻结状态。就不会读取到标记。那么线程就不会结束。<br>当没有指定的方式让冻结的线程恢复到运行状态是，这时需要对冻结进行清除。强制让线程恢复到运行状态中来。这样就可以操作标记让线程结束。<br>Thread类提供该方法 interrupt();<br>class StopThread implements Runnable<br>{<br>private boolean flag =true;<br>public  void run()<br>{<br>while(flag)<br>{</p>
+<p>System.out.println(Thread.currentThread().getName()+”….run”);<br>}<br>}<br>public void changeFlag()<br>{<br>flag = false;<br>}<br>}</p>
+<p>class  StopThreadDemo<br>{<br>public static void main(String[] args)<br>{<br>StopThread st = new StopThread();</p>
+<p>Thread t1 = new Thread(st);<br>Thread t2 = new Thread(st);</p>
+<p>t1.setDaemon(true);<br>t2.setDaemon(true);<br>t1.start();<br>t2.start();</p>
+<p>int num = 0;</p>
+<p>while(true)<br>{<br>if(num++ == 60)<br>{<br>//st.changeFlag();<br>//t1.interrupt();<br>//t2.interrupt();<br>break;<br>}<br>System.out.println(Thread.currentThread().getName()+”…….”+num);<br>}<br>System.out.println(“over”);<br>}<br>}<br>五、守护线程</p>
+<p>后台进程和前台进程共同抢夺CPU的执行权。</p>
+<p>在启动线程时调用，当正在运行的此案称都是守护线程时，java虚拟机退出。</p>
+<p>六.Join方法</p>
+<p>主线程在向下执行的时候，遇到了join的时候是要申请加入到运行中来（通常来讲就是要有限取得cpu的执行权）主线程的执行权就给了它，此时主线程执行就处于冻结状态，当join结束时，主线程才复活。</p>
+<p>join（）：当需要临时加入一个线程时。</p>
+<p>join的特点：</p>
+<p>当A线程执行到B线程的join（）方法时。A就会等待，等B线程都执行完，A才会执行，join可以用来临时加入线程执行。</p>
+<p>join可以用来临时加入线程执行。</p>
+<p>优先级&amp;yield方法</p>
+<p>线程默认的优先级是5（1—10级）</p>
+<p>MAX_PRIORITY 线程具有的最高优先级。</p>
+<p>MIN_PRIORITY 分配给线程的默认优先级。</p>
+<p>NORM_PRIORITY 线程可以具有的最低优先级。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA/">JAVA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/多线程/">多线程</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-面对对象基础跟内部类" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -991,123 +1108,6 @@ void&nbsp;inner_f1()
       
 	<div class="article-tag tagcloud">
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA/">JAVA</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-多线程线程通讯和生产者" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2012/07/30/多线程线程通讯和生产者/" class="article-date">
-  	<time datetime="2012-07-29T16:18:36.000Z" itemprop="datePublished">2012-07-30</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2012/07/30/多线程线程通讯和生产者/">多线程线程通讯和生产者</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>线程间通讯——等待唤醒机制<br>1，wait()；是让线程处于冻结状态，被wait线程会被存储到线程池中。<br>2,notify()；唤醒线程池中的一个线程(任意)。<br>3,notifyAll()；唤醒线程池中的所有线程，让线程具备了执行资格。<br>使用时要注意使用在同步中，因为只有同步才会具有锁。<br>调用时需要明确对象，明确是哪个监视器。<br>任意对象可以调用的方法定义在Object里面。</p>
-<p>锁可以是任意对象。<br>为什么这些操作线程方法要定义在Object类中：因为这些方法在操作同步中线程时，都必须要标识它们所操作线程特有的锁，<br>只有同一个锁上的被等待线程，可以被同一个锁上的notify唤醒。<br>不可以对不同锁中的线程进行唤醒。等待和唤醒必须是同一个锁。而锁的对象是任意的，所以可以被任意对象调用的方法定义在Object类中。<br>一、线程间通信：<br>class Res<br>{<br>private String name;<br>private String sex;<br>private boolean flag = false;</p>
-<p>public synchronized void set(String name,String sex)<br>{<br>if(flag)<br>try{this.wait();}catch(Exception e){}<br>this.name = name;</p>
-<p>this.sex = sex;<br>flag = true;<br>this.notify();<br>}<br>public synchronized void out()<br>{<br>if(!flag)<br>try{this.wait();}catch(Exception e){}<br>System.out.println(name+”……..”+sex);<br>flag = false;<br>this.notify();<br>}<br>}</p>
-<p>class Input implements Runnable<br>{<br>private Res r ;<br>Input(Res r)<br>{<br>this.r = r;<br>}<br>public void run()<br>{<br>int x = 0;<br>while(true)<br>{<br>if(x==0)<br>r.set(“mike”,”man”);<br>else<br>r.set(“丽丽”,”女女女女女”);<br>x = (x+1)%2;<br>}<br>}<br>}</p>
-<p>class Output implements Runnable<br>{<br>private Res r ;</p>
-<p>Output(Res r)<br>{<br>this.r = r;<br>}<br>public void run()<br>{<br>while(true)<br>{<br>r.out();<br>}<br>}<br>}</p>
-<p>class  InputOutputDemo2<br>{<br>public static void main(String[] args)<br>{<br>Res r = new Res();</p>
-<p>new Thread(new Input(r)).start();<br>new Thread(new Output(r)).start();<br>/*<br>Input in = new Input(r);<br>Output out = new Output(r);</p>
-<p>Thread t1 = new Thread(in);<br>Thread t2 = new Thread(out);</p>
-<p>t1.start();<br>t2.start();<br>*/<br>}<br>}<br>二、线程间通信-生产者和消费者<br>全部wait，生产和消费者多次判断，用while循环，唤醒时需要唤醒两方的人，这时我们用this.notifyAll().<br>对于多生产者和多消费者。<br>为什么要定义while判断标记。<br>原因：让被唤醒的线程在判断一次标记。<br>定义notifyAll，因为需要唤醒对方线程，只用notify，会出现只唤醒本方线程的情况。导致程序中所有线程都等待。<br>class ProducerConsumerDemo<br>{<br>public static void main(String[] args)<br>{<br>Resource r = new Resource();</p>
-<p>Producer pro = new Producer(r);<br>Consumer con = new Consumer(r);</p>
-<p>Thread t1 = new Thread(pro);<br>Thread t2 = new Thread(pro);<br>Thread t3 = new Thread(con);<br>Thread t4 = new Thread(con);</p>
-<p>t1.start();<br>t2.start();<br>t3.start();<br>t4.start();</p>
-<p>}<br>}</p>
-<p>/*<br>对于多个生产者和消费者。<br>为什么要定义while判断标记。<br>原因：让被唤醒的线程再一次判断标记。</p>
-<p>为什么定义notifyAll，<br>因为需要唤醒对方线程。<br>因为只用notify，容易出现只唤醒本方线程的情况。导致程序中的所有线程都等待。</p>
-<p>*/</p>
-<p>class Resource<br>{<br>private String name;<br>private int count = 1;<br>private boolean flag = false;<br>//  t1    t2<br>public synchronized void set(String name)<br>{<br>while(flag)<br>try{this.wait();}catch(Exception e){}//t1(放弃资格)  t2(获取资格)<br>this.name = name+”–”+count++;</p>
-<p>System.out.println(Thread.currentThread().getName()+”…生产者..”+this.name);<br>flag = true;<br>this.notifyAll();<br>}</p>
-<p>//  t3   t4<br>public synchronized void out()<br>{<br>while(!flag)<br>try{wait();}catch(Exception e){}//t3(放弃资格) t4(放弃资格)<br>System.out.println(Thread.currentThread().getName()+”…消费者………”+this.name);<br>flag = false;<br>this.notifyAll();<br>}<br>}</p>
-<p>class Producer implements Runnable<br>{<br>private Resource res;</p>
-<p>Producer(Resource res)<br>{<br>this.res = res;<br>}<br>public void run()<br>{<br>while(true)<br>{<br>res.set(“+商品+”);<br>}<br>}<br>}</p>
-<p>class Consumer implements Runnable<br>{<br>private Resource res;</p>
-<p>Consumer(Resource res)<br>{<br>this.res = res;<br>}<br>public void run()<br>{<br>while(true)<br>{<br>res.out();<br>}<br>}<br>}<br>三、JDK1.5中提供多线程解决方案。<br>将同步Synchronized替换成现实的Lock操作。<br>将Object中的wait，notify notifyAll，替换了Condition对象。<br>该对象可以Lock锁 进行获取。<br>该示例中，实现了本方只唤醒对方操作。<br>生产者、消费者有什么替代方案？<br>答：1.5版本以后，它提供了显示的锁机制以及显示的锁对象的等待唤醒操作机制，同时对等待唤醒进行了封装。一个锁可以对象多个Condition对象。<br>import java.util.concurrent.locks.*;</p>
-<p>class ProducerConsumerDemo2<br>{<br>public static void main(String[] args)<br>{<br>Resource r = new Resource();</p>
-<p>Producer pro = new Producer(r);<br>Consumer con = new Consumer(r);</p>
-<p>Thread t1 = new Thread(pro);<br>Thread t2 = new Thread(pro);<br>Thread t3 = new Thread(con);<br>Thread t4 = new Thread(con);</p>
-<p>t1.start();<br>t2.start();<br>t3.start();<br>t4.start();</p>
-<p>}<br>}</p>
-<p>/*<br>JDK1.5 中提供了多线程升级解决方案。<br>将同步Synchronized替换成现实Lock操作。<br>将Object中的wait，notify notifyAll，替换了Condition对象。<br>该对象可以Lock锁 进行获取。<br>该示例中，实现了本方只唤醒对方操作。</p>
-<p>Lock:替代了Synchronized<br>lock<br>unlock<br>newCondition()</p>
-<p>Condition：替代了Object wait notify notifyAll<br>await();<br>signal();<br>signalAll();<br>*/<br>class Resource<br>{<br>private String name;<br>private int count = 1;<br>private boolean flag = false;<br>//  t1    t2<br>private Lock lock = new ReentrantLock();</p>
-<p>private Condition condition_pro = lock.newCondition();<br>private Condition condition_con = lock.newCondition();</p>
-<p>public  void set(String name)throws InterruptedException<br>{<br>lock.lock();<br>try<br>{<br>while(flag)<br>condition_pro.await();//t1,t2<br>this.name = name+”–”+count++;</p>
-<p>System.out.println(Thread.currentThread().getName()+”…生产者..”+this.name);<br>flag = true;<br>condition_con.signal();<br>}<br>finally<br>{<br>lock.unlock();//释放锁的动作一定要执行。<br>}<br>}</p>
-<p>//  t3   t4<br>public  void out()throws InterruptedException<br>{<br>lock.lock();<br>try<br>{<br>while(!flag)<br>condition_con.await();<br>System.out.println(Thread.currentThread().getName()+”…消费者………”+this.name);<br>flag = false;<br>condition_pro.signal();<br>}<br>finally<br>{<br>lock.unlock();<br>}</p>
-<p>}<br>}</p>
-<p>class Producer implements Runnable<br>{<br>private Resource res;</p>
-<p>Producer(Resource res)<br>{<br>this.res = res;<br>}<br>public void run()<br>{<br>while(true)<br>{<br>try<br>{<br>res.set(“+商品+”);<br>}<br>catch (InterruptedException e)<br>{<br>}</p>
-<p>}<br>}<br>}</p>
-<p>class Consumer implements Runnable<br>{<br>private Resource res;</p>
-<p>Consumer(Resource res)<br>{<br>this.res = res;<br>}<br>public void run()<br>{<br>while(true)<br>{<br>try<br>{<br>res.out();<br>}<br>catch (InterruptedException e)<br>{<br>}<br>}<br>}<br>}</p>
-<p>四、停止线程<br>只有一种，run方法结束。<br>开启多线程运行，运行代码通常是循环结构。只要控制住循环，就可以让run方法结束，也就是线程结束。<br>特殊情况：<br>当线程处于了冻结状态。就不会读取到标记。那么线程就不会结束。<br>当没有指定的方式让冻结的线程恢复到运行状态是，这时需要对冻结进行清除。强制让线程恢复到运行状态中来。这样就可以操作标记让线程结束。<br>Thread类提供该方法 interrupt();<br>class StopThread implements Runnable<br>{<br>private boolean flag =true;<br>public  void run()<br>{<br>while(flag)<br>{</p>
-<p>System.out.println(Thread.currentThread().getName()+”….run”);<br>}<br>}<br>public void changeFlag()<br>{<br>flag = false;<br>}<br>}</p>
-<p>class  StopThreadDemo<br>{<br>public static void main(String[] args)<br>{<br>StopThread st = new StopThread();</p>
-<p>Thread t1 = new Thread(st);<br>Thread t2 = new Thread(st);</p>
-<p>t1.setDaemon(true);<br>t2.setDaemon(true);<br>t1.start();<br>t2.start();</p>
-<p>int num = 0;</p>
-<p>while(true)<br>{<br>if(num++ == 60)<br>{<br>//st.changeFlag();<br>//t1.interrupt();<br>//t2.interrupt();<br>break;<br>}<br>System.out.println(Thread.currentThread().getName()+”…….”+num);<br>}<br>System.out.println(“over”);<br>}<br>}<br>五、守护线程</p>
-<p>后台进程和前台进程共同抢夺CPU的执行权。</p>
-<p>在启动线程时调用，当正在运行的此案称都是守护线程时，java虚拟机退出。</p>
-<p>六.Join方法</p>
-<p>主线程在向下执行的时候，遇到了join的时候是要申请加入到运行中来（通常来讲就是要有限取得cpu的执行权）主线程的执行权就给了它，此时主线程执行就处于冻结状态，当join结束时，主线程才复活。</p>
-<p>join（）：当需要临时加入一个线程时。</p>
-<p>join的特点：</p>
-<p>当A线程执行到B线程的join（）方法时。A就会等待，等B线程都执行完，A才会执行，join可以用来临时加入线程执行。</p>
-<p>join可以用来临时加入线程执行。</p>
-<p>优先级&amp;yield方法</p>
-<p>线程默认的优先级是5（1—10级）</p>
-<p>MAX_PRIORITY 线程具有的最高优先级。</p>
-<p>MIN_PRIORITY 分配给线程的默认优先级。</p>
-<p>NORM_PRIORITY 线程可以具有的最低优先级。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA/">JAVA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/多线程/">多线程</a></li></ul>
 	</div>
 
       
