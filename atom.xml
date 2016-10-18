@@ -2622,11 +2622,11 @@ itunesstored →  &lt;Warning&gt;: LaunchServices: Uninstalling app &lt;LSApplic
 <li>新分级]]>
     </summary>
     
+      <category term="JAVA" scheme="http://wait.im/tags/JAVA/"/>
+    
       <category term="Android" scheme="http://wait.im/tags/Android/"/>
     
       <category term="Material Design" scheme="http://wait.im/tags/Material-Design/"/>
-    
-      <category term="JAVA" scheme="http://wait.im/tags/JAVA/"/>
     
       <category term="Google" scheme="http://wait.im/tags/Google/"/>
     
@@ -2929,9 +2929,9 @@ itunesstored →  &lt;Warning&gt;: LaunchServices: Uninstalling app &lt;LSApplic
 <li>一张图片可以更具需求多次使用？(One picture is used some times for differ]]>
     </summary>
     
-      <category term="Android" scheme="http://wait.im/tags/Android/"/>
-    
       <category term="JAVA" scheme="http://wait.im/tags/JAVA/"/>
+    
+      <category term="Android" scheme="http://wait.im/tags/Android/"/>
     
   </entry>
   
@@ -3089,9 +3089,9 @@ valueAnimator.setDuration(5000).start();
 <p>###I. Tween Animation(补间动画)<br>形式|备注<br>—|—<br>alpha    |渐变透明度<br>scale    |渐变尺寸<br>tr]]>
     </summary>
     
-      <category term="Android" scheme="http://wait.im/tags/Android/"/>
-    
       <category term="JAVA" scheme="http://wait.im/tags/JAVA/"/>
+    
+      <category term="Android" scheme="http://wait.im/tags/Android/"/>
     
       <category term="动画" scheme="http://wait.im/tags/%E5%8A%A8%E7%94%BB/"/>
     
