@@ -4,7 +4,7 @@
   <subtitle><![CDATA[做人不卖萌和咸鱼有什么区别]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://wait.im/"/>
-  <updated>2017-02-06T10:59:11.000Z</updated>
+  <updated>2017-02-06T11:01:03.000Z</updated>
   <id>http://wait.im/</id>
   
   <author>
@@ -19,11 +19,10 @@
     <link href="http://wait.im/2016/09/26/MAC%20OS%E4%B8%8B%E4%B8%B2%E5%8F%A3%E8%B0%83%E8%AF%95/"/>
     <id>http://wait.im/2016/09/26/MAC OS下串口调试/</id>
     <published>2016-09-25T16:15:08.000Z</published>
-    <updated>2017-02-06T10:59:11.000Z</updated>
+    <updated>2017-02-06T11:01:03.000Z</updated>
     <content type="html"><![CDATA[<p>最近在做一个Mac下的ssh调试工具，但是出现了一点问题。后来发现居然Mac下有串口调试工具可以用，下面是安装方法。</p>
 <p>###安装MAC驱动</p>
-<p>打开网站 <a href="http://www.prolific.com.tw/US/ShowProduct.aspx?p_id=229&amp;pcid=41" target="_blank" rel="external">http://www.prolific.com.tw/US/ShowProduct.aspx?p_id=229&amp;pcid=41</a><br>下载最新的MAC串口驱动，并安装。<br><img src="http://images2015.cnblogs.com/blog/639250/201603/639250-20160331131447082-2075890099.png" alt=""><br>安装成功后的是这样的，我们会在网络偏好设置中，发现一个新的usb连接：<br><img src="http://images2015.cnblogs.com/blog/639250/201603/639250-20160331131221379-1726389058.png" alt=""><br>这说明我们的驱动安装成功了！<br>下面进行简单的测试，终端执行命令：</p>
-<a id="more"></a>
+<p>打开网站 <a href="http://www.prolific.com.tw/US/ShowProduct.aspx?p_id=229&amp;pcid=41" target="_blank" rel="external">http://www.prolific.com.tw/US/ShowProduct.aspx?p_id=229&amp;pcid=41</a><br>下载最新的MAC串口驱动，并安装。<br><img src="http://images2015.cnblogs.com/blog/639250/201603/639250-20160331131447082-2075890099.png" alt=""><br><a id="more"></a><br>安装成功后的是这样的，我们会在网络偏好设置中，发现一个新的usb连接：<br><img src="http://images2015.cnblogs.com/blog/639250/201603/639250-20160331131221379-1726389058.png" alt=""><br>这说明我们的驱动安装成功了！<br>下面进行简单的测试，终端执行命令：</p>
 <figure class="highlight nginx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">cd</span> /dev </div><div class="line">ls <span class="regexp">tty.*</span></div></pre></td></tr></table></figure>
 <p>你会发现输出中有一项为tty.usbserial，没错，这就是我们的串口设备。<br><img src="http://source.wait.im/2016-07-11-QQ20160711-0@2x.png" alt=""></p>
 <p>###安装minicom</p>
@@ -33,7 +32,7 @@
     <summary type="html">
     <![CDATA[<p>最近在做一个Mac下的ssh调试工具，但是出现了一点问题。后来发现居然Mac下有串口调试工具可以用，下面是安装方法。</p>
 <p>###安装MAC驱动</p>
-<p>打开网站 <a href="http://www.prolific.com.tw/US/ShowProduct.aspx?p_id=229&amp;pcid=41">http://www.prolific.com.tw/US/ShowProduct.aspx?p_id=229&amp;pcid=41</a><br>下载最新的MAC串口驱动，并安装。<br><img src="http://images2015.cnblogs.com/blog/639250/201603/639250-20160331131447082-2075890099.png" alt=""><br>安装成功后的是这样的，我们会在网络偏好设置中，发现一个新的usb连接：<br><img src="http://images2015.cnblogs.com/blog/639250/201603/639250-20160331131221379-1726389058.png" alt=""><br>这说明我们的驱动安装成功了！<br>下面进行简单的测试，终端执行命令：</p>]]>
+<p>打开网站 <a href="http://www.prolific.com.tw/US/ShowProduct.aspx?p_id=229&amp;pcid=41">http://www.prolific.com.tw/US/ShowProduct.aspx?p_id=229&amp;pcid=41</a><br>下载最新的MAC串口驱动，并安装。<br><img src="http://images2015.cnblogs.com/blog/639250/201603/639250-20160331131447082-2075890099.png" alt=""><br>]]>
     
     </summary>
     
@@ -2594,11 +2593,11 @@ controller会导致崩溃">在didFinishLaunchingWithOptions结束后还没有设
     
     </summary>
     
+      <category term="JAVA" scheme="http://wait.im/tags/JAVA/"/>
+    
       <category term="Android" scheme="http://wait.im/tags/Android/"/>
     
       <category term="Material Design" scheme="http://wait.im/tags/Material-Design/"/>
-    
-      <category term="JAVA" scheme="http://wait.im/tags/JAVA/"/>
     
       <category term="Google" scheme="http://wait.im/tags/Google/"/>
     
@@ -2900,9 +2899,9 @@ controller会导致崩溃">在didFinishLaunchingWithOptions结束后还没有设
     
     </summary>
     
-      <category term="Android" scheme="http://wait.im/tags/Android/"/>
-    
       <category term="JAVA" scheme="http://wait.im/tags/JAVA/"/>
+    
+      <category term="Android" scheme="http://wait.im/tags/Android/"/>
     
   </entry>
   
@@ -3108,9 +3107,9 @@ valueAnimator.setDuration(5000).start();
     
     </summary>
     
-      <category term="Android" scheme="http://wait.im/tags/Android/"/>
-    
       <category term="JAVA" scheme="http://wait.im/tags/JAVA/"/>
+    
+      <category term="Android" scheme="http://wait.im/tags/Android/"/>
     
       <category term="动画" scheme="http://wait.im/tags/%E5%8A%A8%E7%94%BB/"/>
     
