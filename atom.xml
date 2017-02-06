@@ -46,17 +46,17 @@
     <link href="http://wait.im/2016/03/10/Android%E7%83%AD%E7%82%B9%E8%8E%B7%E5%8F%96%E8%BF%9E%E5%85%A5%E8%AE%BE%E5%A4%87%E7%9A%84%E4%BF%A1%E6%81%AF/"/>
     <id>http://wait.im/2016/03/10/Android热点获取连入设备的信息/</id>
     <published>2016-03-09T16:18:26.000Z</published>
-    <updated>2017-02-06T10:21:06.000Z</updated>
+    <updated>2017-02-06T10:46:35.000Z</updated>
     <content type="html"><![CDATA[<p>最近在做项目，要做热点功能，需要获取连入设备的信息，在网上找了好多资料，目前找到了比较好的解决方法，可以获取到设备的信息，MAC地址,设备名称等。还需要做黑名单功能，禁止连入热点的设备上网，踢出设备等，以后补全。</p>
-<h3 id="读取文件-proc-net-arp"><a href="#读取文件-proc-net-arp" class="headerlink" title="读取文件/proc/net/arp"></a>读取文件/proc/net/arp</h3><p>这个文件里面存储着所有的ip信息，我们需要对这个文件进行解析。废话不多说直接上代码。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getClientList</span><span class="params">(<span class="keyword">final</span> <span class="keyword">boolean</span> onlyReachables, <span class="keyword">final</span> <span class="keyword">int</span> reachableTimeout, <span class="keyword">final</span> FinishScanListener finishListener)</span> </span>&#123;        Runnable runnable = <span class="keyword">new</span> Runnable() &#123;            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;                BufferedReader br = <span class="keyword">null</span>;                <span class="keyword">final</span> ArrayList&lt;ClientScanResult&gt; result = <span class="keyword">new</span> ArrayList&lt;ClientScanResult&gt;();                <span class="keyword">try</span> &#123;                    br = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> FileReader(<span class="string">"/proc/net/arp"</span>));                    String line;                    <span class="keyword">while</span> ((line = br.readLine()) != <span class="keyword">null</span>) &#123;                        String[] splitted = line.split(<span class="string">" +"</span>);                        <span class="keyword">if</span> ((splitted.length &gt;= <span class="number">4</span>)) &#123;                            String ip = splitted[<span class="number">0</span>];                            String mac = splitted[<span class="number">3</span>];                            String deviceName=splitted[<span class="number">5</span>];                            <span class="keyword">if</span>(!TextUtils.isEmpty(deviceName))&#123;                                <span class="keyword">if</span>(deviceName.equals(<span class="string">"wwan0"</span>)||deviceName.equals(<span class="string">"eth0"</span>))&#123;                                    Log.e(<span class="string">"TAG"</span>,<span class="string">"----------deviceName="</span>+deviceName);                                    <span class="keyword">continue</span>;                                &#125;                            &#125;                            <span class="keyword">if</span> (mac.matches(<span class="string">"..:..:..:..:..:.."</span>)) &#123;                                <span class="keyword">boolean</span> isReachable = InetAddress.getByName(splitted[<span class="number">0</span>]).isReachable(reachableTimeout);                                <span class="keyword">if</span> (!onlyReachables||isReachable) &#123;                                    result.add(<span class="keyword">new</span> ClientScanResult(ip, mac));                                &#125;                            &#125;                        &#125;                    &#125;                &#125; <span class="keyword">catch</span> (Exception e) &#123;                    Log.e(<span class="keyword">this</span>.getClass().toString(), e.toString());                &#125; <span class="keyword">finally</span> &#123;                    <span class="keyword">try</span> &#123;                        <span class="keyword">if</span>(br!=<span class="keyword">null</span>)&#123;                            br.close();                        &#125;                    &#125; <span class="keyword">catch</span> (IOException e) &#123;                        Log.e(<span class="keyword">this</span>.getClass().toString(), e.getMessage());                    &#125;                &#125;                Handler mainHandler = <span class="keyword">new</span> Handler(getApplicationContext().getMainLooper());                Runnable myRunnable = <span class="keyword">new</span> Runnable() &#123;                    <span class="meta">@Override</span>                    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;                        finishListener.onFinishScan(result);                    &#125;                &#125;;                mainHandler.post(myRunnable);            &#125;        &#125;;        Thread mythread = <span class="keyword">new</span> Thread(runnable);        mythread.start();    &#125;</div></pre></td></tr></table></figure></p>
-<p>上面的方法的第三个参数为回调，代码也非常简单：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">FinishScanListener</span> </span>&#123;	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onFinishScan</span><span class="params">(ArrayList&lt;ClientScanResult&gt; clients)</span></span>;&#125;</div></pre></td></tr></table></figure></p>
-<p>ClientScanResult为自己封装的类，里面有ip，mac地址名称等信息：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">	<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ClientScanResult</span> <span class="keyword">implements</span> <span class="title">Serializable</span></span>&#123;		<span class="keyword">public</span> String ip;		<span class="keyword">public</span> String mac;		<span class="keyword">public</span> String CanonicalHostName;		<span class="keyword">public</span> String HostName;		<span class="keyword">public</span> String LocalHostCanonicalHostName;		<span class="keyword">public</span> String LocalHostHostName;		<span class="keyword">public</span> String remark;		<span class="keyword">boolean</span> isReachable;		<span class="function"><span class="keyword">public</span> <span class="title">ClientScanResult</span><span class="params">(String ip, String mac)</span></span>&#123;		<span class="keyword">this</span>.ip = ip;		<span class="keyword">this</span>.mac = mac;		queryHost();	&#125;	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">queryHost</span><span class="params">()</span></span>&#123;		<span class="keyword">try</span> &#123;			InetAddress inetAddress = InetAddress.getByName(ip);			CanonicalHostName = inetAddress.getCanonicalHostName();			HostName = inetAddress.getHostName();			LocalHostCanonicalHostName = 					inetAddress.getLocalHost().getCanonicalHostName();			LocalHostHostName = inetAddress.getLocalHost().getHostName();			isReachable = inetAddress.isReachable(<span class="number">3000</span>);		&#125; <span class="keyword">catch</span> (IOException e) &#123;			e.printStackTrace();			remark = e.getMessage();		&#125;	&#125;&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="读取文件-data-misc-dhcp-dnsmasq-leases"><a href="#读取文件-data-misc-dhcp-dnsmasq-leases" class="headerlink" title="读取文件/data/misc/dhcp/dnsmasq.leases"></a>读取文件/data/misc/dhcp/dnsmasq.leases</h3><p>这个文件里面存储着所有的ip信息，我们需要对这个文件进行解析。废话不多说直接上代码。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">ScanWifiApDevicesThread</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</div><div class="line"></div><div class="line">     <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String FILE_PATH = <span class="string">"/data/misc/dhcp/dnsmasq.leases"</span>;</div><div class="line">     <span class="keyword">private</span> AtomicBoolean mCanceled = <span class="keyword">new</span> AtomicBoolean(<span class="keyword">false</span>);</div><div class="line">     <span class="keyword">private</span> AtomicBoolean mFinished = <span class="keyword">new</span> AtomicBoolean(<span class="keyword">false</span>);</div><div class="line">     <span class="keyword">private</span> Handler mHandler = <span class="keyword">null</span>;</div><div class="line"></div><div class="line">     <span class="function"><span class="keyword">public</span> <span class="title">ScanWifiApDevicesThread</span><span class="params">(Handler handler)</span> </span>&#123;</div><div class="line">         mHandler = handler;</div><div class="line">     &#125;</div><div class="line"></div><div class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">cancel</span><span class="params">()</span> </span>&#123;</div><div class="line">         mCanceled.set(<span class="keyword">true</span>);</div><div class="line">     &#125;</div><div class="line"></div><div class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isCanceled</span><span class="params">()</span> </span>&#123;</div><div class="line">         <span class="keyword">return</span> mCanceled.get() || isInterrupted();</div><div class="line">     &#125;</div><div class="line"></div><div class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isRunning</span><span class="params">()</span> </span>&#123;</div><div class="line">         <span class="keyword">return</span> !isCanceled() &amp;&amp; isAlive();</div><div class="line">     &#125;</div><div class="line"></div><div class="line">     <span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">isReachable</span><span class="params">(String ip)</span> </span>&#123;</div><div class="line">         <span class="keyword">try</span> &#123;</div><div class="line">             <span class="keyword">return</span> InetAddress.getByName(ip).isReachable(<span class="number">2000</span>);</div><div class="line">         &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">             <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">         &#125;</div><div class="line">     &#125;</div><div class="line"></div><div class="line">     <span class="function"><span class="keyword">private</span> SCWifiApDevice <span class="title">createWifiApDevice</span><span class="params">(String line)</span> </span>&#123;</div><div class="line">         <span class="keyword">if</span> (TextUtils.isEmpty(line)) &#123;</div><div class="line">             Log.e(TAG, <span class="string">"createWifiApDevice: line isEmpty"</span>);</div><div class="line">             <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">         &#125;</div><div class="line">         Log.e(TAG, <span class="string">"createWifiApDevice: "</span> + line);</div><div class="line">         String[] splitted = line.split(<span class="string">" "</span>);</div><div class="line">         <span class="keyword">if</span> ((splitted.length &gt;= <span class="number">5</span>)) &#123;</div><div class="line">             String mac = splitted[<span class="number">1</span>];</div><div class="line">             String ip = splitted[<span class="number">2</span>];</div><div class="line">             String hostName = splitted[<span class="number">3</span>];</div><div class="line"></div><div class="line">             <span class="keyword">if</span> (mac.matches(<span class="string">"..:..:..:..:..:.."</span>)) &#123;</div><div class="line">                 Log.e(TAG, <span class="string">"ip====="</span> + ip + <span class="string">"------isReachable=="</span> + isReachable(ip));</div><div class="line">                 <span class="keyword">if</span> (isReachable(ip)) &#123;</div><div class="line">                     SCWifiApDevice apDevice = <span class="keyword">new</span> SCWifiApDevice(ip, hostName, mac);</div><div class="line">                     Log.e(TAG, <span class="string">"ip===: "</span> + ip + <span class="string">"-------hostname="</span> + apDevice.getHostName());</div><div class="line">                     <span class="keyword">if</span> (!<span class="string">"localhost"</span>.equals(apDevice.getHostName())) &#123;</div><div class="line">                         <span class="keyword">return</span> apDevice;</div><div class="line">                     &#125; <span class="keyword">else</span> &#123;</div><div class="line">                         Log.e(TAG, <span class="string">"-------hostname=localhots"</span>);</div><div class="line">                     &#125;</div><div class="line">                 &#125;</div><div class="line"></div><div class="line">             &#125; <span class="keyword">else</span> &#123;</div><div class="line">                 Log.e(TAG, <span class="string">"mac.matches error==="</span> + mac);</div><div class="line">             &#125;</div><div class="line">         &#125;</div><div class="line">         <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">     &#125;</div><div class="line"></div><div class="line">     <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">sendWifiApResult</span><span class="params">(ArrayList&lt;SCWifiApDevice&gt; scWifiApDevices)</span> </span>&#123;</div><div class="line">         Message msg = <span class="keyword">new</span> Message();</div><div class="line">         msg.what = MSG_WIFI_AP_SCAN_RESULT;</div><div class="line">         msg.obj = scWifiApDevices;</div><div class="line">         mHandler.sendMessage(msg);</div><div class="line">     &#125;</div><div class="line"></div><div class="line">     <span class="meta">@Override</span></div><div class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">         File file = <span class="keyword">new</span> File(FILE_PATH);</div><div class="line">         ArrayList&lt;SCWifiApDevice&gt; scWifiApDevices = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">         <span class="keyword">if</span> (!file.exists()) &#123;</div><div class="line">             mFinished.set(<span class="keyword">true</span>);</div><div class="line">             sendWifiApResult(scWifiApDevices);</div><div class="line">             Log.e(TAG, <span class="string">"ARP_PATH !file.exists()"</span>);</div><div class="line">             <span class="keyword">return</span>;</div><div class="line">         &#125;</div><div class="line">         BufferedReader br = <span class="keyword">null</span>;</div><div class="line">         <span class="keyword">try</span> &#123;</div><div class="line">             br = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> FileReader(file));</div><div class="line">             String line = <span class="string">""</span>;</div><div class="line">             <span class="keyword">while</span> (!isInterrupted() &amp;&amp; !mCanceled.get() &amp;&amp; (line = br.readLine()) != <span class="keyword">null</span>) &#123;</div><div class="line">                 SCWifiApDevice scWifiApDevice = createWifiApDevice(line);</div><div class="line">                 <span class="keyword">if</span> (scWifiApDevice == <span class="keyword">null</span>) &#123;</div><div class="line">                     <span class="keyword">continue</span>;</div><div class="line">                 &#125;</div><div class="line">                 scWifiApDevices.add(scWifiApDevice);</div><div class="line">             &#125;</div><div class="line">             mFinished.set(<span class="keyword">true</span>);</div><div class="line">             Log.e(TAG, <span class="string">"read file success "</span>);</div><div class="line">             sendWifiApResult(scWifiApDevices);</div><div class="line">         &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">             e.printStackTrace();</div><div class="line">             mFinished.set(<span class="keyword">true</span>);</div><div class="line">             mHandler.sendEmptyMessage(MSG_WIFI_AP_SCAN_RESULT);</div><div class="line">         &#125; <span class="keyword">finally</span> &#123;</div><div class="line">             <span class="keyword">if</span> (br != <span class="keyword">null</span>) &#123;</div><div class="line">                 <span class="keyword">try</span> &#123;</div><div class="line">                     br.close();</div><div class="line">                 &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">                     e.printStackTrace();</div><div class="line">                 &#125;</div><div class="line">             &#125;</div><div class="line">         &#125;</div><div class="line">     &#125;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<h4 id="SCWifiApDevice"><a href="#SCWifiApDevice" class="headerlink" title="SCWifiApDevice"></a>SCWifiApDevice</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.smartcar.ap;</div><div class="line"></div><div class="line"><span class="keyword">import</span> android.os.Parcel;</div><div class="line"><span class="keyword">import</span> android.os.Parcelable;</div><div class="line"></div><div class="line"><span class="comment">//import com.android.incallui.Log;</span></div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by tongguangli on 16-4-18.</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SCWifiApDevice</span> <span class="keyword">implements</span> <span class="title">Parcelable</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String ACTION_WIFI_AP_FOUND = <span class="string">"android.wifi.ap.SC_DISCOVERY_DEVICE"</span>;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String EXTRA_WIFI_AP_DEVICE = <span class="string">"extra_wifi_ap_devices"</span>;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DEVICE_TYPE_UNKNOWN = <span class="number">0</span>;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DEVICE_TYPE_PHONE = <span class="number">1</span>;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DEVICE_TYPE_PC = <span class="number">2</span>;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> String mIp = <span class="string">""</span>;</div><div class="line">    <span class="keyword">private</span> String mMac = <span class="string">""</span>;</div><div class="line">    <span class="keyword">private</span> String mCanonicalHostName = <span class="string">""</span>;</div><div class="line">    <span class="keyword">private</span> String mHostName = <span class="string">""</span>;</div><div class="line">    <span class="keyword">private</span> String mLocalHostCanonicalHostName = <span class="string">""</span>;</div><div class="line">    <span class="keyword">private</span> String mLocalHostHostName = <span class="string">""</span>;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> mIsReachable = <span class="keyword">true</span>;</div><div class="line">    <span class="keyword">private</span> String mDeviceName = <span class="string">""</span>;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> mDeviceType = DEVICE_TYPE_UNKNOWN;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SCWifiApDevice</span><span class="params">(String ip, String hostName, String mac)</span> </span>&#123;</div><div class="line">        mIp = ip;</div><div class="line">        mMac = mac;</div><div class="line">        mHostName = hostName;</div><div class="line">        mIsReachable = <span class="keyword">true</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="title">SCWifiApDevice</span><span class="params">(Parcel in)</span> </span>&#123;</div><div class="line">        mIp = in.readString();</div><div class="line">        mMac = in.readString();</div><div class="line">        mCanonicalHostName = in.readString();</div><div class="line">        mHostName = in.readString();</div><div class="line">        mLocalHostCanonicalHostName = in.readString();</div><div class="line">        mLocalHostHostName = in.readString();</div><div class="line">        mIsReachable = in.readByte() != <span class="number">0</span>;</div><div class="line">        mDeviceName = in.readString();</div><div class="line">        mDeviceType = in.readInt();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> Creator&lt;SCWifiApDevice&gt; CREATOR = <span class="keyword">new</span> Creator&lt;SCWifiApDevice&gt;() &#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> SCWifiApDevice <span class="title">createFromParcel</span><span class="params">(Parcel in)</span> </span>&#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> SCWifiApDevice(in);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="keyword">public</span> SCWifiApDevice[] newArray(<span class="keyword">int</span> size) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> SCWifiApDevice[size];</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getIp</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> mIp;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setIp</span><span class="params">(String mIp)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.mIp = mIp;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getMac</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> mMac;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setMac</span><span class="params">(String mMac)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.mMac = mMac;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getCanonicalHostName</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> mCanonicalHostName;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setCanonicalHostName</span><span class="params">(String mCanonicalHostName)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.mCanonicalHostName = mCanonicalHostName;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getHostName</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> mHostName;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setHostName</span><span class="params">(String mHostName)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.mHostName = mHostName;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getLocalHostCanonicalHostName</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> mLocalHostCanonicalHostName;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setLocalHostCanonicalHostName</span><span class="params">(String mLocalHostCanonicalHostName)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.mLocalHostCanonicalHostName = mLocalHostCanonicalHostName;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getLocalHostHostName</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> mLocalHostHostName;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setLocalHostHostName</span><span class="params">(String mLocalHostHostName)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.mLocalHostHostName = mLocalHostHostName;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isReachable</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> mIsReachable;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setReachable</span><span class="params">(<span class="keyword">boolean</span> mIsReachable)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.mIsReachable = mIsReachable;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">describeContents</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">writeToParcel</span><span class="params">(Parcel dest, <span class="keyword">int</span> flags)</span> </span>&#123;</div><div class="line">        dest.writeString(mIp);</div><div class="line">        dest.writeString(mMac);</div><div class="line">        dest.writeString(mCanonicalHostName);</div><div class="line">        dest.writeString(mHostName);</div><div class="line">        dest.writeString(mLocalHostCanonicalHostName);</div><div class="line">        dest.writeString(mLocalHostHostName);</div><div class="line">        dest.writeByte((<span class="keyword">byte</span>) (mIsReachable ? <span class="number">1</span> : <span class="number">0</span>));</div><div class="line">        dest.writeString(mDeviceName);</div><div class="line">        dest.writeInt(mDeviceType);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>通过这个方法大家可以获取到连入设备的基本信息，连入设备拦截功能，等找到好的解决方法之后在跟大家分享。</p>
 <p>转载请注明出处 thinkloki@gmail.com，<a href="http://wait.im">wait.im</a>。</p>
 ]]></content>
     <summary type="html">
     <![CDATA[<p>最近在做项目，要做热点功能，需要获取连入设备的信息，在网上找了好多资料，目前找到了比较好的解决方法，可以获取到设备的信息，MAC地址,设备名称等。还需要做黑名单功能，禁止连入热点的设备上网，踢出设备等，以后补全。</p>
-<h3 id="读取文件-proc-net-arp"]]>
+<h3 id="读取文件-data-misc-dhc]]>
     </summary>
     
       <category term="Android" scheme="http://wait.im/tags/Android/"/>
@@ -476,7 +476,7 @@
     <link href="http://wait.im/2015/10/27/IOS9AdaptationTips/"/>
     <id>http://wait.im/2015/10/27/IOS9AdaptationTips/</id>
     <published>2015-10-26T16:15:13.000Z</published>
-    <updated>2015-10-27T08:09:01.000Z</updated>
+    <updated>2017-02-06T10:52:03.000Z</updated>
     <content type="html"><![CDATA[<p>#中文快速导航：</p>
 <ol>
 <li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#1-demo1_ios9网络适配_ats改用更安全的https" target="_blank" rel="external">iOS9网络适配_ATS：改用更安全的HTTPS（见Demo1）</a> <ol>
@@ -565,6 +565,7 @@ controller会导致崩溃" target="_blank" rel="external">在didFinishLaunchingW
 <p>If your server is support  TLSv1.2 ,but you also have to do what I say just now if you want to connect success in iOS9:</p>
 <p>After some discussion with Apple Support, the issue is due to the self signed certificate.</p>
 <p>ATS trusts only certificate signed by a well known CA, all others are rejected. As a consequence the only solution with a Self signed certificate is to set an exception with NSExceptionDomains.</p>
+<a id="more"></a>
 <p>##2.Demo2_iOS9 new feature  in CoreLocation :  background only when you need<br>If you’re using CoreLocation framework in your app in Xcode7(pre-released),and you may notice that there is a newly added property called allowsBackgroundLocationUpdates in CLLocationManager class.</p>
 <p>This new property is explained in the WWDC session <a href="https://developer.apple.com/videos/wwdc/2015/?id=714" target="_blank" rel="external">“What’s New in Core Location”</a>.<br> <img src="https://i.imgur.com/pvVh1fx.png" alt="enter image description here"></p>
 <p>The default value is <code>NO</code> if you link against iOS 9.</p>
@@ -1536,7 +1537,93 @@ itunesstored →  &lt;Warning&gt;: LaunchServices: Uninstalling app &lt;LSApplic
     <summary type="html">
     <![CDATA[<p>#中文快速导航：</p>
 <ol>
-<li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#1-demo1_ios9网络适配_ats改用更安全的https" target="_blank" rel="ext]]>
+<li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#1-demo1_ios9网络适配_ats改用更安全的https">iOS9网络适配_ATS：改用更安全的HTTPS（见Demo1）</a> <ol>
+<li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#what什么是ssltls跟http和https有什么关系">WHAT（什么是SSL/TLS？跟HTTP和HTTPS有什么关系）</a> </li>
+<li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#why以前的http不是也能用吗为什么要用ssltlsapple是不是又在反人类">WHY（以前的HTTP不是也能用吗？为什么要用SSL/TLS？Apple是不是又在反人类？）</a> </li>
+<li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#how如何适配---弱弱地问下加班要多久">HOW（如何适配？—弱弱地问下：加班要多久？）</a> </li>
+<li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#1https-only-只有https所有情况下都使用ats">第1种情况：HTTPS Only （只有HTTPS，所有情况下都使用ATS）</a> </li>
+<li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#2mix--match混合">第2种情况：Mix &amp; Match（混合）</a> </li>
+<li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#3-opt-out禁用ats">第3种情况：Opt Out（禁用ATS）</a> </li>
+<li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#4-opt-out-with-exceptions除特殊情况外都不使用ats">第4种情况：Opt Out With Exceptions（除特殊情况外，都不使用ATS）</a> </li>
+<li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#certificate-transparency">Certificate Transparency</a> </li>
+<li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#q-a">Q-A</a> </li>
+</ol>
+</li>
+<li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#2demo2_ios9新特性_更灵活的后台定位">iOS9新特性_更灵活的后台定位（见Demo2）</a> </li>
+<li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#3企业级分发">企业级分发</a> <ol>
+<li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#1-ios9以后企业级分发ipa包将遭到与mac上dmg安装包一样的待遇默认不能安装也不再出现信任按钮">iOS9以后，企业级分发ipa包将遭到与Mac上dmg安装包一样的待遇：默认不能安装，也不再出现“信任按钮”</a> </li>
+<li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#2-ios9以后企业分发时可能存在下载的ipa包与网页两者的-bundle-id-无法匹配而导致下载失败的情况">iOS9以后，企业分发时可能存在：下载的ipa包与网页两者的 bundle ID 无法匹配而导致下载失败的情况</a> </li>
+</ol>
+</li>
+<li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#4bitcode">Bitcode</a> </li>
+<li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#5demo3---ios9-url-scheme-适配_引入白名单概念">iOS9 URL Scheme 适配_引入白名单概念（见Demo3）</a> <ol>
+<li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#常见-url-scheme">常见 URL Scheme</a> </li>
+<li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#q-a-1">Q-A</a> </li>
+</ol>
+</li>
+<li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#6-ipad适配slide-over-和-split-view"> iPad适配Slide Over 和 Split View</a> </li>
+<li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#7字体间隙变大导致-ui-显示异常">字体间隙变大导致 UI 显示异常</a> </li>
+<li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#8升级-xcode7-后的崩溃与警告">升级 Xcode7 后的崩溃与警告</a> <ol>
+<li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#ios9-下使用-masonry-会引起崩溃的一种情况">iOS9 下使用 Masonry 会引起崩溃的一种情况</a> </li>
+<li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#xcode-升级后旧的状态栏的样式设置方式会引起警告">Xcode 升级后，旧的状态栏的样式设置方式会引起警告</a> <ol>
+<li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#demo4---navigationcontroller状态栏样式新的设置方法">Demo4—navigationController状态栏样式新的设置方法</a> </li>
+</ol>
+</li>
+<li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#xcode7-在-debug-状态下也生成-dsym-文件引起的警告">Xcode7 在 debug 状态下也生成 .dSYM 文件引起的警告</a> </li>
+<li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#xcode7-无法使用-8x-系统的设备调试一运行就报错-there-is-an-intenal-api-error">Xcode7 无法使用 8.x 系统的设备调试，一运行就报错 there is an intenal API error</a> </li>
+<li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#使用了-html-的-iframe-元素可能导致无法从-safari-跳转至-app">使用了 HTML 的 iframe 元素可能导致无法从 Safari 跳转至 App</a> </li>
+<li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#ios9锁屏控制台会打印警告">iOS9锁屏控制台会打印警告</a></li>
+<li><a href="http://stackoverflow.com/questions/32622899/itms-90535-unable-to-publish-ios-app-with-latest-google-signin-sdk">Xcode7 上传应用时提示 ITMS-90535 Unable to publish iOS app with xxx SDK 的问题</a></li>
+<li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#在didfinishlaunchingwithoptions结束后还没有设置window的rootview
+controller会导致崩溃">在didFinishLaunchingWithOptions结束后还没有设置window的rootViewController会导致崩溃</a> </li>
+</ol>
+</li>
+<li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#9demo5demo6----搜索-api">Demo5、Demo6— 搜索 API</a>  </li>
+<li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#10ios国际化问题当前设备语言字符串返回有变化">iOS国际化问题：当前设备语言字符串返回有变化</a> </li>
+<li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#11uitableview显示异常">UITableView显示异常</a> <ol>
+<li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#代码创建的-tableview-无法隐藏-cell-分割线">代码创建的 tableView 无法隐藏 cell 分割线</a> </li>
+<li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#reloaddata-刷新失效">reloadData 刷新失效</a></li>
+</ol>
+</li>
+</ol>
+<h1 id="English⬇️⬇️"><a href="#English⬇️⬇️" class="headerlink" title="English⬇️⬇️"></a>English⬇️⬇️</h1><p>For more infomation ，welcome to follow <a href="https://twitter.com/stevechen1010">my twitter</a></p>
+<h2 id="1-Demo1-You’d-better-Convert-HTTP-to-HTTPS"><a href="#1-Demo1-You’d-better-Convert-HTTP-to-HTTPS" class="headerlink" title="1. Demo1_You’d better Convert HTTP to HTTPS"></a>1. Demo1_You’d better Convert HTTP to HTTPS</h2><p>As the  <a href="https://developer.apple.com/library/prerelease/ios/releasenotes/General/WhatsNewIniOS/Articles/iOS9.html#//apple_ref/doc/uid/TP40016198-DontLinkElementID_13">Apple</a> say :</p>
+<p>  <img src="https://i.imgur.com/eTgSHZY.png" alt="enter image description here"></p>
+<p><img src="https://i.imgur.com/Tc0fS6p.jpg" alt="enter image description here"></p>
+<p><img src="https://i.imgur.com/v2Tskwh.jpg" alt="enter image description here"></p>
+<p>iOS 9 and OSX 10.11 require TLSv1.2 SSL for all hosts you plan to request data from unless you specify exception domains in your app’s Info.plist file.</p>
+<p>The syntax for the Info.plist configuration looks like this:</p>
+<pre><code>&lt;key&gt;NSAppTransportSecurity&lt;/key&gt;
+&lt;dict&gt;
+  &lt;key&gt;NSExceptionDomains&lt;/key&gt;
+  &lt;dict&gt;
+    &lt;key&gt;yourserver.com&lt;/key&gt;
+    &lt;dict&gt;
+      &lt;!--Include to allow subdomains--&gt;
+      &lt;key&gt;NSIncludesSubdomains&lt;/key&gt;
+      &lt;true/&gt;
+      &lt;!--Include to allow insecure HTTP requests--&gt;
+      &lt;key&gt;NSTemporaryExceptionAllowsInsecureHTTPLoads&lt;/key&gt;
+      &lt;true/&gt;
+      &lt;!--Include to specify minimum TLS version--&gt;
+      &lt;key&gt;NSTemporaryExceptionMinimumTLSVersion&lt;/key&gt;
+      &lt;string&gt;TLSv1.1&lt;/string&gt;
+    &lt;/dict&gt;
+  &lt;/dict&gt;
+&lt;/dict&gt;
+</code></pre><p>If your application (a third-party web browser, for instance) needs to connect to arbitrary hosts, you can configure it like this:</p>
+<pre><code>&lt;key&gt;NSAppTransportSecurity&lt;/key&gt;
+&lt;dict&gt;
+    &lt;!--Connect to anything (this is probably BAD)--&gt;
+    &lt;key&gt;NSAllowsArbitraryLoads&lt;/key&gt;
+    &lt;true/&gt;
+&lt;/dict&gt;
+</code></pre><p>If you’re having to do this, it’s probably best to update your servers to use TLSv1.2 and SSL, if they’re not already doing so. This should be considered a temporary workaround.</p>
+<p>As of today, the prerelease documentation makes no mention of any of these configuration options in any specific way. Once it does, I’ll update the answer to link to the relevant documentation.</p>
+<p>If your server is support  TLSv1.2 ,but you also have to do what I say just now if you want to connect success in iOS9:</p>
+<p>After some discussion with Apple Support, the issue is due to the self signed certificate.</p>
+<p>ATS trusts only certificate signed by a well known CA, all others are rejected. As a consequence the only solution with a Self signed certificate is to set an exception with NSExceptionDomains.</p>]]>
+    
     </summary>
     
       <category term="IOS" scheme="http://wait.im/tags/IOS/"/>
@@ -1576,10 +1663,8 @@ itunesstored →  &lt;Warning&gt;: LaunchServices: Uninstalling app &lt;LSApplic
     <link href="http://wait.im/2015/10/20/Objective-C%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0%E8%B7%9FFoundation%E6%A1%86%E6%9E%B6/"/>
     <id>http://wait.im/2015/10/20/Objective-C常用函数跟Foundation框架/</id>
     <published>2015-10-19T16:09:50.000Z</published>
-    <updated>2015-10-23T03:48:31.000Z</updated>
-    <content type="html"><![CDATA[<p>##数学运算(math)函数</p>
-<p>####算术运算函数</p>
-<ul>
+    <updated>2017-02-06T10:54:30.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="数学运算-math-函数"><a href="#数学运算-math-函数" class="headerlink" title="数学运算(math)函数"></a>数学运算(math)函数</h2><h4 id="算术运算函数"><a href="#算术运算函数" class="headerlink" title="算术运算函数"></a>算术运算函数</h4><ul>
 <li>rand()函数：产生随机数</li>
 <li>abs()函数/labs()函数：整数的绝对值</li>
 <li>fabs()/fabsf()/fabsl()函数：浮点数的绝对值</li>
@@ -1594,8 +1679,7 @@ itunesstored →  &lt;Warning&gt;: LaunchServices: Uninstalling app &lt;LSApplic
 <li>modf()/modff()/modfl()函数：浮点数分解为整数和小数</li>
 <li>frexp()/frexpf()/frexpl()函数：浮点数分解尾数和以二为底的指数</li>
 </ul>
-<p>####三角运算函数</p>
-<ul>
+<h4 id="三角运算函数"><a href="#三角运算函数" class="headerlink" title="三角运算函数"></a>三角运算函数</h4><ul>
 <li>sin()/sinf()/sinl()/函数：求正弦值</li>
 <li>sinh()/sinhf()/sinhl()函数：求双曲正弦值</li>
 <li>cos()/cosf()/cosl()函数：求余弦值</li>
@@ -1603,8 +1687,7 @@ itunesstored →  &lt;Warning&gt;: LaunchServices: Uninstalling app &lt;LSApplic
 <li>tan()/tanf()/tanl()函数：求正切值</li>
 <li>tanh()/tanhf()/tanhl()函数：求双曲正切值</li>
 </ul>
-<p>####反三角运算</p>
-<ul>
+<h4 id="反三角运算"><a href="#反三角运算" class="headerlink" title="反三角运算"></a>反三角运算</h4><ul>
 <li>asin()/asinf()/asinl()函数：求反正弦值</li>
 <li>asinh()/asinhf()/asinhl()函数：求反双曲正弦值</li>
 <li>acos()/acosf()/acosl()函数：求反余弦值</li>
@@ -1613,17 +1696,14 @@ itunesstored →  &lt;Warning&gt;: LaunchServices: Uninstalling app &lt;LSApplic
 <li>atan2()/atan2f()/atanl()函数：求坐标值的反正切值</li>
 <li>atanh()/atanhf()/atanhl()函数：求反双曲正切值</li>
 </ul>
-<p>####指数和对数运算</p>
-<ul>
+<h4 id="指数和对数运算"><a href="#指数和对数运算" class="headerlink" title="指数和对数运算"></a>指数和对数运算</h4><ul>
 <li>pow()/powf()/powl函数：求n的m次方的值</li>
 <li>exp()/expf()/expl()函数：求e的x次方的值</li>
 <li>exp2()/exp2f()/exp2l()函数：2的x的次方的值</li>
 <li>log()/logf()/logl()函数：求以e为底的对数值</li>
 <li>log10()/log10f()/log10l()函数：求以10为底的对数值</li>
 </ul>
-<p>##Cocoa的Foundation框架篇</p>
-<p>####整型对象　</p>
-<ul>
+<h2 id="Cocoa的Foundation框架篇"><a href="#Cocoa的Foundation框架篇" class="headerlink" title="Cocoa的Foundation框架篇"></a>Cocoa的Foundation框架篇</h2><h4 id="整型对象"><a href="#整型对象" class="headerlink" title="整型对象　"></a>整型对象　</h4><ul>
 <li>numberWithShort:方法：创建短整型数字对象　</li>
 <li>numberWithUnsignedShort:方法：创建无符号短整型数字对象　</li>
 <li>numberWithInteger:方法：创建整型数字对象　</li>
@@ -1655,8 +1735,7 @@ itunesstored →  &lt;Warning&gt;: LaunchServices: Uninstalling app &lt;LSApplic
 <li>longlongValue:方法：取长长整型数字对象的值　</li>
 <li>unsignedLongLongValue:方法：取无符号长长整型数字对象的值</li>
 </ul>
-<p>####字符型对象</p>
-<ul>
+<h4 id="字符型对象"><a href="#字符型对象" class="headerlink" title="字符型对象"></a>字符型对象</h4><ul>
 <li>numberWithChar:方法：创建并初始化字符型数字对象　</li>
 <li>numberWithUnsignedChar:方法：创建并初始化无符号字符型数字对象　</li>
 <li>initWithChar:方法：初始化字符型对象　</li>
@@ -1664,32 +1743,26 @@ itunesstored →  &lt;Warning&gt;: LaunchServices: Uninstalling app &lt;LSApplic
 <li>charValue:方法：取字符型数字对象的值　</li>
 <li>unsignedCharValue:方法：取无符号字符型数字对象的值</li>
 </ul>
-<p>####单精度型对象</p>
-<ul>
+<h4 id="单精度型对象"><a href="#单精度型对象" class="headerlink" title="单精度型对象"></a>单精度型对象</h4><ul>
 <li>numberWithFloat:方法：创建并初始化单精度型数字对象　</li>
 <li>initWithFloat:方法：初始化单精度型数字对象　</li>
 <li>floatValue:方法：取单精度型数字对象的值</li>
 </ul>
-<p>####双精度型对象</p>
-<ul>
+<h4 id="双精度型对象"><a href="#双精度型对象" class="headerlink" title="双精度型对象"></a>双精度型对象</h4><ul>
 <li>numberWithDouble:方法：创建并初始化一个双精度型数字对象　</li>
 <li>initWithDouble:方法：初始化双精度型数字对象　</li>
 <li>doubleValue:方法：取双精度型数字对象的值</li>
 </ul>
-<p>####布尔型对象</p>
-<ul>
+<h4 id="布尔型对象"><a href="#布尔型对象" class="headerlink" title="布尔型对象"></a>布尔型对象</h4><ul>
 <li>numberWithBool:方法：创建并初始化布尔型数字对象　</li>
 <li>initWithBool:方法：初始化布尔类型对象　</li>
 <li>boolValue:方法：取布尔型数字对象的值</li>
 </ul>
-<p>####数字对象通用方法</p>
-<ul>
+<h4 id="数字对象通用方法"><a href="#数字对象通用方法" class="headerlink" title="数字对象通用方法"></a>数字对象通用方法</h4><ul>
 <li>isEqualToNumber:方法：比较两对象值是否相等　</li>
 <li>compare:方法：比较值的大小</li>
 </ul>
-<p>###字符串对象(NSString)　</p>
-<p>####创建及初始化　</p>
-<ul>
+<h3 id="字符串对象-NSString"><a href="#字符串对象-NSString" class="headerlink" title="字符串对象(NSString)　"></a>字符串对象(NSString)　</h3><h4 id="创建及初始化"><a href="#创建及初始化" class="headerlink" title="创建及初始化　"></a>创建及初始化　</h4><ul>
 <li>string:方法：创建字符串　</li>
 <li>stringWithstring:方法：用字符串来创建字符串　</li>
 <li>stringWithCstring:方法：创建C字符串　</li>
@@ -1705,35 +1778,30 @@ itunesstored →  &lt;Warning&gt;: LaunchServices: Uninstalling app &lt;LSApplic
 <li>initWithContentsOfURL:方法：将初始化的字符串设置为url的内容　</li>
 <li>initWithUTF8String:方法：将初始化的字符串转换为UTF8字符串</li>
 </ul>
-<p>####判断和比较　</p>
-<ul>
+<h4 id="判断和比较"><a href="#判断和比较" class="headerlink" title="判断和比较　"></a>判断和比较　</h4><ul>
 <li>isEqualTostring:方法：比较字符串是否相等　</li>
 <li>hasPrefix:方法：判断字符串是否以某个字符开始　</li>
 <li>hasSuffix:方法：判断字符串是否以某个字符结束　</li>
 <li>compare:方法：比较字符串的大小　</li>
 <li>caseInsensitiveCompare:方法：不考虑大小写的比较大小</li>
 </ul>
-<p>####大小写转换　</p>
-<ul>
+<h4 id="大小写转换"><a href="#大小写转换" class="headerlink" title="大小写转换　"></a>大小写转换　</h4><ul>
 <li>uppercaseString:方法：小写字母转为大写字母　</li>
 <li>lowercaseString:方法：大写字母转为小写字母　</li>
 <li>capitalizedString:方法：将每个单词的首字母大写</li>
 </ul>
-<p>####截取　</p>
-<ul>
+<h4 id="截取"><a href="#截取" class="headerlink" title="截取　"></a>截取　</h4><ul>
 <li>substringToIndex:方法：从字符串的开头一直截取到指定的位置　</li>
 <li>substringFromIndex:方法：从指定位置开始截取字符串直到结束　</li>
 <li>substringWithRange:方法：根据指定范围返回子字符串　</li>
 <li>characterAtIndex:方法：返回索引号所在字符串中的字符</li>
 </ul>
-<p>####转换类型　</p>
-<ul>
+<h4 id="转换类型"><a href="#转换类型" class="headerlink" title="转换类型　"></a>转换类型　</h4><ul>
 <li>doubleValue:/floatValue:方法：返回转换为浮点类型的值　</li>
 <li>intValue:方法：返回转换为整型的值　</li>
 <li>boolValue:方法：返回转换为布尔类型的值</li>
 </ul>
-<p>####对文件的处理　</p>
-<ul>
+<h4 id="对文件的处理"><a href="#对文件的处理" class="headerlink" title="对文件的处理　"></a>对文件的处理　</h4><ul>
 <li>stringByAppendingPathExtension:方法：为文件添加扩展名　</li>
 <li>pathExtension:方法：获取文件扩展名　</li>
 <li>stringByDeletingPathExtension:方法：删除扩展名　</li>
@@ -1746,15 +1814,13 @@ itunesstored →  &lt;Warning&gt;: LaunchServices: Uninstalling app &lt;LSApplic
 <li>stringByAppendingPathComponent:方法：组合位置和文件名　</li>
 <li>isAbsolutePath:方法：判断绝对路径</li>
 </ul>
-<p>####其他　</p>
-<ul>
+<h4 id="其他"><a href="#其他" class="headerlink" title="其他　"></a>其他　</h4><ul>
 <li>length:方法：求字符串的长度　</li>
 <li>stringByAppendingString:方法：字符串后面增加一个新字符串　</li>
 <li>rangeOfString:方法：查找字符串中是否包含其他字符串　</li>
 <li>stringByTrimmingCharactersInSet:方法：去除空格或回车</li>
 </ul>
-<p>####可变字符串　(NSMutableString)</p>
-<ul>
+<h4 id="可变字符串-NSMutableString"><a href="#可变字符串-NSMutableString" class="headerlink" title="可变字符串　(NSMutableString)"></a>可变字符串　(NSMutableString)</h4><ul>
 <li>stringWithCapacity:方法：按照固定长度生成空字符串　</li>
 <li>initWithCapacity:方法：初始化一个固定长度的字符串　</li>
 <li>appendString:方法：在字符串的末尾附加另一个字符串　</li>
@@ -1766,9 +1832,7 @@ itunesstored →  &lt;Warning&gt;: LaunchServices: Uninstalling app &lt;LSApplic
 <li>replaceOccurrencesOfString:方法：替换　将字符串中的某个字全部替换成别一个</li>
 <li>stringByReplacingOccurrencesOfString:方法；将字符串中的某个字全部替换成别一个字</li>
 </ul>
-<p>###数组对象(NSArray)　</p>
-<p>####创建及初始化　</p>
-<ul>
+<h3 id="数组对象-NSArray"><a href="#数组对象-NSArray" class="headerlink" title="数组对象(NSArray)　"></a>数组对象(NSArray)　</h3><h4 id="创建及初始化-1"><a href="#创建及初始化-1" class="headerlink" title="创建及初始化　"></a>创建及初始化　</h4><ul>
 <li>array:方法：创建数组　</li>
 <li>arrayWithArray:方法：通过一个数组创建另一个数组　</li>
 <li>arrayWithContentsOfFile:方法：创建数组将内容设置为指定文件内容　</li>
@@ -1781,8 +1845,7 @@ itunesstored →  &lt;Warning&gt;: LaunchServices: Uninstalling app &lt;LSApplic
 <li>initWithContentsOfURL:方法：初始化数组将内容设置为url指定内容　</li>
 <li>initWithObjects:方法：初始化具有多个元素的数组</li>
 </ul>
-<p>####数组元素的操作　</p>
-<ul>
+<h4 id="数组元素的操作"><a href="#数组元素的操作" class="headerlink" title="数组元素的操作　"></a>数组元素的操作　</h4><ul>
 <li>containsObject:方法：判断数组中是否包含某个元素　</li>
 <li>count:方法：计算元素个数　</li>
 <li>firstObjectCommonWithArray:方法：获取首元素　</li>
@@ -1805,8 +1868,7 @@ itunesstored →  &lt;Warning&gt;: LaunchServices: Uninstalling app &lt;LSApplic
 <li>pathsMatchingExtensions:方法：查看某文件夹下的东西　</li>
 <li>sortedArrayUsingFunction:方法：实现数组元素的简单排序　</li>
 </ul>
-<p>####可变数组　</p>
-<ul>
+<h4 id="可变数组"><a href="#可变数组" class="headerlink" title="可变数组　"></a>可变数组　</h4><ul>
 <li>arrayWithCapacity:方法：创建一个具有固定长度的可变数组　</li>
 <li>initWithCapacity:方法：初始化一个具有固定长度的可变数组　</li>
 <li>addObject:方法：添加数组元素　</li>
@@ -1826,9 +1888,7 @@ itunesstored →  &lt;Warning&gt;: LaunchServices: Uninstalling app &lt;LSApplic
 <li>exchangeObjectAtIndex:方法：交换两个元素　</li>
 <li>setArray:方法：设置可变数组中内容</li>
 </ul>
-<p>###字典对象(NSDictionary)　</p>
-<p>####创建及初始化　</p>
-<ul>
+<h3 id="字典对象-NSDictionary"><a href="#字典对象-NSDictionary" class="headerlink" title="字典对象(NSDictionary)　"></a>字典对象(NSDictionary)　</h3><h4 id="创建及初始化-2"><a href="#创建及初始化-2" class="headerlink" title="创建及初始化　"></a>创建及初始化　</h4><ul>
 <li>dictionary:方法：创建字典　</li>
 <li>dictionaryWithContentsOfFile:方法：将创建的字典内容设置为指定文件内容　</li>
 <li>dictionaryWithContentsOfURL:方法：将创建的字典内容设置为指定url内容　</li>
@@ -1843,8 +1903,7 @@ itunesstored →  &lt;Warning&gt;: LaunchServices: Uninstalling app &lt;LSApplic
 <li>initWithObjects:方法：初始化具有多个键-值的字典　</li>
 <li>initWithObjectsAndKeys:方法：初始化具有多个键-值的字典</li>
 </ul>
-<p>####访问键-值　</p>
-<ul>
+<h4 id="访问键-值"><a href="#访问键-值" class="headerlink" title="访问键-值　"></a>访问键-值　</h4><ul>
 <li>objectForKey:方法：返回键的值　</li>
 <li>allKeys:方法：返回所有的键　</li>
 <li>allValue:方法：返回所有的值　</li>
@@ -1852,8 +1911,7 @@ itunesstored →  &lt;Warning&gt;: LaunchServices: Uninstalling app &lt;LSApplic
 <li>keyEnumerator:方法：将字典中所有的键放到NSEnumerator对象中　</li>
 <li>objectEnumerator:方法：将字典中所有的值放到一个NSEnumerator对象中</li>
 </ul>
-<p>####文件的处理　</p>
-<ul>
+<h4 id="文件的处理"><a href="#文件的处理" class="headerlink" title="文件的处理　"></a>文件的处理　</h4><ul>
 <li>fileCreationDate:方法：文件创建日期　</li>
 <li>fileModificationDate:方法：文件修改的日期　</li>
 <li>fileSize:方法：文件的大小　</li>
@@ -1873,13 +1931,11 @@ itunesstored →  &lt;Warning&gt;: LaunchServices: Uninstalling app &lt;LSApplic
 <li>writeToFile:方法：字典内容写入文件中　</li>
 <li>writeToURL:方法：字典内容写入url中</li>
 </ul>
-<p>####其他　</p>
-<ul>
+<h4 id="其他-1"><a href="#其他-1" class="headerlink" title="其他　"></a>其他　</h4><ul>
 <li>count:方法：字典键-值个数　</li>
 <li>isEqualToDictionary:方法：判断字典是否相等</li>
 </ul>
-<p>####可变字典　</p>
-<ul>
+<h4 id="可变字典"><a href="#可变字典" class="headerlink" title="可变字典　"></a>可变字典　</h4><ul>
 <li>dictionaryWithCapacity:方法：创建固定长度的可变字典　</li>
 <li>initWithCapacity:方法：初始化固定长度的可变字典　</li>
 <li>setObject:方法：设置键-值　</li>
@@ -1889,9 +1945,7 @@ itunesstored →  &lt;Warning&gt;: LaunchServices: Uninstalling app &lt;LSApplic
 <li>removeObjectsForKeys:方法：删除多个键所有的值　</li>
 <li>addEntriesFromDictionary:方法：将字典中的键-值添加到可变字典中</li>
 </ul>
-<p>###集合(NSSet)　</p>
-<p>####创建以初始化　</p>
-<ul>
+<h3 id="集合-NSSet"><a href="#集合-NSSet" class="headerlink" title="集合(NSSet)　"></a>集合(NSSet)　</h3><h4 id="创建以初始化"><a href="#创建以初始化" class="headerlink" title="创建以初始化　"></a>创建以初始化　</h4><ul>
 <li>set:方法：创建集合　</li>
 <li>setWithArray:方法：用数组创建集合　</li>
 <li>setWithObject:方法：创建具有一个元素的集合　</li>
@@ -1902,23 +1956,20 @@ itunesstored →  &lt;Warning&gt;: LaunchServices: Uninstalling app &lt;LSApplic
 <li>initWithObjects:方法：初始化具有多个元素的集合　</li>
 <li>initWithSet:方法：集合初始化集合</li>
 </ul>
-<p>####访问元素　</p>
-<ul>
+<h4 id="访问元素"><a href="#访问元素" class="headerlink" title="访问元素　"></a>访问元素　</h4><ul>
 <li>objectEnumerator:方法：将所有集合中的元素放到NSEnumerator对象中　</li>
 <li>allObjects:方法：返回集合中所有的元素　</li>
 <li>anyObject:方法：返回任意一个元素　</li>
 <li>count:方法：返回元素个数</li>
 </ul>
-<p>####判断比较　</p>
-<ul>
+<h4 id="判断比较"><a href="#判断比较" class="headerlink" title="判断比较　"></a>判断比较　</h4><ul>
 <li>containsObject:方法：判断集合中是否包含某个元素　</li>
 <li>member:方法：判断集合中是否包含某个元素并返回　</li>
 <li>isSubsetOfSet:方法：判断一个集合是否是一个集合的子集　</li>
 <li>intersectsSet:方法：判断交集　</li>
 <li>isEqualToSet:方法：判断集合是否相等</li>
 </ul>
-<p>####可变集合　</p>
-<ul>
+<h4 id="可变集合"><a href="#可变集合" class="headerlink" title="可变集合　"></a>可变集合　</h4><ul>
 <li>setWithCapacity:方法：创建具有固定长度的可变集合　</li>
 <li>initWithCapacity:方法：初始化具有固定长度的可变集合　</li>
 <li>setSet:方法：通过集合设置可变集合的内容　</li>
@@ -1930,13 +1981,10 @@ itunesstored →  &lt;Warning&gt;: LaunchServices: Uninstalling app &lt;LSApplic
 <li>minusSet:方法：去除另一个集合中的元素　</li>
 <li>intersectSet:方法：做交集</li>
 </ul>
-<p>###文件(NSFileManager、NSFileHandle)</p>
-<p>####创建文件管理器　</p>
-<ul>
+<h3 id="文件-NSFileManager、NSFileHandle"><a href="#文件-NSFileManager、NSFileHandle" class="headerlink" title="文件(NSFileManager、NSFileHandle)"></a>文件(NSFileManager、NSFileHandle)</h3><h4 id="创建文件管理器"><a href="#创建文件管理器" class="headerlink" title="创建文件管理器　"></a>创建文件管理器　</h4><ul>
 <li>defaultManger:方法：创建文件管理器</li>
 </ul>
-<p>####文件与目录的操作　　</p>
-<ul>
+<h4 id="文件与目录的操作"><a href="#文件与目录的操作" class="headerlink" title="文件与目录的操作　　"></a>文件与目录的操作　　</h4><ul>
 <li>createFileAtPath:方法：创建文件　</li>
 <li>copyItemAtPath:方法：复制文件　</li>
 <li>moveItemAtPath:方法：移动文件　</li>
@@ -1947,14 +1995,12 @@ itunesstored →  &lt;Warning&gt;: LaunchServices: Uninstalling app &lt;LSApplic
 <li>changeCurrentDirectoryPath:方法：更改目录　</li>
 <li>createDirectoryAtPath:方法：创建目录</li>
 </ul>
-<p>####获取文件和目录信息　</p>
-<ul>
+<h4 id="获取文件和目录信息"><a href="#获取文件和目录信息" class="headerlink" title="获取文件和目录信息　"></a>获取文件和目录信息　</h4><ul>
 <li>contentsAtPath:方法：获取文件中的信息　</li>
 <li>enumeratorAtPath:方法：枚举目录　</li>
 <li>contentsOfDirectoryAtPath:方法：列举目录</li>
 </ul>
-<p>####判断文件　</p>
-<ul>
+<h4 id="判断文件"><a href="#判断文件" class="headerlink" title="判断文件　"></a>判断文件　</h4><ul>
 <li>fileExistsAtPath:方法：判断文件是否存在　</li>
 <li>isReadableFile:方法：判断是否能进行读取操作　</li>
 <li>isWritableFileAtPath:方法：判断是否能进行写入操作　</li>
@@ -1962,8 +2008,7 @@ itunesstored →  &lt;Warning&gt;: LaunchServices: Uninstalling app &lt;LSApplic
 <li>isExecutableFileAtPath:方法：判断是否可以执行　</li>
 <li>contentsEqualAtPath:方法：判断是否相等</li>
 </ul>
-<p>####文件读取　</p>
-<ul>
+<h4 id="文件读取"><a href="#文件读取" class="headerlink" title="文件读取　"></a>文件读取　</h4><ul>
 <li>init:方法：初始化文件读写对象　</li>
 <li>fileHandleForReadingAtPath:方法：读取时打开文件　</li>
 <li>fileHandleForWritingAtPath:方法：写入时打开文件　</li>
@@ -1978,17 +2023,14 @@ itunesstored →  &lt;Warning&gt;: LaunchServices: Uninstalling app &lt;LSApplic
 <li>availableData:方法：返回可用数据　</li>
 <li>closeFile:方法：关闭文件</li>
 </ul>
-<p>####目录工具函数　</p>
-<ul>
+<h4 id="目录工具函数"><a href="#目录工具函数" class="headerlink" title="目录工具函数　"></a>目录工具函数　</h4><ul>
 <li>NSUserName()函数：返回登录名　</li>
 <li>NSFullUserName()函数：返回完整用户名　</li>
 <li>NSHomeDirectory()函数：返回路径　</li>
 <li>NSHomeDirectoryForUser()函数：返回用户的主目录　</li>
 <li>NSTemporaryDirectory()函数：返回临时文件的路径目录</li>
 </ul>
-<p>###时间和日历(NSDate、NSDateFormatter、NSCalendarDate、NSCalendar、NSTimeZone、NSTimer)　</p>
-<p>####时间的创建及初始化　</p>
-<ul>
+<h3 id="时间和日历-NSDate、NSDateFormatter、NSCalendarDate、NSCalendar、NSTimeZone、NSTimer"><a href="#时间和日历-NSDate、NSDateFormatter、NSCalendarDate、NSCalendar、NSTimeZone、NSTimer" class="headerlink" title="时间和日历(NSDate、NSDateFormatter、NSCalendarDate、NSCalendar、NSTimeZone、NSTimer)　"></a>时间和日历(NSDate、NSDateFormatter、NSCalendarDate、NSCalendar、NSTimeZone、NSTimer)　</h3><h4 id="时间的创建及初始化"><a href="#时间的创建及初始化" class="headerlink" title="时间的创建及初始化　"></a>时间的创建及初始化　</h4><ul>
 <li>date:方法：创建时间　</li>
 <li>dateWithString:方法：用字符串创建时间　</li>
 <li>dateWithNaturalLanguageString:方法：用字符串创建时间　</li>
@@ -2003,15 +2045,13 @@ itunesstored →  &lt;Warning&gt;: LaunchServices: Uninstalling app &lt;LSApplic
 <li>initWithTimeIntervalSinceNow:方法：用时间间隔初始化时间　</li>
 <li>initWithTimeIntervalSinceReferenceDate:方法：用时间间隔初始化时间</li>
 </ul>
-<p>####时间的比较　</p>
-<ul>
+<h4 id="时间的比较"><a href="#时间的比较" class="headerlink" title="时间的比较　"></a>时间的比较　</h4><ul>
 <li>isEqualToDate:方法：比较是否相等　</li>
 <li>compare:方法：比较时间　</li>
 <li>arlierDate:方法：比较哪个时间早　</li>
 <li>laterDate:方法：比较哪个时间晚</li>
 </ul>
-<p>####获取时间　</p>
-<ul>
+<h4 id="获取时间"><a href="#获取时间" class="headerlink" title="获取时间　"></a>获取时间　</h4><ul>
 <li>dateByAddingTimeInterval:方法：获取经过时间间隔后的时间　</li>
 <li>distantPast:方法：获取过去的时间　</li>
 <li>distantFuture:方法：获取将来的时间　</li>
@@ -2020,14 +2060,12 @@ itunesstored →  &lt;Warning&gt;: LaunchServices: Uninstalling app &lt;LSApplic
 <li>timeIntervalSince1970:方法：获取两时间的差值　</li>
 <li>timeIntervalSinceReferenceDate:方法：获取两时间的差值</li>
 </ul>
-<p>####时间和字符串的相互转换　</p>
-<ul>
+<h4 id="时间和字符串的相互转换"><a href="#时间和字符串的相互转换" class="headerlink" title="时间和字符串的相互转换　"></a>时间和字符串的相互转换　</h4><ul>
 <li>init:方法：初始化用于时间转换的对象　</li>
 <li>setDateFormat:方法：设置格式　</li>
 <li>initWithDateFormat:方法：初始化用于时间转换的对象</li>
 </ul>
-<p>####日历时间的创建及初始化　</p>
-<ul>
+<h4 id="日历时间的创建及初始化"><a href="#日历时间的创建及初始化" class="headerlink" title="日历时间的创建及初始化　"></a>日历时间的创建及初始化　</h4><ul>
 <li>calendarDate:方法：创建日历时间　</li>
 <li>dateWithYear:方法：创建日历时间并设置内容　</li>
 <li>dateWithString:方法：创建日历时间并设置内容及格式　</li>
@@ -2035,8 +2073,7 @@ itunesstored →  &lt;Warning&gt;: LaunchServices: Uninstalling app &lt;LSApplic
 <li>initWithYear:方法：初始化日历时间并设置内容　</li>
 <li>initWithString:方法：初始化日历时间并设置内容及格式</li>
 </ul>
-<p>####获取日历时间信息　</p>
-<ul>
+<h4 id="获取日历时间信息"><a href="#获取日历时间信息" class="headerlink" title="获取日历时间信息　"></a>获取日历时间信息　</h4><ul>
 <li>dayOfWeek:方法：获取天数　</li>
 <li>dayOfMonth:方法：获取天数　</li>
 <li>dayOfYear:方法：获取天数　</li>
@@ -2050,13 +2087,11 @@ itunesstored →  &lt;Warning&gt;: LaunchServices: Uninstalling app &lt;LSApplic
 <li>timeZone:方法：获取时区　</li>
 <li>dateByAddingYears:方法：获取日期时间</li>
 </ul>
-<p>####设置日历时间　</p>
-<ul>
+<h4 id="设置日历时间"><a href="#设置日历时间" class="headerlink" title="设置日历时间　"></a>设置日历时间　</h4><ul>
 <li>setCalendarFormat:方法：设置日历的格式　</li>
 <li>setTimeZone:方法：设置时区</li>
 </ul>
-<p>####日历的使用　</p>
-<ul>
+<h4 id="日历的使用"><a href="#日历的使用" class="headerlink" title="日历的使用　"></a>日历的使用　</h4><ul>
 <li>currentCalendar:方法：创建日历　</li>
 <li>autoupdatingCurrentCalendar:方法：获取日历　</li>
 <li>initWithCalendarIdentifier:方法：初始化日历　</li>
@@ -2067,8 +2102,7 @@ itunesstored →  &lt;Warning&gt;: LaunchServices: Uninstalling app &lt;LSApplic
 <li>setFirstWeekday:方法：设置每周的第一天　</li>
 <li>setMinimumDaysInFirstWeek:方法：设置天数</li>
 </ul>
-<p>####时区的使用　</p>
-<ul>
+<h4 id="时区的使用"><a href="#时区的使用" class="headerlink" title="时区的使用　"></a>时区的使用　</h4><ul>
 <li>timeZoneWithName:方法：用已知时区创建时区　</li>
 <li>timeZoneWithAbbreviation:方法：用已知时区创建时区　</li>
 <li>timeZoneForSecondsFromGMT:方法：用偏移创建时区　</li>
@@ -2080,8 +2114,7 @@ itunesstored →  &lt;Warning&gt;: LaunchServices: Uninstalling app &lt;LSApplic
 <li>abbreviation:方法：获取缩写　</li>
 <li>secondsFromGMT:方法：获取秒数</li>
 </ul>
-<p>####定时器的使用　</p>
-<ul>
+<h4 id="定时器的使用"><a href="#定时器的使用" class="headerlink" title="定时器的使用　"></a>定时器的使用　</h4><ul>
 <li>timerWithTimeInterval:方法：创建定时器　</li>
 <li>initWithFireDate:方法：初始化定时器　</li>
 <li>setFireDate:方法：设置时间　</li>
@@ -2089,9 +2122,7 @@ itunesstored →  &lt;Warning&gt;: LaunchServices: Uninstalling app &lt;LSApplic
 <li>invalidate:方法：使定时器无效　</li>
 <li>isValid:方法：判断是否有效</li>
 </ul>
-<p>###进程、线程、锁(NSProcessInfo、NSThread、NSLock)　</p>
-<p>####使用进程　</p>
-<ul>
+<h3 id="进程、线程、锁-NSProcessInfo、NSThread、NSLock"><a href="#进程、线程、锁-NSProcessInfo、NSThread、NSLock" class="headerlink" title="进程、线程、锁(NSProcessInfo、NSThread、NSLock)　"></a>进程、线程、锁(NSProcessInfo、NSThread、NSLock)　</h3><h4 id="使用进程"><a href="#使用进程" class="headerlink" title="使用进程　"></a>使用进程　</h4><ul>
 <li>processInfo:方法：创建进程　</li>
 <li>init:方法：初始化进程　</li>
 <li>processName:方法：获取进程的名称　</li>
@@ -2106,20 +2137,17 @@ itunesstored →  &lt;Warning&gt;: LaunchServices: Uninstalling app &lt;LSApplic
 <li>setProcessName:方法：设置进程的名称　</li>
 <li>processorCount:方法：获取CPU的数目</li>
 </ul>
-<p>####线程的创建及初始化　</p>
-<ul>
+<h4 id="线程的创建及初始化"><a href="#线程的创建及初始化" class="headerlink" title="线程的创建及初始化　"></a>线程的创建及初始化　</h4><ul>
 <li>detachNewThreadSelector:方法：创建线程　</li>
 <li>init:方法：初始化线程　</li>
 <li>initWithTarget:方法：初始化线程</li>
 </ul>
-<p>####执行线程　</p>
-<ul>
+<h4 id="执行线程"><a href="#执行线程" class="headerlink" title="执行线程　"></a>执行线程　</h4><ul>
 <li>start:方法：开启线程　</li>
 <li>cancel:方法：取消线程　</li>
 <li>exit:方法：结束线程</li>
 </ul>
-<p>####获取与设置线程　</p>
-<ul>
+<h4 id="获取与设置线程"><a href="#获取与设置线程" class="headerlink" title="获取与设置线程　"></a>获取与设置线程　</h4><ul>
 <li>currentThread:方法：获取当前线程　</li>
 <li>threadPriority:方法：获取属性值　</li>
 <li>setThreadPriority:方法：设置属性值　</li>
@@ -2128,29 +2156,25 @@ itunesstored →  &lt;Warning&gt;: LaunchServices: Uninstalling app &lt;LSApplic
 <li>stackSize:方法：获取堆栈　</li>
 <li>setStackSize:方法：设置堆栈</li>
 </ul>
-<p>####判断线程　</p>
-<ul>
+<h4 id="判断线程"><a href="#判断线程" class="headerlink" title="判断线程　"></a>判断线程　</h4><ul>
 <li>isMultiThreaded:方法：判断线程是否为主线程　</li>
 <li>isExecuting:方法：判断线程是否在执行　</li>
 <li>isCancelled:方法：判断线程是否取消　</li>
 <li>isFinished:方法：判断线程是否结束</li>
 </ul>
-<p>####使用互斥锁　</p>
-<ul>
+<h4 id="使用互斥锁"><a href="#使用互斥锁" class="headerlink" title="使用互斥锁　"></a>使用互斥锁　</h4><ul>
 <li>lock:方法：调用锁　</li>
 <li>unlock:方法：关闭锁　</li>
 <li>trylock:方法：锁定锁　</li>
 <li>lockBeforeDate:方法：在一定时间内获取锁</li>
 </ul>
-<p>####使用递归锁　</p>
-<ul>
+<h4 id="使用递归锁"><a href="#使用递归锁" class="headerlink" title="使用递归锁　"></a>使用递归锁　</h4><ul>
 <li>lock:方法：调用锁　</li>
 <li>unlock:方法：关闭锁　</li>
 <li>tryLock:方法：获取锁　</li>
 <li>lockBeforeDate:方法：在一定时间内获取锁</li>
 </ul>
-<p>####使用条件锁　</p>
-<ul>
+<h4 id="使用条件锁"><a href="#使用条件锁" class="headerlink" title="使用条件锁　"></a>使用条件锁　</h4><ul>
 <li>initWithCondition:方法：初始化条件锁　</li>
 <li>condition:方法：获取条件　</li>
 <li>lockWhenCondition:方法：在条件允许下调用锁　</li>
@@ -2163,9 +2187,7 @@ itunesstored →  &lt;Warning&gt;: LaunchServices: Uninstalling app &lt;LSApplic
 <li>unlock:方法：关闭锁</li>
 </ul>
 <p>　</p>
-<p>###数据对象及归档(NSData、NSKeyedArchiver)　</p>
-<p>####数据对象的创建及初始化　</p>
-<ul>
+<h3 id="数据对象及归档-NSData、NSKeyedArchiver"><a href="#数据对象及归档-NSData、NSKeyedArchiver" class="headerlink" title="数据对象及归档(NSData、NSKeyedArchiver)　"></a>数据对象及归档(NSData、NSKeyedArchiver)　</h3><h4 id="数据对象的创建及初始化"><a href="#数据对象的创建及初始化" class="headerlink" title="数据对象的创建及初始化　"></a>数据对象的创建及初始化　</h4><ul>
 <li>data:方法：创建数据对象　</li>
 <li>dataWithBytes:方法：用已有数据创建数据对象　</li>
 <li>dataWithContentsOfFile:方法：将数据对象内容设置为指定文件内容　</li>
@@ -2177,8 +2199,7 @@ itunesstored →  &lt;Warning&gt;: LaunchServices: Uninstalling app &lt;LSApplic
 <li>initWithContentsOfURL:方法：对数据对象初始化并将其设置为指定url内容　</li>
 <li>initWithData:方法：用已有数据对象初始化新的数据对象</li>
 </ul>
-<p>####数据对象的使用　</p>
-<ul>
+<h4 id="数据对象的使用"><a href="#数据对象的使用" class="headerlink" title="数据对象的使用　"></a>数据对象的使用　</h4><ul>
 <li>bytes:方法：将数据对象转换为字符　</li>
 <li>dataUsingEncoding:方法：将字符串转换为数据对象　</li>
 <li>length:方法：计算数据对象的长度　</li>
@@ -2187,8 +2208,7 @@ itunesstored →  &lt;Warning&gt;: LaunchServices: Uninstalling app &lt;LSApplic
 <li>writeToFile:方法：写入文件　</li>
 <li>writeToURL:方法：写入url</li>
 </ul>
-<p>####可变数据对象　</p>
-<ul>
+<h4 id="可变数据对象"><a href="#可变数据对象" class="headerlink" title="可变数据对象　"></a>可变数据对象　</h4><ul>
 <li>dataWithCapacity:方法：创建一个具有固定空间大小的可变数据对象　</li>
 <li>dataWithLength:方法：创建具有固定长度的可变数据对象　</li>
 <li>initWithCapacity:方法：初始化具有固定空间大小的可变数据对象　</li>
@@ -2201,8 +2221,7 @@ itunesstored →  &lt;Warning&gt;: LaunchServices: Uninstalling app &lt;LSApplic
 <li>replaceBytesInRange:方法：替换　</li>
 <li>resetBytesInRange:方法：删除</li>
 </ul>
-<p>####归档　</p>
-<ul>
+<h4 id="归档"><a href="#归档" class="headerlink" title="归档　"></a>归档　</h4><ul>
 <li>archiveRootObject:方法：数据归档　</li>
 <li>unarchiveObjectWithFile:方法：取消归档　</li>
 <li>encodeBool:方法：对布尔类型的数据编码　</li>
@@ -2217,10 +2236,7 @@ itunesstored →  &lt;Warning&gt;: LaunchServices: Uninstalling app &lt;LSApplic
 <li>initForWritingWithMutableData:方法：初始化　</li>
 <li>initForReadingWithData:方法：初始化</li>
 </ul>
-<p>##Cocoa的Application框架篇</p>
-<p>###窗口和颜色(NSWindow、NSColor)　</p>
-<p>####获取窗口信息　</p>
-<ul>
+<h2 id="Cocoa的Application框架篇"><a href="#Cocoa的Application框架篇" class="headerlink" title="Cocoa的Application框架篇"></a>Cocoa的Application框架篇</h2><h3 id="窗口和颜色-NSWindow、NSColor"><a href="#窗口和颜色-NSWindow、NSColor" class="headerlink" title="窗口和颜色(NSWindow、NSColor)　"></a>窗口和颜色(NSWindow、NSColor)　</h3><h4 id="获取窗口信息"><a href="#获取窗口信息" class="headerlink" title="获取窗口信息　"></a>获取窗口信息　</h4><ul>
 <li>aspectRatio:方法：获取窗口的纵横比　</li>
 <li>orderedIndex:方法：获取索引　</li>
 <li>title:方法：获取窗口的标题　</li>
@@ -2233,8 +2249,7 @@ itunesstored →  &lt;Warning&gt;: LaunchServices: Uninstalling app &lt;LSApplic
 <li>childWindows:方法：获取子窗口　</li>
 <li>alphaValue:方法：获取窗口的透明度值</li>
 </ul>
-<p>####设置窗口　</p>
-<ul>
+<h4 id="设置窗口"><a href="#设置窗口" class="headerlink" title="设置窗口　"></a>设置窗口　</h4><ul>
 <li>setAspectRatio:方法：设置窗口的纵横比　</li>
 <li>setIsVisible:方法：设置窗口是否可见　</li>
 <li>setTitle:方法：设置窗口标题　</li>
@@ -2253,8 +2268,7 @@ itunesstored →  &lt;Warning&gt;: LaunchServices: Uninstalling app &lt;LSApplic
 <li>disableFlushWindow:方法：将窗口设置为禁用的　</li>
 <li>setHasShadow:方法：设置窗口的阴影</li>
 </ul>
-<p>####判断窗口　</p>
-<ul>
+<h4 id="判断窗口"><a href="#判断窗口" class="headerlink" title="判断窗口　"></a>判断窗口　</h4><ul>
 <li>isVisible:方法：判断窗口是否可见　</li>
 <li>isMiniaturized:方法：判断窗口是否最小化　</li>
 <li>isZoomed:方法：判断窗口是否最大化　</li>
@@ -2263,8 +2277,7 @@ itunesstored →  &lt;Warning&gt;: LaunchServices: Uninstalling app &lt;LSApplic
 <li>isMiniaturizable:方法：判断窗口是否有最小化按钮　</li>
 <li>hasTitleBar:方法：判断窗口是否有工具栏</li>
 </ul>
-<p>####创建自定义颜色对象　</p>
-<ul>
+<h4 id="创建自定义颜色对象"><a href="#创建自定义颜色对象" class="headerlink" title="创建自定义颜色对象　"></a>创建自定义颜色对象　</h4><ul>
 <li>colorWithCalibratedRed:方法：用标准RGB分量创建颜色对象　</li>
 <li>colorWithCalibratedWhite:方法：用标准灰度分量创建颜色对象　</li>
 <li>colorWithCalibratedHue:方法：用标准HSB分量创建颜色对象　</li>
@@ -2274,8 +2287,7 @@ itunesstored →  &lt;Warning&gt;: LaunchServices: Uninstalling app &lt;LSApplic
 <li>colorWithDeviceHue:方法：用设备HSB分量创建颜色对象　</li>
 <li>colorWithPatternImage:方法：用图像创建颜色对象</li>
 </ul>
-<p>####创建颜色对象　</p>
-<ul>
+<h4 id="创建颜色对象"><a href="#创建颜色对象" class="headerlink" title="创建颜色对象　"></a>创建颜色对象　</h4><ul>
 <li>redColor:方法：用红色创建颜色对象　</li>
 <li>greenColor:方法：用绿色创建颜色对象　</li>
 <li>blueColor:方法：用蓝色创建颜色对象　</li>
@@ -2291,8 +2303,7 @@ itunesstored →  &lt;Warning&gt;: LaunchServices: Uninstalling app &lt;LSApplic
 <li>purpleColor:方法：用紫色创建颜色对象　</li>
 <li>whiteColor:方法：用白色创建颜色对象</li>
 </ul>
-<p>####获取颜色分量　</p>
-<ul>
+<h4 id="获取颜色分量"><a href="#获取颜色分量" class="headerlink" title="获取颜色分量　"></a>获取颜色分量　</h4><ul>
 <li>redComponent:方法：获取红色的分量　</li>
 <li>greenComponent:方法：获取绿色的分量　</li>
 <li>blueComponent:方法：获取蓝色的分量　</li>
@@ -2307,10 +2318,7 @@ itunesstored →  &lt;Warning&gt;: LaunchServices: Uninstalling app &lt;LSApplic
 <li>brightnessComponent:方法：获取亮度分量　</li>
 <li>patternImage:方法：获取图像信息</li>
 </ul>
-<p>###自定义视图(NSView)　</p>
-<p>####initWithFrame:方法：初始化自定义视图　</p>
-<p>####获取与设置自定义视图信息　</p>
-<ul>
+<h3 id="自定义视图-NSView"><a href="#自定义视图-NSView" class="headerlink" title="自定义视图(NSView)　"></a>自定义视图(NSView)　</h3><h4 id="initWithFrame-方法：初始化自定义视图"><a href="#initWithFrame-方法：初始化自定义视图" class="headerlink" title="initWithFrame:方法：初始化自定义视图　"></a>initWithFrame:方法：初始化自定义视图　</h4><h4 id="获取与设置自定义视图信息"><a href="#获取与设置自定义视图信息" class="headerlink" title="获取与设置自定义视图信息　"></a>获取与设置自定义视图信息　</h4><ul>
 <li>frame:方法：获取自定义视图的框架　</li>
 <li>setFrame:方法：设置自定义视图框架　</li>
 <li>frameRotation:方法：获取自定义视图的旋转度数　</li>
@@ -2328,9 +2336,7 @@ itunesstored →  &lt;Warning&gt;: LaunchServices: Uninstalling app &lt;LSApplic
 <li>setPostsBoundsChangedNotifications:方法：设置是否接收视图的变化　</li>
 <li>printJobTitle:方法：获取输出标题</li>
 </ul>
-<p>####drawRect:方法：绘图　</p>
-<p>####判断自定义视图　</p>
-<ul>
+<h4 id="drawRect-方法：绘图"><a href="#drawRect-方法：绘图" class="headerlink" title="drawRect:方法：绘图　"></a>drawRect:方法：绘图　</h4><h4 id="判断自定义视图"><a href="#判断自定义视图" class="headerlink" title="判断自定义视图　"></a>判断自定义视图　</h4><ul>
 <li>postsFrameChangedNotifications:方法：判断是否接收视图变换的消息　</li>
 <li>postsBoundsChangedNotifications:方法：判断是否接收视图变换的消息　</li>
 <li>isFlipped:方法：判断视图是否翻转　</li>
@@ -2339,15 +2345,12 @@ itunesstored →  &lt;Warning&gt;: LaunchServices: Uninstalling app &lt;LSApplic
 <li>canDraw:方法：判断视图是否绘制　</li>
 <li>isOpaque:方法：判断视图是否不透明</li>
 </ul>
-<p>####操作自定义视图　</p>
-<ul>
+<h4 id="操作自定义视图"><a href="#操作自定义视图" class="headerlink" title="操作自定义视图　"></a>操作自定义视图　</h4><ul>
 <li>addSubview:方法：添加视图　</li>
 <li>removeFromSuperview:方法：删除视图　</li>
 <li>replaceSubview:方法：替换视图</li>
 </ul>
-<p>###文本框和文本视图(NSTextField、NSTextView)　</p>
-<p>####获取与设置文本框信息　</p>
-<ul>
+<h3 id="文本框和文本视图-NSTextField、NSTextView"><a href="#文本框和文本视图-NSTextField、NSTextView" class="headerlink" title="文本框和文本视图(NSTextField、NSTextView)　"></a>文本框和文本视图(NSTextField、NSTextView)　</h3><h4 id="获取与设置文本框信息"><a href="#获取与设置文本框信息" class="headerlink" title="获取与设置文本框信息　"></a>获取与设置文本框信息　</h4><ul>
 <li>stringValue:方法：获取文本框的字符串　</li>
 <li>setStringValue:方法：设置文本框中的字符串　</li>
 <li>backgroundColor:方法：获取文本框的背景颜色　</li>
@@ -2361,17 +2364,14 @@ itunesstored →  &lt;Warning&gt;: LaunchServices: Uninstalling app &lt;LSApplic
 <li>setBezeled:方法：设置文本框是否接受bezeled边框　</li>
 <li>setBordered:方法：设置文本框是否接受黑边框</li>
 </ul>
-<p>####判断文本框信息　</p>
-<ul>
+<h4 id="判断文本框信息"><a href="#判断文本框信息" class="headerlink" title="判断文本框信息　"></a>判断文本框信息　</h4><ul>
 <li>importsGraphics:方法：判断是否可以将图像拖到文本框　</li>
 <li>isEditable:方法：判断文本框是否可以编辑　</li>
 <li>isBezeled:方法：判断文本框是否接受了bezeled边框　</li>
 <li>isBordered:方法：判断文本框是否接受了黑边框　</li>
 <li>acceptsFirstResponder:方法：判断文本框是否可以编辑</li>
 </ul>
-<p>####initWithFrame:方法：创建并初始化文本视图　</p>
-<p>####获取与设置文本视图信息　</p>
-<ul>
+<h4 id="initWithFrame-方法：创建并初始化文本视图"><a href="#initWithFrame-方法：创建并初始化文本视图" class="headerlink" title="initWithFrame:方法：创建并初始化文本视图　"></a>initWithFrame:方法：创建并初始化文本视图　</h4><h4 id="获取与设置文本视图信息"><a href="#获取与设置文本视图信息" class="headerlink" title="获取与设置文本视图信息　"></a>获取与设置文本视图信息　</h4><ul>
 <li>backgroundColor:方法：获取文本视图的颜色　</li>
 <li>setBackgroundColor:方法：设置文本视图的背景颜色　</li>
 <li>setImportsGraphics:方法：设置文件是否可以导入到文本视图　</li>
@@ -2393,23 +2393,19 @@ itunesstored →  &lt;Warning&gt;: LaunchServices: Uninstalling app &lt;LSApplic
 <li>typingAttributes:方法：获取新文本的属性　</li>
 <li>setTypingAttributes:方法：设置新文本的属性</li>
 </ul>
-<p>####判断文本视图的信息　</p>
-<ul>
+<h4 id="判断文本视图的信息"><a href="#判断文本视图的信息" class="headerlink" title="判断文本视图的信息　"></a>判断文本视图的信息　</h4><ul>
 <li>importsGraphics:方法：判断文件是否可以导入到文本视图　</li>
 <li>acceptsGlyphInfo:方法：判断文本视图是否接受字形信息　</li>
 <li>allowsUndo:方法：判断文本视图是否启用撤销　</li>
 <li>smartInsertDeleteEnabled:方法：判断选择字符串周围的空间</li>
 </ul>
-<p>###图像、图像视图(NSImage、NSImageView)　</p>
-<p>####加载图像　</p>
-<ul>
+<h3 id="图像、图像视图-NSImage、NSImageView"><a href="#图像、图像视图-NSImage、NSImageView" class="headerlink" title="图像、图像视图(NSImage、NSImageView)　"></a>图像、图像视图(NSImage、NSImageView)　</h3><h4 id="加载图像"><a href="#加载图像" class="headerlink" title="加载图像　"></a>加载图像　</h4><ul>
 <li>imageNamed:方法：加载Supporting Files文件夹中的图片　</li>
 <li>initWithContentsOfURL:方法：加载URL中的图像　</li>
 <li>initWithContentsOfFile:方法：加载文件中的图片　</li>
 <li>initWithSize:方法：加载图像的大小</li>
 </ul>
-<p>####获取与设置图像信息　</p>
-<ul>
+<h4 id="获取与设置图像信息"><a href="#获取与设置图像信息" class="headerlink" title="获取与设置图像信息　"></a>获取与设置图像信息　</h4><ul>
 <li>size:方法：获取图像的大小　</li>
 <li>setSize:方法：设置图像的大小　</li>
 <li>setFlipped:方法：设置图像是否倒立　</li>
@@ -2428,14 +2424,12 @@ itunesstored →  &lt;Warning&gt;: LaunchServices: Uninstalling app &lt;LSApplic
 <li>imageUnfilteredPasteboardTypes:方法：获取粘贴板类型　</li>
 <li>representations:方法：获取图像表示</li>
 </ul>
-<p>####判断图像信息　</p>
-<ul>
+<h4 id="判断图像信息"><a href="#判断图像信息" class="headerlink" title="判断图像信息　"></a>判断图像信息　</h4><ul>
 <li>isFlipped:方法：判断图像是否倒立　</li>
 <li>prefersColorMatch:方法：判断图像颜色匹配　</li>
 <li>isTemplate:方法：判断图像是否为模板图像</li>
 </ul>
-<p>####获取与设置图像视图　</p>
-<ul>
+<h4 id="获取与设置图像视图"><a href="#获取与设置图像视图" class="headerlink" title="获取与设置图像视图　"></a>获取与设置图像视图　</h4><ul>
 <li>image:方法：获取显示图像的信息　</li>
 <li>setImage:方法：设置显示的图像　</li>
 <li>imageAlignment:方法：获取图像的对齐方式　</li>
@@ -2451,9 +2445,7 @@ itunesstored →  &lt;Warning&gt;: LaunchServices: Uninstalling app &lt;LSApplic
 <li>animates:方法：判断图像视图是否播放动画　</li>
 <li>setAnimates:方法：设置图像视图是否播放动画</li>
 </ul>
-<p>###表视图(NSTableView)　</p>
-<p>####获取表视图信息　</p>
-<ul>
+<h3 id="表视图-NSTableView"><a href="#表视图-NSTableView" class="headerlink" title="表视图(NSTableView)　"></a>表视图(NSTableView)　</h3><h4 id="获取表视图信息"><a href="#获取表视图信息" class="headerlink" title="获取表视图信息　"></a>获取表视图信息　</h4><ul>
 <li>rowHeight:方法：获取表视图的行高　</li>
 <li>headerView:方法：获取NSTableHeaderView对象　</li>
 <li>intercellSpacing:方法：获取表单元之间的间距　</li>
@@ -2463,8 +2455,7 @@ itunesstored →  &lt;Warning&gt;: LaunchServices: Uninstalling app &lt;LSApplic
 <li>numberOfSelectedRows:方法：获取选择的行数　</li>
 <li>rowSizeStyle:方法：获取行风格</li>
 </ul>
-<p>####设置表视图的信息　</p>
-<ul>
+<h4 id="设置表视图的信息"><a href="#设置表视图的信息" class="headerlink" title="设置表视图的信息　"></a>设置表视图的信息　</h4><ul>
 <li>setRowHeight:方法：设置表视图的行高　</li>
 <li>setIntercellSpacing:方法：设置表单元之间的间距　</li>
 <li>setRowSizeStyle:方法：设置行风格　</li>
@@ -2474,8 +2465,7 @@ itunesstored →  &lt;Warning&gt;: LaunchServices: Uninstalling app &lt;LSApplic
 <li>setAllowsTypeSelect:方法：设置是否可以通过按键字符进行选择　</li>
 <li>setAllowsMultipleSelection:方法：设置是否允许选择多行或多列</li>
 </ul>
-<p>####判断表视图信息　</p>
-<ul>
+<h4 id="判断表视图信息"><a href="#判断表视图信息" class="headerlink" title="判断表视图信息　"></a>判断表视图信息　</h4><ul>
 <li>allowsColumnReordering:方法：判断用户是否可以重新排列列标题　</li>
 <li>allowsColumnResizing:方法：判断是否可以调整列标题　</li>
 <li>allowsColumnSelection:方法：判断是否可以选择一整列　</li>
@@ -2483,9 +2473,7 @@ itunesstored →  &lt;Warning&gt;: LaunchServices: Uninstalling app &lt;LSApplic
 <li>allowsTypeSelect:方法：判断是否可以通过按键字符进行选择　</li>
 <li>allowsMultipleSelection:方法：判断是否允许选择多行或多列</li>
 </ul>
-<p>###常见控件(NSButton、NSDatePicker、NSProgressIndicator、NSComboBox)　</p>
-<p>####按钮控件(NSButton)　</p>
-<ul>
+<h3 id="常见控件-NSButton、NSDatePicker、NSProgressIndicator、NSComboBox"><a href="#常见控件-NSButton、NSDatePicker、NSProgressIndicator、NSComboBox" class="headerlink" title="常见控件(NSButton、NSDatePicker、NSProgressIndicator、NSComboBox)　"></a>常见控件(NSButton、NSDatePicker、NSProgressIndicator、NSComboBox)　</h3><h4 id="按钮控件-NSButton"><a href="#按钮控件-NSButton" class="headerlink" title="按钮控件(NSButton)　"></a>按钮控件(NSButton)　</h4><ul>
 <li>title:方法：获取按钮的标题　</li>
 <li>setTitle:方法：设置按钮的标题　</li>
 <li>image:方法：获取按钮的图像　</li>
@@ -2495,15 +2483,9 @@ itunesstored →  &lt;Warning&gt;: LaunchServices: Uninstalling app &lt;LSApplic
 <li>showsBorderOnlyWhileMouseInside:方法：判断边框的显示　</li>
 <li>setSh”[1] </li>
 </ul>
-<p>###<strong>此文禁止任何类型的转载</strong></p>
-]]></content>
+<h3 id="此文禁止任何类型的转载"><a href="#此文禁止任何类型的转载" class="headerlink" title="此文禁止任何类型的转载"></a><strong>此文禁止任何类型的转载</strong></h3>]]></content>
     <summary type="html">
-    <![CDATA[<p>##数学运算(math)函数</p>
-<p>####算术运算函数</p>
-<ul>
-<li>rand()函数：产生随机数</li>
-<li>abs()函数/labs()函数：整数的绝对值</li>
-<li>fabs()/fabsf()/fabsl()函数：浮点数的绝对值</]]>
+    <![CDATA[<h2 id="数学运算-math-函数"><a href="#数学运算-math-函数" class="headerlink" title="数学运算(math)函数"></a>数学运算(math)函数</h2><h4 id="算术运算函数"><a href="#算术运算函数"]]>
     </summary>
     
       <category term="IOS" scheme="http://wait.im/tags/IOS/"/>
@@ -2681,10 +2663,8 @@ itunesstored →  &lt;Warning&gt;: LaunchServices: Uninstalling app &lt;LSApplic
     <link href="http://wait.im/2015/01/12/Android%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98%E7%9A%84%E6%8A%80%E6%9C%AF%E7%82%B9/"/>
     <id>http://wait.im/2015/01/12/Android性能调优的技术点/</id>
     <published>2015-01-12T04:23:36.000Z</published>
-    <updated>2015-11-11T05:42:42.000Z</updated>
-    <content type="html"><![CDATA[<p>##要点</p>
-<p>###使用异步</p>
-<ul>
+    <updated>2017-02-06T10:47:41.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h2><h3 id="使用异步"><a href="#使用异步" class="headerlink" title="使用异步"></a>使用异步</h3><ul>
 <li>保持 APP 的高度响应，不要在 UI 线程做耗时操作，多使用异步任务</li>
 <li>使用线程时要做好线程控制；使用队列、线程池</li>
 <li>谨慎使用糟糕的 AysncTask 、 Timer</li>
@@ -2696,8 +2676,7 @@ itunesstored →  &lt;Warning&gt;: LaunchServices: Uninstalling app &lt;LSApplic
 <li>使用 MVP 模式规范大型 Activity 类的行为，避免异步任务造成的内存泄露</li>
 <li>避免内存泄露</li>
 </ul>
-<p>###了解虚拟机内存回收机制</p>
-<ul>
+<h3 id="了解虚拟机内存回收机制"><a href="#了解虚拟机内存回收机制" class="headerlink" title="了解虚拟机内存回收机制"></a>了解虚拟机内存回收机制</h3><ul>
 <li>频繁 GC 也会造成卡顿，避免不必要的内存开销</li>
 <li>错误的引用姿♂势造成的内存泄露（啊~要泄了~）</li>
 <li>常见的 Activity 泄露（单例、 Application 、后台线程、无限动画、静态引用）</li>
@@ -2708,8 +2687,7 @@ itunesstored →  &lt;Warning&gt;: LaunchServices: Uninstalling app &lt;LSApplic
 <li>对内存负载要保持敏感（ Sharp ）</li>
 <li>视图优化</li>
 </ul>
-<p>###布局优化、减少层次， Include Merge</p>
-<ul>
+<h3 id="布局优化、减少层次，-Include-Merge"><a href="#布局优化、减少层次，-Include-Merge" class="headerlink" title="布局优化、减少层次， Include Merge"></a>布局优化、减少层次， Include Merge</h3><ul>
 <li>使用 ViewStub 避免不必要的 LayoutInflate ，使用 GONE 代替重复 LayoutInflate 同一个布局</li>
 <li>避免过度绘制，应该减少不必要的布局背景；布局层次太深会造成过度绘制以及 Measure 、 Layout 等方法时间复杂度的指数增长</li>
 <li>使用过渡动画，比如给图片的呈现加一个轻量的淡入效果会让视觉上变得流畅许多</li>
@@ -2717,8 +2695,7 @@ itunesstored →  &lt;Warning&gt;: LaunchServices: Uninstalling app &lt;LSApplic
 <li>复杂动画使用 SurfaceView 或 TextureView</li>
 <li>尽量提供多套分辨率的图片，使用矢量图</li>
 </ul>
-<p>##Adapter 优化</p>
-<ul>
+<h2 id="Adapter-优化"><a href="#Adapter-优化" class="headerlink" title="Adapter 优化"></a>Adapter 优化</h2><ul>
 <li>复用 convertView ，用 ViewHolder 代替频繁 findViewById</li>
 <li>不要重复 setListener ，要使用 v.getId 来复用 Listener ，不然会创建一堆 Listener 导致频繁 GC</li>
 <li>多布局要采用 MutilItemView ，而不是使用一个大布局然后动态控制需要现实的部分</li>
@@ -2726,8 +2703,7 @@ itunesstored →  &lt;Warning&gt;: LaunchServices: Uninstalling app &lt;LSApplic
 <li>快速滚动列表的时候，可以停止加载列表项的图片，停止列表项的动画，不要在这时候改变列表项的布局</li>
 <li>尽量用 RecyclerView （增量 Notify 和 RecycledViewPool 带你飞）</li>
 </ul>
-<p>####代码优化</p>
-<ul>
+<h4 id="代码优化"><a href="#代码优化" class="headerlink" title="代码优化"></a>代码优化</h4><ul>
 <li>算法优化，减少时间复杂度，参考一些经典的优化算法</li>
 <li>尽量使用 int ，而不是 float 或者 double</li>
 <li>尽量采用基本类型，避免无必要的自动装箱和拆箱，浪费时间和空间</li>
@@ -2743,24 +2719,21 @@ itunesstored →  &lt;Warning&gt;: LaunchServices: Uninstalling app &lt;LSApplic
 <li>遍历集合时，使用 i++代替 Iterator ，后者需要额外的对象操作，应在循环体内避免这种情况</li>
 <li>如果一个基本类型或者 String 的值不会改变，尽量用 final static ，编译时会直接用变量的值替换变量，也就不需要在查询变量的值了</li>
 </ul>
-<p>##其他优化</p>
-<ul>
+<h2 id="其他优化"><a href="#其他优化" class="headerlink" title="其他优化"></a>其他优化</h2><ul>
 <li>数据库优化：使用索引、使用异步线程</li>
 <li>网络优化 …… 一堆优秀的轮子</li>
 <li>避免过度使用依赖注入框架，大量的反射</li>
 <li>不过过度设计 /抽象，多态看起来很有设计感，代价就是额外的代码、空间、时间</li>
 <li>尽量不要开启多进程，进程的开销很大</li>
 </ul>
-<p>####APK 瘦身</p>
-<ul>
+<h4 id="APK-瘦身"><a href="#APK-瘦身" class="headerlink" title="APK 瘦身"></a>APK 瘦身</h4><ul>
 <li>开启混淆</li>
 <li>使用 zipalign 工具优化 APK</li>
 <li>适当有损图片压缩、使用矢量图</li>
 <li>删除项目中冗余的资源，之前写过一些删除没有 res 资源的脚本</li>
 <li>动态加载模块化，项目拆分啊！</li>
 </ul>
-<p>####性能问题的排查方法</p>
-<ul>
+<h4 id="性能问题的排查方法"><a href="#性能问题的排查方法" class="headerlink" title="性能问题的排查方法"></a>性能问题的排查方法</h4><ul>
 <li>GPU 条形图，没事开来看看淘宝</li>
 <li>过度绘制颜色，嗯，不要一篇姨妈红就好</li>
 <li>LeakCanary ，自动检测 Activity 泄露，挺好用的</li>
@@ -2772,12 +2745,7 @@ itunesstored →  &lt;Warning&gt;: LaunchServices: Uninstalling app &lt;LSApplic
 </ul>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p>##要点</p>
-<p>###使用异步</p>
-<ul>
-<li>保持 APP 的高度响应，不要在 UI 线程做耗时操作，多使用异步任务</li>
-<li>使用线程时要做好线程控制；使用队列、线程池</li>
-<li>谨慎使用糟糕的 AysncTask 、 Timer</l]]>
+    <![CDATA[<h2 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h2><h3 id="使用异步"><a href="#使用异步" class="headerlink" title="使用异步"></a>使用异步</h]]>
     </summary>
     
       <category term="Android" scheme="http://wait.im/tags/Android/"/>
@@ -2865,39 +2833,30 @@ itunesstored →  &lt;Warning&gt;: LaunchServices: Uninstalling app &lt;LSApplic
     <link href="http://wait.im/2014/06/21/SVG%20Android%E5%BA%94%E7%94%A8%E6%8E%A2%E7%A9%B6%E4%B9%8B%E8%B7%AF/"/>
     <id>http://wait.im/2014/06/21/SVG Android应用探究之路/</id>
     <published>2014-06-20T16:12:36.000Z</published>
-    <updated>2015-11-09T16:49:34.000Z</updated>
-    <content type="html"><![CDATA[<p>#####优点:</p>
-<ul>
+    <updated>2017-02-06T10:48:40.000Z</updated>
+    <content type="html"><![CDATA[<h5 id="优点"><a href="#优点" class="headerlink" title="优点:"></a>优点:</h5><ul>
 <li>vector</li>
 <li>在所有大小分辨率屏幕上完美显示</li>
 <li>SVG图片更小</li>
 <li>一张图片可以更具需求多次使用？(One picture is used some times for different permissions)</li>
 <li>减少加载时间</li>
 </ul>
-<p>#####缺点:</p>
-<p>图片只能按照比例缩放<br>不支持透明度？<br>svg文件还可以近一步优化，里面有一些不可取（The schedule needs to be simplified — the more vector elements, the the file more weighs. It is undesirable to use shades and luminescences as it in times increases the size of SVG-files）</p>
-<p>####SVG 的探索来源于：<br><figure class="highlight ada"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">No sooner said than done. So, under katom history <span class="keyword">of</span> introduction <span class="keyword">of</span> vector images </div><div class="line"><span class="keyword">in</span> one <span class="keyword">of</span> our applications. <span class="keyword">In</span> article we will impart experience also features <span class="keyword">of</span> </div><div class="line"><span class="keyword">use</span> <span class="keyword">of</span> vector images <span class="keyword">in</span> format SVG <span class="keyword">in</span> applications Android.</div></pre></td></tr></table></figure></p>
-<p>####编辑器：Adobe Illustrator 、Inkscape work.</p>
-<p>####Google “android svg”:<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">projects on guglokode:</div><div class="line"><span class="selector-tag">code</span><span class="selector-class">.google</span><span class="selector-class">.com</span>/p/svg-android/</div><div class="line"><span class="selector-tag">code</span><span class="selector-class">.google</span><span class="selector-class">.com</span>/p/svg-android-<span class="number">2</span>/</div><div class="line">Detailed <span class="selector-tag">article</span> about use NDK:</div><div class="line">horribileru<span class="selector-class">.blogspot</span><span class="selector-class">.ru</span>/<span class="number">2011</span>/<span class="number">10</span>/android-imageview-svg<span class="selector-class">.html</span></div><div class="line">And some links to dead projects at different forums.</div></pre></td></tr></table></figure></p>
-<p>####一、SVG-Android：</p>
-<p>#####GitHub: <a href="https://github.com/search?utf8=✓&amp;q=SVG-Android" target="_blank" rel="external">https://github.com/search?utf8=✓&amp;q=SVG-Android</a><br>他们项目通过底层封装的接口方式：</p>
+<h5 id="缺点"><a href="#缺点" class="headerlink" title="缺点:"></a>缺点:</h5><p>图片只能按照比例缩放<br>不支持透明度？<br>svg文件还可以近一步优化，里面有一些不可取（The schedule needs to be simplified — the more vector elements, the the file more weighs. It is undesirable to use shades and luminescences as it in times increases the size of SVG-files）</p>
+<h4 id="SVG-的探索来源于："><a href="#SVG-的探索来源于：" class="headerlink" title="SVG 的探索来源于："></a>SVG 的探索来源于：</h4><figure class="highlight ada"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">No sooner said than done. So, under katom history <span class="keyword">of</span> introduction <span class="keyword">of</span> vector images </div><div class="line"><span class="keyword">in</span> one <span class="keyword">of</span> our applications. <span class="keyword">In</span> article we will impart experience also features <span class="keyword">of</span> </div><div class="line"><span class="keyword">use</span> <span class="keyword">of</span> vector images <span class="keyword">in</span> format SVG <span class="keyword">in</span> applications Android.</div></pre></td></tr></table></figure>
+<h4 id="编辑器：Adobe-Illustrator-、Inkscape-work"><a href="#编辑器：Adobe-Illustrator-、Inkscape-work" class="headerlink" title="编辑器：Adobe Illustrator 、Inkscape work."></a>编辑器：Adobe Illustrator 、Inkscape work.</h4><h4 id="Google-“android-svg”"><a href="#Google-“android-svg”" class="headerlink" title="Google “android svg”:"></a>Google “android svg”:</h4><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">projects on guglokode:</div><div class="line"><span class="selector-tag">code</span><span class="selector-class">.google</span><span class="selector-class">.com</span>/p/svg-android/</div><div class="line"><span class="selector-tag">code</span><span class="selector-class">.google</span><span class="selector-class">.com</span>/p/svg-android-<span class="number">2</span>/</div><div class="line">Detailed <span class="selector-tag">article</span> about use NDK:</div><div class="line">horribileru<span class="selector-class">.blogspot</span><span class="selector-class">.ru</span>/<span class="number">2011</span>/<span class="number">10</span>/android-imageview-svg<span class="selector-class">.html</span></div><div class="line">And some links to dead projects at different forums.</div></pre></td></tr></table></figure>
+<h4 id="一、SVG-Android："><a href="#一、SVG-Android：" class="headerlink" title="一、SVG-Android："></a>一、SVG-Android：</h4><h5 id="GitHub-https-github-com-search-utf8-✓-amp-q-SVG-Android"><a href="#GitHub-https-github-com-search-utf8-✓-amp-q-SVG-Android" class="headerlink" title="GitHub: https://github.com/search?utf8=✓&amp;q=SVG-Android"></a>GitHub: <a href="https://github.com/search?utf8=✓&amp;q=SVG-Android" target="_blank" rel="external">https://github.com/search?utf8=✓&amp;q=SVG-Android</a></h5><p>他们项目通过底层封装的接口方式：</p>
 <figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">SVG svg = SVGParser.getSVGFromResource(getResources(), R.raw.filename)<span class="comment">;</span></div><div class="line">Drawable drawable = svg.createPictureDrawable()<span class="comment">;</span></div><div class="line">imageView.setImageDrawable(drawable)<span class="comment">;</span></div></pre></td></tr></table></figure>
 <p>缺点: 只支持 SVG basic 1.1(不支持Inkspace编辑、只支持AdobeIllustrator编辑)</p>
-<p>####二、 SVG-Android-2:</p>
-<p>####URL: <a href="https://code.google.com/p/svg-android-2/wiki/Introduction" target="_blank" rel="external">https://code.google.com/p/svg-android-2/wiki/Introduction</a></p>
-<p>#####第一个发现：SVG在包含 阴影的情况下大小会飙升：<br><img src="http://blog.dreamtobe.cn/img/svg-k-1.png" alt="ICON1"><br>izorbrazhenija with a shade and without: 118 KB vs 1 KB</p>
+<h4 id="二、-SVG-Android-2"><a href="#二、-SVG-Android-2" class="headerlink" title="二、 SVG-Android-2:"></a>二、 SVG-Android-2:</h4><h4 id="URL-https-code-google-com-p-svg-android-2-wiki-Introduction"><a href="#URL-https-code-google-com-p-svg-android-2-wiki-Introduction" class="headerlink" title="URL: https://code.google.com/p/svg-android-2/wiki/Introduction"></a>URL: <a href="https://code.google.com/p/svg-android-2/wiki/Introduction" target="_blank" rel="external">https://code.google.com/p/svg-android-2/wiki/Introduction</a></h4><h5 id="第一个发现：SVG在包含-阴影的情况下大小会飙升："><a href="#第一个发现：SVG在包含-阴影的情况下大小会飙升：" class="headerlink" title="第一个发现：SVG在包含 阴影的情况下大小会飙升："></a>第一个发现：SVG在包含 阴影的情况下大小会飙升：</h5><p><img src="http://blog.dreamtobe.cn/img/svg-k-1.png" alt="ICON1"><br>izorbrazhenija with a shade and without: 118 KB vs 1 KB</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">解决方法：删除对应的阴影</div></pre></td></tr></table></figure>
-<p>#####第二个发现：显示梯度颜色，不支持！</p>
-<p>The problem with gradients has dared removal of superfluous tags from svg (it is described further in article). But basically, and with it it would be possible to live and in our simple images to replace a gradient with homogeneous pouring, if not other nuance — considerable load time of images.</p>
+<h5 id="第二个发现：显示梯度颜色，不支持！"><a href="#第二个发现：显示梯度颜色，不支持！" class="headerlink" title="第二个发现：显示梯度颜色，不支持！"></a>第二个发现：显示梯度颜色，不支持！</h5><p>The problem with gradients has dared removal of superfluous tags from svg (it is described further in article). But basically, and with it it would be possible to live and in our simple images to replace a gradient with homogeneous pouring, if not other nuance — considerable load time of images.</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">解决方法：用简单的图片代替</div></pre></td></tr></table></figure>
 <p>后文(第三个发现)提到解决方法： After we have got rid of the given links, having edited code SVG in some images, the gradient began to be displayed correctly.<br><img src="http://blog.dreamtobe.cn/img/svg-k-2.png" alt="icon 2"><br>at the left — the black sky in the form of a gradient, on the right — a correct picture.</p>
-<p>#####第三个发现：加载时间</p>
-<p>根源：为什么SVG-Android-2这么耗时，</p>
+<h5 id="第三个发现：加载时间"><a href="#第三个发现：加载时间" class="headerlink" title="第三个发现：加载时间"></a>第三个发现：加载时间</h5><p>根源：为什么SVG-Android-2这么耗时，</p>
 <p>原因：SVGParser 解析Image XML file ，解析了两次，第一次 为第二次解析收集多余的属性。多余信息是：</p>
 <figure class="highlight livescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="literal">that</span> the most interesting, — <span class="keyword">is</span> analyzed only attribute xlink:href which <span class="keyword">is</span> a</div><div class="line">semblance <span class="keyword">of</span> hyperlinks <span class="keyword">in</span> the <span class="built_in">document</span>. In our problem images just there were</div><div class="line">such links, <span class="keyword">and</span> they conducted anywhere.</div></pre></td></tr></table></figure>
 <p>成果：耗时，加载35个SVG的图片(PNG 500px*500px)：从原8s 减少到 1.8-2s。</p>
-<p>#####第四个发现：透明与颜色适配器</p>
-<p>原因：库不是加载 典型的bitmapDrawable与pictureDrawable,并且源码中的setColorFilter、setAlpha方法都是空的：</p>
+<h5 id="第四个发现：透明与颜色适配器"><a href="#第四个发现：透明与颜色适配器" class="headerlink" title="第四个发现：透明与颜色适配器"></a>第四个发现：透明与颜色适配器</h5><p>原因：库不是加载 典型的bitmapDrawable与pictureDrawable,并且源码中的setColorFilter、setAlpha方法都是空的：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">public void setColorFilter(ColorFilter colorFilter) &#123;&#125;</div><div class="line">@Override</div><div class="line">public void setAlpha(int alpha) &#123;&#125;</div></pre></td></tr></table></figure>
 <p>成果：在SVGHandler中发现一个Paint类型的fillPaint组件，如果能够在加载元素之前 创建colorFilter即可，略微调整SVGHandler加载SVG的代码：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setFilterColor</span><span class="params">(<span class="keyword">int</span> filterColor)</span> </span>&#123;</div><div class="line">    fillPaint.setColorFilter(<span class="keyword">new</span> PorterDuffColorFilter(filterColor, Mode.MULTIPLY));</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
@@ -2906,23 +2865,20 @@ itunesstored →  &lt;Warning&gt;: LaunchServices: Uninstalling app &lt;LSApplic
 <p>因此我们能够在多张图片上通过引用一张图片使用不同的阴影颜色（As a result we could receive some images of different shades from one picture.）</p>
 <p>对于透明度，建议并不适用setAlpha去实现（实际上是可以的通过fillPaint）:</p>
 <figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Also <span class="keyword">it</span> is possible <span class="built_in">to</span> establish <span class="keyword">and</span> Alpha <span class="keyword">for</span> fillPaint, but <span class="keyword">in</span> games this property is required <span class="keyword">in</span> <span class="keyword">the</span> dynamic form (have pressed <span class="keyword">an</span> <span class="keyword">element</span> — has become translucent), <span class="keyword">and</span> podgruzhat <span class="keyword">each</span> <span class="built_in">time</span> <span class="keyword">the</span> <span class="built_in">new</span> image is inconvenient. Therefore this effect have replaced <span class="keyword">with</span> scaling (have pressed — <span class="keyword">the</span> <span class="keyword">element</span> has decreased).</div></pre></td></tr></table></figure>
-<p>#####第五个发现：异常处理：</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">java<span class="selector-class">.lang</span><span class="selector-class">.UnsupportedOperationException</span></div><div class="line">  at android<span class="selector-class">.view</span><span class="selector-class">.GLES20Canvas</span><span class="selector-class">.drawPicture</span>(GLES20Canvas<span class="selector-class">.java</span>:<span class="number">895</span>)</div><div class="line">  at android<span class="selector-class">.graphics</span><span class="selector-class">.drawable</span><span class="selector-class">.PictureDrawable</span><span class="selector-class">.draw</span>(PictureDrawable<span class="selector-class">.java</span>:<span class="number">73</span>)</div></pre></td></tr></table></figure>
+<h5 id="第五个发现：异常处理："><a href="#第五个发现：异常处理：" class="headerlink" title="第五个发现：异常处理："></a>第五个发现：异常处理：</h5><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">java<span class="selector-class">.lang</span><span class="selector-class">.UnsupportedOperationException</span></div><div class="line">  at android<span class="selector-class">.view</span><span class="selector-class">.GLES20Canvas</span><span class="selector-class">.drawPicture</span>(GLES20Canvas<span class="selector-class">.java</span>:<span class="number">895</span>)</div><div class="line">  at android<span class="selector-class">.graphics</span><span class="selector-class">.drawable</span><span class="selector-class">.PictureDrawable</span><span class="selector-class">.draw</span>(PictureDrawable<span class="selector-class">.java</span>:<span class="number">73</span>)</div></pre></td></tr></table></figure>
 <p>低版本不支持gpu(api &lt; 11)</p>
 <figure class="highlight aspectj"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">void</span> <span class="title">setSoftwareLayerType</span><span class="params">(View view)</span> </span>&#123;</div><div class="line">   <span class="keyword">try</span> &#123;</div><div class="line">     view.setLayerType(View.LAYER_TYPE_SOFTWARE, <span class="keyword">null</span>);</div><div class="line">   &#125; <span class="keyword">catch</span> (NoSuchMethodError e) &#123;</div><div class="line">       <span class="comment">//Do nothing - this happens on API &lt; 11</span></div><div class="line">   &#125;</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
-<p>####使用SVG的项目：</p>
-<p><a href="http://play.google.com/store/apps/details?id=com.whisperarts.kids.forms" target="_blank" rel="external">http://play.google.com/store/apps/details?id=com.whisperarts.kids.forms</a></p>
+<h4 id="使用SVG的项目："><a href="#使用SVG的项目：" class="headerlink" title="使用SVG的项目："></a>使用SVG的项目：</h4><p><a href="http://play.google.com/store/apps/details?id=com.whisperarts.kids.forms" target="_blank" rel="external">http://play.google.com/store/apps/details?id=com.whisperarts.kids.forms</a></p>
 <blockquote>
 <p>本文总结自：<a href="http://sysmagazine.com/posts/166093/" target="_blank" rel="external">http://sysmagazine.com/posts/166093/</a></p>
 </blockquote>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p>#####优点:</p>
-<ul>
+    <![CDATA[<h5 id="优点"><a href="#优点" class="headerlink" title="优点:"></a>优点:</h5><ul>
 <li>vector</li>
 <li>在所有大小分辨率屏幕上完美显示</li>
 <li>SVG图片更小</li>
-<li>一张图片可以更具需求多次使用？(One picture is used some times for differ]]>
+<li>一张图片]]>
     </summary>
     
       <category term="Android" scheme="http://wait.im/tags/Android/"/>
@@ -2979,44 +2935,62 @@ itunesstored →  &lt;Warning&gt;: LaunchServices: Uninstalling app &lt;LSApplic
     <link href="http://wait.im/2013/10/21/Android%E5%8A%A8%E7%94%BB%E7%AE%80%E5%8D%95%E5%AD%A6%E4%B9%A0/"/>
     <id>http://wait.im/2013/10/21/Android动画简单学习/</id>
     <published>2013-10-20T16:16:36.000Z</published>
-    <updated>2017-02-04T10:08:22.000Z</updated>
+    <updated>2017-02-06T10:49:07.000Z</updated>
     <content type="html"><![CDATA[<blockquote>
 <p>再复杂的动画，都是简单动画的结合</p>
 </blockquote>
-<p>###I. Tween Animation(补间动画)<br>形式|备注<br>—|—<br>alpha    |渐变透明度<br>scale    |渐变尺寸<br>translate|画面位置移动<br>rotate|画面旋转</p>
-<p>####实现方式<br>Animation配合AnimationUtils，结合xml中set</p>
-<p>###II. Frame Animation(关键帧动画)</p>
-<blockquote>
+<h3 id="I-Tween-Animation-补间动画"><a href="#I-Tween-Animation-补间动画" class="headerlink" title="I. Tween Animation(补间动画)"></a>I. Tween Animation(补间动画)</h3><table>
+<thead>
+<tr>
+<th>形式</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>alpha</td>
+<td>渐变透明度</td>
+</tr>
+<tr>
+<td>scale</td>
+<td>渐变尺寸</td>
+</tr>
+<tr>
+<td>translate</td>
+<td>画面位置移动</td>
+</tr>
+<tr>
+<td>rotate</td>
+<td>画面旋转</td>
+</tr>
+</tbody>
+</table>
+<h4 id="实现方式"><a href="#实现方式" class="headerlink" title="实现方式"></a>实现方式</h4><p>Animation配合AnimationUtils，结合xml中set</p>
+<h3 id="II-Frame-Animation-关键帧动画"><a href="#II-Frame-Animation-关键帧动画" class="headerlink" title="II. Frame Animation(关键帧动画)"></a>II. Frame Animation(关键帧动画)</h3><blockquote>
 <p>顺序播放关键帧</p>
 </blockquote>
-<p>####实现方式</p>
-<p>AnimationDrawable结合xml中定义animation-list标签</p>
+<h4 id="实现方式-1"><a href="#实现方式-1" class="headerlink" title="实现方式"></a>实现方式</h4><p>AnimationDrawable结合xml中定义animation-list标签</p>
 <blockquote>
 <p>AnimationDrawable本身无法监听动画状态</p>
 </blockquote>
-<p>###III. 对象属性动画</p>
-<blockquote>
+<h3 id="III-对象属性动画"><a href="#III-对象属性动画" class="headerlink" title="III. 对象属性动画"></a>III. 对象属性动画</h3><blockquote>
 <p>Andorid 3.0加入(如果3.0以下想用使用，可以参考开源动画库: <a href="http://nineoldandroids.com/" target="_blank" rel="external">http://nineoldandroids.com/</a>)<br>基本概念: 可以对对象属性进行动画，不仅仅是View</p>
 </blockquote>
 <p>动画的默认帧率是一帧10ms(100帧/s(Android正常绘制60帧/s))</p>
-<p>#####1. TimeInterpolator(时间插值器)</p>
-<blockquote>
+<h5 id="1-TimeInterpolator-时间插值器"><a href="#1-TimeInterpolator-时间插值器" class="headerlink" title="1. TimeInterpolator(时间插值器)"></a>1. TimeInterpolator(时间插值器)</h5><blockquote>
 <p>根据时间流逝的百分比来计算出当前属性值改变的百分比</p>
 </blockquote>
-<p>######系统默认提供的</p>
-<ul>
+<h6 id="系统默认提供的"><a href="#系统默认提供的" class="headerlink" title="系统默认提供的"></a>系统默认提供的</h6><ul>
 <li>LinearInterpolator: 线性插值器，匀速动画</li>
 <li>AccelerateDecelerateInterpolator: 加速减速插值器，动画两头慢中间快</li>
 <li>DecelerateInterpolator: 减速插值器，动画越来越慢</li>
 <li>AccelerateInterpolator: 加速插值器，动画越来越快</li>
 <li>…</li>
 </ul>
-<p>#####2. TypeEvaluator(类型估值算法)</p>
-<blockquote>
+<h5 id="2-TypeEvaluator-类型估值算法"><a href="#2-TypeEvaluator-类型估值算法" class="headerlink" title="2. TypeEvaluator(类型估值算法)"></a>2. TypeEvaluator(类型估值算法)</h5><blockquote>
 <p>根据当前属性改变的百分比来计算改变后的属性值</p>
 </blockquote>
-<p>######系统默认提供的</p>
-<ul>
+<h6 id="系统默认提供的-1"><a href="#系统默认提供的-1" class="headerlink" title="系统默认提供的"></a>系统默认提供的</h6><ul>
 <li>IntEvaluator: 针对整型属性</li>
 <li>FloatEvaluator: 针对浮点型属性</li>
 <li>ArgbEvaluator: 针对Color属性</li>
@@ -3025,17 +2999,14 @@ itunesstored →  &lt;Warning&gt;: LaunchServices: Uninstalling app &lt;LSApplic
 <blockquote>
 <p>TypeEvaluator与TimeInterpolator是实现非匀速动画的神器。</p>
 </blockquote>
-<p>####实现方式</p>
-<p>TimeInterpolator与TypeEvaluator两者是配合使用的</p>
+<h4 id="实现方式-2"><a href="#实现方式-2" class="headerlink" title="实现方式"></a>实现方式</h4><p>TimeInterpolator与TypeEvaluator两者是配合使用的</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LinearInterpolator</span> <span class="keyword">implements</span> <span class="title">Interpolator</span> </span>&#123;</div><div class="line"></div><div class="line">    ...</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">float</span> <span class="title">getInterpolation</span><span class="params">(<span class="keyword">float</span> input)</span> </span>&#123;</div><div class="line">        <span class="comment">// 返回时间流逝的百分比 input = (当前时间 - 开始时间)/ 总时间</span></div><div class="line">        <span class="keyword">return</span> input; <span class="comment">// 匀速</span></div><div class="line">        <span class="comment">//return input * input; //加速</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IntEvaluator</span> <span class="keyword">implements</span> <span class="title">TypeEvaluator</span>&lt;<span class="title">Integer</span>&gt; </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> Integer <span class="title">evaluate</span><span class="params">(<span class="keyword">float</span> fraction, Integer startValue, Integer endValue)</span> </span>&#123;</div><div class="line">        <span class="comment">// 返回需要变化的整型</span></div><div class="line">        <span class="keyword">int</span> startInt = startValue;</div><div class="line">        <span class="comment">// fraction: LinearInterpolator返回的流逝百分比</span></div><div class="line">        <span class="keyword">return</span> (<span class="keyword">int</span>)(startInt + fraction * (endValue - startInt));</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>#####3. ObjectAnimator、ValueAnimator、AnimatorSet</p>
-<blockquote>
+<h5 id="3-ObjectAnimator、ValueAnimator、AnimatorSet"><a href="#3-ObjectAnimator、ValueAnimator、AnimatorSet" class="headerlink" title="3. ObjectAnimator、ValueAnimator、AnimatorSet"></a>3. ObjectAnimator、ValueAnimator、AnimatorSet</h5><blockquote>
 <p>都可以直接在xml中定义 / 直接代码中实现，结合TimeInterpolator与TypeEvaluator，几乎可以实现所有想要的动画</p>
 </blockquote>
 <hr>
-<p>###例子<br>以下例子来自: <a href="http://blog.csdn.net/singwhatiwanna/article/details/17639987" target="_blank" rel="external">Android动画进阶—使用开源动画库nineoldandroids</a>与<a href="http://blog.csdn.net/singwhatiwanna/article/details/17841165" target="_blank" rel="external">Android属性动画深入分析</a>：让你成为动画牛人</p>
-<p>#####第二个参数PropertyName</p>
-<blockquote>
+<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><p>以下例子来自: <a href="http://blog.csdn.net/singwhatiwanna/article/details/17639987" target="_blank" rel="external">Android动画进阶—使用开源动画库nineoldandroids</a>与<a href="http://blog.csdn.net/singwhatiwanna/article/details/17841165" target="_blank" rel="external">Android属性动画深入分析</a>：让你成为动画牛人</p>
+<h5 id="第二个参数PropertyName"><a href="#第二个参数PropertyName" class="headerlink" title="第二个参数PropertyName"></a>第二个参数PropertyName</h5><blockquote>
 <p>PropertyName: 如第一个例子的”translationY”</p>
 <p>我们定义第一个例子中的myObject为target</p>
 </blockquote>
@@ -3082,7 +3053,7 @@ valueAnimator.setDuration(5000).start();
     <![CDATA[<blockquote>
 <p>再复杂的动画，都是简单动画的结合</p>
 </blockquote>
-<p>###I. Tween Animation(补间动画)<br>形式|备注<br>—|—<br>alpha    |渐变透明度<br>scale    |渐变尺寸<br>tr]]>
+<h3 id="I-Tween-Animation-补间动画"><a href="#I-Tween-Animation-补间动画" class="headerlink" titl]]>
     </summary>
     
       <category term="Android" scheme="http://wait.im/tags/Android/"/>

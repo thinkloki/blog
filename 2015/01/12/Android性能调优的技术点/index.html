@@ -86,37 +86,34 @@
 
 
 
-<meta name="description" content="##要点
-###使用异步
-
+<meta name="description" content="要点使用异步
 保持 APP 的高度响应，不要在 UI 线程做耗时操作，多使用异步任务
 使用线程时要做好线程控制；使用队列、线程池
 谨慎使用糟糕的 AysncTask 、 Timer
 警惕异步任务引起的内存泄露
-应该异步任务分类，比如 HTTP ，图片下载，文件读写，每一类的异步任务维护一个任务队列，而不是每一个任务都开一个线程（ Volley 表示我一个可以搞定这些全部 (:з」∠)">
+应该异步任务分类，比如 HTTP ，图片下载，文件读写，每一类的异步任务维护一个任务队列，而不是每一个任务都开一个线程（ Volley 表示我一个可以搞定这些全部 (:з」∠)）
+这些常用的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android性能调优的技术点">
 <meta property="og:url" content="http://wait.im/2015/01/12/Android性能调优的技术点/index.html">
 <meta property="og:site_name" content="thinkloki">
-<meta property="og:description" content="##要点
-###使用异步
-
+<meta property="og:description" content="要点使用异步
 保持 APP 的高度响应，不要在 UI 线程做耗时操作，多使用异步任务
 使用线程时要做好线程控制；使用队列、线程池
 谨慎使用糟糕的 AysncTask 、 Timer
 警惕异步任务引起的内存泄露
-应该异步任务分类，比如 HTTP ，图片下载，文件读写，每一类的异步任务维护一个任务队列，而不是每一个任务都开一个线程（ Volley 表示我一个可以搞定这些全部 (:з」∠)">
-<meta property="og:updated_time" content="2015-11-11T05:42:42.000Z">
+应该异步任务分类，比如 HTTP ，图片下载，文件读写，每一类的异步任务维护一个任务队列，而不是每一个任务都开一个线程（ Volley 表示我一个可以搞定这些全部 (:з」∠)）
+这些常用的">
+<meta property="og:updated_time" content="2017-02-06T10:47:41.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android性能调优的技术点">
-<meta name="twitter:description" content="##要点
-###使用异步
-
+<meta name="twitter:description" content="要点使用异步
 保持 APP 的高度响应，不要在 UI 线程做耗时操作，多使用异步任务
 使用线程时要做好线程控制；使用队列、线程池
 谨慎使用糟糕的 AysncTask 、 Timer
 警惕异步任务引起的内存泄露
-应该异步任务分类，比如 HTTP ，图片下载，文件读写，每一类的异步任务维护一个任务队列，而不是每一个任务都开一个线程（ Volley 表示我一个可以搞定这些全部 (:з」∠)">
+应该异步任务分类，比如 HTTP ，图片下载，文件读写，每一类的异步任务维护一个任务队列，而不是每一个任务都开一个线程（ Volley 表示我一个可以搞定这些全部 (:з」∠)）
+这些常用的">
 
 
 
@@ -338,9 +335,7 @@
       
 
       
-        <p>##要点</p>
-<p>###使用异步</p>
-<ul>
+        <h2 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h2><h3 id="使用异步"><a href="#使用异步" class="headerlink" title="使用异步"></a>使用异步</h3><ul>
 <li>保持 APP 的高度响应，不要在 UI 线程做耗时操作，多使用异步任务</li>
 <li>使用线程时要做好线程控制；使用队列、线程池</li>
 <li>谨慎使用糟糕的 AysncTask 、 Timer</li>
@@ -352,8 +347,7 @@
 <li>使用 MVP 模式规范大型 Activity 类的行为，避免异步任务造成的内存泄露</li>
 <li>避免内存泄露</li>
 </ul>
-<p>###了解虚拟机内存回收机制</p>
-<ul>
+<h3 id="了解虚拟机内存回收机制"><a href="#了解虚拟机内存回收机制" class="headerlink" title="了解虚拟机内存回收机制"></a>了解虚拟机内存回收机制</h3><ul>
 <li>频繁 GC 也会造成卡顿，避免不必要的内存开销</li>
 <li>错误的引用姿♂势造成的内存泄露（啊~要泄了~）</li>
 <li>常见的 Activity 泄露（单例、 Application 、后台线程、无限动画、静态引用）</li>
@@ -364,8 +358,7 @@
 <li>对内存负载要保持敏感（ Sharp ）</li>
 <li>视图优化</li>
 </ul>
-<p>###布局优化、减少层次， Include Merge</p>
-<ul>
+<h3 id="布局优化、减少层次，-Include-Merge"><a href="#布局优化、减少层次，-Include-Merge" class="headerlink" title="布局优化、减少层次， Include Merge"></a>布局优化、减少层次， Include Merge</h3><ul>
 <li>使用 ViewStub 避免不必要的 LayoutInflate ，使用 GONE 代替重复 LayoutInflate 同一个布局</li>
 <li>避免过度绘制，应该减少不必要的布局背景；布局层次太深会造成过度绘制以及 Measure 、 Layout 等方法时间复杂度的指数增长</li>
 <li>使用过渡动画，比如给图片的呈现加一个轻量的淡入效果会让视觉上变得流畅许多</li>
@@ -373,8 +366,7 @@
 <li>复杂动画使用 SurfaceView 或 TextureView</li>
 <li>尽量提供多套分辨率的图片，使用矢量图</li>
 </ul>
-<p>##Adapter 优化</p>
-<ul>
+<h2 id="Adapter-优化"><a href="#Adapter-优化" class="headerlink" title="Adapter 优化"></a>Adapter 优化</h2><ul>
 <li>复用 convertView ，用 ViewHolder 代替频繁 findViewById</li>
 <li>不要重复 setListener ，要使用 v.getId 来复用 Listener ，不然会创建一堆 Listener 导致频繁 GC</li>
 <li>多布局要采用 MutilItemView ，而不是使用一个大布局然后动态控制需要现实的部分</li>
@@ -382,8 +374,7 @@
 <li>快速滚动列表的时候，可以停止加载列表项的图片，停止列表项的动画，不要在这时候改变列表项的布局</li>
 <li>尽量用 RecyclerView （增量 Notify 和 RecycledViewPool 带你飞）</li>
 </ul>
-<p>####代码优化</p>
-<ul>
+<h4 id="代码优化"><a href="#代码优化" class="headerlink" title="代码优化"></a>代码优化</h4><ul>
 <li>算法优化，减少时间复杂度，参考一些经典的优化算法</li>
 <li>尽量使用 int ，而不是 float 或者 double</li>
 <li>尽量采用基本类型，避免无必要的自动装箱和拆箱，浪费时间和空间</li>
@@ -399,24 +390,21 @@
 <li>遍历集合时，使用 i++代替 Iterator ，后者需要额外的对象操作，应在循环体内避免这种情况</li>
 <li>如果一个基本类型或者 String 的值不会改变，尽量用 final static ，编译时会直接用变量的值替换变量，也就不需要在查询变量的值了</li>
 </ul>
-<p>##其他优化</p>
-<ul>
+<h2 id="其他优化"><a href="#其他优化" class="headerlink" title="其他优化"></a>其他优化</h2><ul>
 <li>数据库优化：使用索引、使用异步线程</li>
 <li>网络优化 …… 一堆优秀的轮子</li>
 <li>避免过度使用依赖注入框架，大量的反射</li>
 <li>不过过度设计 /抽象，多态看起来很有设计感，代价就是额外的代码、空间、时间</li>
 <li>尽量不要开启多进程，进程的开销很大</li>
 </ul>
-<p>####APK 瘦身</p>
-<ul>
+<h4 id="APK-瘦身"><a href="#APK-瘦身" class="headerlink" title="APK 瘦身"></a>APK 瘦身</h4><ul>
 <li>开启混淆</li>
 <li>使用 zipalign 工具优化 APK</li>
 <li>适当有损图片压缩、使用矢量图</li>
 <li>删除项目中冗余的资源，之前写过一些删除没有 res 资源的脚本</li>
 <li>动态加载模块化，项目拆分啊！</li>
 </ul>
-<p>####性能问题的排查方法</p>
-<ul>
+<h4 id="性能问题的排查方法"><a href="#性能问题的排查方法" class="headerlink" title="性能问题的排查方法"></a>性能问题的排查方法</h4><ul>
 <li>GPU 条形图，没事开来看看淘宝</li>
 <li>过度绘制颜色，嗯，不要一篇姨妈红就好</li>
 <li>LeakCanary ，自动检测 Activity 泄露，挺好用的</li>
@@ -521,8 +509,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://source.wait.im/QNbCS5A.jpg"
@@ -578,6 +575,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#要点"><span class="nav-number">1.</span> <span class="nav-text">要点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用异步"><span class="nav-number">1.1.</span> <span class="nav-text">使用异步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#了解虚拟机内存回收机制"><span class="nav-number">1.2.</span> <span class="nav-text">了解虚拟机内存回收机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#布局优化、减少层次，-Include-Merge"><span class="nav-number">1.3.</span> <span class="nav-text">布局优化、减少层次， Include Merge</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Adapter-优化"><span class="nav-number">2.</span> <span class="nav-text">Adapter 优化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#代码优化"><span class="nav-number">2.0.1.</span> <span class="nav-text">代码优化</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他优化"><span class="nav-number">3.</span> <span class="nav-text">其他优化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#APK-瘦身"><span class="nav-number">3.0.1.</span> <span class="nav-text">APK 瘦身</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#性能问题的排查方法"><span class="nav-number">3.0.2.</span> <span class="nav-text">性能问题的排查方法</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
