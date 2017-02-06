@@ -86,19 +86,22 @@
 
 
 
-<meta name="description" content="###蓝牙设备类型判断蓝牙连接设备互相连接，有时候需要根据设备的不同去判断，在Android上面，我们需要用到系统的api，比如用到蓝牙电话的时候，就要判断连入得设备类型是不是电话类型的。
-1device.getBluetoothClass().getMajorDeviceClass() == android.bluetooth.BluetoothClass.Device.Major.PHONE">
+<meta name="description" content="蓝牙设备类型判断蓝牙连接设备互相连接，有时候需要根据设备的不同去判断，在Android上面，我们需要用到系统的api，比如用到蓝牙电话的时候，就要判断连入得设备类型是不是电话类型的。
+1device.getBluetoothClass().getMajorDeviceClass() == android.bluetooth.BluetoothClass.Device.Major.PHONE
+123">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android蓝牙链接有关问题总结">
 <meta property="og:url" content="http://wait.im/2016/01/20/Android蓝牙链接有关问题总结/index.html">
 <meta property="og:site_name" content="thinkloki">
-<meta property="og:description" content="###蓝牙设备类型判断蓝牙连接设备互相连接，有时候需要根据设备的不同去判断，在Android上面，我们需要用到系统的api，比如用到蓝牙电话的时候，就要判断连入得设备类型是不是电话类型的。
-1device.getBluetoothClass().getMajorDeviceClass() == android.bluetooth.BluetoothClass.Device.Major.PHONE">
-<meta property="og:updated_time" content="2017-02-04T11:20:14.000Z">
+<meta property="og:description" content="蓝牙设备类型判断蓝牙连接设备互相连接，有时候需要根据设备的不同去判断，在Android上面，我们需要用到系统的api，比如用到蓝牙电话的时候，就要判断连入得设备类型是不是电话类型的。
+1device.getBluetoothClass().getMajorDeviceClass() == android.bluetooth.BluetoothClass.Device.Major.PHONE
+123">
+<meta property="og:updated_time" content="2017-02-06T10:15:38.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android蓝牙链接有关问题总结">
-<meta name="twitter:description" content="###蓝牙设备类型判断蓝牙连接设备互相连接，有时候需要根据设备的不同去判断，在Android上面，我们需要用到系统的api，比如用到蓝牙电话的时候，就要判断连入得设备类型是不是电话类型的。
-1device.getBluetoothClass().getMajorDeviceClass() == android.bluetooth.BluetoothClass.Device.Major.PHONE">
+<meta name="twitter:description" content="蓝牙设备类型判断蓝牙连接设备互相连接，有时候需要根据设备的不同去判断，在Android上面，我们需要用到系统的api，比如用到蓝牙电话的时候，就要判断连入得设备类型是不是电话类型的。
+1device.getBluetoothClass().getMajorDeviceClass() == android.bluetooth.BluetoothClass.Device.Major.PHONE
+123">
 
 
 
@@ -320,7 +323,7 @@
       
 
       
-        <p>###蓝牙设备类型判断<br>蓝牙连接设备互相连接，有时候需要根据设备的不同去判断，在Android上面，我们需要用到系统的api，比如用到蓝牙电话的时候，就要判断连入得设备类型是不是电话类型的。</p>
+        <h3 id="蓝牙设备类型判断"><a href="#蓝牙设备类型判断" class="headerlink" title="蓝牙设备类型判断"></a>蓝牙设备类型判断</h3><p>蓝牙连接设备互相连接，有时候需要根据设备的不同去判断，在Android上面，我们需要用到系统的api，比如用到蓝牙电话的时候，就要判断连入得设备类型是不是电话类型的。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">device.getBluetoothClass().getMajorDeviceClass() == android.bluetooth.BluetoothClass.Device.Major.PHONE</div></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Device</span> </span>&#123;</div><div class="line">        <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> BITMASK               = <span class="number">0x1FFC</span>;</div><div class="line"></div><div class="line">     </div><div class="line">  <span class="comment">/**</span></div><div class="line">         * Defines all major device class constants.</div><div class="line">         * &lt;p&gt;See &#123;<span class="doctag">@link</span> BluetoothClass.Device&#125; for minor classes.</div><div class="line">         */</div><div class="line">        <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Major</span> </span>&#123;</div><div class="line">            <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> BITMASK           = <span class="number">0x1F00</span>;</div><div class="line"></div><div class="line">            <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> MISC              = <span class="number">0x0000</span>;</div><div class="line">            <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> COMPUTER          = <span class="number">0x0100</span>;</div><div class="line">            <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> PHONE             = <span class="number">0x0200</span>;</div><div class="line">            <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> NETWORKING        = <span class="number">0x0300</span>;</div><div class="line">            <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> AUDIO_VIDEO       = <span class="number">0x0400</span>;</div><div class="line">            <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> PERIPHERAL        = <span class="number">0x0500</span>;</div><div class="line">            <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> IMAGING           = <span class="number">0x0600</span>;</div><div class="line">            <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> WEARABLE          = <span class="number">0x0700</span>;</div><div class="line">            <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> TOY               = <span class="number">0x0800</span>;</div><div class="line">            <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> HEALTH            = <span class="number">0x0900</span>;</div><div class="line">            <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> UNCATEGORIZED     = <span class="number">0x1F00</span>;</div><div class="line">        &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
@@ -414,8 +417,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://source.wait.im/QNbCS5A.jpg"
@@ -471,6 +483,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#蓝牙设备类型判断"><span class="nav-number">1.</span> <span class="nav-text">蓝牙设备类型判断</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
