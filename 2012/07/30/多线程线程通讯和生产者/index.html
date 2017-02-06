@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="thinkloki">
 <meta property="og:description" content="线程间通讯——等待唤醒机制1，wait()；是让线程处于冻结状态，被wait线程会被存储到线程池中。2,notify()；唤醒线程池中的一个线程(任意)。3,notifyAll()；唤醒线程池中的所有线程，让线程具备了执行资格。使用时要注意使用在同步中，因为只有同步才会具有锁。调用时需要明确对象，明确是哪个监视器。任意对象可以调用的方法定义在Object里面。
 锁可以是任意对象。为什么这些操作线程">
-<meta property="og:updated_time" content="2016-04-22T03:08:43.000Z">
+<meta property="og:updated_time" content="2017-02-06T10:57:23.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="多线程线程通讯和生产者">
 <meta name="twitter:description" content="线程间通讯——等待唤醒机制1，wait()；是让线程处于冻结状态，被wait线程会被存储到线程池中。2,notify()；唤醒线程池中的一个线程(任意)。3,notifyAll()；唤醒线程池中的所有线程，让线程具备了执行资格。使用时要注意使用在同步中，因为只有同步才会具有锁。调用时需要明确对象，明确是哪个监视器。任意对象可以调用的方法定义在Object里面。
@@ -331,7 +331,7 @@
 
       
         <p>线程间通讯——等待唤醒机制<br>1，wait()；是让线程处于冻结状态，被wait线程会被存储到线程池中。<br>2,notify()；唤醒线程池中的一个线程(任意)。<br>3,notifyAll()；唤醒线程池中的所有线程，让线程具备了执行资格。<br>使用时要注意使用在同步中，因为只有同步才会具有锁。<br>调用时需要明确对象，明确是哪个监视器。<br>任意对象可以调用的方法定义在Object里面。</p>
-<p>锁可以是任意对象。<br>为什么这些操作线程方法要定义在Object类中：因为这些方法在操作同步中线程时，都必须要标识它们所操作线程特有的锁，<br>只有同一个锁上的被等待线程，可以被同一个锁上的notify唤醒。<br>不可以对不同锁中的线程进行唤醒。等待和唤醒必须是同一个锁。而锁的对象是任意的，所以可以被任意对象调用的方法定义在Object类中。<br>一、线程间通信：<br>class Res<br>{<br>private String name;<br>private String sex;<br>private boolean flag = false;</p>
+<p>锁可以是任意对象。<br>为什么这些操作线程方法要定义在Object类中：因为这些方法在操作同步中线程时，都必须要标识它们所操作线程特有的锁，<br>只有同一个锁上的被等待线程，可以被同一个锁上的notify唤醒。<br>不可以对不同锁中的线程进行唤醒。等待和唤醒必须是同一个锁。而锁的对象是任意的，所以可以被任意对象调用的方法定义在Object类中。<br><a id="more"></a><br>一、线程间通信：<br>class Res<br>{<br>private String name;<br>private String sex;<br>private boolean flag = false;</p>
 <p>public synchronized void set(String name,String sex)<br>{<br>if(flag)<br>try{this.wait();}catch(Exception e){}<br>this.name = name;</p>
 <p>this.sex = sex;<br>flag = true;<br>this.notify();<br>}<br>public synchronized void out()<br>{<br>if(!flag)<br>try{this.wait();}catch(Exception e){}<br>System.out.println(name+”……..”+sex);<br>flag = false;<br>this.notify();<br>}<br>}</p>
 <p>class Input implements Runnable<br>{<br>private Res r ;<br>Input(Res r)<br>{<br>this.r = r;<br>}<br>public void run()<br>{<br>int x = 0;<br>while(true)<br>{<br>if(x==0)<br>r.set(“mike”,”man”);<br>else<br>r.set(“丽丽”,”女女女女女”);<br>x = (x+1)%2;<br>}<br>}<br>}</p>

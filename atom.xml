@@ -4,7 +4,7 @@
   <subtitle><![CDATA[做人不卖萌和咸鱼有什么区别]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://wait.im/"/>
-  <updated>2016-10-08T07:56:30.000Z</updated>
+  <updated>2017-02-06T10:59:11.000Z</updated>
   <id>http://wait.im/</id>
   
   <author>
@@ -19,10 +19,11 @@
     <link href="http://wait.im/2016/09/26/MAC%20OS%E4%B8%8B%E4%B8%B2%E5%8F%A3%E8%B0%83%E8%AF%95/"/>
     <id>http://wait.im/2016/09/26/MAC OS下串口调试/</id>
     <published>2016-09-25T16:15:08.000Z</published>
-    <updated>2016-10-08T07:56:30.000Z</updated>
+    <updated>2017-02-06T10:59:11.000Z</updated>
     <content type="html"><![CDATA[<p>最近在做一个Mac下的ssh调试工具，但是出现了一点问题。后来发现居然Mac下有串口调试工具可以用，下面是安装方法。</p>
 <p>###安装MAC驱动</p>
 <p>打开网站 <a href="http://www.prolific.com.tw/US/ShowProduct.aspx?p_id=229&amp;pcid=41" target="_blank" rel="external">http://www.prolific.com.tw/US/ShowProduct.aspx?p_id=229&amp;pcid=41</a><br>下载最新的MAC串口驱动，并安装。<br><img src="http://images2015.cnblogs.com/blog/639250/201603/639250-20160331131447082-2075890099.png" alt=""><br>安装成功后的是这样的，我们会在网络偏好设置中，发现一个新的usb连接：<br><img src="http://images2015.cnblogs.com/blog/639250/201603/639250-20160331131221379-1726389058.png" alt=""><br>这说明我们的驱动安装成功了！<br>下面进行简单的测试，终端执行命令：</p>
+<a id="more"></a>
 <figure class="highlight nginx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">cd</span> /dev </div><div class="line">ls <span class="regexp">tty.*</span></div></pre></td></tr></table></figure>
 <p>你会发现输出中有一项为tty.usbserial，没错，这就是我们的串口设备。<br><img src="http://source.wait.im/2016-07-11-QQ20160711-0@2x.png" alt=""></p>
 <p>###安装minicom</p>
@@ -32,7 +33,8 @@
     <summary type="html">
     <![CDATA[<p>最近在做一个Mac下的ssh调试工具，但是出现了一点问题。后来发现居然Mac下有串口调试工具可以用，下面是安装方法。</p>
 <p>###安装MAC驱动</p>
-<p>打开网站 <a href="http://www.prolific.com.tw/US/ShowProdu]]>
+<p>打开网站 <a href="http://www.prolific.com.tw/US/ShowProduct.aspx?p_id=229&amp;pcid=41">http://www.prolific.com.tw/US/ShowProduct.aspx?p_id=229&amp;pcid=41</a><br>下载最新的MAC串口驱动，并安装。<br><img src="http://images2015.cnblogs.com/blog/639250/201603/639250-20160331131447082-2075890099.png" alt=""><br>安装成功后的是这样的，我们会在网络偏好设置中，发现一个新的usb连接：<br><img src="http://images2015.cnblogs.com/blog/639250/201603/639250-20160331131221379-1726389058.png" alt=""><br>这说明我们的驱动安装成功了！<br>下面进行简单的测试，终端执行命令：</p>]]>
+    
     </summary>
     
       <category term="MAC OS" scheme="http://wait.im/tags/MAC-OS/"/>
@@ -46,17 +48,17 @@
     <link href="http://wait.im/2016/03/10/Android%E7%83%AD%E7%82%B9%E8%8E%B7%E5%8F%96%E8%BF%9E%E5%85%A5%E8%AE%BE%E5%A4%87%E7%9A%84%E4%BF%A1%E6%81%AF/"/>
     <id>http://wait.im/2016/03/10/Android热点获取连入设备的信息/</id>
     <published>2016-03-09T16:18:26.000Z</published>
-    <updated>2017-02-06T10:46:35.000Z</updated>
+    <updated>2017-02-06T10:58:09.000Z</updated>
     <content type="html"><![CDATA[<p>最近在做项目，要做热点功能，需要获取连入设备的信息，在网上找了好多资料，目前找到了比较好的解决方法，可以获取到设备的信息，MAC地址,设备名称等。还需要做黑名单功能，禁止连入热点的设备上网，踢出设备等，以后补全。</p>
-<h3 id="读取文件-data-misc-dhcp-dnsmasq-leases"><a href="#读取文件-data-misc-dhcp-dnsmasq-leases" class="headerlink" title="读取文件/data/misc/dhcp/dnsmasq.leases"></a>读取文件/data/misc/dhcp/dnsmasq.leases</h3><p>这个文件里面存储着所有的ip信息，我们需要对这个文件进行解析。废话不多说直接上代码。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">ScanWifiApDevicesThread</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</div><div class="line"></div><div class="line">     <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String FILE_PATH = <span class="string">"/data/misc/dhcp/dnsmasq.leases"</span>;</div><div class="line">     <span class="keyword">private</span> AtomicBoolean mCanceled = <span class="keyword">new</span> AtomicBoolean(<span class="keyword">false</span>);</div><div class="line">     <span class="keyword">private</span> AtomicBoolean mFinished = <span class="keyword">new</span> AtomicBoolean(<span class="keyword">false</span>);</div><div class="line">     <span class="keyword">private</span> Handler mHandler = <span class="keyword">null</span>;</div><div class="line"></div><div class="line">     <span class="function"><span class="keyword">public</span> <span class="title">ScanWifiApDevicesThread</span><span class="params">(Handler handler)</span> </span>&#123;</div><div class="line">         mHandler = handler;</div><div class="line">     &#125;</div><div class="line"></div><div class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">cancel</span><span class="params">()</span> </span>&#123;</div><div class="line">         mCanceled.set(<span class="keyword">true</span>);</div><div class="line">     &#125;</div><div class="line"></div><div class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isCanceled</span><span class="params">()</span> </span>&#123;</div><div class="line">         <span class="keyword">return</span> mCanceled.get() || isInterrupted();</div><div class="line">     &#125;</div><div class="line"></div><div class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isRunning</span><span class="params">()</span> </span>&#123;</div><div class="line">         <span class="keyword">return</span> !isCanceled() &amp;&amp; isAlive();</div><div class="line">     &#125;</div><div class="line"></div><div class="line">     <span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">isReachable</span><span class="params">(String ip)</span> </span>&#123;</div><div class="line">         <span class="keyword">try</span> &#123;</div><div class="line">             <span class="keyword">return</span> InetAddress.getByName(ip).isReachable(<span class="number">2000</span>);</div><div class="line">         &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">             <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">         &#125;</div><div class="line">     &#125;</div><div class="line"></div><div class="line">     <span class="function"><span class="keyword">private</span> SCWifiApDevice <span class="title">createWifiApDevice</span><span class="params">(String line)</span> </span>&#123;</div><div class="line">         <span class="keyword">if</span> (TextUtils.isEmpty(line)) &#123;</div><div class="line">             Log.e(TAG, <span class="string">"createWifiApDevice: line isEmpty"</span>);</div><div class="line">             <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">         &#125;</div><div class="line">         Log.e(TAG, <span class="string">"createWifiApDevice: "</span> + line);</div><div class="line">         String[] splitted = line.split(<span class="string">" "</span>);</div><div class="line">         <span class="keyword">if</span> ((splitted.length &gt;= <span class="number">5</span>)) &#123;</div><div class="line">             String mac = splitted[<span class="number">1</span>];</div><div class="line">             String ip = splitted[<span class="number">2</span>];</div><div class="line">             String hostName = splitted[<span class="number">3</span>];</div><div class="line"></div><div class="line">             <span class="keyword">if</span> (mac.matches(<span class="string">"..:..:..:..:..:.."</span>)) &#123;</div><div class="line">                 Log.e(TAG, <span class="string">"ip====="</span> + ip + <span class="string">"------isReachable=="</span> + isReachable(ip));</div><div class="line">                 <span class="keyword">if</span> (isReachable(ip)) &#123;</div><div class="line">                     SCWifiApDevice apDevice = <span class="keyword">new</span> SCWifiApDevice(ip, hostName, mac);</div><div class="line">                     Log.e(TAG, <span class="string">"ip===: "</span> + ip + <span class="string">"-------hostname="</span> + apDevice.getHostName());</div><div class="line">                     <span class="keyword">if</span> (!<span class="string">"localhost"</span>.equals(apDevice.getHostName())) &#123;</div><div class="line">                         <span class="keyword">return</span> apDevice;</div><div class="line">                     &#125; <span class="keyword">else</span> &#123;</div><div class="line">                         Log.e(TAG, <span class="string">"-------hostname=localhots"</span>);</div><div class="line">                     &#125;</div><div class="line">                 &#125;</div><div class="line"></div><div class="line">             &#125; <span class="keyword">else</span> &#123;</div><div class="line">                 Log.e(TAG, <span class="string">"mac.matches error==="</span> + mac);</div><div class="line">             &#125;</div><div class="line">         &#125;</div><div class="line">         <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">     &#125;</div><div class="line"></div><div class="line">     <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">sendWifiApResult</span><span class="params">(ArrayList&lt;SCWifiApDevice&gt; scWifiApDevices)</span> </span>&#123;</div><div class="line">         Message msg = <span class="keyword">new</span> Message();</div><div class="line">         msg.what = MSG_WIFI_AP_SCAN_RESULT;</div><div class="line">         msg.obj = scWifiApDevices;</div><div class="line">         mHandler.sendMessage(msg);</div><div class="line">     &#125;</div><div class="line"></div><div class="line">     <span class="meta">@Override</span></div><div class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">         File file = <span class="keyword">new</span> File(FILE_PATH);</div><div class="line">         ArrayList&lt;SCWifiApDevice&gt; scWifiApDevices = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">         <span class="keyword">if</span> (!file.exists()) &#123;</div><div class="line">             mFinished.set(<span class="keyword">true</span>);</div><div class="line">             sendWifiApResult(scWifiApDevices);</div><div class="line">             Log.e(TAG, <span class="string">"ARP_PATH !file.exists()"</span>);</div><div class="line">             <span class="keyword">return</span>;</div><div class="line">         &#125;</div><div class="line">         BufferedReader br = <span class="keyword">null</span>;</div><div class="line">         <span class="keyword">try</span> &#123;</div><div class="line">             br = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> FileReader(file));</div><div class="line">             String line = <span class="string">""</span>;</div><div class="line">             <span class="keyword">while</span> (!isInterrupted() &amp;&amp; !mCanceled.get() &amp;&amp; (line = br.readLine()) != <span class="keyword">null</span>) &#123;</div><div class="line">                 SCWifiApDevice scWifiApDevice = createWifiApDevice(line);</div><div class="line">                 <span class="keyword">if</span> (scWifiApDevice == <span class="keyword">null</span>) &#123;</div><div class="line">                     <span class="keyword">continue</span>;</div><div class="line">                 &#125;</div><div class="line">                 scWifiApDevices.add(scWifiApDevice);</div><div class="line">             &#125;</div><div class="line">             mFinished.set(<span class="keyword">true</span>);</div><div class="line">             Log.e(TAG, <span class="string">"read file success "</span>);</div><div class="line">             sendWifiApResult(scWifiApDevices);</div><div class="line">         &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">             e.printStackTrace();</div><div class="line">             mFinished.set(<span class="keyword">true</span>);</div><div class="line">             mHandler.sendEmptyMessage(MSG_WIFI_AP_SCAN_RESULT);</div><div class="line">         &#125; <span class="keyword">finally</span> &#123;</div><div class="line">             <span class="keyword">if</span> (br != <span class="keyword">null</span>) &#123;</div><div class="line">                 <span class="keyword">try</span> &#123;</div><div class="line">                     br.close();</div><div class="line">                 &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">                     e.printStackTrace();</div><div class="line">                 &#125;</div><div class="line">             &#125;</div><div class="line">         &#125;</div><div class="line">     &#125;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<h3 id="读取文件-data-misc-dhcp-dnsmasq-leases"><a href="#读取文件-data-misc-dhcp-dnsmasq-leases" class="headerlink" title="读取文件/data/misc/dhcp/dnsmasq.leases"></a>读取文件/data/misc/dhcp/dnsmasq.leases</h3><p>这个文件里面存储着所有的ip信息，我们需要对这个文件进行解析。废话不多说直接上代码。<br><a id="more"></a><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">ScanWifiApDevicesThread</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</div><div class="line"></div><div class="line">     <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String FILE_PATH = <span class="string">"/data/misc/dhcp/dnsmasq.leases"</span>;</div><div class="line">     <span class="keyword">private</span> AtomicBoolean mCanceled = <span class="keyword">new</span> AtomicBoolean(<span class="keyword">false</span>);</div><div class="line">     <span class="keyword">private</span> AtomicBoolean mFinished = <span class="keyword">new</span> AtomicBoolean(<span class="keyword">false</span>);</div><div class="line">     <span class="keyword">private</span> Handler mHandler = <span class="keyword">null</span>;</div><div class="line"></div><div class="line">     <span class="function"><span class="keyword">public</span> <span class="title">ScanWifiApDevicesThread</span><span class="params">(Handler handler)</span> </span>&#123;</div><div class="line">         mHandler = handler;</div><div class="line">     &#125;</div><div class="line"></div><div class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">cancel</span><span class="params">()</span> </span>&#123;</div><div class="line">         mCanceled.set(<span class="keyword">true</span>);</div><div class="line">     &#125;</div><div class="line"></div><div class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isCanceled</span><span class="params">()</span> </span>&#123;</div><div class="line">         <span class="keyword">return</span> mCanceled.get() || isInterrupted();</div><div class="line">     &#125;</div><div class="line"></div><div class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isRunning</span><span class="params">()</span> </span>&#123;</div><div class="line">         <span class="keyword">return</span> !isCanceled() &amp;&amp; isAlive();</div><div class="line">     &#125;</div><div class="line"></div><div class="line">     <span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">isReachable</span><span class="params">(String ip)</span> </span>&#123;</div><div class="line">         <span class="keyword">try</span> &#123;</div><div class="line">             <span class="keyword">return</span> InetAddress.getByName(ip).isReachable(<span class="number">2000</span>);</div><div class="line">         &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">             <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">         &#125;</div><div class="line">     &#125;</div><div class="line"></div><div class="line">     <span class="function"><span class="keyword">private</span> SCWifiApDevice <span class="title">createWifiApDevice</span><span class="params">(String line)</span> </span>&#123;</div><div class="line">         <span class="keyword">if</span> (TextUtils.isEmpty(line)) &#123;</div><div class="line">             Log.e(TAG, <span class="string">"createWifiApDevice: line isEmpty"</span>);</div><div class="line">             <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">         &#125;</div><div class="line">         Log.e(TAG, <span class="string">"createWifiApDevice: "</span> + line);</div><div class="line">         String[] splitted = line.split(<span class="string">" "</span>);</div><div class="line">         <span class="keyword">if</span> ((splitted.length &gt;= <span class="number">5</span>)) &#123;</div><div class="line">             String mac = splitted[<span class="number">1</span>];</div><div class="line">             String ip = splitted[<span class="number">2</span>];</div><div class="line">             String hostName = splitted[<span class="number">3</span>];</div><div class="line"></div><div class="line">             <span class="keyword">if</span> (mac.matches(<span class="string">"..:..:..:..:..:.."</span>)) &#123;</div><div class="line">                 Log.e(TAG, <span class="string">"ip====="</span> + ip + <span class="string">"------isReachable=="</span> + isReachable(ip));</div><div class="line">                 <span class="keyword">if</span> (isReachable(ip)) &#123;</div><div class="line">                     SCWifiApDevice apDevice = <span class="keyword">new</span> SCWifiApDevice(ip, hostName, mac);</div><div class="line">                     Log.e(TAG, <span class="string">"ip===: "</span> + ip + <span class="string">"-------hostname="</span> + apDevice.getHostName());</div><div class="line">                     <span class="keyword">if</span> (!<span class="string">"localhost"</span>.equals(apDevice.getHostName())) &#123;</div><div class="line">                         <span class="keyword">return</span> apDevice;</div><div class="line">                     &#125; <span class="keyword">else</span> &#123;</div><div class="line">                         Log.e(TAG, <span class="string">"-------hostname=localhots"</span>);</div><div class="line">                     &#125;</div><div class="line">                 &#125;</div><div class="line"></div><div class="line">             &#125; <span class="keyword">else</span> &#123;</div><div class="line">                 Log.e(TAG, <span class="string">"mac.matches error==="</span> + mac);</div><div class="line">             &#125;</div><div class="line">         &#125;</div><div class="line">         <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">     &#125;</div><div class="line"></div><div class="line">     <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">sendWifiApResult</span><span class="params">(ArrayList&lt;SCWifiApDevice&gt; scWifiApDevices)</span> </span>&#123;</div><div class="line">         Message msg = <span class="keyword">new</span> Message();</div><div class="line">         msg.what = MSG_WIFI_AP_SCAN_RESULT;</div><div class="line">         msg.obj = scWifiApDevices;</div><div class="line">         mHandler.sendMessage(msg);</div><div class="line">     &#125;</div><div class="line"></div><div class="line">     <span class="meta">@Override</span></div><div class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">         File file = <span class="keyword">new</span> File(FILE_PATH);</div><div class="line">         ArrayList&lt;SCWifiApDevice&gt; scWifiApDevices = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">         <span class="keyword">if</span> (!file.exists()) &#123;</div><div class="line">             mFinished.set(<span class="keyword">true</span>);</div><div class="line">             sendWifiApResult(scWifiApDevices);</div><div class="line">             Log.e(TAG, <span class="string">"ARP_PATH !file.exists()"</span>);</div><div class="line">             <span class="keyword">return</span>;</div><div class="line">         &#125;</div><div class="line">         BufferedReader br = <span class="keyword">null</span>;</div><div class="line">         <span class="keyword">try</span> &#123;</div><div class="line">             br = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> FileReader(file));</div><div class="line">             String line = <span class="string">""</span>;</div><div class="line">             <span class="keyword">while</span> (!isInterrupted() &amp;&amp; !mCanceled.get() &amp;&amp; (line = br.readLine()) != <span class="keyword">null</span>) &#123;</div><div class="line">                 SCWifiApDevice scWifiApDevice = createWifiApDevice(line);</div><div class="line">                 <span class="keyword">if</span> (scWifiApDevice == <span class="keyword">null</span>) &#123;</div><div class="line">                     <span class="keyword">continue</span>;</div><div class="line">                 &#125;</div><div class="line">                 scWifiApDevices.add(scWifiApDevice);</div><div class="line">             &#125;</div><div class="line">             mFinished.set(<span class="keyword">true</span>);</div><div class="line">             Log.e(TAG, <span class="string">"read file success "</span>);</div><div class="line">             sendWifiApResult(scWifiApDevices);</div><div class="line">         &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">             e.printStackTrace();</div><div class="line">             mFinished.set(<span class="keyword">true</span>);</div><div class="line">             mHandler.sendEmptyMessage(MSG_WIFI_AP_SCAN_RESULT);</div><div class="line">         &#125; <span class="keyword">finally</span> &#123;</div><div class="line">             <span class="keyword">if</span> (br != <span class="keyword">null</span>) &#123;</div><div class="line">                 <span class="keyword">try</span> &#123;</div><div class="line">                     br.close();</div><div class="line">                 &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">                     e.printStackTrace();</div><div class="line">                 &#125;</div><div class="line">             &#125;</div><div class="line">         &#125;</div><div class="line">     &#125;</div><div class="line"> &#125;</div></pre></td></tr></table></figure></p>
 <h4 id="SCWifiApDevice"><a href="#SCWifiApDevice" class="headerlink" title="SCWifiApDevice"></a>SCWifiApDevice</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.smartcar.ap;</div><div class="line"></div><div class="line"><span class="keyword">import</span> android.os.Parcel;</div><div class="line"><span class="keyword">import</span> android.os.Parcelable;</div><div class="line"></div><div class="line"><span class="comment">//import com.android.incallui.Log;</span></div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by tongguangli on 16-4-18.</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SCWifiApDevice</span> <span class="keyword">implements</span> <span class="title">Parcelable</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String ACTION_WIFI_AP_FOUND = <span class="string">"android.wifi.ap.SC_DISCOVERY_DEVICE"</span>;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String EXTRA_WIFI_AP_DEVICE = <span class="string">"extra_wifi_ap_devices"</span>;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DEVICE_TYPE_UNKNOWN = <span class="number">0</span>;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DEVICE_TYPE_PHONE = <span class="number">1</span>;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DEVICE_TYPE_PC = <span class="number">2</span>;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> String mIp = <span class="string">""</span>;</div><div class="line">    <span class="keyword">private</span> String mMac = <span class="string">""</span>;</div><div class="line">    <span class="keyword">private</span> String mCanonicalHostName = <span class="string">""</span>;</div><div class="line">    <span class="keyword">private</span> String mHostName = <span class="string">""</span>;</div><div class="line">    <span class="keyword">private</span> String mLocalHostCanonicalHostName = <span class="string">""</span>;</div><div class="line">    <span class="keyword">private</span> String mLocalHostHostName = <span class="string">""</span>;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> mIsReachable = <span class="keyword">true</span>;</div><div class="line">    <span class="keyword">private</span> String mDeviceName = <span class="string">""</span>;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> mDeviceType = DEVICE_TYPE_UNKNOWN;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SCWifiApDevice</span><span class="params">(String ip, String hostName, String mac)</span> </span>&#123;</div><div class="line">        mIp = ip;</div><div class="line">        mMac = mac;</div><div class="line">        mHostName = hostName;</div><div class="line">        mIsReachable = <span class="keyword">true</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="title">SCWifiApDevice</span><span class="params">(Parcel in)</span> </span>&#123;</div><div class="line">        mIp = in.readString();</div><div class="line">        mMac = in.readString();</div><div class="line">        mCanonicalHostName = in.readString();</div><div class="line">        mHostName = in.readString();</div><div class="line">        mLocalHostCanonicalHostName = in.readString();</div><div class="line">        mLocalHostHostName = in.readString();</div><div class="line">        mIsReachable = in.readByte() != <span class="number">0</span>;</div><div class="line">        mDeviceName = in.readString();</div><div class="line">        mDeviceType = in.readInt();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> Creator&lt;SCWifiApDevice&gt; CREATOR = <span class="keyword">new</span> Creator&lt;SCWifiApDevice&gt;() &#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> SCWifiApDevice <span class="title">createFromParcel</span><span class="params">(Parcel in)</span> </span>&#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> SCWifiApDevice(in);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="keyword">public</span> SCWifiApDevice[] newArray(<span class="keyword">int</span> size) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> SCWifiApDevice[size];</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getIp</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> mIp;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setIp</span><span class="params">(String mIp)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.mIp = mIp;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getMac</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> mMac;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setMac</span><span class="params">(String mMac)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.mMac = mMac;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getCanonicalHostName</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> mCanonicalHostName;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setCanonicalHostName</span><span class="params">(String mCanonicalHostName)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.mCanonicalHostName = mCanonicalHostName;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getHostName</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> mHostName;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setHostName</span><span class="params">(String mHostName)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.mHostName = mHostName;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getLocalHostCanonicalHostName</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> mLocalHostCanonicalHostName;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setLocalHostCanonicalHostName</span><span class="params">(String mLocalHostCanonicalHostName)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.mLocalHostCanonicalHostName = mLocalHostCanonicalHostName;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getLocalHostHostName</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> mLocalHostHostName;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setLocalHostHostName</span><span class="params">(String mLocalHostHostName)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.mLocalHostHostName = mLocalHostHostName;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isReachable</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> mIsReachable;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setReachable</span><span class="params">(<span class="keyword">boolean</span> mIsReachable)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.mIsReachable = mIsReachable;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">describeContents</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">writeToParcel</span><span class="params">(Parcel dest, <span class="keyword">int</span> flags)</span> </span>&#123;</div><div class="line">        dest.writeString(mIp);</div><div class="line">        dest.writeString(mMac);</div><div class="line">        dest.writeString(mCanonicalHostName);</div><div class="line">        dest.writeString(mHostName);</div><div class="line">        dest.writeString(mLocalHostCanonicalHostName);</div><div class="line">        dest.writeString(mLocalHostHostName);</div><div class="line">        dest.writeByte((<span class="keyword">byte</span>) (mIsReachable ? <span class="number">1</span> : <span class="number">0</span>));</div><div class="line">        dest.writeString(mDeviceName);</div><div class="line">        dest.writeInt(mDeviceType);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>通过这个方法大家可以获取到连入设备的基本信息，连入设备拦截功能，等找到好的解决方法之后在跟大家分享。</p>
 <p>转载请注明出处 thinkloki@gmail.com，<a href="http://wait.im">wait.im</a>。</p>
 ]]></content>
     <summary type="html">
     <![CDATA[<p>最近在做项目，要做热点功能，需要获取连入设备的信息，在网上找了好多资料，目前找到了比较好的解决方法，可以获取到设备的信息，MAC地址,设备名称等。还需要做黑名单功能，禁止连入热点的设备上网，踢出设备等，以后补全。</p>
-<h3 id="读取文件-data-misc-dhc]]>
+<h3 id="读取文件-data-misc-dhcp-dnsmasq-leases"><a href="#读取文件-data-misc-dhcp-dnsmasq-leases" class="headerlink" title="读取文件/data/misc/dhcp/dnsmasq.leases"></a>读取文件/data/misc/dhcp/dnsmasq.leases</h3><p>这个文件里面存储着所有的ip信息，我们需要对这个文件进行解析。废话不多说直接上代码。<br>]]>
+    
     </summary>
     
       <category term="Android" scheme="http://wait.im/tags/Android/"/>
@@ -70,13 +72,16 @@
     <link href="http://wait.im/2016/01/20/Android%E8%93%9D%E7%89%99%E9%93%BE%E6%8E%A5%E6%9C%89%E5%85%B3%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/"/>
     <id>http://wait.im/2016/01/20/Android蓝牙链接有关问题总结/</id>
     <published>2016-01-20T05:40:08.000Z</published>
-    <updated>2017-02-06T10:15:38.000Z</updated>
+    <updated>2017-02-06T10:57:58.000Z</updated>
     <content type="html"><![CDATA[<h3 id="蓝牙设备类型判断"><a href="#蓝牙设备类型判断" class="headerlink" title="蓝牙设备类型判断"></a>蓝牙设备类型判断</h3><p>蓝牙连接设备互相连接，有时候需要根据设备的不同去判断，在Android上面，我们需要用到系统的api，比如用到蓝牙电话的时候，就要判断连入得设备类型是不是电话类型的。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">device.getBluetoothClass().getMajorDeviceClass() == android.bluetooth.BluetoothClass.Device.Major.PHONE</div></pre></td></tr></table></figure>
+<a id="more"></a>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Device</span> </span>&#123;</div><div class="line">        <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> BITMASK               = <span class="number">0x1FFC</span>;</div><div class="line"></div><div class="line">     </div><div class="line">  <span class="comment">/**</span></div><div class="line">         * Defines all major device class constants.</div><div class="line">         * &lt;p&gt;See &#123;<span class="doctag">@link</span> BluetoothClass.Device&#125; for minor classes.</div><div class="line">         */</div><div class="line">        <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Major</span> </span>&#123;</div><div class="line">            <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> BITMASK           = <span class="number">0x1F00</span>;</div><div class="line"></div><div class="line">            <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> MISC              = <span class="number">0x0000</span>;</div><div class="line">            <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> COMPUTER          = <span class="number">0x0100</span>;</div><div class="line">            <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> PHONE             = <span class="number">0x0200</span>;</div><div class="line">            <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> NETWORKING        = <span class="number">0x0300</span>;</div><div class="line">            <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> AUDIO_VIDEO       = <span class="number">0x0400</span>;</div><div class="line">            <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> PERIPHERAL        = <span class="number">0x0500</span>;</div><div class="line">            <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> IMAGING           = <span class="number">0x0600</span>;</div><div class="line">            <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> WEARABLE          = <span class="number">0x0700</span>;</div><div class="line">            <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> TOY               = <span class="number">0x0800</span>;</div><div class="line">            <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> HEALTH            = <span class="number">0x0900</span>;</div><div class="line">            <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> UNCATEGORIZED     = <span class="number">0x1F00</span>;</div><div class="line">        &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 ]]></content>
     <summary type="html">
-    <![CDATA[<h3 id="蓝牙设备类型判断"><a href="#蓝牙设备类型判断" class="headerlink" title="蓝牙设备类型判断"></a>蓝牙设备类型判断</h3><p>蓝牙连接设备互相连接，有时候需要根据设备的不同去判断，在Android上面，我们需要用到系统]]>
+    <![CDATA[<h3 id="蓝牙设备类型判断"><a href="#蓝牙设备类型判断" class="headerlink" title="蓝牙设备类型判断"></a>蓝牙设备类型判断</h3><p>蓝牙连接设备互相连接，有时候需要根据设备的不同去判断，在Android上面，我们需要用到系统的api，比如用到蓝牙电话的时候，就要判断连入得设备类型是不是电话类型的。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">device.getBluetoothClass().getMajorDeviceClass() == android.bluetooth.BluetoothClass.Device.Major.PHONE</div></pre></td></tr></table></figure>]]>
+    
     </summary>
     
       <category term="Android" scheme="http://wait.im/tags/Android/"/>
@@ -88,8 +93,9 @@
     <link href="http://wait.im/2015/11/12/swift-open-project/"/>
     <id>http://wait.im/2015/11/12/swift-open-project/</id>
     <published>2015-11-12T04:23:36.000Z</published>
-    <updated>2015-11-13T06:01:12.000Z</updated>
+    <updated>2017-02-06T10:59:33.000Z</updated>
     <content type="html"><![CDATA[<h1 id="swift-open-project"><a href="#swift-open-project" class="headerlink" title="swift-open-project"></a><a href="https://github.com/thinkloki/swift-open-project" target="_blank" rel="external">swift-open-project</a></h1><p>这里汇集了目前为止最为流行的Swift开源项目，选取SwiftGuide中的开源部分，这里将每周对项目进行总结，如果大家有推荐的可以联系thinkloki@gmail.com,或者issues，欢迎Star、Fork。感谢<a href="https://github.com/ipader/SwiftGuide" target="_blank" rel="external">SwiftGuide</a>。</p>
+<a id="more"></a>
 <h3 id="1-实用类库"><a href="#1-实用类库" class="headerlink" title="1. 实用类库"></a><a id="open_api"></a>1. 实用类库</h3><blockquote>
 <p>以下实用类库做为快速参考，更多实用类库需求，也可以去这里<a href="http://www.swifttoolbox.io/" target="_blank" rel="external">（Swift toolbox is a community-supported catalog<br>of iOS and OSX libraries）</a> (By <a href="https://www.facebook.com/xpizzle" target="_blank" rel="external">Adam Leonard</a> from <a href="[http://swiftcast.tv">swiftcast.tv</a>), 这个网站收藏了 GitHub 开源社区中优质 Swift 资源库，并提供了分类及查询服务。</p>
 </blockquote>
@@ -460,7 +466,8 @@
 </ul>
 ]]></content>
     <summary type="html">
-    <![CDATA[<h1 id="swift-open-project"><a href="#swift-open-project" class="headerlink" title="swift-open-project"></a><a href="https://github.com/thin]]>
+    <![CDATA[<h1 id="swift-open-project"><a href="#swift-open-project" class="headerlink" title="swift-open-project"></a><a href="https://github.com/thinkloki/swift-open-project">swift-open-project</a></h1><p>这里汇集了目前为止最为流行的Swift开源项目，选取SwiftGuide中的开源部分，这里将每周对项目进行总结，如果大家有推荐的可以联系thinkloki@gmail.com,或者issues，欢迎Star、Fork。感谢<a href="https://github.com/ipader/SwiftGuide">SwiftGuide</a>。</p>]]>
+    
     </summary>
     
       <category term="IOS" scheme="http://wait.im/tags/IOS/"/>
@@ -476,7 +483,7 @@
     <link href="http://wait.im/2015/10/27/IOS9AdaptationTips/"/>
     <id>http://wait.im/2015/10/27/IOS9AdaptationTips/</id>
     <published>2015-10-26T16:15:13.000Z</published>
-    <updated>2017-02-06T10:52:03.000Z</updated>
+    <updated>2017-02-06T10:58:58.000Z</updated>
     <content type="html"><![CDATA[<p>#中文快速导航：</p>
 <ol>
 <li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#1-demo1_ios9网络适配_ats改用更安全的https" target="_blank" rel="external">iOS9网络适配_ATS：改用更安全的HTTPS（见Demo1）</a> <ol>
@@ -528,6 +535,7 @@ controller会导致崩溃" target="_blank" rel="external">在didFinishLaunchingW
 </ol>
 </li>
 </ol>
+<a id="more"></a>
 <h1 id="English⬇️⬇️"><a href="#English⬇️⬇️" class="headerlink" title="English⬇️⬇️"></a>English⬇️⬇️</h1><p>For more infomation ，welcome to follow <a href="https://twitter.com/stevechen1010" target="_blank" rel="external">my twitter</a></p>
 <h2 id="1-Demo1-You’d-better-Convert-HTTP-to-HTTPS"><a href="#1-Demo1-You’d-better-Convert-HTTP-to-HTTPS" class="headerlink" title="1. Demo1_You’d better Convert HTTP to HTTPS"></a>1. Demo1_You’d better Convert HTTP to HTTPS</h2><p>As the  <a href="https://developer.apple.com/library/prerelease/ios/releasenotes/General/WhatsNewIniOS/Articles/iOS9.html#//apple_ref/doc/uid/TP40016198-DontLinkElementID_13" target="_blank" rel="external">Apple</a> say :</p>
 <p>  <img src="https://i.imgur.com/eTgSHZY.png" alt="enter image description here"></p>
@@ -565,7 +573,6 @@ controller会导致崩溃" target="_blank" rel="external">在didFinishLaunchingW
 <p>If your server is support  TLSv1.2 ,but you also have to do what I say just now if you want to connect success in iOS9:</p>
 <p>After some discussion with Apple Support, the issue is due to the self signed certificate.</p>
 <p>ATS trusts only certificate signed by a well known CA, all others are rejected. As a consequence the only solution with a Self signed certificate is to set an exception with NSExceptionDomains.</p>
-<a id="more"></a>
 <p>##2.Demo2_iOS9 new feature  in CoreLocation :  background only when you need<br>If you’re using CoreLocation framework in your app in Xcode7(pre-released),and you may notice that there is a newly added property called allowsBackgroundLocationUpdates in CLLocationManager class.</p>
 <p>This new property is explained in the WWDC session <a href="https://developer.apple.com/videos/wwdc/2015/?id=714" target="_blank" rel="external">“What’s New in Core Location”</a>.<br> <img src="https://i.imgur.com/pvVh1fx.png" alt="enter image description here"></p>
 <p>The default value is <code>NO</code> if you link against iOS 9.</p>
@@ -1585,44 +1592,7 @@ controller会导致崩溃">在didFinishLaunchingWithOptions结束后还没有设
 <li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#reloaddata-刷新失效">reloadData 刷新失效</a></li>
 </ol>
 </li>
-</ol>
-<h1 id="English⬇️⬇️"><a href="#English⬇️⬇️" class="headerlink" title="English⬇️⬇️"></a>English⬇️⬇️</h1><p>For more infomation ，welcome to follow <a href="https://twitter.com/stevechen1010">my twitter</a></p>
-<h2 id="1-Demo1-You’d-better-Convert-HTTP-to-HTTPS"><a href="#1-Demo1-You’d-better-Convert-HTTP-to-HTTPS" class="headerlink" title="1. Demo1_You’d better Convert HTTP to HTTPS"></a>1. Demo1_You’d better Convert HTTP to HTTPS</h2><p>As the  <a href="https://developer.apple.com/library/prerelease/ios/releasenotes/General/WhatsNewIniOS/Articles/iOS9.html#//apple_ref/doc/uid/TP40016198-DontLinkElementID_13">Apple</a> say :</p>
-<p>  <img src="https://i.imgur.com/eTgSHZY.png" alt="enter image description here"></p>
-<p><img src="https://i.imgur.com/Tc0fS6p.jpg" alt="enter image description here"></p>
-<p><img src="https://i.imgur.com/v2Tskwh.jpg" alt="enter image description here"></p>
-<p>iOS 9 and OSX 10.11 require TLSv1.2 SSL for all hosts you plan to request data from unless you specify exception domains in your app’s Info.plist file.</p>
-<p>The syntax for the Info.plist configuration looks like this:</p>
-<pre><code>&lt;key&gt;NSAppTransportSecurity&lt;/key&gt;
-&lt;dict&gt;
-  &lt;key&gt;NSExceptionDomains&lt;/key&gt;
-  &lt;dict&gt;
-    &lt;key&gt;yourserver.com&lt;/key&gt;
-    &lt;dict&gt;
-      &lt;!--Include to allow subdomains--&gt;
-      &lt;key&gt;NSIncludesSubdomains&lt;/key&gt;
-      &lt;true/&gt;
-      &lt;!--Include to allow insecure HTTP requests--&gt;
-      &lt;key&gt;NSTemporaryExceptionAllowsInsecureHTTPLoads&lt;/key&gt;
-      &lt;true/&gt;
-      &lt;!--Include to specify minimum TLS version--&gt;
-      &lt;key&gt;NSTemporaryExceptionMinimumTLSVersion&lt;/key&gt;
-      &lt;string&gt;TLSv1.1&lt;/string&gt;
-    &lt;/dict&gt;
-  &lt;/dict&gt;
-&lt;/dict&gt;
-</code></pre><p>If your application (a third-party web browser, for instance) needs to connect to arbitrary hosts, you can configure it like this:</p>
-<pre><code>&lt;key&gt;NSAppTransportSecurity&lt;/key&gt;
-&lt;dict&gt;
-    &lt;!--Connect to anything (this is probably BAD)--&gt;
-    &lt;key&gt;NSAllowsArbitraryLoads&lt;/key&gt;
-    &lt;true/&gt;
-&lt;/dict&gt;
-</code></pre><p>If you’re having to do this, it’s probably best to update your servers to use TLSv1.2 and SSL, if they’re not already doing so. This should be considered a temporary workaround.</p>
-<p>As of today, the prerelease documentation makes no mention of any of these configuration options in any specific way. Once it does, I’ll update the answer to link to the relevant documentation.</p>
-<p>If your server is support  TLSv1.2 ,but you also have to do what I say just now if you want to connect success in iOS9:</p>
-<p>After some discussion with Apple Support, the issue is due to the self signed certificate.</p>
-<p>ATS trusts only certificate signed by a well known CA, all others are rejected. As a consequence the only solution with a Self signed certificate is to set an exception with NSExceptionDomains.</p>]]>
+</ol>]]>
     
     </summary>
     
@@ -1663,7 +1633,7 @@ controller会导致崩溃">在didFinishLaunchingWithOptions结束后还没有设
     <link href="http://wait.im/2015/10/20/Objective-C%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0%E8%B7%9FFoundation%E6%A1%86%E6%9E%B6/"/>
     <id>http://wait.im/2015/10/20/Objective-C常用函数跟Foundation框架/</id>
     <published>2015-10-19T16:09:50.000Z</published>
-    <updated>2017-02-06T10:54:30.000Z</updated>
+    <updated>2017-02-06T10:59:19.000Z</updated>
     <content type="html"><![CDATA[<h2 id="数学运算-math-函数"><a href="#数学运算-math-函数" class="headerlink" title="数学运算(math)函数"></a>数学运算(math)函数</h2><h4 id="算术运算函数"><a href="#算术运算函数" class="headerlink" title="算术运算函数"></a>算术运算函数</h4><ul>
 <li>rand()函数：产生随机数</li>
 <li>abs()函数/labs()函数：整数的绝对值</li>
@@ -1679,6 +1649,7 @@ controller会导致崩溃">在didFinishLaunchingWithOptions结束后还没有设
 <li>modf()/modff()/modfl()函数：浮点数分解为整数和小数</li>
 <li>frexp()/frexpf()/frexpl()函数：浮点数分解尾数和以二为底的指数</li>
 </ul>
+<a id="more"></a>
 <h4 id="三角运算函数"><a href="#三角运算函数" class="headerlink" title="三角运算函数"></a>三角运算函数</h4><ul>
 <li>sin()/sinf()/sinl()/函数：求正弦值</li>
 <li>sinh()/sinhf()/sinhl()函数：求双曲正弦值</li>
@@ -2485,7 +2456,22 @@ controller会导致崩溃">在didFinishLaunchingWithOptions结束后还没有设
 </ul>
 <h3 id="此文禁止任何类型的转载"><a href="#此文禁止任何类型的转载" class="headerlink" title="此文禁止任何类型的转载"></a><strong>此文禁止任何类型的转载</strong></h3>]]></content>
     <summary type="html">
-    <![CDATA[<h2 id="数学运算-math-函数"><a href="#数学运算-math-函数" class="headerlink" title="数学运算(math)函数"></a>数学运算(math)函数</h2><h4 id="算术运算函数"><a href="#算术运算函数"]]>
+    <![CDATA[<h2 id="数学运算-math-函数"><a href="#数学运算-math-函数" class="headerlink" title="数学运算(math)函数"></a>数学运算(math)函数</h2><h4 id="算术运算函数"><a href="#算术运算函数" class="headerlink" title="算术运算函数"></a>算术运算函数</h4><ul>
+<li>rand()函数：产生随机数</li>
+<li>abs()函数/labs()函数：整数的绝对值</li>
+<li>fabs()/fabsf()/fabsl()函数：浮点数的绝对值</li>
+<li>floor()/floorf()/floorl()函数：向下取整</li>
+<li>ceil()/ceilf()/ceill()函数：向上取整</li>
+<li>round()/roundf()/roundl()函数：四舍五入</li>
+<li>sqrt()/sqrtf()/sqrtl()函数：求平方根</li>
+<li>fmax()/fmaxf()/fmaxl()函数：求最大值</li>
+<li>fmin()/fminf()/fminl()函数：求最小值</li>
+<li>hypot()/hypotf()/hypotl()函数：求直角三角形斜边的长度</li>
+<li>fmod()/fmodf()/fmodl()函数：求两数整除后的余数</li>
+<li>modf()/modff()/modfl()函数：浮点数分解为整数和小数</li>
+<li>frexp()/frexpf()/frexpl()函数：浮点数分解尾数和以二为底的指数</li>
+</ul>]]>
+    
     </summary>
     
       <category term="IOS" scheme="http://wait.im/tags/IOS/"/>
@@ -2501,10 +2487,11 @@ controller会导致崩溃">在didFinishLaunchingWithOptions结束后还没有设
     <link href="http://wait.im/2015/07/31/Facebook%E6%96%B0%E9%97%BB%E9%A1%B5%E4%BC%98%E5%8C%96%E7%9A%84%E5%88%86%E6%9E%90/"/>
     <id>http://wait.im/2015/07/31/Facebook新闻页优化的分析/</id>
     <published>2015-07-30T16:18:36.000Z</published>
-    <updated>2015-07-31T14:06:43.000Z</updated>
+    <updated>2017-02-06T10:58:25.000Z</updated>
     <content type="html"><![CDATA[<p>关于 Facebook新闻页优化 的分析</p>
 <p>#私货<br>简单一点概括，就是Facebook在ListView页面中，将原来的View-Model-Binder再次拆解成粒度更细的模型。<br>在原本的View-Model-Binder模型中，依靠将部分的View设置成visible 或 gone 来控制功能块的显示 （转帖/图片/etc）<br>在优化过的模型中，原本的View被拆解成更细粒度的小View，然后只加载需要的部分<br>原文没有提及，但应当是利用</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getItemViewType</span><span class="params">(<span class="keyword">int</span> position)</span> </span>&#123;</div><div class="line"><span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getViewTypeCount</span><span class="params">()</span> </span>&#123;</div><div class="line"><span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<a id="more"></a>
 <p>实现的。<br>翻了一下ListView源代码<br>不同type的View被分类cache在RecycleBin中</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setViewTypeCount</span><span class="params">(<span class="keyword">int</span> viewTypeCount)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (viewTypeCount &amp;lt; <span class="number">1</span>) &#123;</div><div class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"Can't have a viewTypeCount &amp;lt; 1"</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//noinspection unchecked</span></div><div class="line">    ArrayList&amp;lt;View&amp;gt;[] scrapViews = <span class="keyword">new</span> ArrayList[viewTypeCount];</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &amp;lt; viewTypeCount; i++) &#123;</div><div class="line">        scrapViews[i] = <span class="keyword">new</span> ArrayList&amp;lt;View&amp;gt;();</div><div class="line">    &#125;</div><div class="line">    mViewTypeCount = viewTypeCount;</div><div class="line">    mCurrentScrap = scrapViews[<span class="number">0</span>];</div><div class="line">    mScrapViews = scrapViews;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>参考RecycleBin的setViewTypeCount部分，此处用ArrayList[]来cache所有type的view<br>不过由于被设置成gone的View本身就不参与meaure和layout,也不会参与draw,只会额外占据一些内存。<br>所以Facebook做了这些优化以后 性能只提升了10%<br>在View的性能优化中，我觉得10%太少了，而新的模型复杂度变高了很多。<br>原本由于ViewType的原因，需要将Model和View的实现细节暴露在 Adapter中，Facebook这个优化实现似乎为了保持其封装性<br>于是将View-Model-Binder又通过Definition又封装了一层。<br>综合考虑的话….我觉得意义不大。<br>优化掉了一些无用View,但是增加了额外的中间层，很难说这样的改动是好是坏。<br>IOS开发可能更习惯View-Binder写法<br>Android开发可能会更习惯直接使用ViewHolder去操作</p>
@@ -2531,7 +2518,9 @@ controller会导致崩溃">在didFinishLaunchingWithOptions结束后还没有设
 ]]></content>
     <summary type="html">
     <![CDATA[<p>关于 Facebook新闻页优化 的分析</p>
-<p>#私货<br>简单一点概括，就是Facebook在ListView页面中，将原来的View-Model-Binder再次拆解成粒度更细的模型。<br>在原本的View-Model-Binder模型中，依靠将部分的Vie]]>
+<p>#私货<br>简单一点概括，就是Facebook在ListView页面中，将原来的View-Model-Binder再次拆解成粒度更细的模型。<br>在原本的View-Model-Binder模型中，依靠将部分的View设置成visible 或 gone 来控制功能块的显示 （转帖/图片/etc）<br>在优化过的模型中，原本的View被拆解成更细粒度的小View，然后只加载需要的部分<br>原文没有提及，但应当是利用</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getItemViewType</span><span class="params">(<span class="keyword">int</span> position)</span> </span>&#123;</div><div class="line"><span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getViewTypeCount</span><span class="params">()</span> </span>&#123;</div><div class="line"><span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]>
+    
     </summary>
     
       <category term="Android" scheme="http://wait.im/tags/Android/"/>
@@ -2543,7 +2532,7 @@ controller会导致崩溃">在didFinishLaunchingWithOptions结束后还没有设
     <link href="http://wait.im/2015/04/21/Google%202015%20Material%20Design%20Summit/"/>
     <id>http://wait.im/2015/04/21/Google 2015 Material Design Summit/</id>
     <published>2015-04-20T16:12:36.000Z</published>
-    <updated>2015-11-10T02:51:36.000Z</updated>
+    <updated>2017-02-06T10:58:29.000Z</updated>
     <content type="html"><![CDATA[<blockquote>
 <p>会议主持人: Michael Yeung</p>
 </blockquote>
@@ -2555,6 +2544,7 @@ controller会导致崩溃">在didFinishLaunchingWithOptions结束后还没有设
 <li>符合不同年龄层的app</li>
 </ul>
 <figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">严禁app有root行为<span class="comment">; </span></div><div class="line">不能自己升级<span class="comment">; </span></div><div class="line">不允许应用内部的应用推荐（必须经过Google Play）</div></pre></td></tr></table></figure>
+<a id="more"></a>
 <p>###II. 应用质量</p>
 <p>####该做</p>
 <ul>
@@ -2597,7 +2587,11 @@ controller会导致崩溃">在didFinishLaunchingWithOptions结束后还没有设
 <p>####New Review Process</p>
 <ul>
 <li>发布前先人工审核(加速上架时间)</li>
-<li>新分级]]>
+<li>新分级制度(IARC)(5月前没做，就会列入未分级，甚至会被下架或找不到)</li>
+<li>符合不同年龄层的app</li>
+</ul>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">严禁app有root行为<span class="comment">; </span></div><div class="line">不能自己升级<span class="comment">; </span></div><div class="line">不允许应用内部的应用推荐（必须经过Google Play）</div></pre></td></tr></table></figure>]]>
+    
     </summary>
     
       <category term="Android" scheme="http://wait.im/tags/Android/"/>
@@ -2615,8 +2609,8 @@ controller会导致崩溃">在didFinishLaunchingWithOptions结束后还没有设
     <link href="http://wait.im/2015/01/24/Android%20Design%20Support%20Library%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/"/>
     <id>http://wait.im/2015/01/24/Android Design Support Library简单使用/</id>
     <published>2015-01-24T08:23:36.000Z</published>
-    <updated>2015-11-11T07:05:13.000Z</updated>
-    <content type="html"><![CDATA[<p>Android 5.0 Lollipop为我们带来了<strong>Material Design</strong>,这是一个全新的设计语言，给Android带来了全新的体验，我个人决定Material很漂亮，然而那时候官方的支持却不太完善，FAB（Float Action Button）、想写一个漂亮的NavigationView都需要用一些开源库，而在<strong>GoogleIO</strong>大会上，谷歌为我们带来了<strong>Android Design Support Library</strong>,其中包括了很多原生的MD控件，例如：navigation drawer view, floating labels,floating action button, snackbar, tabs, CoordinatorLayout，CollapsingToolbarLayout等，更重要的是兼容到了Android2.1以上的设备，现在还有什么理由不上MD风格呢？</p>
+    <updated>2017-02-06T10:57:38.000Z</updated>
+    <content type="html"><![CDATA[<p>Android 5.0 Lollipop为我们带来了<strong>Material Design</strong>,这是一个全新的设计语言，给Android带来了全新的体验，我个人决定Material很漂亮，然而那时候官方的支持却不太完善，FAB（Float Action Button）、想写一个漂亮的NavigationView都需要用一些开源库，而在<strong>GoogleIO</strong>大会上，谷歌为我们带来了<strong>Android Design Support Library</strong>,其中包括了很多原生的MD控件，例如：navigation drawer view, floating labels,floating action button, snackbar, tabs, CoordinatorLayout，CollapsingToolbarLayout等，更重要的是兼容到了Android2.1以上的设备，现在还有什么理由不上MD风格呢？<br><a id="more"></a></p>
 <p>####请看下面的视频，是这个教程的最终效果。</p>
 <iframe src="https://player.vimeo.com/video/134689608" width="500" height="888" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen></iframe>
 
@@ -2649,7 +2643,8 @@ controller会导致崩溃">在didFinishLaunchingWithOptions结束后还没有设
 <p>####Step Five: Just Run it<br><img src="http://source.wait.im/QQ20151111-2@2x.png" alt=""><br><img src="http://source.wait.im/QQ20151111-3@2x.png" alt=""></p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p>Android 5.0 Lollipop为我们带来了<strong>Material Design</strong>,这是一个全新的设计语言，给Android带来了全新的体验，我个人决定Material很漂亮，然而那时候官方的支持却不太完善，FAB（Float Action]]>
+    <![CDATA[<p>Android 5.0 Lollipop为我们带来了<strong>Material Design</strong>,这是一个全新的设计语言，给Android带来了全新的体验，我个人决定Material很漂亮，然而那时候官方的支持却不太完善，FAB（Float Action Button）、想写一个漂亮的NavigationView都需要用一些开源库，而在<strong>GoogleIO</strong>大会上，谷歌为我们带来了<strong>Android Design Support Library</strong>,其中包括了很多原生的MD控件，例如：navigation drawer view, floating labels,floating action button, snackbar, tabs, CoordinatorLayout，CollapsingToolbarLayout等，更重要的是兼容到了Android2.1以上的设备，现在还有什么理由不上MD风格呢？<br>]]>
+    
     </summary>
     
       <category term="Android" scheme="http://wait.im/tags/Android/"/>
@@ -2663,7 +2658,7 @@ controller会导致崩溃">在didFinishLaunchingWithOptions结束后还没有设
     <link href="http://wait.im/2015/01/12/Android%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98%E7%9A%84%E6%8A%80%E6%9C%AF%E7%82%B9/"/>
     <id>http://wait.im/2015/01/12/Android性能调优的技术点/</id>
     <published>2015-01-12T04:23:36.000Z</published>
-    <updated>2017-02-06T10:47:41.000Z</updated>
+    <updated>2017-02-06T10:58:17.000Z</updated>
     <content type="html"><![CDATA[<h2 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h2><h3 id="使用异步"><a href="#使用异步" class="headerlink" title="使用异步"></a>使用异步</h3><ul>
 <li>保持 APP 的高度响应，不要在 UI 线程做耗时操作，多使用异步任务</li>
 <li>使用线程时要做好线程控制；使用队列、线程池</li>
@@ -2676,6 +2671,7 @@ controller会导致崩溃">在didFinishLaunchingWithOptions结束后还没有设
 <li>使用 MVP 模式规范大型 Activity 类的行为，避免异步任务造成的内存泄露</li>
 <li>避免内存泄露</li>
 </ul>
+<a id="more"></a>
 <h3 id="了解虚拟机内存回收机制"><a href="#了解虚拟机内存回收机制" class="headerlink" title="了解虚拟机内存回收机制"></a>了解虚拟机内存回收机制</h3><ul>
 <li>频繁 GC 也会造成卡顿，避免不必要的内存开销</li>
 <li>错误的引用姿♂势造成的内存泄露（啊~要泄了~）</li>
@@ -2745,7 +2741,19 @@ controller会导致崩溃">在didFinishLaunchingWithOptions结束后还没有设
 </ul>
 ]]></content>
     <summary type="html">
-    <![CDATA[<h2 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h2><h3 id="使用异步"><a href="#使用异步" class="headerlink" title="使用异步"></a>使用异步</h]]>
+    <![CDATA[<h2 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h2><h3 id="使用异步"><a href="#使用异步" class="headerlink" title="使用异步"></a>使用异步</h3><ul>
+<li>保持 APP 的高度响应，不要在 UI 线程做耗时操作，多使用异步任务</li>
+<li>使用线程时要做好线程控制；使用队列、线程池</li>
+<li>谨慎使用糟糕的 AysncTask 、 Timer</li>
+<li>警惕异步任务引起的内存泄露</li>
+<li>应该异步任务分类，比如 HTTP ，图片下载，文件读写，每一类的异步任务维护一个任务队列，而不是每一个任务都开一个线程（ Volley 表示我一个可以搞定这些全部 <em>(:з」∠)</em>）</li>
+<li>这些常用的任务应该做好优先级处理（一般 JSON 数据优先于图片等静态数据的请求）</li>
+<li>一般异步任务应该开启一个 SingleAsyncTask ，保证一时只有一个线程在工作</li>
+<li>HTTP 和图片下载尽量使用同一套网络请求</li>
+<li>使用 MVP 模式规范大型 Activity 类的行为，避免异步任务造成的内存泄露</li>
+<li>避免内存泄露</li>
+</ul>]]>
+    
     </summary>
     
       <category term="Android" scheme="http://wait.im/tags/Android/"/>
@@ -2761,7 +2769,7 @@ controller会导致崩溃">在didFinishLaunchingWithOptions结束后还没有设
     <link href="http://wait.im/2014/11/25/Leakcanary%20Square%E7%9A%84%E4%B8%80%E6%AC%BEAndroid:Java%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E6%A3%80%E6%B5%8B%E5%B7%A5%E5%85%B7/"/>
     <id>http://wait.im/2014/11/25/Leakcanary Square的一款Android:Java内存泄漏检测工具/</id>
     <published>2014-11-24T16:14:36.000Z</published>
-    <updated>2015-11-10T07:53:49.000Z</updated>
+    <updated>2017-02-06T10:59:05.000Z</updated>
     <content type="html"><![CDATA[<blockquote>
 <p><a href="https://github.com/square/leakcanary" target="_blank" rel="external">Github地址</a></p>
 </blockquote>
@@ -2771,6 +2779,7 @@ controller会导致崩溃">在didFinishLaunchingWithOptions结束后还没有设
 <p>一款Android与Java的内存检测库<br>“A small leak will sink a gret ship.” - Benjamin Franklin</p>
 </blockquote>
 <p><img src="https://raw.githubusercontent.com/Jacksgong/leakcanary/master/assets/screenshot.png" alt=""></p>
+<a id="more"></a>
 <p>###I. 开始<br><code>build.gradle</code> 中的配置:</p>
 <figure class="highlight nginx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="section">dependencies</span> &#123;</div><div class="line">   <span class="attribute">debugCompile</span> <span class="string">'com.squareup.leakcanary:leakcanary-android:1.3'</span></div><div class="line">   releaseCompile <span class="string">'com.squareup.leakcanary:leakcanary-android-no-op:1.3'</span></div><div class="line"> &#125;</div></pre></td></tr></table></figure>
 <p><code>Application class</code>中的配置:</p>
@@ -2817,9 +2826,15 @@ controller会导致崩溃">在didFinishLaunchingWithOptions结束后还没有设
 ]]></content>
     <summary type="html">
     <![CDATA[<blockquote>
-<p><a href="https://github.com/square/leakcanary" target="_blank" rel="external">Github地址</a></p>
+<p><a href="https://github.com/square/leakcanary">Github地址</a></p>
 </blockquote>
-<p>##git readme]]>
+<p>##git readme:</p>
+<p>###中文翻译@Jacksgong</p>
+<blockquote>
+<p>一款Android与Java的内存检测库<br>“A small leak will sink a gret ship.” - Benjamin Franklin</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/Jacksgong/leakcanary/master/assets/screenshot.png" alt=""></p>]]>
+    
     </summary>
     
       <category term="Android" scheme="http://wait.im/tags/Android/"/>
@@ -2833,7 +2848,7 @@ controller会导致崩溃">在didFinishLaunchingWithOptions结束后还没有设
     <link href="http://wait.im/2014/06/21/SVG%20Android%E5%BA%94%E7%94%A8%E6%8E%A2%E7%A9%B6%E4%B9%8B%E8%B7%AF/"/>
     <id>http://wait.im/2014/06/21/SVG Android应用探究之路/</id>
     <published>2014-06-20T16:12:36.000Z</published>
-    <updated>2017-02-06T10:48:40.000Z</updated>
+    <updated>2017-02-06T10:59:26.000Z</updated>
     <content type="html"><![CDATA[<h5 id="优点"><a href="#优点" class="headerlink" title="优点:"></a>优点:</h5><ul>
 <li>vector</li>
 <li>在所有大小分辨率屏幕上完美显示</li>
@@ -2841,6 +2856,7 @@ controller会导致崩溃">在didFinishLaunchingWithOptions结束后还没有设
 <li>一张图片可以更具需求多次使用？(One picture is used some times for different permissions)</li>
 <li>减少加载时间</li>
 </ul>
+<a id="more"></a>
 <h5 id="缺点"><a href="#缺点" class="headerlink" title="缺点:"></a>缺点:</h5><p>图片只能按照比例缩放<br>不支持透明度？<br>svg文件还可以近一步优化，里面有一些不可取（The schedule needs to be simplified — the more vector elements, the the file more weighs. It is undesirable to use shades and luminescences as it in times increases the size of SVG-files）</p>
 <h4 id="SVG-的探索来源于："><a href="#SVG-的探索来源于：" class="headerlink" title="SVG 的探索来源于："></a>SVG 的探索来源于：</h4><figure class="highlight ada"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">No sooner said than done. So, under katom history <span class="keyword">of</span> introduction <span class="keyword">of</span> vector images </div><div class="line"><span class="keyword">in</span> one <span class="keyword">of</span> our applications. <span class="keyword">In</span> article we will impart experience also features <span class="keyword">of</span> </div><div class="line"><span class="keyword">use</span> <span class="keyword">of</span> vector images <span class="keyword">in</span> format SVG <span class="keyword">in</span> applications Android.</div></pre></td></tr></table></figure>
 <h4 id="编辑器：Adobe-Illustrator-、Inkscape-work"><a href="#编辑器：Adobe-Illustrator-、Inkscape-work" class="headerlink" title="编辑器：Adobe Illustrator 、Inkscape work."></a>编辑器：Adobe Illustrator 、Inkscape work.</h4><h4 id="Google-“android-svg”"><a href="#Google-“android-svg”" class="headerlink" title="Google “android svg”:"></a>Google “android svg”:</h4><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">projects on guglokode:</div><div class="line"><span class="selector-tag">code</span><span class="selector-class">.google</span><span class="selector-class">.com</span>/p/svg-android/</div><div class="line"><span class="selector-tag">code</span><span class="selector-class">.google</span><span class="selector-class">.com</span>/p/svg-android-<span class="number">2</span>/</div><div class="line">Detailed <span class="selector-tag">article</span> about use NDK:</div><div class="line">horribileru<span class="selector-class">.blogspot</span><span class="selector-class">.ru</span>/<span class="number">2011</span>/<span class="number">10</span>/android-imageview-svg<span class="selector-class">.html</span></div><div class="line">And some links to dead projects at different forums.</div></pre></td></tr></table></figure>
@@ -2878,7 +2894,10 @@ controller会导致崩溃">在didFinishLaunchingWithOptions结束后还没有设
 <li>vector</li>
 <li>在所有大小分辨率屏幕上完美显示</li>
 <li>SVG图片更小</li>
-<li>一张图片]]>
+<li>一张图片可以更具需求多次使用？(One picture is used some times for different permissions)</li>
+<li>减少加载时间</li>
+</ul>]]>
+    
     </summary>
     
       <category term="Android" scheme="http://wait.im/tags/Android/"/>
@@ -2910,18 +2929,24 @@ controller会导致崩溃">在didFinishLaunchingWithOptions结束后还没有设
     <link href="http://wait.im/2013/10/25/Android%E6%B8%85%E7%90%86%E5%86%85%E5%AD%98/"/>
     <id>http://wait.im/2013/10/25/Android清理内存/</id>
     <published>2013-10-24T16:16:36.000Z</published>
-    <updated>2015-11-10T02:46:13.000Z</updated>
+    <updated>2017-02-06T10:58:04.000Z</updated>
     <content type="html"><![CDATA[<p>Android内存清理，利用ActivityManager获取当前正在运行的进程，清理这些进程释放内存。</p>
 <p>可以根据importance的不同来判断前台或后台RunningAppProcessInfo 里面的常量IMOPORTANCE就是上面所说的前台后台，其实IMOPORTANCE是表示这个app进程的重要性，因为系统回收时候，会根据IMOPORTANCE来回收进程的。具体可以去看文档。。</p>
 <p>在配置文件中添加权限</p>
 <uses-permission android:name="”android.permission.KILL_BACKGROUND_PROCESSES”/">
 
 <p>内存清理代码以及获取系统内存和各个APP占用内存代码如下：</p>
+<a id="more"></a>
 <figure class="highlight zephir"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by thinkloki on 2013/8/20.</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SystemUtil</span> </span>&#123;</div><div class="line"> </div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 获取可用内存</div><div class="line">     *</div><div class="line">     * <span class="doctag">@param</span> context</div><div class="line">     * <span class="doctag">@return</span></div><div class="line">     */</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">long</span> getAvailMemory(Context context) &#123;</div><div class="line">        ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);</div><div class="line">        ActivityManager.MemoryInfo mi = <span class="keyword">new</span> ActivityManager.MemoryInfo();</div><div class="line">        am.getMemoryInfo(mi);</div><div class="line">        <span class="keyword">return</span> mi.availMem / (<span class="number">1024</span> * <span class="number">1024</span>);</div><div class="line"> </div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 获取总内存</div><div class="line">     *</div><div class="line">     * <span class="doctag">@param</span> context</div><div class="line">     * <span class="doctag">@return</span></div><div class="line">     */</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">long</span> getTotalMemory(Context context) &#123;</div><div class="line">        String str1 = <span class="string">"/proc/meminfo"</span>;<span class="comment">// 系统内存信息文件</span></div><div class="line">        String str2;</div><div class="line">        String[] arrayOfString;</div><div class="line">        <span class="keyword">long</span> initial_memory = <span class="number">0</span>;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            FileReader localFileReader = <span class="keyword">new</span> FileReader(str1);</div><div class="line">            BufferedReader localBufferedReader = <span class="keyword">new</span> BufferedReader(</div><div class="line">                    localFileReader, <span class="number">8192</span>);</div><div class="line">            str2 = localBufferedReader.readLine();<span class="comment">// 读取meminfo第一行，系统总内存大小</span></div><div class="line">            arrayOfString = str2.split(<span class="string">"\\s+"</span>);</div><div class="line">            initial_memory = Integer.valueOf(arrayOfString[<span class="number">1</span>]).intValue() * <span class="number">1024</span>;<span class="comment">// 获得系统总内存，单位是KB，乘以1024转换为Byte</span></div><div class="line">            localBufferedReader.close();</div><div class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> initial_memory / (<span class="number">1024</span> * <span class="number">1024</span>);</div><div class="line">    &#125;</div><div class="line"> </div><div class="line"><span class="comment">//    public static final int IMPORTANCE_BACKGROUND = 400//后台</span></div><div class="line"><span class="comment">//    public static final int IMPORTANCE_EMPTY = 500//空进程</span></div><div class="line"><span class="comment">//    public static final int IMPORTANCE_SERVICE = 300//在服务中</span></div><div class="line"><span class="comment">//    public static final int IMPORTANCE_VISIBLE = 200//在屏幕前端、获取不到焦点可理解为</span></div><div class="line"><span class="comment">//    public static final int IMPORTANCE_FOREGROUND = 100//在屏幕最前端、可获取到焦点 可理解为Activity生命周期的OnResume();</span></div><div class="line"> </div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 清理内存</div><div class="line">     *</div><div class="line">     * <span class="doctag">@param</span> context</div><div class="line">     */</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> void clearMemory(Context context) &#123;</div><div class="line">        ActivityManager activityManger = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);</div><div class="line">        <span class="keyword">List</span>&lt;ActivityManager.RunningAppProcessInfo&gt; <span class="keyword">list</span> = activityManger.getRunningAppProcesses();</div><div class="line">        <span class="keyword">if</span> (<span class="keyword">list</span> != <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="keyword">list</span>.size(); i++) &#123;</div><div class="line">                ActivityManager.RunningAppProcessInfo apinfo = <span class="keyword">list</span>.get(i);</div><div class="line">                String[] pkgList = apinfo.pkgList;</div><div class="line">                <span class="keyword">if</span> (apinfo.importance &gt; ActivityManager.RunningAppProcessInfo.IMPORTANCE_VISIBLE) &#123;</div><div class="line">                    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; pkgList.length; j++) &#123;</div><div class="line">                        <span class="comment">/**清理不可用的内容空间**/</span></div><div class="line">                        activityManger.killBackgroundProcesses(pkgList[j]);</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 获取每个APP占用的内存</div><div class="line">     *</div><div class="line">     * <span class="doctag">@param</span> context</div><div class="line">     */</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> void getEveryAppMemory(Context context) &#123;</div><div class="line">        ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);</div><div class="line">        <span class="keyword">List</span>&lt;ActivityManager.RunningAppProcessInfo&gt; <span class="keyword">list</span> = am.getRunningAppProcesses();</div><div class="line">        <span class="keyword">if</span> (<span class="keyword">list</span> != <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="keyword">list</span>.size(); i++) &#123;</div><div class="line">                ActivityManager.RunningAppProcessInfo appinfo = <span class="keyword">list</span>.get(i);</div><div class="line">                <span class="keyword">int</span>[] myMempid = <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;appinfo.pid&#125;;</div><div class="line">                Debug.MemoryInfo[] appMem = am.getProcessMemoryInfo(myMempid);</div><div class="line">                <span class="keyword">int</span> memSize = appMem[<span class="number">0</span>].dalvikPrivateDirty / <span class="number">1024</span>;</div><div class="line">                Log.e(<span class="string">"AppMemory"</span>, appinfo.processName + <span class="string">":"</span> + memSize);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 清理应用缓存</div><div class="line">     *</div><div class="line">     * <span class="doctag">@param</span> context</div><div class="line">     */</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> void clearAppCache(Context context) &#123;</div><div class="line">        File[] dir = context.getCacheDir().listFiles();</div><div class="line">        <span class="keyword">if</span> (dir != <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">for</span> (File f : dir) &#123;</div><div class="line">                f.delete();</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </uses-permission>]]></content>
     <summary type="html">
     <![CDATA[<p>Android内存清理，利用ActivityManager获取当前正在运行的进程，清理这些进程释放内存。</p>
-<p>可以根据importance的不同来判断前台或后台RunningAppProcessInfo 里面的常量IMOPORTANCE就是上面所说的前台后台，其实]]>
+<p>可以根据importance的不同来判断前台或后台RunningAppProcessInfo 里面的常量IMOPORTANCE就是上面所说的前台后台，其实IMOPORTANCE是表示这个app进程的重要性，因为系统回收时候，会根据IMOPORTANCE来回收进程的。具体可以去看文档。。</p>
+<p>在配置文件中添加权限</p>
+<uses-permission android:name=”android.permission.KILL_BACKGROUND_PROCESSES”/>
+
+<p>内存清理代码以及获取系统内存和各个APP占用内存代码如下：</p>]]>
+    
     </summary>
     
       <category term="Android" scheme="http://wait.im/tags/Android/"/>
@@ -2935,7 +2960,7 @@ controller会导致崩溃">在didFinishLaunchingWithOptions结束后还没有设
     <link href="http://wait.im/2013/10/21/Android%E5%8A%A8%E7%94%BB%E7%AE%80%E5%8D%95%E5%AD%A6%E4%B9%A0/"/>
     <id>http://wait.im/2013/10/21/Android动画简单学习/</id>
     <published>2013-10-20T16:16:36.000Z</published>
-    <updated>2017-02-06T10:49:07.000Z</updated>
+    <updated>2017-02-06T10:57:50.000Z</updated>
     <content type="html"><![CDATA[<blockquote>
 <p>再复杂的动画，都是简单动画的结合</p>
 </blockquote>
@@ -2965,6 +2990,7 @@ controller会导致崩溃">在didFinishLaunchingWithOptions结束后还没有设
 </tr>
 </tbody>
 </table>
+<a id="more"></a>
 <h4 id="实现方式"><a href="#实现方式" class="headerlink" title="实现方式"></a>实现方式</h4><p>Animation配合AnimationUtils，结合xml中set</p>
 <h3 id="II-Frame-Animation-关键帧动画"><a href="#II-Frame-Animation-关键帧动画" class="headerlink" title="II. Frame Animation(关键帧动画)"></a>II. Frame Animation(关键帧动画)</h3><blockquote>
 <p>顺序播放关键帧</p>
@@ -3053,7 +3079,33 @@ valueAnimator.setDuration(5000).start();
     <![CDATA[<blockquote>
 <p>再复杂的动画，都是简单动画的结合</p>
 </blockquote>
-<h3 id="I-Tween-Animation-补间动画"><a href="#I-Tween-Animation-补间动画" class="headerlink" titl]]>
+<h3 id="I-Tween-Animation-补间动画"><a href="#I-Tween-Animation-补间动画" class="headerlink" title="I. Tween Animation(补间动画)"></a>I. Tween Animation(补间动画)</h3><table>
+<thead>
+<tr>
+<th>形式</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>alpha</td>
+<td>渐变透明度</td>
+</tr>
+<tr>
+<td>scale</td>
+<td>渐变尺寸</td>
+</tr>
+<tr>
+<td>translate</td>
+<td>画面位置移动</td>
+</tr>
+<tr>
+<td>rotate</td>
+<td>画面旋转</td>
+</tr>
+</tbody>
+</table>]]>
+    
     </summary>
     
       <category term="Android" scheme="http://wait.im/tags/Android/"/>
@@ -3069,9 +3121,9 @@ valueAnimator.setDuration(5000).start();
     <link href="http://wait.im/2012/07/30/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BA%BF%E7%A8%8B%E9%80%9A%E8%AE%AF%E5%92%8C%E7%94%9F%E4%BA%A7%E8%80%85/"/>
     <id>http://wait.im/2012/07/30/多线程线程通讯和生产者/</id>
     <published>2012-07-29T16:18:36.000Z</published>
-    <updated>2016-04-22T03:08:43.000Z</updated>
+    <updated>2017-02-06T10:57:23.000Z</updated>
     <content type="html"><![CDATA[<p>线程间通讯——等待唤醒机制<br>1，wait()；是让线程处于冻结状态，被wait线程会被存储到线程池中。<br>2,notify()；唤醒线程池中的一个线程(任意)。<br>3,notifyAll()；唤醒线程池中的所有线程，让线程具备了执行资格。<br>使用时要注意使用在同步中，因为只有同步才会具有锁。<br>调用时需要明确对象，明确是哪个监视器。<br>任意对象可以调用的方法定义在Object里面。</p>
-<p>锁可以是任意对象。<br>为什么这些操作线程方法要定义在Object类中：因为这些方法在操作同步中线程时，都必须要标识它们所操作线程特有的锁，<br>只有同一个锁上的被等待线程，可以被同一个锁上的notify唤醒。<br>不可以对不同锁中的线程进行唤醒。等待和唤醒必须是同一个锁。而锁的对象是任意的，所以可以被任意对象调用的方法定义在Object类中。<br>一、线程间通信：<br>class Res<br>{<br>private String name;<br>private String sex;<br>private boolean flag = false;</p>
+<p>锁可以是任意对象。<br>为什么这些操作线程方法要定义在Object类中：因为这些方法在操作同步中线程时，都必须要标识它们所操作线程特有的锁，<br>只有同一个锁上的被等待线程，可以被同一个锁上的notify唤醒。<br>不可以对不同锁中的线程进行唤醒。等待和唤醒必须是同一个锁。而锁的对象是任意的，所以可以被任意对象调用的方法定义在Object类中。<br><a id="more"></a><br>一、线程间通信：<br>class Res<br>{<br>private String name;<br>private String sex;<br>private boolean flag = false;</p>
 <p>public synchronized void set(String name,String sex)<br>{<br>if(flag)<br>try{this.wait();}catch(Exception e){}<br>this.name = name;</p>
 <p>this.sex = sex;<br>flag = true;<br>this.notify();<br>}<br>public synchronized void out()<br>{<br>if(!flag)<br>try{this.wait();}catch(Exception e){}<br>System.out.println(name+”……..”+sex);<br>flag = false;<br>this.notify();<br>}<br>}</p>
 <p>class Input implements Runnable<br>{<br>private Res r ;<br>Input(Res r)<br>{<br>this.r = r;<br>}<br>public void run()<br>{<br>int x = 0;<br>while(true)<br>{<br>if(x==0)<br>r.set(“mike”,”man”);<br>else<br>r.set(“丽丽”,”女女女女女”);<br>x = (x+1)%2;<br>}<br>}<br>}</p>
@@ -3135,7 +3187,9 @@ valueAnimator.setDuration(5000).start();
 <p>NORM_PRIORITY 线程可以具有的最低优先级。</p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p>线程间通讯——等待唤醒机制<br>1，wait()；是让线程处于冻结状态，被wait线程会被存储到线程池中。<br>2,notify()；唤醒线程池中的一个线程(任意)。<br>3,notifyAll()；唤醒线程池中的所有线程，让线程具备了执行资格。<br>使用时要注意使]]>
+    <![CDATA[<p>线程间通讯——等待唤醒机制<br>1，wait()；是让线程处于冻结状态，被wait线程会被存储到线程池中。<br>2,notify()；唤醒线程池中的一个线程(任意)。<br>3,notifyAll()；唤醒线程池中的所有线程，让线程具备了执行资格。<br>使用时要注意使用在同步中，因为只有同步才会具有锁。<br>调用时需要明确对象，明确是哪个监视器。<br>任意对象可以调用的方法定义在Object里面。</p>
+<p>锁可以是任意对象。<br>为什么这些操作线程方法要定义在Object类中：因为这些方法在操作同步中线程时，都必须要标识它们所操作线程特有的锁，<br>只有同一个锁上的被等待线程，可以被同一个锁上的notify唤醒。<br>不可以对不同锁中的线程进行唤醒。等待和唤醒必须是同一个锁。而锁的对象是任意的，所以可以被任意对象调用的方法定义在Object类中。<br>]]>
+    
     </summary>
     
       <category term="JAVA" scheme="http://wait.im/tags/JAVA/"/>
@@ -3149,7 +3203,7 @@ valueAnimator.setDuration(5000).start();
     <link href="http://wait.im/2012/07/30/%E9%9D%A2%E5%AF%B9%E5%AF%B9%E8%B1%A1%E5%9F%BA%E7%A1%80%E8%B7%9F%E5%86%85%E9%83%A8%E7%B1%BB/"/>
     <id>http://wait.im/2012/07/30/面对对象基础跟内部类/</id>
     <published>2012-07-29T16:18:36.000Z</published>
-    <updated>2015-11-09T16:47:42.000Z</updated>
+    <updated>2017-02-06T10:57:29.000Z</updated>
     <content type="html"><![CDATA[<p>一、面对对象的三大特征：封装、继承、多态。</p>
 <font color="#24130c" face="Arial, Helvetica, simsun, u5b8bu4f53">    <font size="3">抽象：</font></font><font size="3">把现实中需要处理的事物通过数据的方法表达出来就是抽象。将现实的东西编程计算机的模式。</font>
 
@@ -3158,8 +3212,7 @@ valueAnimator.setDuration(5000).start();
 <font size="3"><font face="arial, courier new, courier, 宋体, monospace">    多态：</font>同一个方法通过方法的重载实现不同的逻辑即多态。</font>
 
 <p>二、面对对象软件开发的大体分为，面向对象的分析，面向对象的设计，面向对象的实现。</p>
-<p>分析用户的需求，从问题中抽取对象模型，细化模型，设计类，包括类的属性和类间的相互关系。同时观察是否有可以直接引用的已有的类或部件；使用Java语言，在开发中引入测试，并完善整个解决方案。</p>
-<p>三、类</p>
+<p>分析用户的需求，从问题中抽取对象模型，细化模型，设计类，包括类的属性和类间的相互关系。同时观察是否有可以直接引用的已有的类或部件；使用Java语言，在开发中引入测试，并完善整个解决方案。<br><a id="more"></a><br>三、类</p>
 <p>class前的修饰符分为访问控制符和非访问控制符两类。访问控制符包括public和private。非访问控制符包括abstract和final。</p>
 <p>final是最终类，是不能有子类的，abstract和final不能修饰同一个类，因为抽象类本身没有具体的对象，需要派生出子类后在创建子类的对象。而最终不可能有子类。</p>
 <p>创建对象的格式：类名+对象名=new 构造方法（参数）；前面是类名，后面是构造方法。</p>
@@ -3279,7 +3332,15 @@ void&nbsp;inner_f1()
 </div></div></div></div></div></div>]]></content>
     <summary type="html">
     <![CDATA[<p>一、面对对象的三大特征：封装、继承、多态。</p>
-<font color="#24130c" face="Arial, Helvetica, simsun, u5b8bu4f53">    <font size="3">抽象：</font></font><font siz]]>
+<font color="#24130c"   face="Arial, Helvetica, simsun, u5b8bu4f53"   >    <font size="3"   >抽象：</font></font><font size="3"   >把现实中需要处理的事物通过数据的方法表达出来就是抽象。将现实的东西编程计算机的模式。</font>
+
+<font size="3"   ><font face="arial, courier new, courier, 宋体, monospace"   >    封装：</font>把事物的数据和方法用类的方式集合起来就是封装，封装的数据和方法通过继承来实现重用。</font>
+
+<font size="3"   ><font face="arial, courier new, courier, 宋体, monospace"   >    多态：</font>同一个方法通过方法的重载实现不同的逻辑即多态。</font>
+
+<p>二、面对对象软件开发的大体分为，面向对象的分析，面向对象的设计，面向对象的实现。</p>
+<p>分析用户的需求，从问题中抽取对象模型，细化模型，设计类，包括类的属性和类间的相互关系。同时观察是否有可以直接引用的已有的类或部件；使用Java语言，在开发中引入测试，并完善整个解决方案。<br>]]>
+    
     </summary>
     
       <category term="JAVA" scheme="http://wait.im/tags/JAVA/"/>
