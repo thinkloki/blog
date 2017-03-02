@@ -4,7 +4,7 @@
   <subtitle><![CDATA[做人不卖萌和咸鱼有什么区别]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="https://wait.im/"/>
-  <updated>2017-02-06T11:01:03.000Z</updated>
+  <updated>2017-03-02T09:53:58.000Z</updated>
   <id>https://wait.im/</id>
   
   <author>
@@ -13,6 +13,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[睡排序，脑洞大开]]></title>
+    <link href="https://wait.im/2017/03/02/%E7%9D%A1%E6%8E%92%E5%BA%8F%EF%BC%8C%E8%84%91%E6%B4%9E%E5%A4%A7%E5%BC%80/"/>
+    <id>https://wait.im/2017/03/02/睡排序，脑洞大开/</id>
+    <published>2017-03-01T16:17:49.000Z</published>
+    <updated>2017-03-02T09:53:58.000Z</updated>
+    <content type="html"><![CDATA[<pre><code>构造 n 个线程，它们和这 n 个数一一对应。初始化后，线程们开始睡眠，等到对应的数那么多个时间单位后各自醒来，然后输出它对应的数。这样最小的数对应的线程最早醒来，这个数最早被输出。
+</code></pre><p>等所有线程都醒来，排序就结束了。<br><a id="more"></a><br>放个例子<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SleepSort</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">        <span class="keyword">int</span>[] nums=&#123;<span class="number">9</span>,<span class="number">7</span>,<span class="number">2</span>,<span class="number">6</span>,<span class="number">15</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">9</span>,<span class="number">9</span>,<span class="number">9</span>,<span class="number">9</span>&#125;;</div><div class="line">        SleepSort.sort(nums);</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> n:nums)</div><div class="line">            System.out.printf(<span class="string">"%d    "</span>,n);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(<span class="keyword">int</span>[] nums)</span></span>&#123;</div><div class="line">        Sleeper.idx=<span class="number">0</span>;</div><div class="line">        Sleeper.output=<span class="keyword">new</span> <span class="keyword">int</span>[nums.length];</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nums.length;i++)        <span class="comment">//[1]</span></div><div class="line">            <span class="keyword">new</span> Sleeper(nums[i]).start();</div><div class="line"></div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            Thread.sleep(<span class="number">100</span>);                  <span class="comment">//[2]</span></div><div class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nums.length;i++)</div><div class="line">            nums[i]=Sleeper.output[i];</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Sleeper</span> <span class="keyword">extends</span> <span class="title">Thread</span></span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] output;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> idx;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> sleep_time;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Sleeper</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">this</span>.sleep_time=<span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Sleeper</span><span class="params">(<span class="keyword">int</span> sleep_time)</span></span>&#123;</div><div class="line">        <span class="keyword">this</span>.sleep_time=sleep_time;</div><div class="line">    &#125;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">try</span>&#123;</div><div class="line">            Thread.sleep(<span class="keyword">this</span>.sleep_time);</div><div class="line">        &#125;<span class="keyword">catch</span>(InterruptedException e)&#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">        output[idx++]=<span class="keyword">this</span>.sleep_time;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<pre><code>构造 n 个线程，它们和这 n 个数一一对应。初始化后，线程们开始睡眠，等到对应的数那么多个时间单位后各自醒来，然后输出它对应的数。这样最小的数对应的线程最早醒来，这个数最早被输出。
+</code></pre><p>等所有线程都醒来，排序就结束了。<br>]]>
+    
+    </summary>
+    
+      <category term="JAVA" scheme="https://wait.im/tags/JAVA/"/>
+    
+      <category term="算法" scheme="https://wait.im/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[MAC OS下串口调试]]></title>
@@ -2593,11 +2614,11 @@ controller会导致崩溃">在didFinishLaunchingWithOptions结束后还没有设
     
     </summary>
     
-      <category term="JAVA" scheme="https://wait.im/tags/JAVA/"/>
-    
       <category term="Android" scheme="https://wait.im/tags/Android/"/>
     
       <category term="Material Design" scheme="https://wait.im/tags/Material-Design/"/>
+    
+      <category term="JAVA" scheme="https://wait.im/tags/JAVA/"/>
     
       <category term="Google" scheme="https://wait.im/tags/Google/"/>
     
@@ -2899,9 +2920,9 @@ controller会导致崩溃">在didFinishLaunchingWithOptions结束后还没有设
     
     </summary>
     
-      <category term="JAVA" scheme="https://wait.im/tags/JAVA/"/>
-    
       <category term="Android" scheme="https://wait.im/tags/Android/"/>
+    
+      <category term="JAVA" scheme="https://wait.im/tags/JAVA/"/>
     
   </entry>
   
@@ -3107,9 +3128,9 @@ valueAnimator.setDuration(5000).start();
     
     </summary>
     
-      <category term="JAVA" scheme="https://wait.im/tags/JAVA/"/>
-    
       <category term="Android" scheme="https://wait.im/tags/Android/"/>
+    
+      <category term="JAVA" scheme="https://wait.im/tags/JAVA/"/>
     
       <category term="动画" scheme="https://wait.im/tags/%E5%8A%A8%E7%94%BB/"/>
     
