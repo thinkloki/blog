@@ -3,9 +3,9 @@
   <title><![CDATA[thinkloki]]></title>
   <subtitle><![CDATA[做人不卖萌和咸鱼有什么区别]]></subtitle>
   <link href="/atom.xml" rel="self"/>
-  <link href="http://wait.im/"/>
+  <link href="https://wait.im/"/>
   <updated>2017-02-06T11:01:03.000Z</updated>
-  <id>http://wait.im/</id>
+  <id>https://wait.im/</id>
   
   <author>
     <name><![CDATA[thinkloki]]></name>
@@ -16,8 +16,8 @@
   
   <entry>
     <title><![CDATA[MAC OS下串口调试]]></title>
-    <link href="http://wait.im/2016/09/26/MAC%20OS%E4%B8%8B%E4%B8%B2%E5%8F%A3%E8%B0%83%E8%AF%95/"/>
-    <id>http://wait.im/2016/09/26/MAC OS下串口调试/</id>
+    <link href="https://wait.im/2016/09/26/MAC%20OS%E4%B8%8B%E4%B8%B2%E5%8F%A3%E8%B0%83%E8%AF%95/"/>
+    <id>https://wait.im/2016/09/26/MAC OS下串口调试/</id>
     <published>2016-09-25T16:15:08.000Z</published>
     <updated>2017-02-06T11:01:03.000Z</updated>
     <content type="html"><![CDATA[<p>最近在做一个Mac下的ssh调试工具，但是出现了一点问题。后来发现居然Mac下有串口调试工具可以用，下面是安装方法。</p>
@@ -36,16 +36,16 @@
     
     </summary>
     
-      <category term="MAC OS" scheme="http://wait.im/tags/MAC-OS/"/>
+      <category term="MAC OS" scheme="https://wait.im/tags/MAC-OS/"/>
     
-      <category term="调试" scheme="http://wait.im/tags/%E8%B0%83%E8%AF%95/"/>
+      <category term="调试" scheme="https://wait.im/tags/%E8%B0%83%E8%AF%95/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[Android热点获取连入设备的信息]]></title>
-    <link href="http://wait.im/2016/03/10/Android%E7%83%AD%E7%82%B9%E8%8E%B7%E5%8F%96%E8%BF%9E%E5%85%A5%E8%AE%BE%E5%A4%87%E7%9A%84%E4%BF%A1%E6%81%AF/"/>
-    <id>http://wait.im/2016/03/10/Android热点获取连入设备的信息/</id>
+    <link href="https://wait.im/2016/03/10/Android%E7%83%AD%E7%82%B9%E8%8E%B7%E5%8F%96%E8%BF%9E%E5%85%A5%E8%AE%BE%E5%A4%87%E7%9A%84%E4%BF%A1%E6%81%AF/"/>
+    <id>https://wait.im/2016/03/10/Android热点获取连入设备的信息/</id>
     <published>2016-03-09T16:18:26.000Z</published>
     <updated>2017-02-06T10:58:09.000Z</updated>
     <content type="html"><![CDATA[<p>最近在做项目，要做热点功能，需要获取连入设备的信息，在网上找了好多资料，目前找到了比较好的解决方法，可以获取到设备的信息，MAC地址,设备名称等。还需要做黑名单功能，禁止连入热点的设备上网，踢出设备等，以后补全。</p>
@@ -60,16 +60,16 @@
     
     </summary>
     
-      <category term="Android" scheme="http://wait.im/tags/Android/"/>
+      <category term="Android" scheme="https://wait.im/tags/Android/"/>
     
-      <category term="热点" scheme="http://wait.im/tags/%E7%83%AD%E7%82%B9/"/>
+      <category term="热点" scheme="https://wait.im/tags/%E7%83%AD%E7%82%B9/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[Android蓝牙链接有关问题总结]]></title>
-    <link href="http://wait.im/2016/01/20/Android%E8%93%9D%E7%89%99%E9%93%BE%E6%8E%A5%E6%9C%89%E5%85%B3%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/"/>
-    <id>http://wait.im/2016/01/20/Android蓝牙链接有关问题总结/</id>
+    <link href="https://wait.im/2016/01/20/Android%E8%93%9D%E7%89%99%E9%93%BE%E6%8E%A5%E6%9C%89%E5%85%B3%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/"/>
+    <id>https://wait.im/2016/01/20/Android蓝牙链接有关问题总结/</id>
     <published>2016-01-20T05:40:08.000Z</published>
     <updated>2017-02-06T10:57:58.000Z</updated>
     <content type="html"><![CDATA[<h3 id="蓝牙设备类型判断"><a href="#蓝牙设备类型判断" class="headerlink" title="蓝牙设备类型判断"></a>蓝牙设备类型判断</h3><p>蓝牙连接设备互相连接，有时候需要根据设备的不同去判断，在Android上面，我们需要用到系统的api，比如用到蓝牙电话的时候，就要判断连入得设备类型是不是电话类型的。</p>
@@ -83,14 +83,14 @@
     
     </summary>
     
-      <category term="Android" scheme="http://wait.im/tags/Android/"/>
+      <category term="Android" scheme="https://wait.im/tags/Android/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[swift-open-project]]></title>
-    <link href="http://wait.im/2015/11/12/swift-open-project/"/>
-    <id>http://wait.im/2015/11/12/swift-open-project/</id>
+    <link href="https://wait.im/2015/11/12/swift-open-project/"/>
+    <id>https://wait.im/2015/11/12/swift-open-project/</id>
     <published>2015-11-12T04:23:36.000Z</published>
     <updated>2017-02-06T10:59:33.000Z</updated>
     <content type="html"><![CDATA[<h1 id="swift-open-project"><a href="#swift-open-project" class="headerlink" title="swift-open-project"></a><a href="https://github.com/thinkloki/swift-open-project" target="_blank" rel="external">swift-open-project</a></h1><p>这里汇集了目前为止最为流行的Swift开源项目，选取SwiftGuide中的开源部分，这里将每周对项目进行总结，如果大家有推荐的可以联系thinkloki@gmail.com,或者issues，欢迎Star、Fork。感谢<a href="https://github.com/ipader/SwiftGuide" target="_blank" rel="external">SwiftGuide</a>。</p>
@@ -469,18 +469,18 @@
     
     </summary>
     
-      <category term="IOS" scheme="http://wait.im/tags/IOS/"/>
+      <category term="IOS" scheme="https://wait.im/tags/IOS/"/>
     
-      <category term="swift" scheme="http://wait.im/tags/swift/"/>
+      <category term="swift" scheme="https://wait.im/tags/swift/"/>
     
-      <category term="open" scheme="http://wait.im/tags/open/"/>
+      <category term="open" scheme="https://wait.im/tags/open/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[IOS9AdaptationTips]]></title>
-    <link href="http://wait.im/2015/10/27/IOS9AdaptationTips/"/>
-    <id>http://wait.im/2015/10/27/IOS9AdaptationTips/</id>
+    <link href="https://wait.im/2015/10/27/IOS9AdaptationTips/"/>
+    <id>https://wait.im/2015/10/27/IOS9AdaptationTips/</id>
     <published>2015-10-26T16:15:13.000Z</published>
     <updated>2017-02-06T10:58:58.000Z</updated>
     <content type="html"><![CDATA[<p>#中文快速导航：</p>
@@ -1595,14 +1595,14 @@ controller会导致崩溃">在didFinishLaunchingWithOptions结束后还没有设
     
     </summary>
     
-      <category term="IOS" scheme="http://wait.im/tags/IOS/"/>
+      <category term="IOS" scheme="https://wait.im/tags/IOS/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[这些天的一些感悟]]></title>
-    <link href="http://wait.im/2015/10/26/%E8%BF%99%E4%BA%9B%E5%A4%A9%E7%9A%84%E4%B8%80%E4%BA%9B%E6%84%9F%E6%82%9F/"/>
-    <id>http://wait.im/2015/10/26/这些天的一些感悟/</id>
+    <link href="https://wait.im/2015/10/26/%E8%BF%99%E4%BA%9B%E5%A4%A9%E7%9A%84%E4%B8%80%E4%BA%9B%E6%84%9F%E6%82%9F/"/>
+    <id>https://wait.im/2015/10/26/这些天的一些感悟/</id>
     <published>2015-10-25T16:15:08.000Z</published>
     <updated>2015-10-27T07:50:26.000Z</updated>
     <content type="html"><![CDATA[<ul>
@@ -1623,14 +1623,14 @@ controller会导致崩溃">在didFinishLaunchingWithOptions结束后还没有设
 <li>梦想]]>
     </summary>
     
-      <category term="随笔" scheme="http://wait.im/tags/%E9%9A%8F%E7%AC%94/"/>
+      <category term="随笔" scheme="https://wait.im/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[Objective-C常用函数跟Foundation框架]]></title>
-    <link href="http://wait.im/2015/10/20/Objective-C%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0%E8%B7%9FFoundation%E6%A1%86%E6%9E%B6/"/>
-    <id>http://wait.im/2015/10/20/Objective-C常用函数跟Foundation框架/</id>
+    <link href="https://wait.im/2015/10/20/Objective-C%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0%E8%B7%9FFoundation%E6%A1%86%E6%9E%B6/"/>
+    <id>https://wait.im/2015/10/20/Objective-C常用函数跟Foundation框架/</id>
     <published>2015-10-19T16:09:50.000Z</published>
     <updated>2017-02-06T10:59:19.000Z</updated>
     <content type="html"><![CDATA[<h2 id="数学运算-math-函数"><a href="#数学运算-math-函数" class="headerlink" title="数学运算(math)函数"></a>数学运算(math)函数</h2><h4 id="算术运算函数"><a href="#算术运算函数" class="headerlink" title="算术运算函数"></a>算术运算函数</h4><ul>
@@ -2473,18 +2473,18 @@ controller会导致崩溃">在didFinishLaunchingWithOptions结束后还没有设
     
     </summary>
     
-      <category term="IOS" scheme="http://wait.im/tags/IOS/"/>
+      <category term="IOS" scheme="https://wait.im/tags/IOS/"/>
     
-      <category term="Objective-C" scheme="http://wait.im/tags/Objective-C/"/>
+      <category term="Objective-C" scheme="https://wait.im/tags/Objective-C/"/>
     
-      <category term="Foundation" scheme="http://wait.im/tags/Foundation/"/>
+      <category term="Foundation" scheme="https://wait.im/tags/Foundation/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[关于 Facebook新闻页优化 的分析]]></title>
-    <link href="http://wait.im/2015/07/31/Facebook%E6%96%B0%E9%97%BB%E9%A1%B5%E4%BC%98%E5%8C%96%E7%9A%84%E5%88%86%E6%9E%90/"/>
-    <id>http://wait.im/2015/07/31/Facebook新闻页优化的分析/</id>
+    <link href="https://wait.im/2015/07/31/Facebook%E6%96%B0%E9%97%BB%E9%A1%B5%E4%BC%98%E5%8C%96%E7%9A%84%E5%88%86%E6%9E%90/"/>
+    <id>https://wait.im/2015/07/31/Facebook新闻页优化的分析/</id>
     <published>2015-07-30T16:18:36.000Z</published>
     <updated>2017-02-06T10:58:25.000Z</updated>
     <content type="html"><![CDATA[<p>关于 Facebook新闻页优化 的分析</p>
@@ -2522,14 +2522,14 @@ controller会导致崩溃">在didFinishLaunchingWithOptions结束后还没有设
     
     </summary>
     
-      <category term="Android" scheme="http://wait.im/tags/Android/"/>
+      <category term="Android" scheme="https://wait.im/tags/Android/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[Google 2015 Material Design Summit]]></title>
-    <link href="http://wait.im/2015/04/21/Google%202015%20Material%20Design%20Summit/"/>
-    <id>http://wait.im/2015/04/21/Google 2015 Material Design Summit/</id>
+    <link href="https://wait.im/2015/04/21/Google%202015%20Material%20Design%20Summit/"/>
+    <id>https://wait.im/2015/04/21/Google 2015 Material Design Summit/</id>
     <published>2015-04-20T16:12:36.000Z</published>
     <updated>2017-02-06T10:58:29.000Z</updated>
     <content type="html"><![CDATA[<blockquote>
@@ -2593,20 +2593,20 @@ controller会导致崩溃">在didFinishLaunchingWithOptions结束后还没有设
     
     </summary>
     
-      <category term="Android" scheme="http://wait.im/tags/Android/"/>
+      <category term="JAVA" scheme="https://wait.im/tags/JAVA/"/>
     
-      <category term="Material Design" scheme="http://wait.im/tags/Material-Design/"/>
+      <category term="Android" scheme="https://wait.im/tags/Android/"/>
     
-      <category term="JAVA" scheme="http://wait.im/tags/JAVA/"/>
+      <category term="Material Design" scheme="https://wait.im/tags/Material-Design/"/>
     
-      <category term="Google" scheme="http://wait.im/tags/Google/"/>
+      <category term="Google" scheme="https://wait.im/tags/Google/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[Android Design Support Library简单使用]]></title>
-    <link href="http://wait.im/2015/01/24/Android%20Design%20Support%20Library%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/"/>
-    <id>http://wait.im/2015/01/24/Android Design Support Library简单使用/</id>
+    <link href="https://wait.im/2015/01/24/Android%20Design%20Support%20Library%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/"/>
+    <id>https://wait.im/2015/01/24/Android Design Support Library简单使用/</id>
     <published>2015-01-24T08:23:36.000Z</published>
     <updated>2017-02-06T10:57:38.000Z</updated>
     <content type="html"><![CDATA[<p>Android 5.0 Lollipop为我们带来了<strong>Material Design</strong>,这是一个全新的设计语言，给Android带来了全新的体验，我个人决定Material很漂亮，然而那时候官方的支持却不太完善，FAB（Float Action Button）、想写一个漂亮的NavigationView都需要用一些开源库，而在<strong>GoogleIO</strong>大会上，谷歌为我们带来了<strong>Android Design Support Library</strong>,其中包括了很多原生的MD控件，例如：navigation drawer view, floating labels,floating action button, snackbar, tabs, CoordinatorLayout，CollapsingToolbarLayout等，更重要的是兼容到了Android2.1以上的设备，现在还有什么理由不上MD风格呢？<br><a id="more"></a></p>
@@ -2646,16 +2646,16 @@ controller会导致崩溃">在didFinishLaunchingWithOptions结束后还没有设
     
     </summary>
     
-      <category term="Android" scheme="http://wait.im/tags/Android/"/>
+      <category term="Android" scheme="https://wait.im/tags/Android/"/>
     
-      <category term="Material Design" scheme="http://wait.im/tags/Material-Design/"/>
+      <category term="Material Design" scheme="https://wait.im/tags/Material-Design/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[Android性能调优的技术点]]></title>
-    <link href="http://wait.im/2015/01/12/Android%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98%E7%9A%84%E6%8A%80%E6%9C%AF%E7%82%B9/"/>
-    <id>http://wait.im/2015/01/12/Android性能调优的技术点/</id>
+    <link href="https://wait.im/2015/01/12/Android%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98%E7%9A%84%E6%8A%80%E6%9C%AF%E7%82%B9/"/>
+    <id>https://wait.im/2015/01/12/Android性能调优的技术点/</id>
     <published>2015-01-12T04:23:36.000Z</published>
     <updated>2017-02-06T10:58:17.000Z</updated>
     <content type="html"><![CDATA[<h2 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h2><h3 id="使用异步"><a href="#使用异步" class="headerlink" title="使用异步"></a>使用异步</h3><ul>
@@ -2755,18 +2755,18 @@ controller会导致崩溃">在didFinishLaunchingWithOptions结束后还没有设
     
     </summary>
     
-      <category term="Android" scheme="http://wait.im/tags/Android/"/>
+      <category term="Android" scheme="https://wait.im/tags/Android/"/>
     
-      <category term="内存" scheme="http://wait.im/tags/%E5%86%85%E5%AD%98/"/>
+      <category term="内存" scheme="https://wait.im/tags/%E5%86%85%E5%AD%98/"/>
     
-      <category term="优化" scheme="http://wait.im/tags/%E4%BC%98%E5%8C%96/"/>
+      <category term="优化" scheme="https://wait.im/tags/%E4%BC%98%E5%8C%96/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[Leakcanary Square的一款Android/Java内存泄漏检测工具]]></title>
-    <link href="http://wait.im/2014/11/25/Leakcanary%20Square%E7%9A%84%E4%B8%80%E6%AC%BEAndroid:Java%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E6%A3%80%E6%B5%8B%E5%B7%A5%E5%85%B7/"/>
-    <id>http://wait.im/2014/11/25/Leakcanary Square的一款Android:Java内存泄漏检测工具/</id>
+    <link href="https://wait.im/2014/11/25/Leakcanary%20Square%E7%9A%84%E4%B8%80%E6%AC%BEAndroid:Java%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E6%A3%80%E6%B5%8B%E5%B7%A5%E5%85%B7/"/>
+    <id>https://wait.im/2014/11/25/Leakcanary Square的一款Android:Java内存泄漏检测工具/</id>
     <published>2014-11-24T16:14:36.000Z</published>
     <updated>2017-02-06T10:59:05.000Z</updated>
     <content type="html"><![CDATA[<blockquote>
@@ -2836,16 +2836,16 @@ controller会导致崩溃">在didFinishLaunchingWithOptions结束后还没有设
     
     </summary>
     
-      <category term="Android" scheme="http://wait.im/tags/Android/"/>
+      <category term="Android" scheme="https://wait.im/tags/Android/"/>
     
-      <category term="内存" scheme="http://wait.im/tags/%E5%86%85%E5%AD%98/"/>
+      <category term="内存" scheme="https://wait.im/tags/%E5%86%85%E5%AD%98/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[SVG Android应用探究之路]]></title>
-    <link href="http://wait.im/2014/06/21/SVG%20Android%E5%BA%94%E7%94%A8%E6%8E%A2%E7%A9%B6%E4%B9%8B%E8%B7%AF/"/>
-    <id>http://wait.im/2014/06/21/SVG Android应用探究之路/</id>
+    <link href="https://wait.im/2014/06/21/SVG%20Android%E5%BA%94%E7%94%A8%E6%8E%A2%E7%A9%B6%E4%B9%8B%E8%B7%AF/"/>
+    <id>https://wait.im/2014/06/21/SVG Android应用探究之路/</id>
     <published>2014-06-20T16:12:36.000Z</published>
     <updated>2017-02-06T10:59:26.000Z</updated>
     <content type="html"><![CDATA[<h5 id="优点"><a href="#优点" class="headerlink" title="优点:"></a>优点:</h5><ul>
@@ -2899,16 +2899,16 @@ controller会导致崩溃">在didFinishLaunchingWithOptions结束后还没有设
     
     </summary>
     
-      <category term="Android" scheme="http://wait.im/tags/Android/"/>
+      <category term="JAVA" scheme="https://wait.im/tags/JAVA/"/>
     
-      <category term="JAVA" scheme="http://wait.im/tags/JAVA/"/>
+      <category term="Android" scheme="https://wait.im/tags/Android/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[Hexo上的第一篇博文]]></title>
-    <link href="http://wait.im/2014/03/02/Hexo%E4%B8%8A%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E6%96%87/"/>
-    <id>http://wait.im/2014/03/02/Hexo上第一篇博文/</id>
+    <link href="https://wait.im/2014/03/02/Hexo%E4%B8%8A%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E6%96%87/"/>
+    <id>https://wait.im/2014/03/02/Hexo上第一篇博文/</id>
     <published>2014-03-01T16:18:36.000Z</published>
     <updated>2015-11-09T16:48:09.000Z</updated>
     <content type="html"><![CDATA[<p>这是使用Hexo搭建的博客后写的第一篇博文，搭建的过程还算顺利，写代码也写了两年了，觉得去总结一下也挺好，以后会把自己平时遇到的一些问题总结出来，码农也要学会总结，去提高自己。</p>
@@ -2919,14 +2919,14 @@ controller会导致崩溃">在didFinishLaunchingWithOptions结束后还没有设
 <p><a href="https://hexo.io/" target="_blank]]>
     </summary>
     
-      <category term="Hexo" scheme="http://wait.im/tags/Hexo/"/>
+      <category term="Hexo" scheme="https://wait.im/tags/Hexo/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[Android清理内存]]></title>
-    <link href="http://wait.im/2013/10/25/Android%E6%B8%85%E7%90%86%E5%86%85%E5%AD%98/"/>
-    <id>http://wait.im/2013/10/25/Android清理内存/</id>
+    <link href="https://wait.im/2013/10/25/Android%E6%B8%85%E7%90%86%E5%86%85%E5%AD%98/"/>
+    <id>https://wait.im/2013/10/25/Android清理内存/</id>
     <published>2013-10-24T16:16:36.000Z</published>
     <updated>2017-02-06T10:58:04.000Z</updated>
     <content type="html"><![CDATA[<p>Android内存清理，利用ActivityManager获取当前正在运行的进程，清理这些进程释放内存。</p>
@@ -2948,16 +2948,16 @@ controller会导致崩溃">在didFinishLaunchingWithOptions结束后还没有设
     
     </summary>
     
-      <category term="Android" scheme="http://wait.im/tags/Android/"/>
+      <category term="Android" scheme="https://wait.im/tags/Android/"/>
     
-      <category term="内存" scheme="http://wait.im/tags/%E5%86%85%E5%AD%98/"/>
+      <category term="内存" scheme="https://wait.im/tags/%E5%86%85%E5%AD%98/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[Android动画简单学习]]></title>
-    <link href="http://wait.im/2013/10/21/Android%E5%8A%A8%E7%94%BB%E7%AE%80%E5%8D%95%E5%AD%A6%E4%B9%A0/"/>
-    <id>http://wait.im/2013/10/21/Android动画简单学习/</id>
+    <link href="https://wait.im/2013/10/21/Android%E5%8A%A8%E7%94%BB%E7%AE%80%E5%8D%95%E5%AD%A6%E4%B9%A0/"/>
+    <id>https://wait.im/2013/10/21/Android动画简单学习/</id>
     <published>2013-10-20T16:16:36.000Z</published>
     <updated>2017-02-06T10:57:50.000Z</updated>
     <content type="html"><![CDATA[<blockquote>
@@ -3107,18 +3107,18 @@ valueAnimator.setDuration(5000).start();
     
     </summary>
     
-      <category term="Android" scheme="http://wait.im/tags/Android/"/>
+      <category term="JAVA" scheme="https://wait.im/tags/JAVA/"/>
     
-      <category term="JAVA" scheme="http://wait.im/tags/JAVA/"/>
+      <category term="Android" scheme="https://wait.im/tags/Android/"/>
     
-      <category term="动画" scheme="http://wait.im/tags/%E5%8A%A8%E7%94%BB/"/>
+      <category term="动画" scheme="https://wait.im/tags/%E5%8A%A8%E7%94%BB/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[多线程线程通讯和生产者]]></title>
-    <link href="http://wait.im/2012/07/30/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BA%BF%E7%A8%8B%E9%80%9A%E8%AE%AF%E5%92%8C%E7%94%9F%E4%BA%A7%E8%80%85/"/>
-    <id>http://wait.im/2012/07/30/多线程线程通讯和生产者/</id>
+    <link href="https://wait.im/2012/07/30/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BA%BF%E7%A8%8B%E9%80%9A%E8%AE%AF%E5%92%8C%E7%94%9F%E4%BA%A7%E8%80%85/"/>
+    <id>https://wait.im/2012/07/30/多线程线程通讯和生产者/</id>
     <published>2012-07-29T16:18:36.000Z</published>
     <updated>2017-02-06T10:57:23.000Z</updated>
     <content type="html"><![CDATA[<p>线程间通讯——等待唤醒机制<br>1，wait()；是让线程处于冻结状态，被wait线程会被存储到线程池中。<br>2,notify()；唤醒线程池中的一个线程(任意)。<br>3,notifyAll()；唤醒线程池中的所有线程，让线程具备了执行资格。<br>使用时要注意使用在同步中，因为只有同步才会具有锁。<br>调用时需要明确对象，明确是哪个监视器。<br>任意对象可以调用的方法定义在Object里面。</p>
@@ -3191,16 +3191,16 @@ valueAnimator.setDuration(5000).start();
     
     </summary>
     
-      <category term="JAVA" scheme="http://wait.im/tags/JAVA/"/>
+      <category term="JAVA" scheme="https://wait.im/tags/JAVA/"/>
     
-      <category term="多线程" scheme="http://wait.im/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
+      <category term="多线程" scheme="https://wait.im/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[面对对象基础跟内部类]]></title>
-    <link href="http://wait.im/2012/07/30/%E9%9D%A2%E5%AF%B9%E5%AF%B9%E8%B1%A1%E5%9F%BA%E7%A1%80%E8%B7%9F%E5%86%85%E9%83%A8%E7%B1%BB/"/>
-    <id>http://wait.im/2012/07/30/面对对象基础跟内部类/</id>
+    <link href="https://wait.im/2012/07/30/%E9%9D%A2%E5%AF%B9%E5%AF%B9%E8%B1%A1%E5%9F%BA%E7%A1%80%E8%B7%9F%E5%86%85%E9%83%A8%E7%B1%BB/"/>
+    <id>https://wait.im/2012/07/30/面对对象基础跟内部类/</id>
     <published>2012-07-29T16:18:36.000Z</published>
     <updated>2017-02-06T10:57:29.000Z</updated>
     <content type="html"><![CDATA[<p>一、面对对象的三大特征：封装、继承、多态。</p>
@@ -3342,7 +3342,7 @@ void&nbsp;inner_f1()
     
     </summary>
     
-      <category term="JAVA" scheme="http://wait.im/tags/JAVA/"/>
+      <category term="JAVA" scheme="https://wait.im/tags/JAVA/"/>
     
   </entry>
   
