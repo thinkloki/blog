@@ -2614,11 +2614,11 @@ controller会导致崩溃">在didFinishLaunchingWithOptions结束后还没有设
     
     </summary>
     
+      <category term="JAVA" scheme="https://wait.im/tags/JAVA/"/>
+    
       <category term="Android" scheme="https://wait.im/tags/Android/"/>
     
       <category term="Material Design" scheme="https://wait.im/tags/Material-Design/"/>
-    
-      <category term="JAVA" scheme="https://wait.im/tags/JAVA/"/>
     
       <category term="Google" scheme="https://wait.im/tags/Google/"/>
     
@@ -2920,9 +2920,9 @@ controller会导致崩溃">在didFinishLaunchingWithOptions结束后还没有设
     
     </summary>
     
-      <category term="Android" scheme="https://wait.im/tags/Android/"/>
-    
       <category term="JAVA" scheme="https://wait.im/tags/JAVA/"/>
+    
+      <category term="Android" scheme="https://wait.im/tags/Android/"/>
     
   </entry>
   
@@ -3128,9 +3128,9 @@ valueAnimator.setDuration(5000).start();
     
     </summary>
     
-      <category term="Android" scheme="https://wait.im/tags/Android/"/>
-    
       <category term="JAVA" scheme="https://wait.im/tags/JAVA/"/>
+    
+      <category term="Android" scheme="https://wait.im/tags/Android/"/>
     
       <category term="动画" scheme="https://wait.im/tags/%E5%8A%A8%E7%94%BB/"/>
     
