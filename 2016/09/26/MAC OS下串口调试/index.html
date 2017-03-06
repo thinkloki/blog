@@ -96,19 +96,19 @@
 <meta property="og:description" content="最近在做一个Mac下的ssh调试工具，但是出现了一点问题。后来发现居然Mac下有串口调试工具可以用，下面是安装方法。
 ###安装MAC驱动
 打开网站 http://www.prolific.com.tw/US/ShowProduct.aspx?p_id=229&amp;amp;pcid=41下载最新的MAC串口驱动，并安装。">
-<meta property="og:image" content="http://images2015.cnblogs.com/blog/639250/201603/639250-20160331131447082-2075890099.png">
+<meta property="og:image" content="https://images2015.cnblogs.com/blog/639250/201603/639250-20160331131447082-2075890099.png">
 <meta property="og:image" content="https://images2015.cnblogs.com/blog/639250/201603/639250-20160331131221379-1726389058.png">
 <meta property="og:image" content="https://source.wait.im/2016-07-11-QQ20160711-0@2x.png">
 <meta property="og:image" content="https://source.wait.im/2016-07-11-QQ20160711-1@2x.png">
 <meta property="og:image" content="https://source.wait.im/2016-07-11-QQ20160711-2@2x.png">
 <meta property="og:image" content="https://source.wait.im/2016-07-11-QQ20160711-3@2x.png">
-<meta property="og:updated_time" content="2017-03-06T03:54:27.000Z">
+<meta property="og:updated_time" content="2017-03-06T06:35:29.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MAC OS下串口调试">
 <meta name="twitter:description" content="最近在做一个Mac下的ssh调试工具，但是出现了一点问题。后来发现居然Mac下有串口调试工具可以用，下面是安装方法。
 ###安装MAC驱动
 打开网站 http://www.prolific.com.tw/US/ShowProduct.aspx?p_id=229&amp;amp;pcid=41下载最新的MAC串口驱动，并安装。">
-<meta name="twitter:image" content="http://images2015.cnblogs.com/blog/639250/201603/639250-20160331131447082-2075890099.png">
+<meta name="twitter:image" content="https://images2015.cnblogs.com/blog/639250/201603/639250-20160331131447082-2075890099.png">
 
 
 
@@ -362,7 +362,7 @@
       
         <p>最近在做一个Mac下的ssh调试工具，但是出现了一点问题。后来发现居然Mac下有串口调试工具可以用，下面是安装方法。</p>
 <p>###安装MAC驱动</p>
-<p>打开网站 <a href="http://www.prolific.com.tw/US/ShowProduct.aspx?p_id=229&amp;pcid=41" target="_blank" rel="external">http://www.prolific.com.tw/US/ShowProduct.aspx?p_id=229&amp;pcid=41</a><br>下载最新的MAC串口驱动，并安装。<br><img src="http://images2015.cnblogs.com/blog/639250/201603/639250-20160331131447082-2075890099.png" alt=""><br><a id="more"></a><br>安装成功后的是这样的，我们会在网络偏好设置中，发现一个新的usb连接：<br><img src="https://images2015.cnblogs.com/blog/639250/201603/639250-20160331131221379-1726389058.png" alt=""><br>这说明我们的驱动安装成功了！<br>下面进行简单的测试，终端执行命令：</p>
+<p>打开网站 <a href="http://www.prolific.com.tw/US/ShowProduct.aspx?p_id=229&amp;pcid=41" target="_blank" rel="external">http://www.prolific.com.tw/US/ShowProduct.aspx?p_id=229&amp;pcid=41</a><br>下载最新的MAC串口驱动，并安装。<br><img src="https://images2015.cnblogs.com/blog/639250/201603/639250-20160331131447082-2075890099.png" alt=""><br><a id="more"></a><br>安装成功后的是这样的，我们会在网络偏好设置中，发现一个新的usb连接：<br><img src="https://images2015.cnblogs.com/blog/639250/201603/639250-20160331131221379-1726389058.png" alt=""><br>这说明我们的驱动安装成功了！<br>下面进行简单的测试，终端执行命令：</p>
 <figure class="highlight nginx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">cd</span> /dev </div><div class="line">ls <span class="regexp">tty.*</span></div></pre></td></tr></table></figure>
 <p>你会发现输出中有一项为tty.usbserial，没错，这就是我们的串口设备。<br><img src="https://source.wait.im/2016-07-11-QQ20160711-0@2x.png" alt=""></p>
 <p>###安装minicom</p>
