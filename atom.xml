@@ -2616,11 +2616,11 @@ controller会导致崩溃">在didFinishLaunchingWithOptions结束后还没有设
     
       <category term="Android" scheme="https://wait.im/tags/Android/"/>
     
+      <category term="Material Design" scheme="https://wait.im/tags/Material-Design/"/>
+    
       <category term="JAVA" scheme="https://wait.im/tags/JAVA/"/>
     
       <category term="Google" scheme="https://wait.im/tags/Google/"/>
-    
-      <category term="Material Design" scheme="https://wait.im/tags/Material-Design/"/>
     
   </entry>
   
