@@ -40,15 +40,15 @@
     <link href="https://wait.im/2016/09/26/MAC%20OS%E4%B8%8B%E4%B8%B2%E5%8F%A3%E8%B0%83%E8%AF%95/"/>
     <id>https://wait.im/2016/09/26/MAC OS下串口调试/</id>
     <published>2016-09-25T16:15:08.000Z</published>
-    <updated>2017-02-06T11:01:03.000Z</updated>
+    <updated>2017-03-06T03:54:27.000Z</updated>
     <content type="html"><![CDATA[<p>最近在做一个Mac下的ssh调试工具，但是出现了一点问题。后来发现居然Mac下有串口调试工具可以用，下面是安装方法。</p>
 <p>###安装MAC驱动</p>
-<p>打开网站 <a href="http://www.prolific.com.tw/US/ShowProduct.aspx?p_id=229&amp;pcid=41" target="_blank" rel="external">http://www.prolific.com.tw/US/ShowProduct.aspx?p_id=229&amp;pcid=41</a><br>下载最新的MAC串口驱动，并安装。<br><img src="http://images2015.cnblogs.com/blog/639250/201603/639250-20160331131447082-2075890099.png" alt=""><br><a id="more"></a><br>安装成功后的是这样的，我们会在网络偏好设置中，发现一个新的usb连接：<br><img src="http://images2015.cnblogs.com/blog/639250/201603/639250-20160331131221379-1726389058.png" alt=""><br>这说明我们的驱动安装成功了！<br>下面进行简单的测试，终端执行命令：</p>
+<p>打开网站 <a href="http://www.prolific.com.tw/US/ShowProduct.aspx?p_id=229&amp;pcid=41" target="_blank" rel="external">http://www.prolific.com.tw/US/ShowProduct.aspx?p_id=229&amp;pcid=41</a><br>下载最新的MAC串口驱动，并安装。<br><img src="http://images2015.cnblogs.com/blog/639250/201603/639250-20160331131447082-2075890099.png" alt=""><br><a id="more"></a><br>安装成功后的是这样的，我们会在网络偏好设置中，发现一个新的usb连接：<br><img src="https://images2015.cnblogs.com/blog/639250/201603/639250-20160331131221379-1726389058.png" alt=""><br>这说明我们的驱动安装成功了！<br>下面进行简单的测试，终端执行命令：</p>
 <figure class="highlight nginx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">cd</span> /dev </div><div class="line">ls <span class="regexp">tty.*</span></div></pre></td></tr></table></figure>
-<p>你会发现输出中有一项为tty.usbserial，没错，这就是我们的串口设备。<br><img src="http://source.wait.im/2016-07-11-QQ20160711-0@2x.png" alt=""></p>
+<p>你会发现输出中有一项为tty.usbserial，没错，这就是我们的串口设备。<br><img src="https://source.wait.im/2016-07-11-QQ20160711-0@2x.png" alt=""></p>
 <p>###安装minicom</p>
-<p>安装minicom，一句命令就完事了：<br><code>sudo brew install minicom</code><br>等安装完成后，在终端输入,然后进行配置。<br><code>sudo minicom -s</code><br>我们选择第三项Serial port setup，回车，进入详细设置。<br><img src="http://source.wait.im/2016-07-11-QQ20160711-1@2x.png" alt=""><br>第一项Serial Device手动改为：/dev/tty.usbserial-A903TSY6，Hardware Flow Control改为：No，<br>更改时，如需更改第一项，则先输入a，光标会移动到第一项末尾；编辑结束后，按回车。<br><img src="http://source.wait.im/2016-07-11-QQ20160711-2@2x.png" alt=""><br>选择save setup as dfl。</p>
-<p>选Exit，成功进入minicom，再按回车：<br><img src="http://source.wait.im/2016-07-11-QQ20160711-3@2x.png" alt=""></p>
+<p>安装minicom，一句命令就完事了：<br><code>sudo brew install minicom</code><br>等安装完成后，在终端输入,然后进行配置。<br><code>sudo minicom -s</code><br>我们选择第三项Serial port setup，回车，进入详细设置。<br><img src="https://source.wait.im/2016-07-11-QQ20160711-1@2x.png" alt=""><br>第一项Serial Device手动改为：/dev/tty.usbserial-A903TSY6，Hardware Flow Control改为：No，<br>更改时，如需更改第一项，则先输入a，光标会移动到第一项末尾；编辑结束后，按回车。<br><img src="https://source.wait.im/2016-07-11-QQ20160711-2@2x.png" alt=""><br>选择save setup as dfl。</p>
+<p>选Exit，成功进入minicom，再按回车：<br><img src="https://source.wait.im/2016-07-11-QQ20160711-3@2x.png" alt=""></p>
 ]]></content>
     <summary type="html">
     <![CDATA[<p>最近在做一个Mac下的ssh调试工具，但是出现了一点问题。后来发现居然Mac下有串口调试工具可以用，下面是安装方法。</p>
@@ -2614,11 +2614,11 @@ controller会导致崩溃">在didFinishLaunchingWithOptions结束后还没有设
     
     </summary>
     
-      <category term="JAVA" scheme="https://wait.im/tags/JAVA/"/>
-    
       <category term="Android" scheme="https://wait.im/tags/Android/"/>
     
       <category term="Material Design" scheme="https://wait.im/tags/Material-Design/"/>
+    
+      <category term="JAVA" scheme="https://wait.im/tags/JAVA/"/>
     
       <category term="Google" scheme="https://wait.im/tags/Google/"/>
     
@@ -2920,9 +2920,9 @@ controller会导致崩溃">在didFinishLaunchingWithOptions结束后还没有设
     
     </summary>
     
-      <category term="JAVA" scheme="https://wait.im/tags/JAVA/"/>
-    
       <category term="Android" scheme="https://wait.im/tags/Android/"/>
+    
+      <category term="JAVA" scheme="https://wait.im/tags/JAVA/"/>
     
   </entry>
   
@@ -3128,9 +3128,9 @@ valueAnimator.setDuration(5000).start();
     
     </summary>
     
-      <category term="JAVA" scheme="https://wait.im/tags/JAVA/"/>
-    
       <category term="Android" scheme="https://wait.im/tags/Android/"/>
+    
+      <category term="JAVA" scheme="https://wait.im/tags/JAVA/"/>
     
       <category term="动画" scheme="https://wait.im/tags/%E5%8A%A8%E7%94%BB/"/>
     
