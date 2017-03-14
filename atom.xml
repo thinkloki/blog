@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wait.im/"/>
-  <updated>2017-03-14T03:40:13.000Z</updated>
+  <updated>2017-03-14T09:24:08.000Z</updated>
   <id>https://wait.im/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://wait.im/2017/03/14/hexo%E9%83%A8%E7%BD%B2%E9%97%AE%E9%A2%98/"/>
     <id>https://wait.im/2017/03/14/hexo部署问题/</id>
     <published>2017-03-13T16:11:19.000Z</published>
-    <updated>2017-03-14T03:40:13.000Z</updated>
+    <updated>2017-03-14T09:24:08.000Z</updated>
     
     <content type="html"><![CDATA[<p>部署hexo的时候遇到很恶心的hexo报错，执行任何hexo命令都会报如下错误，但却不影响正确功能。</p>
 <h3 id="hexo报错"><a href="#hexo报错" class="headerlink" title="hexo报错"></a>hexo报错</h3><figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123; [Error: Cannot <span class="built_in">find</span> <span class="keyword">module</span> <span class="string">'./build/Release/DTraceProviderBindings'</span>] code: <span class="string">'MODULE_NOT_FOUND'</span> &#125;</div></pre></td></tr></table></figure>
@@ -30,8 +30,9 @@
 <figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">npm</span> install hexo --<span class="literal">no</span>-optional</div></pre></td></tr></table></figure>
 <p>执行上面的命令之后都解决了报错的问题，但我一样执行后没有任何效果，我甚至尝试了卸载后重装的方式。</p>
 <figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">npm</span> uninstall hexo</div><div class="line">$ <span class="built_in">npm</span> install hexo --<span class="literal">no</span>-optional</div></pre></td></tr></table></figure>
-<p>可是依旧没有效果。<br>其实hexo暂时并没有用到<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">### 解决办法</div><div class="line">重装hexo-cli</div></pre></td></tr></table></figure></p>
-<p>$ npm uninstall hexo-cli -g<br>$ npm install hexo-cli -g<br>```</p>
+<p>可是依旧没有效果。<br>其实hexo暂时并没有用到 dtrace-prodider ，仅仅是报错而已，hexo的命令还是能执行，但对于强迫症来说，简直无法忍受。</p>
+<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>重装下cli</p>
+<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ npm uninstall hexo-<span class="keyword">cli</span> -g</div><div class="line">$ npm install hexo-<span class="keyword">cli</span> -g</div></pre></td></tr></table></figure>
 ]]></content>
     
     <summary type="html">
@@ -2687,11 +2688,11 @@ controller会导致崩溃&quot;&gt;在didFinishLaunchingWithOptions结束后还�
     </summary>
     
     
+      <category term="JAVA" scheme="https://wait.im/tags/JAVA/"/>
+    
       <category term="Android" scheme="https://wait.im/tags/Android/"/>
     
       <category term="Material Design" scheme="https://wait.im/tags/Material-Design/"/>
-    
-      <category term="JAVA" scheme="https://wait.im/tags/JAVA/"/>
     
       <category term="Google" scheme="https://wait.im/tags/Google/"/>
     
@@ -3009,9 +3010,9 @@ controller会导致崩溃&quot;&gt;在didFinishLaunchingWithOptions结束后还�
     </summary>
     
     
-      <category term="Android" scheme="https://wait.im/tags/Android/"/>
-    
       <category term="JAVA" scheme="https://wait.im/tags/JAVA/"/>
+    
+      <category term="Android" scheme="https://wait.im/tags/Android/"/>
     
   </entry>
   
@@ -3230,9 +3231,9 @@ valueAnimator.setDuration(5000).start();
     </summary>
     
     
-      <category term="Android" scheme="https://wait.im/tags/Android/"/>
-    
       <category term="JAVA" scheme="https://wait.im/tags/JAVA/"/>
+    
+      <category term="Android" scheme="https://wait.im/tags/Android/"/>
     
       <category term="动画" scheme="https://wait.im/tags/%E5%8A%A8%E7%94%BB/"/>
     
