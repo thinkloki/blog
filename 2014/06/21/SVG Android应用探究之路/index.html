@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Android,JAVA," />
+  <meta name="keywords" content="JAVA,Android," />
 
 
 
@@ -393,7 +393,7 @@ SVG图片更小
 <p>成果：在SVGHandler中发现一个Paint类型的fillPaint组件，如果能够在加载元素之前 创建colorFilter即可，略微调整SVGHandler加载SVG的代码：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setFilterColor</span><span class="params">(<span class="keyword">int</span> filterColor)</span> </span>&#123;</div><div class="line">    fillPaint.setColorFilter(<span class="keyword">new</span> PorterDuffColorFilter(filterColor, Mode.MULTIPLY));</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
 <p>接口调整为：</p>
-<figure class="highlight fix"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attr">SVG svg </span>=<span class="string"> SVGParser.getSVGFromResource(getResources(), rawSvgId, filterColor);</span></div></pre></td></tr></table></figure>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">SVG svg</span> = SVGParser.getSVGFromResource(getResources(), rawSvgId, filterColor);</div></pre></td></tr></table></figure>
 <p>因此我们能够在多张图片上通过引用一张图片使用不同的阴影颜色（As a result we could receive some images of different shades from one picture.）</p>
 <p>对于透明度，建议并不适用setAlpha去实现（实际上是可以的通过fillPaint）:</p>
 <figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Also <span class="keyword">it</span> is possible <span class="built_in">to</span> establish <span class="keyword">and</span> Alpha <span class="keyword">for</span> fillPaint, but <span class="keyword">in</span> games this property is required <span class="keyword">in</span> <span class="keyword">the</span> dynamic form (have pressed <span class="keyword">an</span> <span class="keyword">element</span> — has become translucent), <span class="keyword">and</span> podgruzhat <span class="keyword">each</span> <span class="built_in">time</span> <span class="keyword">the</span> <span class="built_in">new</span> image is inconvenient. Therefore this effect have replaced <span class="keyword">with</span> scaling (have pressed — <span class="keyword">the</span> <span class="keyword">element</span> has decreased).</div></pre></td></tr></table></figure>
@@ -427,9 +427,9 @@ SVG图片更小
       
         <div class="post-tags">
           
-            <a href="/tags/Android/" rel="tag"># Android</a>
-          
             <a href="/tags/JAVA/" rel="tag"># JAVA</a>
+          
+            <a href="/tags/Android/" rel="tag"># Android</a>
           
         </div>
       
@@ -546,7 +546,7 @@ SVG图片更小
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-count">20</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -557,7 +557,7 @@ SVG图片更小
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-count">20</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

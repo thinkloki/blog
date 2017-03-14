@@ -1,33 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title><![CDATA[thinkloki]]></title>
-  <subtitle><![CDATA[做人不卖萌和咸鱼有什么区别]]></subtitle>
+  <title>thinkloki</title>
+  <subtitle>做人不卖萌和咸鱼有什么区别</subtitle>
   <link href="/atom.xml" rel="self"/>
+  
   <link href="https://wait.im/"/>
-  <updated>2017-03-02T09:53:58.000Z</updated>
+  <updated>2017-03-14T03:29:56.000Z</updated>
   <id>https://wait.im/</id>
   
   <author>
-    <name><![CDATA[thinkloki]]></name>
+    <name>thinkloki</name>
     
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title><![CDATA[睡排序，脑洞大开]]></title>
+    <title>解决hexo部署DTraceProviderBindings MODULE_NOT_FOUND</title>
+    <link href="https://wait.im/2017/03/14/hexo%E9%83%A8%E7%BD%B2DTraceProviderBindings%20MODULE_NOT_FOUND/"/>
+    <id>https://wait.im/2017/03/14/hexo部署DTraceProviderBindings MODULE_NOT_FOUND/</id>
+    <published>2017-03-13T16:11:19.000Z</published>
+    <updated>2017-03-14T03:29:56.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>部署hexo的时候遇到很恶心的hexo报错，执行任何hexo命令都会报如下错误，但却不影响正确功能。</p>
+<h3 id="hexo报错"><a href="#hexo报错" class="headerlink" title="hexo报错"></a>hexo报错</h3><figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123; [Error: Cannot <span class="built_in">find</span> <span class="keyword">module</span> <span class="string">'./build/Release/DTraceProviderBindings'</span>] code: <span class="string">'MODULE_NOT_FOUND'</span> &#125;</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h4 id="详细log"><a href="#详细log" class="headerlink" title="详细log"></a>详细log</h4><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line">&#123; Error: Cannot find module <span class="string">'./build/Release/DTraceProviderBindings'</span></div><div class="line">    at Function<span class="selector-class">.Module</span>._resolveFilename (module<span class="selector-class">.js</span>:<span class="number">470</span>:<span class="number">15</span>)</div><div class="line">    at Function<span class="selector-class">.Module</span>._load (module<span class="selector-class">.js</span>:<span class="number">418</span>:<span class="number">25</span>)</div><div class="line">    at Module<span class="selector-class">.require</span> (module<span class="selector-class">.js</span>:<span class="number">498</span>:<span class="number">17</span>)</div><div class="line">    at require (internal/module<span class="selector-class">.js</span>:<span class="number">20</span>:<span class="number">19</span>)</div><div class="line">    at Object.&lt;anonymous&gt; (/usr/local/lib/node_modules/hexo-cli/node_modules/dtrace-provider/dtrace-provider<span class="selector-class">.js</span>:<span class="number">17</span>:<span class="number">23</span>)</div><div class="line">    at Module._compile (module<span class="selector-class">.js</span>:<span class="number">571</span>:<span class="number">32</span>)</div><div class="line">    at Object<span class="selector-class">.Module</span>._extensions.<span class="selector-class">.js</span> (module<span class="selector-class">.js</span>:<span class="number">580</span>:<span class="number">10</span>)</div><div class="line">    at Module<span class="selector-class">.load</span> (module<span class="selector-class">.js</span>:<span class="number">488</span>:<span class="number">32</span>)</div><div class="line">    at tryModuleLoad (module<span class="selector-class">.js</span>:<span class="number">447</span>:<span class="number">12</span>)</div><div class="line">    at Function<span class="selector-class">.Module</span>._load (module<span class="selector-class">.js</span>:<span class="number">439</span>:<span class="number">3</span>)</div><div class="line">    at Module<span class="selector-class">.require</span> (module<span class="selector-class">.js</span>:<span class="number">498</span>:<span class="number">17</span>)</div><div class="line">    at require (internal/module<span class="selector-class">.js</span>:<span class="number">20</span>:<span class="number">19</span>)</div><div class="line">    at Object.&lt;anonymous&gt; (/usr/local/lib/node_modules/hexo-cli/node_modules/bunyan/lib/bunyan<span class="selector-class">.js</span>:<span class="number">79</span>:<span class="number">18</span>)</div><div class="line">    at Module._compile (module<span class="selector-class">.js</span>:<span class="number">571</span>:<span class="number">32</span>)</div><div class="line">    at Object<span class="selector-class">.Module</span>._extensions.<span class="selector-class">.js</span> (module<span class="selector-class">.js</span>:<span class="number">580</span>:<span class="number">10</span>)</div><div class="line">    at Module<span class="selector-class">.load</span> (module<span class="selector-class">.js</span>:<span class="number">488</span>:<span class="number">32</span>) <span class="selector-tag">code</span>: <span class="string">'MODULE_NOT_FOUND'</span> &#125;</div><div class="line">&#123; Error: Cannot find module <span class="string">'./build/default/DTraceProviderBindings'</span></div><div class="line">    at Function<span class="selector-class">.Module</span>._resolveFilename (module<span class="selector-class">.js</span>:<span class="number">470</span>:<span class="number">15</span>)</div><div class="line">    at Function<span class="selector-class">.Module</span>._load (module<span class="selector-class">.js</span>:<span class="number">418</span>:<span class="number">25</span>)</div><div class="line">    at Module<span class="selector-class">.require</span> (module<span class="selector-class">.js</span>:<span class="number">498</span>:<span class="number">17</span>)</div><div class="line">    at require (internal/module<span class="selector-class">.js</span>:<span class="number">20</span>:<span class="number">19</span>)</div><div class="line">    at Object.&lt;anonymous&gt; (/usr/local/lib/node_modules/hexo-cli/node_modules/dtrace-provider/dtrace-provider<span class="selector-class">.js</span>:<span class="number">17</span>:<span class="number">23</span>)</div><div class="line">    at Module._compile (module<span class="selector-class">.js</span>:<span class="number">571</span>:<span class="number">32</span>)</div><div class="line">    at Object<span class="selector-class">.Module</span>._extensions.<span class="selector-class">.js</span> (module<span class="selector-class">.js</span>:<span class="number">580</span>:<span class="number">10</span>)</div><div class="line">    at Module<span class="selector-class">.load</span> (module<span class="selector-class">.js</span>:<span class="number">488</span>:<span class="number">32</span>)</div><div class="line">    at tryModuleLoad (module<span class="selector-class">.js</span>:<span class="number">447</span>:<span class="number">12</span>)</div><div class="line">    at Function<span class="selector-class">.Module</span>._load (module<span class="selector-class">.js</span>:<span class="number">439</span>:<span class="number">3</span>)</div><div class="line">    at Module<span class="selector-class">.require</span> (module<span class="selector-class">.js</span>:<span class="number">498</span>:<span class="number">17</span>)</div><div class="line">    at require (internal/module<span class="selector-class">.js</span>:<span class="number">20</span>:<span class="number">19</span>)</div><div class="line">    at Object.&lt;anonymous&gt; (/usr/local/lib/node_modules/hexo-cli/node_modules/bunyan/lib/bunyan<span class="selector-class">.js</span>:<span class="number">79</span>:<span class="number">18</span>)</div><div class="line">    at Module._compile (module<span class="selector-class">.js</span>:<span class="number">571</span>:<span class="number">32</span>)</div><div class="line">    at Object<span class="selector-class">.Module</span>._extensions.<span class="selector-class">.js</span> (module<span class="selector-class">.js</span>:<span class="number">580</span>:<span class="number">10</span>)</div><div class="line">    at Module<span class="selector-class">.load</span> (module<span class="selector-class">.js</span>:<span class="number">488</span>:<span class="number">32</span>) <span class="selector-tag">code</span>: <span class="string">'MODULE_NOT_FOUND'</span> &#125;</div><div class="line">&#123; Error: Cannot find module <span class="string">'./build/Debug/DTraceProviderBindings'</span></div><div class="line">    at Function<span class="selector-class">.Module</span>._resolveFilename (module<span class="selector-class">.js</span>:<span class="number">470</span>:<span class="number">15</span>)</div><div class="line">    at Function<span class="selector-class">.Module</span>._load (module<span class="selector-class">.js</span>:<span class="number">418</span>:<span class="number">25</span>)</div><div class="line">    at Module<span class="selector-class">.require</span> (module<span class="selector-class">.js</span>:<span class="number">498</span>:<span class="number">17</span>)</div><div class="line">    at require (internal/module<span class="selector-class">.js</span>:<span class="number">20</span>:<span class="number">19</span>)</div><div class="line">    at Object.&lt;anonymous&gt; (/usr/local/lib/node_modules/hexo-cli/node_modules/dtrace-provider/dtrace-provider<span class="selector-class">.js</span>:<span class="number">17</span>:<span class="number">23</span>)</div><div class="line">    at Module._compile (module<span class="selector-class">.js</span>:<span class="number">571</span>:<span class="number">32</span>)</div><div class="line">    at Object<span class="selector-class">.Module</span>._extensions.<span class="selector-class">.js</span> (module<span class="selector-class">.js</span>:<span class="number">580</span>:<span class="number">10</span>)</div><div class="line">    at Module<span class="selector-class">.load</span> (module<span class="selector-class">.js</span>:<span class="number">488</span>:<span class="number">32</span>)</div><div class="line">    at tryModuleLoad (module<span class="selector-class">.js</span>:<span class="number">447</span>:<span class="number">12</span>)</div><div class="line">    at Function<span class="selector-class">.Module</span>._load (module<span class="selector-class">.js</span>:<span class="number">439</span>:<span class="number">3</span>)</div><div class="line">    at Module<span class="selector-class">.require</span> (module<span class="selector-class">.js</span>:<span class="number">498</span>:<span class="number">17</span>)</div><div class="line">    at require (internal/module<span class="selector-class">.js</span>:<span class="number">20</span>:<span class="number">19</span>)</div><div class="line">    at Object.&lt;anonymous&gt; (/usr/local/lib/node_modules/hexo-cli/node_modules/bunyan/lib/bunyan<span class="selector-class">.js</span>:<span class="number">79</span>:<span class="number">18</span>)</div><div class="line">    at Module._compile (module<span class="selector-class">.js</span>:<span class="number">571</span>:<span class="number">32</span>)</div><div class="line">    at Object<span class="selector-class">.Module</span>._extensions.<span class="selector-class">.js</span> (module<span class="selector-class">.js</span>:<span class="number">580</span>:<span class="number">10</span>)</div><div class="line">    at Module<span class="selector-class">.load</span> (module<span class="selector-class">.js</span>:<span class="number">488</span>:<span class="number">32</span>) <span class="selector-tag">code</span>: <span class="string">'MODULE_NOT_FOUND'</span> &#125;</div></pre></td></tr></table></figure>
+<h3 id="Google的方法"><a href="#Google的方法" class="headerlink" title="Google的方法"></a>Google的方法</h3><p>google之后发现被这个问题困扰的小伙伴还真不少，网上最靠谱的解决办法是：</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">npm</span> install hexo --<span class="literal">no</span>-optional</div></pre></td></tr></table></figure>
+<p>执行上面的命令之后都解决了报错的问题，但我一样执行后没有任何效果，我甚至尝试了卸载后重装的方式。</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">npm</span> uninstall hexo</div><div class="line">$ <span class="built_in">npm</span> install hexo --<span class="literal">no</span>-optional</div></pre></td></tr></table></figure>
+<p>可是依旧没有效果。<br>其实hexo暂时并没有用到<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">### 解决办法</div><div class="line">重装hexo-cli</div></pre></td></tr></table></figure></p>
+<p>$ npm uninstall hexo-cli -g<br>$ npm install hexo-cli -g<br>```</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;部署hexo的时候遇到很恶心的hexo报错，执行任何hexo命令都会报如下错误，但却不影响正确功能。&lt;/p&gt;
+&lt;h3 id=&quot;hexo报错&quot;&gt;&lt;a href=&quot;#hexo报错&quot; class=&quot;headerlink&quot; title=&quot;hexo报错&quot;&gt;&lt;/a&gt;hexo报错&lt;/h3&gt;&lt;figure class=&quot;highlight arduino&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&amp;#123; [Error: Cannot &lt;span class=&quot;built_in&quot;&gt;find&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;./build/Release/DTraceProviderBindings&#39;&lt;/span&gt;] code: &lt;span class=&quot;string&quot;&gt;&#39;MODULE_NOT_FOUND&#39;&lt;/span&gt; &amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+    
+      <category term="hexo" scheme="https://wait.im/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>睡排序，脑洞大开</title>
     <link href="https://wait.im/2017/03/02/%E7%9D%A1%E6%8E%92%E5%BA%8F%EF%BC%8C%E8%84%91%E6%B4%9E%E5%A4%A7%E5%BC%80/"/>
     <id>https://wait.im/2017/03/02/睡排序，脑洞大开/</id>
     <published>2017-03-01T16:17:49.000Z</published>
     <updated>2017-03-02T09:53:58.000Z</updated>
+    
     <content type="html"><![CDATA[<pre><code>构造 n 个线程，它们和这 n 个数一一对应。初始化后，线程们开始睡眠，等到对应的数那么多个时间单位后各自醒来，然后输出它对应的数。这样最小的数对应的线程最早醒来，这个数最早被输出。
 </code></pre><p>等所有线程都醒来，排序就结束了。<br><a id="more"></a><br>放个例子<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SleepSort</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">        <span class="keyword">int</span>[] nums=&#123;<span class="number">9</span>,<span class="number">7</span>,<span class="number">2</span>,<span class="number">6</span>,<span class="number">15</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">9</span>,<span class="number">9</span>,<span class="number">9</span>,<span class="number">9</span>&#125;;</div><div class="line">        SleepSort.sort(nums);</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> n:nums)</div><div class="line">            System.out.printf(<span class="string">"%d    "</span>,n);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(<span class="keyword">int</span>[] nums)</span></span>&#123;</div><div class="line">        Sleeper.idx=<span class="number">0</span>;</div><div class="line">        Sleeper.output=<span class="keyword">new</span> <span class="keyword">int</span>[nums.length];</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nums.length;i++)        <span class="comment">//[1]</span></div><div class="line">            <span class="keyword">new</span> Sleeper(nums[i]).start();</div><div class="line"></div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            Thread.sleep(<span class="number">100</span>);                  <span class="comment">//[2]</span></div><div class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nums.length;i++)</div><div class="line">            nums[i]=Sleeper.output[i];</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Sleeper</span> <span class="keyword">extends</span> <span class="title">Thread</span></span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] output;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> idx;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> sleep_time;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Sleeper</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">this</span>.sleep_time=<span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Sleeper</span><span class="params">(<span class="keyword">int</span> sleep_time)</span></span>&#123;</div><div class="line">        <span class="keyword">this</span>.sleep_time=sleep_time;</div><div class="line">    &#125;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">try</span>&#123;</div><div class="line">            Thread.sleep(<span class="keyword">this</span>.sleep_time);</div><div class="line">        &#125;<span class="keyword">catch</span>(InterruptedException e)&#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">        output[idx++]=<span class="keyword">this</span>.sleep_time;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 ]]></content>
+    
     <summary type="html">
-    <![CDATA[<pre><code>构造 n 个线程，它们和这 n 个数一一对应。初始化后，线程们开始睡眠，等到对应的数那么多个时间单位后各自醒来，然后输出它对应的数。这样最小的数对应的线程最早醒来，这个数最早被输出。
-</code></pre><p>等所有线程都醒来，排序就结束了。<br>]]>
+    
+      &lt;pre&gt;&lt;code&gt;构造 n 个线程，它们和这 n 个数一一对应。初始化后，线程们开始睡眠，等到对应的数那么多个时间单位后各自醒来，然后输出它对应的数。这样最小的数对应的线程最早醒来，这个数最早被输出。
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;等所有线程都醒来，排序就结束了。&lt;br&gt;
     
     </summary>
+    
     
       <category term="JAVA" scheme="https://wait.im/tags/JAVA/"/>
     
@@ -36,11 +72,12 @@
   </entry>
   
   <entry>
-    <title><![CDATA[MAC OS下串口调试]]></title>
+    <title>MAC OS下串口调试</title>
     <link href="https://wait.im/2016/09/26/MAC%20OS%E4%B8%8B%E4%B8%B2%E5%8F%A3%E8%B0%83%E8%AF%95/"/>
     <id>https://wait.im/2016/09/26/MAC OS下串口调试/</id>
     <published>2016-09-25T16:15:08.000Z</published>
     <updated>2017-03-06T06:35:29.000Z</updated>
+    
     <content type="html"><![CDATA[<p>最近在做一个Mac下的ssh调试工具，但是出现了一点问题。后来发现居然Mac下有串口调试工具可以用，下面是安装方法。</p>
 <p>###安装MAC驱动</p>
 <p>打开网站 <a href="http://www.prolific.com.tw/US/ShowProduct.aspx?p_id=229&amp;pcid=41" target="_blank" rel="external">http://www.prolific.com.tw/US/ShowProduct.aspx?p_id=229&amp;pcid=41</a><br>下载最新的MAC串口驱动，并安装。<br><img src="https://images2015.cnblogs.com/blog/639250/201603/639250-20160331131447082-2075890099.png" alt=""><br><a id="more"></a><br>安装成功后的是这样的，我们会在网络偏好设置中，发现一个新的usb连接：<br><img src="https://images2015.cnblogs.com/blog/639250/201603/639250-20160331131221379-1726389058.png" alt=""><br>这说明我们的驱动安装成功了！<br>下面进行简单的测试，终端执行命令：</p>
@@ -50,12 +87,15 @@
 <p>安装minicom，一句命令就完事了：<br><code>sudo brew install minicom</code><br>等安装完成后，在终端输入,然后进行配置。<br><code>sudo minicom -s</code><br>我们选择第三项Serial port setup，回车，进入详细设置。<br><img src="https://source.wait.im/2016-07-11-QQ20160711-1@2x.png" alt=""><br>第一项Serial Device手动改为：/dev/tty.usbserial-A903TSY6，Hardware Flow Control改为：No，<br>更改时，如需更改第一项，则先输入a，光标会移动到第一项末尾；编辑结束后，按回车。<br><img src="https://source.wait.im/2016-07-11-QQ20160711-2@2x.png" alt=""><br>选择save setup as dfl。</p>
 <p>选Exit，成功进入minicom，再按回车：<br><img src="https://source.wait.im/2016-07-11-QQ20160711-3@2x.png" alt=""></p>
 ]]></content>
+    
     <summary type="html">
-    <![CDATA[<p>最近在做一个Mac下的ssh调试工具，但是出现了一点问题。后来发现居然Mac下有串口调试工具可以用，下面是安装方法。</p>
-<p>###安装MAC驱动</p>
-<p>打开网站 <a href="http://www.prolific.com.tw/US/ShowProduct.aspx?p_id=229&amp;pcid=41">http://www.prolific.com.tw/US/ShowProduct.aspx?p_id=229&amp;pcid=41</a><br>下载最新的MAC串口驱动，并安装。<br><img src="https://images2015.cnblogs.com/blog/639250/201603/639250-20160331131447082-2075890099.png" alt=""><br>]]>
+    
+      &lt;p&gt;最近在做一个Mac下的ssh调试工具，但是出现了一点问题。后来发现居然Mac下有串口调试工具可以用，下面是安装方法。&lt;/p&gt;
+&lt;p&gt;###安装MAC驱动&lt;/p&gt;
+&lt;p&gt;打开网站 &lt;a href=&quot;http://www.prolific.com.tw/US/ShowProduct.aspx?p_id=229&amp;amp;pcid=41&quot;&gt;http://www.prolific.com.tw/US/ShowProduct.aspx?p_id=229&amp;amp;pcid=41&lt;/a&gt;&lt;br&gt;下载最新的MAC串口驱动，并安装。&lt;br&gt;&lt;img src=&quot;https://images2015.cnblogs.com/blog/639250/201603/639250-20160331131447082-2075890099.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;
     
     </summary>
+    
     
       <category term="MAC OS" scheme="https://wait.im/tags/MAC-OS/"/>
     
@@ -64,22 +104,26 @@
   </entry>
   
   <entry>
-    <title><![CDATA[Android热点获取连入设备的信息]]></title>
+    <title>Android热点获取连入设备的信息</title>
     <link href="https://wait.im/2016/03/10/Android%E7%83%AD%E7%82%B9%E8%8E%B7%E5%8F%96%E8%BF%9E%E5%85%A5%E8%AE%BE%E5%A4%87%E7%9A%84%E4%BF%A1%E6%81%AF/"/>
     <id>https://wait.im/2016/03/10/Android热点获取连入设备的信息/</id>
     <published>2016-03-09T16:18:26.000Z</published>
     <updated>2017-02-06T10:58:09.000Z</updated>
+    
     <content type="html"><![CDATA[<p>最近在做项目，要做热点功能，需要获取连入设备的信息，在网上找了好多资料，目前找到了比较好的解决方法，可以获取到设备的信息，MAC地址,设备名称等。还需要做黑名单功能，禁止连入热点的设备上网，踢出设备等，以后补全。</p>
 <h3 id="读取文件-data-misc-dhcp-dnsmasq-leases"><a href="#读取文件-data-misc-dhcp-dnsmasq-leases" class="headerlink" title="读取文件/data/misc/dhcp/dnsmasq.leases"></a>读取文件/data/misc/dhcp/dnsmasq.leases</h3><p>这个文件里面存储着所有的ip信息，我们需要对这个文件进行解析。废话不多说直接上代码。<br><a id="more"></a><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">ScanWifiApDevicesThread</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</div><div class="line"></div><div class="line">     <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String FILE_PATH = <span class="string">"/data/misc/dhcp/dnsmasq.leases"</span>;</div><div class="line">     <span class="keyword">private</span> AtomicBoolean mCanceled = <span class="keyword">new</span> AtomicBoolean(<span class="keyword">false</span>);</div><div class="line">     <span class="keyword">private</span> AtomicBoolean mFinished = <span class="keyword">new</span> AtomicBoolean(<span class="keyword">false</span>);</div><div class="line">     <span class="keyword">private</span> Handler mHandler = <span class="keyword">null</span>;</div><div class="line"></div><div class="line">     <span class="function"><span class="keyword">public</span> <span class="title">ScanWifiApDevicesThread</span><span class="params">(Handler handler)</span> </span>&#123;</div><div class="line">         mHandler = handler;</div><div class="line">     &#125;</div><div class="line"></div><div class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">cancel</span><span class="params">()</span> </span>&#123;</div><div class="line">         mCanceled.set(<span class="keyword">true</span>);</div><div class="line">     &#125;</div><div class="line"></div><div class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isCanceled</span><span class="params">()</span> </span>&#123;</div><div class="line">         <span class="keyword">return</span> mCanceled.get() || isInterrupted();</div><div class="line">     &#125;</div><div class="line"></div><div class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isRunning</span><span class="params">()</span> </span>&#123;</div><div class="line">         <span class="keyword">return</span> !isCanceled() &amp;&amp; isAlive();</div><div class="line">     &#125;</div><div class="line"></div><div class="line">     <span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">isReachable</span><span class="params">(String ip)</span> </span>&#123;</div><div class="line">         <span class="keyword">try</span> &#123;</div><div class="line">             <span class="keyword">return</span> InetAddress.getByName(ip).isReachable(<span class="number">2000</span>);</div><div class="line">         &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">             <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">         &#125;</div><div class="line">     &#125;</div><div class="line"></div><div class="line">     <span class="function"><span class="keyword">private</span> SCWifiApDevice <span class="title">createWifiApDevice</span><span class="params">(String line)</span> </span>&#123;</div><div class="line">         <span class="keyword">if</span> (TextUtils.isEmpty(line)) &#123;</div><div class="line">             Log.e(TAG, <span class="string">"createWifiApDevice: line isEmpty"</span>);</div><div class="line">             <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">         &#125;</div><div class="line">         Log.e(TAG, <span class="string">"createWifiApDevice: "</span> + line);</div><div class="line">         String[] splitted = line.split(<span class="string">" "</span>);</div><div class="line">         <span class="keyword">if</span> ((splitted.length &gt;= <span class="number">5</span>)) &#123;</div><div class="line">             String mac = splitted[<span class="number">1</span>];</div><div class="line">             String ip = splitted[<span class="number">2</span>];</div><div class="line">             String hostName = splitted[<span class="number">3</span>];</div><div class="line"></div><div class="line">             <span class="keyword">if</span> (mac.matches(<span class="string">"..:..:..:..:..:.."</span>)) &#123;</div><div class="line">                 Log.e(TAG, <span class="string">"ip====="</span> + ip + <span class="string">"------isReachable=="</span> + isReachable(ip));</div><div class="line">                 <span class="keyword">if</span> (isReachable(ip)) &#123;</div><div class="line">                     SCWifiApDevice apDevice = <span class="keyword">new</span> SCWifiApDevice(ip, hostName, mac);</div><div class="line">                     Log.e(TAG, <span class="string">"ip===: "</span> + ip + <span class="string">"-------hostname="</span> + apDevice.getHostName());</div><div class="line">                     <span class="keyword">if</span> (!<span class="string">"localhost"</span>.equals(apDevice.getHostName())) &#123;</div><div class="line">                         <span class="keyword">return</span> apDevice;</div><div class="line">                     &#125; <span class="keyword">else</span> &#123;</div><div class="line">                         Log.e(TAG, <span class="string">"-------hostname=localhots"</span>);</div><div class="line">                     &#125;</div><div class="line">                 &#125;</div><div class="line"></div><div class="line">             &#125; <span class="keyword">else</span> &#123;</div><div class="line">                 Log.e(TAG, <span class="string">"mac.matches error==="</span> + mac);</div><div class="line">             &#125;</div><div class="line">         &#125;</div><div class="line">         <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">     &#125;</div><div class="line"></div><div class="line">     <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">sendWifiApResult</span><span class="params">(ArrayList&lt;SCWifiApDevice&gt; scWifiApDevices)</span> </span>&#123;</div><div class="line">         Message msg = <span class="keyword">new</span> Message();</div><div class="line">         msg.what = MSG_WIFI_AP_SCAN_RESULT;</div><div class="line">         msg.obj = scWifiApDevices;</div><div class="line">         mHandler.sendMessage(msg);</div><div class="line">     &#125;</div><div class="line"></div><div class="line">     <span class="meta">@Override</span></div><div class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">         File file = <span class="keyword">new</span> File(FILE_PATH);</div><div class="line">         ArrayList&lt;SCWifiApDevice&gt; scWifiApDevices = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">         <span class="keyword">if</span> (!file.exists()) &#123;</div><div class="line">             mFinished.set(<span class="keyword">true</span>);</div><div class="line">             sendWifiApResult(scWifiApDevices);</div><div class="line">             Log.e(TAG, <span class="string">"ARP_PATH !file.exists()"</span>);</div><div class="line">             <span class="keyword">return</span>;</div><div class="line">         &#125;</div><div class="line">         BufferedReader br = <span class="keyword">null</span>;</div><div class="line">         <span class="keyword">try</span> &#123;</div><div class="line">             br = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> FileReader(file));</div><div class="line">             String line = <span class="string">""</span>;</div><div class="line">             <span class="keyword">while</span> (!isInterrupted() &amp;&amp; !mCanceled.get() &amp;&amp; (line = br.readLine()) != <span class="keyword">null</span>) &#123;</div><div class="line">                 SCWifiApDevice scWifiApDevice = createWifiApDevice(line);</div><div class="line">                 <span class="keyword">if</span> (scWifiApDevice == <span class="keyword">null</span>) &#123;</div><div class="line">                     <span class="keyword">continue</span>;</div><div class="line">                 &#125;</div><div class="line">                 scWifiApDevices.add(scWifiApDevice);</div><div class="line">             &#125;</div><div class="line">             mFinished.set(<span class="keyword">true</span>);</div><div class="line">             Log.e(TAG, <span class="string">"read file success "</span>);</div><div class="line">             sendWifiApResult(scWifiApDevices);</div><div class="line">         &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">             e.printStackTrace();</div><div class="line">             mFinished.set(<span class="keyword">true</span>);</div><div class="line">             mHandler.sendEmptyMessage(MSG_WIFI_AP_SCAN_RESULT);</div><div class="line">         &#125; <span class="keyword">finally</span> &#123;</div><div class="line">             <span class="keyword">if</span> (br != <span class="keyword">null</span>) &#123;</div><div class="line">                 <span class="keyword">try</span> &#123;</div><div class="line">                     br.close();</div><div class="line">                 &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">                     e.printStackTrace();</div><div class="line">                 &#125;</div><div class="line">             &#125;</div><div class="line">         &#125;</div><div class="line">     &#125;</div><div class="line"> &#125;</div></pre></td></tr></table></figure></p>
 <h4 id="SCWifiApDevice"><a href="#SCWifiApDevice" class="headerlink" title="SCWifiApDevice"></a>SCWifiApDevice</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.smartcar.ap;</div><div class="line"></div><div class="line"><span class="keyword">import</span> android.os.Parcel;</div><div class="line"><span class="keyword">import</span> android.os.Parcelable;</div><div class="line"></div><div class="line"><span class="comment">//import com.android.incallui.Log;</span></div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by tongguangli on 16-4-18.</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SCWifiApDevice</span> <span class="keyword">implements</span> <span class="title">Parcelable</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String ACTION_WIFI_AP_FOUND = <span class="string">"android.wifi.ap.SC_DISCOVERY_DEVICE"</span>;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String EXTRA_WIFI_AP_DEVICE = <span class="string">"extra_wifi_ap_devices"</span>;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DEVICE_TYPE_UNKNOWN = <span class="number">0</span>;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DEVICE_TYPE_PHONE = <span class="number">1</span>;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DEVICE_TYPE_PC = <span class="number">2</span>;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> String mIp = <span class="string">""</span>;</div><div class="line">    <span class="keyword">private</span> String mMac = <span class="string">""</span>;</div><div class="line">    <span class="keyword">private</span> String mCanonicalHostName = <span class="string">""</span>;</div><div class="line">    <span class="keyword">private</span> String mHostName = <span class="string">""</span>;</div><div class="line">    <span class="keyword">private</span> String mLocalHostCanonicalHostName = <span class="string">""</span>;</div><div class="line">    <span class="keyword">private</span> String mLocalHostHostName = <span class="string">""</span>;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> mIsReachable = <span class="keyword">true</span>;</div><div class="line">    <span class="keyword">private</span> String mDeviceName = <span class="string">""</span>;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> mDeviceType = DEVICE_TYPE_UNKNOWN;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SCWifiApDevice</span><span class="params">(String ip, String hostName, String mac)</span> </span>&#123;</div><div class="line">        mIp = ip;</div><div class="line">        mMac = mac;</div><div class="line">        mHostName = hostName;</div><div class="line">        mIsReachable = <span class="keyword">true</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="title">SCWifiApDevice</span><span class="params">(Parcel in)</span> </span>&#123;</div><div class="line">        mIp = in.readString();</div><div class="line">        mMac = in.readString();</div><div class="line">        mCanonicalHostName = in.readString();</div><div class="line">        mHostName = in.readString();</div><div class="line">        mLocalHostCanonicalHostName = in.readString();</div><div class="line">        mLocalHostHostName = in.readString();</div><div class="line">        mIsReachable = in.readByte() != <span class="number">0</span>;</div><div class="line">        mDeviceName = in.readString();</div><div class="line">        mDeviceType = in.readInt();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> Creator&lt;SCWifiApDevice&gt; CREATOR = <span class="keyword">new</span> Creator&lt;SCWifiApDevice&gt;() &#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> SCWifiApDevice <span class="title">createFromParcel</span><span class="params">(Parcel in)</span> </span>&#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> SCWifiApDevice(in);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="keyword">public</span> SCWifiApDevice[] newArray(<span class="keyword">int</span> size) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> SCWifiApDevice[size];</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getIp</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> mIp;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setIp</span><span class="params">(String mIp)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.mIp = mIp;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getMac</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> mMac;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setMac</span><span class="params">(String mMac)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.mMac = mMac;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getCanonicalHostName</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> mCanonicalHostName;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setCanonicalHostName</span><span class="params">(String mCanonicalHostName)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.mCanonicalHostName = mCanonicalHostName;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getHostName</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> mHostName;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setHostName</span><span class="params">(String mHostName)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.mHostName = mHostName;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getLocalHostCanonicalHostName</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> mLocalHostCanonicalHostName;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setLocalHostCanonicalHostName</span><span class="params">(String mLocalHostCanonicalHostName)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.mLocalHostCanonicalHostName = mLocalHostCanonicalHostName;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getLocalHostHostName</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> mLocalHostHostName;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setLocalHostHostName</span><span class="params">(String mLocalHostHostName)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.mLocalHostHostName = mLocalHostHostName;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isReachable</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> mIsReachable;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setReachable</span><span class="params">(<span class="keyword">boolean</span> mIsReachable)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.mIsReachable = mIsReachable;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">describeContents</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">writeToParcel</span><span class="params">(Parcel dest, <span class="keyword">int</span> flags)</span> </span>&#123;</div><div class="line">        dest.writeString(mIp);</div><div class="line">        dest.writeString(mMac);</div><div class="line">        dest.writeString(mCanonicalHostName);</div><div class="line">        dest.writeString(mHostName);</div><div class="line">        dest.writeString(mLocalHostCanonicalHostName);</div><div class="line">        dest.writeString(mLocalHostHostName);</div><div class="line">        dest.writeByte((<span class="keyword">byte</span>) (mIsReachable ? <span class="number">1</span> : <span class="number">0</span>));</div><div class="line">        dest.writeString(mDeviceName);</div><div class="line">        dest.writeInt(mDeviceType);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>通过这个方法大家可以获取到连入设备的基本信息，连入设备拦截功能，等找到好的解决方法之后在跟大家分享。</p>
 <p>转载请注明出处 thinkloki@gmail.com，<a href="http://wait.im">wait.im</a>。</p>
 ]]></content>
+    
     <summary type="html">
-    <![CDATA[<p>最近在做项目，要做热点功能，需要获取连入设备的信息，在网上找了好多资料，目前找到了比较好的解决方法，可以获取到设备的信息，MAC地址,设备名称等。还需要做黑名单功能，禁止连入热点的设备上网，踢出设备等，以后补全。</p>
-<h3 id="读取文件-data-misc-dhcp-dnsmasq-leases"><a href="#读取文件-data-misc-dhcp-dnsmasq-leases" class="headerlink" title="读取文件/data/misc/dhcp/dnsmasq.leases"></a>读取文件/data/misc/dhcp/dnsmasq.leases</h3><p>这个文件里面存储着所有的ip信息，我们需要对这个文件进行解析。废话不多说直接上代码。<br>]]>
+    
+      &lt;p&gt;最近在做项目，要做热点功能，需要获取连入设备的信息，在网上找了好多资料，目前找到了比较好的解决方法，可以获取到设备的信息，MAC地址,设备名称等。还需要做黑名单功能，禁止连入热点的设备上网，踢出设备等，以后补全。&lt;/p&gt;
+&lt;h3 id=&quot;读取文件-data-misc-dhcp-dnsmasq-leases&quot;&gt;&lt;a href=&quot;#读取文件-data-misc-dhcp-dnsmasq-leases&quot; class=&quot;headerlink&quot; title=&quot;读取文件/data/misc/dhcp/dnsmasq.leases&quot;&gt;&lt;/a&gt;读取文件/data/misc/dhcp/dnsmasq.leases&lt;/h3&gt;&lt;p&gt;这个文件里面存储着所有的ip信息，我们需要对这个文件进行解析。废话不多说直接上代码。&lt;br&gt;
     
     </summary>
+    
     
       <category term="Android" scheme="https://wait.im/tags/Android/"/>
     
@@ -88,32 +132,37 @@
   </entry>
   
   <entry>
-    <title><![CDATA[Android蓝牙链接有关问题总结]]></title>
+    <title>Android蓝牙链接有关问题总结</title>
     <link href="https://wait.im/2016/01/20/Android%E8%93%9D%E7%89%99%E9%93%BE%E6%8E%A5%E6%9C%89%E5%85%B3%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/"/>
     <id>https://wait.im/2016/01/20/Android蓝牙链接有关问题总结/</id>
     <published>2016-01-20T05:40:08.000Z</published>
     <updated>2017-02-06T10:57:58.000Z</updated>
+    
     <content type="html"><![CDATA[<h3 id="蓝牙设备类型判断"><a href="#蓝牙设备类型判断" class="headerlink" title="蓝牙设备类型判断"></a>蓝牙设备类型判断</h3><p>蓝牙连接设备互相连接，有时候需要根据设备的不同去判断，在Android上面，我们需要用到系统的api，比如用到蓝牙电话的时候，就要判断连入得设备类型是不是电话类型的。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">device.getBluetoothClass().getMajorDeviceClass() == android.bluetooth.BluetoothClass.Device.Major.PHONE</div></pre></td></tr></table></figure>
 <a id="more"></a>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Device</span> </span>&#123;</div><div class="line">        <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> BITMASK               = <span class="number">0x1FFC</span>;</div><div class="line"></div><div class="line">     </div><div class="line">  <span class="comment">/**</span></div><div class="line">         * Defines all major device class constants.</div><div class="line">         * &lt;p&gt;See &#123;<span class="doctag">@link</span> BluetoothClass.Device&#125; for minor classes.</div><div class="line">         */</div><div class="line">        <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Major</span> </span>&#123;</div><div class="line">            <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> BITMASK           = <span class="number">0x1F00</span>;</div><div class="line"></div><div class="line">            <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> MISC              = <span class="number">0x0000</span>;</div><div class="line">            <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> COMPUTER          = <span class="number">0x0100</span>;</div><div class="line">            <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> PHONE             = <span class="number">0x0200</span>;</div><div class="line">            <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> NETWORKING        = <span class="number">0x0300</span>;</div><div class="line">            <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> AUDIO_VIDEO       = <span class="number">0x0400</span>;</div><div class="line">            <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> PERIPHERAL        = <span class="number">0x0500</span>;</div><div class="line">            <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> IMAGING           = <span class="number">0x0600</span>;</div><div class="line">            <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> WEARABLE          = <span class="number">0x0700</span>;</div><div class="line">            <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> TOY               = <span class="number">0x0800</span>;</div><div class="line">            <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> HEALTH            = <span class="number">0x0900</span>;</div><div class="line">            <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> UNCATEGORIZED     = <span class="number">0x1F00</span>;</div><div class="line">        &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 ]]></content>
+    
     <summary type="html">
-    <![CDATA[<h3 id="蓝牙设备类型判断"><a href="#蓝牙设备类型判断" class="headerlink" title="蓝牙设备类型判断"></a>蓝牙设备类型判断</h3><p>蓝牙连接设备互相连接，有时候需要根据设备的不同去判断，在Android上面，我们需要用到系统的api，比如用到蓝牙电话的时候，就要判断连入得设备类型是不是电话类型的。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">device.getBluetoothClass().getMajorDeviceClass() == android.bluetooth.BluetoothClass.Device.Major.PHONE</div></pre></td></tr></table></figure>]]>
+    
+      &lt;h3 id=&quot;蓝牙设备类型判断&quot;&gt;&lt;a href=&quot;#蓝牙设备类型判断&quot; class=&quot;headerlink&quot; title=&quot;蓝牙设备类型判断&quot;&gt;&lt;/a&gt;蓝牙设备类型判断&lt;/h3&gt;&lt;p&gt;蓝牙连接设备互相连接，有时候需要根据设备的不同去判断，在Android上面，我们需要用到系统的api，比如用到蓝牙电话的时候，就要判断连入得设备类型是不是电话类型的。&lt;/p&gt;
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;device.getBluetoothClass().getMajorDeviceClass() == android.bluetooth.BluetoothClass.Device.Major.PHONE&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
+    
     
       <category term="Android" scheme="https://wait.im/tags/Android/"/>
     
   </entry>
   
   <entry>
-    <title><![CDATA[swift-open-project]]></title>
+    <title>swift-open-project</title>
     <link href="https://wait.im/2015/11/12/swift-open-project/"/>
     <id>https://wait.im/2015/11/12/swift-open-project/</id>
     <published>2015-11-12T04:23:36.000Z</published>
     <updated>2017-02-06T10:59:33.000Z</updated>
+    
     <content type="html"><![CDATA[<h1 id="swift-open-project"><a href="#swift-open-project" class="headerlink" title="swift-open-project"></a><a href="https://github.com/thinkloki/swift-open-project" target="_blank" rel="external">swift-open-project</a></h1><p>这里汇集了目前为止最为流行的Swift开源项目，选取SwiftGuide中的开源部分，这里将每周对项目进行总结，如果大家有推荐的可以联系thinkloki@gmail.com,或者issues，欢迎Star、Fork。感谢<a href="https://github.com/ipader/SwiftGuide" target="_blank" rel="external">SwiftGuide</a>。</p>
 <a id="more"></a>
 <h3 id="1-实用类库"><a href="#1-实用类库" class="headerlink" title="1. 实用类库"></a><a id="open_api"></a>1. 实用类库</h3><blockquote>
@@ -485,10 +534,13 @@
 <li><a href="https://github.com/hxgdzyuyi/tang_poetry" target="_blank" rel="external">全唐诗数据库</a>：SQLite 数据库脚本。</li>
 </ul>
 ]]></content>
+    
     <summary type="html">
-    <![CDATA[<h1 id="swift-open-project"><a href="#swift-open-project" class="headerlink" title="swift-open-project"></a><a href="https://github.com/thinkloki/swift-open-project">swift-open-project</a></h1><p>这里汇集了目前为止最为流行的Swift开源项目，选取SwiftGuide中的开源部分，这里将每周对项目进行总结，如果大家有推荐的可以联系thinkloki@gmail.com,或者issues，欢迎Star、Fork。感谢<a href="https://github.com/ipader/SwiftGuide">SwiftGuide</a>。</p>]]>
+    
+      &lt;h1 id=&quot;swift-open-project&quot;&gt;&lt;a href=&quot;#swift-open-project&quot; class=&quot;headerlink&quot; title=&quot;swift-open-project&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://github.com/thinkloki/swift-open-project&quot;&gt;swift-open-project&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;这里汇集了目前为止最为流行的Swift开源项目，选取SwiftGuide中的开源部分，这里将每周对项目进行总结，如果大家有推荐的可以联系thinkloki@gmail.com,或者issues，欢迎Star、Fork。感谢&lt;a href=&quot;https://github.com/ipader/SwiftGuide&quot;&gt;SwiftGuide&lt;/a&gt;。&lt;/p&gt;
     
     </summary>
+    
     
       <category term="IOS" scheme="https://wait.im/tags/IOS/"/>
     
@@ -499,11 +551,12 @@
   </entry>
   
   <entry>
-    <title><![CDATA[IOS9AdaptationTips]]></title>
+    <title>IOS9AdaptationTips</title>
     <link href="https://wait.im/2015/10/27/IOS9AdaptationTips/"/>
     <id>https://wait.im/2015/10/27/IOS9AdaptationTips/</id>
     <published>2015-10-26T16:15:13.000Z</published>
     <updated>2017-02-06T10:58:58.000Z</updated>
+    
     <content type="html"><![CDATA[<p>#中文快速导航：</p>
 <ol>
 <li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#1-demo1_ios9网络适配_ats改用更安全的https" target="_blank" rel="external">iOS9网络适配_ATS：改用更安全的HTTPS（见Demo1）</a> <ol>
@@ -1561,71 +1614,75 @@ itunesstored →  &lt;Warning&gt;: LaunchServices: Uninstalling app &lt;LSApplic
 <hr>
 <p>Posted by <a href="http://weibo.com/luohanchenyilong/" target="_blank" rel="external">微博@iOS程序犭袁</a><br>原创文章，版权声明：自由转载-非商用-非衍生-保持署名 | <a href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh" target="_blank" rel="external">Creative Commons BY-NC-ND 3.0</a></p>
 ]]></content>
+    
     <summary type="html">
-    <![CDATA[<p>#中文快速导航：</p>
-<ol>
-<li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#1-demo1_ios9网络适配_ats改用更安全的https">iOS9网络适配_ATS：改用更安全的HTTPS（见Demo1）</a> <ol>
-<li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#what什么是ssltls跟http和https有什么关系">WHAT（什么是SSL/TLS？跟HTTP和HTTPS有什么关系）</a> </li>
-<li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#why以前的http不是也能用吗为什么要用ssltlsapple是不是又在反人类">WHY（以前的HTTP不是也能用吗？为什么要用SSL/TLS？Apple是不是又在反人类？）</a> </li>
-<li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#how如何适配---弱弱地问下加班要多久">HOW（如何适配？—弱弱地问下：加班要多久？）</a> </li>
-<li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#1https-only-只有https所有情况下都使用ats">第1种情况：HTTPS Only （只有HTTPS，所有情况下都使用ATS）</a> </li>
-<li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#2mix--match混合">第2种情况：Mix &amp; Match（混合）</a> </li>
-<li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#3-opt-out禁用ats">第3种情况：Opt Out（禁用ATS）</a> </li>
-<li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#4-opt-out-with-exceptions除特殊情况外都不使用ats">第4种情况：Opt Out With Exceptions（除特殊情况外，都不使用ATS）</a> </li>
-<li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#certificate-transparency">Certificate Transparency</a> </li>
-<li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#q-a">Q-A</a> </li>
-</ol>
-</li>
-<li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#2demo2_ios9新特性_更灵活的后台定位">iOS9新特性_更灵活的后台定位（见Demo2）</a> </li>
-<li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#3企业级分发">企业级分发</a> <ol>
-<li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#1-ios9以后企业级分发ipa包将遭到与mac上dmg安装包一样的待遇默认不能安装也不再出现信任按钮">iOS9以后，企业级分发ipa包将遭到与Mac上dmg安装包一样的待遇：默认不能安装，也不再出现“信任按钮”</a> </li>
-<li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#2-ios9以后企业分发时可能存在下载的ipa包与网页两者的-bundle-id-无法匹配而导致下载失败的情况">iOS9以后，企业分发时可能存在：下载的ipa包与网页两者的 bundle ID 无法匹配而导致下载失败的情况</a> </li>
-</ol>
-</li>
-<li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#4bitcode">Bitcode</a> </li>
-<li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#5demo3---ios9-url-scheme-适配_引入白名单概念">iOS9 URL Scheme 适配_引入白名单概念（见Demo3）</a> <ol>
-<li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#常见-url-scheme">常见 URL Scheme</a> </li>
-<li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#q-a-1">Q-A</a> </li>
-</ol>
-</li>
-<li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#6-ipad适配slide-over-和-split-view"> iPad适配Slide Over 和 Split View</a> </li>
-<li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#7字体间隙变大导致-ui-显示异常">字体间隙变大导致 UI 显示异常</a> </li>
-<li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#8升级-xcode7-后的崩溃与警告">升级 Xcode7 后的崩溃与警告</a> <ol>
-<li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#ios9-下使用-masonry-会引起崩溃的一种情况">iOS9 下使用 Masonry 会引起崩溃的一种情况</a> </li>
-<li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#xcode-升级后旧的状态栏的样式设置方式会引起警告">Xcode 升级后，旧的状态栏的样式设置方式会引起警告</a> <ol>
-<li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#demo4---navigationcontroller状态栏样式新的设置方法">Demo4—navigationController状态栏样式新的设置方法</a> </li>
-</ol>
-</li>
-<li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#xcode7-在-debug-状态下也生成-dsym-文件引起的警告">Xcode7 在 debug 状态下也生成 .dSYM 文件引起的警告</a> </li>
-<li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#xcode7-无法使用-8x-系统的设备调试一运行就报错-there-is-an-intenal-api-error">Xcode7 无法使用 8.x 系统的设备调试，一运行就报错 there is an intenal API error</a> </li>
-<li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#使用了-html-的-iframe-元素可能导致无法从-safari-跳转至-app">使用了 HTML 的 iframe 元素可能导致无法从 Safari 跳转至 App</a> </li>
-<li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#ios9锁屏控制台会打印警告">iOS9锁屏控制台会打印警告</a></li>
-<li><a href="http://stackoverflow.com/questions/32622899/itms-90535-unable-to-publish-ios-app-with-latest-google-signin-sdk">Xcode7 上传应用时提示 ITMS-90535 Unable to publish iOS app with xxx SDK 的问题</a></li>
-<li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#在didfinishlaunchingwithoptions结束后还没有设置window的rootview
-controller会导致崩溃">在didFinishLaunchingWithOptions结束后还没有设置window的rootViewController会导致崩溃</a> </li>
-</ol>
-</li>
-<li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#9demo5demo6----搜索-api">Demo5、Demo6— 搜索 API</a>  </li>
-<li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#10ios国际化问题当前设备语言字符串返回有变化">iOS国际化问题：当前设备语言字符串返回有变化</a> </li>
-<li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#11uitableview显示异常">UITableView显示异常</a> <ol>
-<li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#代码创建的-tableview-无法隐藏-cell-分割线">代码创建的 tableView 无法隐藏 cell 分割线</a> </li>
-<li><a href="https://github.com/ChenYilong/iOS9AdaptationTips#reloaddata-刷新失效">reloadData 刷新失效</a></li>
-</ol>
-</li>
-</ol>]]>
+    
+      &lt;p&gt;#中文快速导航：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ChenYilong/iOS9AdaptationTips#1-demo1_ios9网络适配_ats改用更安全的https&quot;&gt;iOS9网络适配_ATS：改用更安全的HTTPS（见Demo1）&lt;/a&gt; &lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ChenYilong/iOS9AdaptationTips#what什么是ssltls跟http和https有什么关系&quot;&gt;WHAT（什么是SSL/TLS？跟HTTP和HTTPS有什么关系）&lt;/a&gt; &lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ChenYilong/iOS9AdaptationTips#why以前的http不是也能用吗为什么要用ssltlsapple是不是又在反人类&quot;&gt;WHY（以前的HTTP不是也能用吗？为什么要用SSL/TLS？Apple是不是又在反人类？）&lt;/a&gt; &lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ChenYilong/iOS9AdaptationTips#how如何适配---弱弱地问下加班要多久&quot;&gt;HOW（如何适配？—弱弱地问下：加班要多久？）&lt;/a&gt; &lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ChenYilong/iOS9AdaptationTips#1https-only-只有https所有情况下都使用ats&quot;&gt;第1种情况：HTTPS Only （只有HTTPS，所有情况下都使用ATS）&lt;/a&gt; &lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ChenYilong/iOS9AdaptationTips#2mix--match混合&quot;&gt;第2种情况：Mix &amp;amp; Match（混合）&lt;/a&gt; &lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ChenYilong/iOS9AdaptationTips#3-opt-out禁用ats&quot;&gt;第3种情况：Opt Out（禁用ATS）&lt;/a&gt; &lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ChenYilong/iOS9AdaptationTips#4-opt-out-with-exceptions除特殊情况外都不使用ats&quot;&gt;第4种情况：Opt Out With Exceptions（除特殊情况外，都不使用ATS）&lt;/a&gt; &lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ChenYilong/iOS9AdaptationTips#certificate-transparency&quot;&gt;Certificate Transparency&lt;/a&gt; &lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ChenYilong/iOS9AdaptationTips#q-a&quot;&gt;Q-A&lt;/a&gt; &lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ChenYilong/iOS9AdaptationTips#2demo2_ios9新特性_更灵活的后台定位&quot;&gt;iOS9新特性_更灵活的后台定位（见Demo2）&lt;/a&gt; &lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ChenYilong/iOS9AdaptationTips#3企业级分发&quot;&gt;企业级分发&lt;/a&gt; &lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ChenYilong/iOS9AdaptationTips#1-ios9以后企业级分发ipa包将遭到与mac上dmg安装包一样的待遇默认不能安装也不再出现信任按钮&quot;&gt;iOS9以后，企业级分发ipa包将遭到与Mac上dmg安装包一样的待遇：默认不能安装，也不再出现“信任按钮”&lt;/a&gt; &lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ChenYilong/iOS9AdaptationTips#2-ios9以后企业分发时可能存在下载的ipa包与网页两者的-bundle-id-无法匹配而导致下载失败的情况&quot;&gt;iOS9以后，企业分发时可能存在：下载的ipa包与网页两者的 bundle ID 无法匹配而导致下载失败的情况&lt;/a&gt; &lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ChenYilong/iOS9AdaptationTips#4bitcode&quot;&gt;Bitcode&lt;/a&gt; &lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ChenYilong/iOS9AdaptationTips#5demo3---ios9-url-scheme-适配_引入白名单概念&quot;&gt;iOS9 URL Scheme 适配_引入白名单概念（见Demo3）&lt;/a&gt; &lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ChenYilong/iOS9AdaptationTips#常见-url-scheme&quot;&gt;常见 URL Scheme&lt;/a&gt; &lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ChenYilong/iOS9AdaptationTips#q-a-1&quot;&gt;Q-A&lt;/a&gt; &lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ChenYilong/iOS9AdaptationTips#6-ipad适配slide-over-和-split-view&quot;&gt; iPad适配Slide Over 和 Split View&lt;/a&gt; &lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ChenYilong/iOS9AdaptationTips#7字体间隙变大导致-ui-显示异常&quot;&gt;字体间隙变大导致 UI 显示异常&lt;/a&gt; &lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ChenYilong/iOS9AdaptationTips#8升级-xcode7-后的崩溃与警告&quot;&gt;升级 Xcode7 后的崩溃与警告&lt;/a&gt; &lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ChenYilong/iOS9AdaptationTips#ios9-下使用-masonry-会引起崩溃的一种情况&quot;&gt;iOS9 下使用 Masonry 会引起崩溃的一种情况&lt;/a&gt; &lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ChenYilong/iOS9AdaptationTips#xcode-升级后旧的状态栏的样式设置方式会引起警告&quot;&gt;Xcode 升级后，旧的状态栏的样式设置方式会引起警告&lt;/a&gt; &lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ChenYilong/iOS9AdaptationTips#demo4---navigationcontroller状态栏样式新的设置方法&quot;&gt;Demo4—navigationController状态栏样式新的设置方法&lt;/a&gt; &lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ChenYilong/iOS9AdaptationTips#xcode7-在-debug-状态下也生成-dsym-文件引起的警告&quot;&gt;Xcode7 在 debug 状态下也生成 .dSYM 文件引起的警告&lt;/a&gt; &lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ChenYilong/iOS9AdaptationTips#xcode7-无法使用-8x-系统的设备调试一运行就报错-there-is-an-intenal-api-error&quot;&gt;Xcode7 无法使用 8.x 系统的设备调试，一运行就报错 there is an intenal API error&lt;/a&gt; &lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ChenYilong/iOS9AdaptationTips#使用了-html-的-iframe-元素可能导致无法从-safari-跳转至-app&quot;&gt;使用了 HTML 的 iframe 元素可能导致无法从 Safari 跳转至 App&lt;/a&gt; &lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ChenYilong/iOS9AdaptationTips#ios9锁屏控制台会打印警告&quot;&gt;iOS9锁屏控制台会打印警告&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://stackoverflow.com/questions/32622899/itms-90535-unable-to-publish-ios-app-with-latest-google-signin-sdk&quot;&gt;Xcode7 上传应用时提示 ITMS-90535 Unable to publish iOS app with xxx SDK 的问题&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ChenYilong/iOS9AdaptationTips#在didfinishlaunchingwithoptions结束后还没有设置window的rootview
+controller会导致崩溃&quot;&gt;在didFinishLaunchingWithOptions结束后还没有设置window的rootViewController会导致崩溃&lt;/a&gt; &lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ChenYilong/iOS9AdaptationTips#9demo5demo6----搜索-api&quot;&gt;Demo5、Demo6— 搜索 API&lt;/a&gt;  &lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ChenYilong/iOS9AdaptationTips#10ios国际化问题当前设备语言字符串返回有变化&quot;&gt;iOS国际化问题：当前设备语言字符串返回有变化&lt;/a&gt; &lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ChenYilong/iOS9AdaptationTips#11uitableview显示异常&quot;&gt;UITableView显示异常&lt;/a&gt; &lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ChenYilong/iOS9AdaptationTips#代码创建的-tableview-无法隐藏-cell-分割线&quot;&gt;代码创建的 tableView 无法隐藏 cell 分割线&lt;/a&gt; &lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ChenYilong/iOS9AdaptationTips#reloaddata-刷新失效&quot;&gt;reloadData 刷新失效&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
     
     </summary>
+    
     
       <category term="IOS" scheme="https://wait.im/tags/IOS/"/>
     
   </entry>
   
   <entry>
-    <title><![CDATA[这些天的一些感悟]]></title>
+    <title>这些天的一些感悟</title>
     <link href="https://wait.im/2015/10/26/%E8%BF%99%E4%BA%9B%E5%A4%A9%E7%9A%84%E4%B8%80%E4%BA%9B%E6%84%9F%E6%82%9F/"/>
     <id>https://wait.im/2015/10/26/这些天的一些感悟/</id>
     <published>2015-10-25T16:15:08.000Z</published>
     <updated>2015-10-27T07:50:26.000Z</updated>
+    
     <content type="html"><![CDATA[<ul>
 <li>一个从不犯错的人，一定从来没有尝试过任何新事物。</li>
 <li>一个不肯跟你在年轻时一块奋斗的人，绝对不是那个陪伴你走过一生的人。</li>
@@ -1635,25 +1692,30 @@ controller会导致崩溃">在didFinishLaunchingWithOptions结束后还没有设
 <li>心情很糟糕，一点都不喜欢秋天。</li>
 </ul>
 ]]></content>
+    
     <summary type="html">
-    <![CDATA[<ul>
-<li>一个从不犯错的人，一定从来没有尝试过任何新事物。</li>
-<li>一个不肯跟你在年轻时一块奋斗的人，绝对不是那个陪伴你走过一生的人。</li>
-<li>生活是一本书，要读好它的每一页，过好每一天。</li>
-<li>开心工作，认真生活。</li>
-<li>梦想]]>
+    
+      &lt;ul&gt;
+&lt;li&gt;一个从不犯错的人，一定从来没有尝试过任何新事物。&lt;/li&gt;
+&lt;li&gt;一个不肯跟你在年轻时一块奋斗的人，绝对不是那个陪伴你走过一生的人。&lt;/li&gt;
+&lt;li&gt;生活是一本书，要读好它的每一页，过好每一天。&lt;/li&gt;
+&lt;li&gt;开心工作，认真生活。&lt;/li&gt;
+&lt;li&gt;梦想
+    
     </summary>
+    
     
       <category term="随笔" scheme="https://wait.im/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
   <entry>
-    <title><![CDATA[Objective-C常用函数跟Foundation框架]]></title>
+    <title>Objective-C常用函数跟Foundation框架</title>
     <link href="https://wait.im/2015/10/20/Objective-C%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0%E8%B7%9FFoundation%E6%A1%86%E6%9E%B6/"/>
     <id>https://wait.im/2015/10/20/Objective-C常用函数跟Foundation框架/</id>
     <published>2015-10-19T16:09:50.000Z</published>
     <updated>2017-02-06T10:59:19.000Z</updated>
+    
     <content type="html"><![CDATA[<h2 id="数学运算-math-函数"><a href="#数学运算-math-函数" class="headerlink" title="数学运算(math)函数"></a>数学运算(math)函数</h2><h4 id="算术运算函数"><a href="#算术运算函数" class="headerlink" title="算术运算函数"></a>算术运算函数</h4><ul>
 <li>rand()函数：产生随机数</li>
 <li>abs()函数/labs()函数：整数的绝对值</li>
@@ -2475,24 +2537,27 @@ controller会导致崩溃">在didFinishLaunchingWithOptions结束后还没有设
 <li>setSh”[1] </li>
 </ul>
 <h3 id="此文禁止任何类型的转载"><a href="#此文禁止任何类型的转载" class="headerlink" title="此文禁止任何类型的转载"></a><strong>此文禁止任何类型的转载</strong></h3>]]></content>
+    
     <summary type="html">
-    <![CDATA[<h2 id="数学运算-math-函数"><a href="#数学运算-math-函数" class="headerlink" title="数学运算(math)函数"></a>数学运算(math)函数</h2><h4 id="算术运算函数"><a href="#算术运算函数" class="headerlink" title="算术运算函数"></a>算术运算函数</h4><ul>
-<li>rand()函数：产生随机数</li>
-<li>abs()函数/labs()函数：整数的绝对值</li>
-<li>fabs()/fabsf()/fabsl()函数：浮点数的绝对值</li>
-<li>floor()/floorf()/floorl()函数：向下取整</li>
-<li>ceil()/ceilf()/ceill()函数：向上取整</li>
-<li>round()/roundf()/roundl()函数：四舍五入</li>
-<li>sqrt()/sqrtf()/sqrtl()函数：求平方根</li>
-<li>fmax()/fmaxf()/fmaxl()函数：求最大值</li>
-<li>fmin()/fminf()/fminl()函数：求最小值</li>
-<li>hypot()/hypotf()/hypotl()函数：求直角三角形斜边的长度</li>
-<li>fmod()/fmodf()/fmodl()函数：求两数整除后的余数</li>
-<li>modf()/modff()/modfl()函数：浮点数分解为整数和小数</li>
-<li>frexp()/frexpf()/frexpl()函数：浮点数分解尾数和以二为底的指数</li>
-</ul>]]>
+    
+      &lt;h2 id=&quot;数学运算-math-函数&quot;&gt;&lt;a href=&quot;#数学运算-math-函数&quot; class=&quot;headerlink&quot; title=&quot;数学运算(math)函数&quot;&gt;&lt;/a&gt;数学运算(math)函数&lt;/h2&gt;&lt;h4 id=&quot;算术运算函数&quot;&gt;&lt;a href=&quot;#算术运算函数&quot; class=&quot;headerlink&quot; title=&quot;算术运算函数&quot;&gt;&lt;/a&gt;算术运算函数&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;rand()函数：产生随机数&lt;/li&gt;
+&lt;li&gt;abs()函数/labs()函数：整数的绝对值&lt;/li&gt;
+&lt;li&gt;fabs()/fabsf()/fabsl()函数：浮点数的绝对值&lt;/li&gt;
+&lt;li&gt;floor()/floorf()/floorl()函数：向下取整&lt;/li&gt;
+&lt;li&gt;ceil()/ceilf()/ceill()函数：向上取整&lt;/li&gt;
+&lt;li&gt;round()/roundf()/roundl()函数：四舍五入&lt;/li&gt;
+&lt;li&gt;sqrt()/sqrtf()/sqrtl()函数：求平方根&lt;/li&gt;
+&lt;li&gt;fmax()/fmaxf()/fmaxl()函数：求最大值&lt;/li&gt;
+&lt;li&gt;fmin()/fminf()/fminl()函数：求最小值&lt;/li&gt;
+&lt;li&gt;hypot()/hypotf()/hypotl()函数：求直角三角形斜边的长度&lt;/li&gt;
+&lt;li&gt;fmod()/fmodf()/fmodl()函数：求两数整除后的余数&lt;/li&gt;
+&lt;li&gt;modf()/modff()/modfl()函数：浮点数分解为整数和小数&lt;/li&gt;
+&lt;li&gt;frexp()/frexpf()/frexpl()函数：浮点数分解尾数和以二为底的指数&lt;/li&gt;
+&lt;/ul&gt;
     
     </summary>
+    
     
       <category term="IOS" scheme="https://wait.im/tags/IOS/"/>
     
@@ -2503,11 +2568,12 @@ controller会导致崩溃">在didFinishLaunchingWithOptions结束后还没有设
   </entry>
   
   <entry>
-    <title><![CDATA[关于 Facebook新闻页优化 的分析]]></title>
+    <title>关于 Facebook新闻页优化 的分析</title>
     <link href="https://wait.im/2015/07/31/Facebook%E6%96%B0%E9%97%BB%E9%A1%B5%E4%BC%98%E5%8C%96%E7%9A%84%E5%88%86%E6%9E%90/"/>
     <id>https://wait.im/2015/07/31/Facebook新闻页优化的分析/</id>
     <published>2015-07-30T16:18:36.000Z</published>
     <updated>2017-02-06T10:58:25.000Z</updated>
+    
     <content type="html"><![CDATA[<p>关于 Facebook新闻页优化 的分析</p>
 <p>#私货<br>简单一点概括，就是Facebook在ListView页面中，将原来的View-Model-Binder再次拆解成粒度更细的模型。<br>在原本的View-Model-Binder模型中，依靠将部分的View设置成visible 或 gone 来控制功能块的显示 （转帖/图片/etc）<br>在优化过的模型中，原本的View被拆解成更细粒度的小View，然后只加载需要的部分<br>原文没有提及，但应当是利用</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getItemViewType</span><span class="params">(<span class="keyword">int</span> position)</span> </span>&#123;</div><div class="line"><span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getViewTypeCount</span><span class="params">()</span> </span>&#123;</div><div class="line"><span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -2536,23 +2602,27 @@ controller会导致崩溃">在didFinishLaunchingWithOptions结束后还没有设
 <p>英文原文：</p>
 <p><a href="">https://code.facebook.com/posts/879498888759525/fast-rendering-news-feed-on-android/</a></p>
 ]]></content>
+    
     <summary type="html">
-    <![CDATA[<p>关于 Facebook新闻页优化 的分析</p>
-<p>#私货<br>简单一点概括，就是Facebook在ListView页面中，将原来的View-Model-Binder再次拆解成粒度更细的模型。<br>在原本的View-Model-Binder模型中，依靠将部分的View设置成visible 或 gone 来控制功能块的显示 （转帖/图片/etc）<br>在优化过的模型中，原本的View被拆解成更细粒度的小View，然后只加载需要的部分<br>原文没有提及，但应当是利用</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getItemViewType</span><span class="params">(<span class="keyword">int</span> position)</span> </span>&#123;</div><div class="line"><span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getViewTypeCount</span><span class="params">()</span> </span>&#123;</div><div class="line"><span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]>
+    
+      &lt;p&gt;关于 Facebook新闻页优化 的分析&lt;/p&gt;
+&lt;p&gt;#私货&lt;br&gt;简单一点概括，就是Facebook在ListView页面中，将原来的View-Model-Binder再次拆解成粒度更细的模型。&lt;br&gt;在原本的View-Model-Binder模型中，依靠将部分的View设置成visible 或 gone 来控制功能块的显示 （转帖/图片/etc）&lt;br&gt;在优化过的模型中，原本的View被拆解成更细粒度的小View，然后只加载需要的部分&lt;br&gt;原文没有提及，但应当是利用&lt;/p&gt;
+&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;getItemViewType&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; position)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;getViewTypeCount&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
+    
     
       <category term="Android" scheme="https://wait.im/tags/Android/"/>
     
   </entry>
   
   <entry>
-    <title><![CDATA[Google 2015 Material Design Summit]]></title>
+    <title>Google 2015 Material Design Summit</title>
     <link href="https://wait.im/2015/04/21/Google%202015%20Material%20Design%20Summit/"/>
     <id>https://wait.im/2015/04/21/Google 2015 Material Design Summit/</id>
     <published>2015-04-20T16:12:36.000Z</published>
     <updated>2017-02-06T10:58:29.000Z</updated>
+    
     <content type="html"><![CDATA[<blockquote>
 <p>会议主持人: Michael Yeung</p>
 </blockquote>
@@ -2563,7 +2633,7 @@ controller会导致崩溃">在didFinishLaunchingWithOptions结束后还没有设
 <li>新分级制度(IARC)(5月前没做，就会列入未分级，甚至会被下架或找不到)</li>
 <li>符合不同年龄层的app</li>
 </ul>
-<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">严禁app有root行为<span class="comment">; </span></div><div class="line">不能自己升级<span class="comment">; </span></div><div class="line">不允许应用内部的应用推荐（必须经过Google Play）</div></pre></td></tr></table></figure>
+<figure class="highlight abnf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">严禁app有root行为<span class="comment">; </span></div><div class="line">不能自己升级<span class="comment">; </span></div><div class="line">不允许应用内部的应用推荐（必须经过Google Play）</div></pre></td></tr></table></figure>
 <a id="more"></a>
 <p>###II. 应用质量</p>
 <p>####该做</p>
@@ -2599,37 +2669,41 @@ controller会导致崩溃">在didFinishLaunchingWithOptions结束后还没有设
 <li><a href="https://github.com/rey5137/material" target="_blank" rel="external">Material Design 教程</a></li>
 </ul>
 ]]></content>
+    
     <summary type="html">
-    <![CDATA[<blockquote>
-<p>会议主持人: Michael Yeung</p>
-</blockquote>
-<p>###I. 新制度</p>
-<p>####New Review Process</p>
-<ul>
-<li>发布前先人工审核(加速上架时间)</li>
-<li>新分级制度(IARC)(5月前没做，就会列入未分级，甚至会被下架或找不到)</li>
-<li>符合不同年龄层的app</li>
-</ul>
-<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">严禁app有root行为<span class="comment">; </span></div><div class="line">不能自己升级<span class="comment">; </span></div><div class="line">不允许应用内部的应用推荐（必须经过Google Play）</div></pre></td></tr></table></figure>]]>
+    
+      &lt;blockquote&gt;
+&lt;p&gt;会议主持人: Michael Yeung&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;###I. 新制度&lt;/p&gt;
+&lt;p&gt;####New Review Process&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;发布前先人工审核(加速上架时间)&lt;/li&gt;
+&lt;li&gt;新分级制度(IARC)(5月前没做，就会列入未分级，甚至会被下架或找不到)&lt;/li&gt;
+&lt;li&gt;符合不同年龄层的app&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight abnf&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;严禁app有root行为&lt;span class=&quot;comment&quot;&gt;; &lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;不能自己升级&lt;span class=&quot;comment&quot;&gt;; &lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;不允许应用内部的应用推荐（必须经过Google Play）&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
+    
+    
+      <category term="JAVA" scheme="https://wait.im/tags/JAVA/"/>
     
       <category term="Android" scheme="https://wait.im/tags/Android/"/>
     
       <category term="Material Design" scheme="https://wait.im/tags/Material-Design/"/>
-    
-      <category term="JAVA" scheme="https://wait.im/tags/JAVA/"/>
     
       <category term="Google" scheme="https://wait.im/tags/Google/"/>
     
   </entry>
   
   <entry>
-    <title><![CDATA[Android Design Support Library简单使用]]></title>
+    <title>Android Design Support Library简单使用</title>
     <link href="https://wait.im/2015/01/24/Android%20Design%20Support%20Library%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/"/>
     <id>https://wait.im/2015/01/24/Android Design Support Library简单使用/</id>
     <published>2015-01-24T08:23:36.000Z</published>
     <updated>2017-02-06T10:57:38.000Z</updated>
+    
     <content type="html"><![CDATA[<p>Android 5.0 Lollipop为我们带来了<strong>Material Design</strong>,这是一个全新的设计语言，给Android带来了全新的体验，我个人决定Material很漂亮，然而那时候官方的支持却不太完善，FAB（Float Action Button）、想写一个漂亮的NavigationView都需要用一些开源库，而在<strong>GoogleIO</strong>大会上，谷歌为我们带来了<strong>Android Design Support Library</strong>,其中包括了很多原生的MD控件，例如：navigation drawer view, floating labels,floating action button, snackbar, tabs, CoordinatorLayout，CollapsingToolbarLayout等，更重要的是兼容到了Android2.1以上的设备，现在还有什么理由不上MD风格呢？<br><a id="more"></a></p>
 <p>####请看下面的视频，是这个教程的最终效果。</p>
 <iframe src="https://player.vimeo.com/video/134689608" width="500" height="888" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen></iframe>
@@ -2662,10 +2736,13 @@ controller会导致崩溃">在didFinishLaunchingWithOptions结束后还没有设
 <figure class="highlight aspectj"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> Toolbar toolbar;</div><div class="line"><span class="keyword">private</span> DrawerLayout drawerLayout;</div><div class="line"><span class="keyword">private</span> ActionBarDrawerToggle actionBarDrawerToggle ;</div><div class="line"><span class="keyword">private</span> NavigationView navigationView;</div><div class="line"><span class="keyword">private</span> CoordinatorLayout rootLayout;</div><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">    setContentView(R.layout.activity_main);</div><div class="line">    initToolbar();</div><div class="line">    initDrawer();</div><div class="line">    initNavigation();</div><div class="line">&#125;</div><div class="line"><span class="keyword">private</span> <span class="function"><span class="keyword">void</span> <span class="title">initToolbar</span><span class="params">()</span> </span>&#123;</div><div class="line">    toolbar = (Toolbar) findViewById(R.id.tool_bar);</div><div class="line">    setSupportActionBar(toolbar);<span class="comment">//用toolbar代替默认的ActionBar</span></div><div class="line">    <span class="comment">//getSupportActionBar()方法得到ActionBar进而更改默认的行为</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">private</span> <span class="function"><span class="keyword">void</span> <span class="title">initDrawer</span><span class="params">()</span> </span>&#123;</div><div class="line">    drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);</div><div class="line">    actionBarDrawerToggle = <span class="keyword">new</span> ActionBarDrawerToggle(<span class="keyword">this</span>, drawerLayout, toolbar,</div><div class="line">            R.string.navigation_drawer_open,</div><div class="line">            R.string.navigation_drawer_close)&#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onDrawerClosed</span><span class="params">(View drawerView)</span> </span>&#123;</div><div class="line">            <span class="keyword">super</span>.onDrawerClosed(drawerView);</div><div class="line">        &#125;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onDrawerOpened</span><span class="params">(View drawerView)</span> </span>&#123;</div><div class="line">            <span class="keyword">super</span>.onDrawerOpened(drawerView);</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">    drawerLayout.setDrawerListener(actionBarDrawerToggle);/设置监听器</div><div class="line">    <span class="comment">//calling sync state is necessay or else your hamburger icon wont show up</span></div><div class="line">    actionBarDrawerToggle.syncState();</div><div class="line">&#125;    </div><div class="line"><span class="keyword">private</span> <span class="function"><span class="keyword">void</span> <span class="title">initNavigation</span><span class="params">()</span> </span>&#123;</div><div class="line">    navigationView = (NavigationView) findViewById(R.id.nav_view);</div><div class="line">    <span class="comment">//监听导航栏菜单点击事件</span></div><div class="line">    navigationView.setNavigationItemSelectedListener(<span class="keyword">new</span> NavigationView.OnNavigationItemSelectedListener() &#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">onNavigationItemSelected</span><span class="params">(MenuItem menuItem)</span> </span>&#123;</div><div class="line">            <span class="keyword">int</span> id = menuItem.getItemId();</div><div class="line">            <span class="keyword">switch</span> (id)&#123;</div><div class="line">                <span class="keyword">case</span> R.id.action_nav_settings:</div><div class="line">                    menuItem.setChecked(<span class="keyword">true</span>);</div><div class="line">                    drawerLayout.closeDrawers();</div><div class="line">                    Intent intent = <span class="keyword">new</span> Intent(MainActivity.<span class="keyword">this</span>, SettingActivity.class);</div><div class="line">                    startActivity(intent);</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>####Step Five: Just Run it<br><img src="http://source.wait.im/QQ20151111-2@2x.png" alt=""><br><img src="http://source.wait.im/QQ20151111-3@2x.png" alt=""></p>
 ]]></content>
+    
     <summary type="html">
-    <![CDATA[<p>Android 5.0 Lollipop为我们带来了<strong>Material Design</strong>,这是一个全新的设计语言，给Android带来了全新的体验，我个人决定Material很漂亮，然而那时候官方的支持却不太完善，FAB（Float Action Button）、想写一个漂亮的NavigationView都需要用一些开源库，而在<strong>GoogleIO</strong>大会上，谷歌为我们带来了<strong>Android Design Support Library</strong>,其中包括了很多原生的MD控件，例如：navigation drawer view, floating labels,floating action button, snackbar, tabs, CoordinatorLayout，CollapsingToolbarLayout等，更重要的是兼容到了Android2.1以上的设备，现在还有什么理由不上MD风格呢？<br>]]>
+    
+      &lt;p&gt;Android 5.0 Lollipop为我们带来了&lt;strong&gt;Material Design&lt;/strong&gt;,这是一个全新的设计语言，给Android带来了全新的体验，我个人决定Material很漂亮，然而那时候官方的支持却不太完善，FAB（Float Action Button）、想写一个漂亮的NavigationView都需要用一些开源库，而在&lt;strong&gt;GoogleIO&lt;/strong&gt;大会上，谷歌为我们带来了&lt;strong&gt;Android Design Support Library&lt;/strong&gt;,其中包括了很多原生的MD控件，例如：navigation drawer view, floating labels,floating action button, snackbar, tabs, CoordinatorLayout，CollapsingToolbarLayout等，更重要的是兼容到了Android2.1以上的设备，现在还有什么理由不上MD风格呢？&lt;br&gt;
     
     </summary>
+    
     
       <category term="Android" scheme="https://wait.im/tags/Android/"/>
     
@@ -2674,11 +2751,12 @@ controller会导致崩溃">在didFinishLaunchingWithOptions结束后还没有设
   </entry>
   
   <entry>
-    <title><![CDATA[Android性能调优的技术点]]></title>
+    <title>Android性能调优的技术点</title>
     <link href="https://wait.im/2015/01/12/Android%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98%E7%9A%84%E6%8A%80%E6%9C%AF%E7%82%B9/"/>
     <id>https://wait.im/2015/01/12/Android性能调优的技术点/</id>
     <published>2015-01-12T04:23:36.000Z</published>
     <updated>2017-02-06T10:58:17.000Z</updated>
+    
     <content type="html"><![CDATA[<h2 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h2><h3 id="使用异步"><a href="#使用异步" class="headerlink" title="使用异步"></a>使用异步</h3><ul>
 <li>保持 APP 的高度响应，不要在 UI 线程做耗时操作，多使用异步任务</li>
 <li>使用线程时要做好线程控制；使用队列、线程池</li>
@@ -2760,21 +2838,24 @@ controller会导致崩溃">在didFinishLaunchingWithOptions结束后还没有设
 <li>StrictMode ， UI 操作、网络操作等容易出现性能问题的地方，如果出现异常情况 StrictMode 会报警</li>
 </ul>
 ]]></content>
+    
     <summary type="html">
-    <![CDATA[<h2 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h2><h3 id="使用异步"><a href="#使用异步" class="headerlink" title="使用异步"></a>使用异步</h3><ul>
-<li>保持 APP 的高度响应，不要在 UI 线程做耗时操作，多使用异步任务</li>
-<li>使用线程时要做好线程控制；使用队列、线程池</li>
-<li>谨慎使用糟糕的 AysncTask 、 Timer</li>
-<li>警惕异步任务引起的内存泄露</li>
-<li>应该异步任务分类，比如 HTTP ，图片下载，文件读写，每一类的异步任务维护一个任务队列，而不是每一个任务都开一个线程（ Volley 表示我一个可以搞定这些全部 <em>(:з」∠)</em>）</li>
-<li>这些常用的任务应该做好优先级处理（一般 JSON 数据优先于图片等静态数据的请求）</li>
-<li>一般异步任务应该开启一个 SingleAsyncTask ，保证一时只有一个线程在工作</li>
-<li>HTTP 和图片下载尽量使用同一套网络请求</li>
-<li>使用 MVP 模式规范大型 Activity 类的行为，避免异步任务造成的内存泄露</li>
-<li>避免内存泄露</li>
-</ul>]]>
+    
+      &lt;h2 id=&quot;要点&quot;&gt;&lt;a href=&quot;#要点&quot; class=&quot;headerlink&quot; title=&quot;要点&quot;&gt;&lt;/a&gt;要点&lt;/h2&gt;&lt;h3 id=&quot;使用异步&quot;&gt;&lt;a href=&quot;#使用异步&quot; class=&quot;headerlink&quot; title=&quot;使用异步&quot;&gt;&lt;/a&gt;使用异步&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;保持 APP 的高度响应，不要在 UI 线程做耗时操作，多使用异步任务&lt;/li&gt;
+&lt;li&gt;使用线程时要做好线程控制；使用队列、线程池&lt;/li&gt;
+&lt;li&gt;谨慎使用糟糕的 AysncTask 、 Timer&lt;/li&gt;
+&lt;li&gt;警惕异步任务引起的内存泄露&lt;/li&gt;
+&lt;li&gt;应该异步任务分类，比如 HTTP ，图片下载，文件读写，每一类的异步任务维护一个任务队列，而不是每一个任务都开一个线程（ Volley 表示我一个可以搞定这些全部 &lt;em&gt;(:з」∠)&lt;/em&gt;）&lt;/li&gt;
+&lt;li&gt;这些常用的任务应该做好优先级处理（一般 JSON 数据优先于图片等静态数据的请求）&lt;/li&gt;
+&lt;li&gt;一般异步任务应该开启一个 SingleAsyncTask ，保证一时只有一个线程在工作&lt;/li&gt;
+&lt;li&gt;HTTP 和图片下载尽量使用同一套网络请求&lt;/li&gt;
+&lt;li&gt;使用 MVP 模式规范大型 Activity 类的行为，避免异步任务造成的内存泄露&lt;/li&gt;
+&lt;li&gt;避免内存泄露&lt;/li&gt;
+&lt;/ul&gt;
     
     </summary>
+    
     
       <category term="Android" scheme="https://wait.im/tags/Android/"/>
     
@@ -2785,11 +2866,12 @@ controller会导致崩溃">在didFinishLaunchingWithOptions结束后还没有设
   </entry>
   
   <entry>
-    <title><![CDATA[Leakcanary Square的一款Android/Java内存泄漏检测工具]]></title>
+    <title>Leakcanary Square的一款Android/Java内存泄漏检测工具</title>
     <link href="https://wait.im/2014/11/25/Leakcanary%20Square%E7%9A%84%E4%B8%80%E6%AC%BEAndroid:Java%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E6%A3%80%E6%B5%8B%E5%B7%A5%E5%85%B7/"/>
     <id>https://wait.im/2014/11/25/Leakcanary Square的一款Android:Java内存泄漏检测工具/</id>
     <published>2014-11-24T16:14:36.000Z</published>
     <updated>2017-02-06T10:59:05.000Z</updated>
+    
     <content type="html"><![CDATA[<blockquote>
 <p><a href="https://github.com/square/leakcanary" target="_blank" rel="external">Github地址</a></p>
 </blockquote>
@@ -2844,18 +2926,21 @@ controller会导致崩溃">在didFinishLaunchingWithOptions结束后还没有设
 <p>###X. License</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">Copyright 2015 Square, Inc.</div><div class="line"></div><div class="line">Licensed under the Apache License, Version 2.0 (the "License");</div><div class="line">you may not <span class="keyword">use</span> this <span class="keyword">file</span> <span class="keyword">except</span> <span class="keyword">in</span> compliance <span class="keyword">with</span> the License.</div><div class="line">You may obtain a copy <span class="keyword">of</span> the License <span class="keyword">at</span></div><div class="line"></div><div class="line">   <span class="keyword">http</span>://www.apache.org/licenses/LICENSE<span class="number">-2.0</span></div><div class="line"></div><div class="line">Unless <span class="keyword">required</span> <span class="keyword">by</span> applicable law <span class="keyword">or</span> agreed <span class="keyword">to</span> <span class="keyword">in</span> writing, software</div><div class="line"><span class="keyword">distributed</span> <span class="keyword">under</span> the License <span class="keyword">is</span> <span class="keyword">distributed</span> <span class="keyword">on</span> an <span class="string">"AS IS"</span> BASIS,</div><div class="line"><span class="keyword">WITHOUT</span> WARRANTIES <span class="keyword">OR</span> CONDITIONS <span class="keyword">OF</span> <span class="keyword">ANY</span> KIND, either express <span class="keyword">or</span> implied.</div><div class="line">See the License <span class="keyword">for</span> the specific <span class="keyword">language</span> governing permissions <span class="keyword">and</span></div><div class="line">limitations <span class="keyword">under</span> the License.</div></pre></td></tr></table></figure>
 ]]></content>
+    
     <summary type="html">
-    <![CDATA[<blockquote>
-<p><a href="https://github.com/square/leakcanary">Github地址</a></p>
-</blockquote>
-<p>##git readme:</p>
-<p>###中文翻译@Jacksgong</p>
-<blockquote>
-<p>一款Android与Java的内存检测库<br>“A small leak will sink a gret ship.” - Benjamin Franklin</p>
-</blockquote>
-<p><img src="https://raw.githubusercontent.com/Jacksgong/leakcanary/master/assets/screenshot.png" alt=""></p>]]>
+    
+      &lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/square/leakcanary&quot;&gt;Github地址&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;##git readme:&lt;/p&gt;
+&lt;p&gt;###中文翻译@Jacksgong&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;一款Android与Java的内存检测库&lt;br&gt;“A small leak will sink a gret ship.” - Benjamin Franklin&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/Jacksgong/leakcanary/master/assets/screenshot.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
     
     </summary>
+    
     
       <category term="Android" scheme="https://wait.im/tags/Android/"/>
     
@@ -2864,11 +2949,12 @@ controller会导致崩溃">在didFinishLaunchingWithOptions结束后还没有设
   </entry>
   
   <entry>
-    <title><![CDATA[SVG Android应用探究之路]]></title>
+    <title>SVG Android应用探究之路</title>
     <link href="https://wait.im/2014/06/21/SVG%20Android%E5%BA%94%E7%94%A8%E6%8E%A2%E7%A9%B6%E4%B9%8B%E8%B7%AF/"/>
     <id>https://wait.im/2014/06/21/SVG Android应用探究之路/</id>
     <published>2014-06-20T16:12:36.000Z</published>
     <updated>2017-02-06T10:59:26.000Z</updated>
+    
     <content type="html"><![CDATA[<h5 id="优点"><a href="#优点" class="headerlink" title="优点:"></a>优点:</h5><ul>
 <li>vector</li>
 <li>在所有大小分辨率屏幕上完美显示</li>
@@ -2897,7 +2983,7 @@ controller会导致崩溃">在didFinishLaunchingWithOptions结束后还没有设
 <p>成果：在SVGHandler中发现一个Paint类型的fillPaint组件，如果能够在加载元素之前 创建colorFilter即可，略微调整SVGHandler加载SVG的代码：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setFilterColor</span><span class="params">(<span class="keyword">int</span> filterColor)</span> </span>&#123;</div><div class="line">    fillPaint.setColorFilter(<span class="keyword">new</span> PorterDuffColorFilter(filterColor, Mode.MULTIPLY));</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
 <p>接口调整为：</p>
-<figure class="highlight fix"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attr">SVG svg </span>=<span class="string"> SVGParser.getSVGFromResource(getResources(), rawSvgId, filterColor);</span></div></pre></td></tr></table></figure>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">SVG svg</span> = SVGParser.getSVGFromResource(getResources(), rawSvgId, filterColor);</div></pre></td></tr></table></figure>
 <p>因此我们能够在多张图片上通过引用一张图片使用不同的阴影颜色（As a result we could receive some images of different shades from one picture.）</p>
 <p>对于透明度，建议并不适用setAlpha去实现（实际上是可以的通过fillPaint）:</p>
 <figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Also <span class="keyword">it</span> is possible <span class="built_in">to</span> establish <span class="keyword">and</span> Alpha <span class="keyword">for</span> fillPaint, but <span class="keyword">in</span> games this property is required <span class="keyword">in</span> <span class="keyword">the</span> dynamic form (have pressed <span class="keyword">an</span> <span class="keyword">element</span> — has become translucent), <span class="keyword">and</span> podgruzhat <span class="keyword">each</span> <span class="built_in">time</span> <span class="keyword">the</span> <span class="built_in">new</span> image is inconvenient. Therefore this effect have replaced <span class="keyword">with</span> scaling (have pressed — <span class="keyword">the</span> <span class="keyword">element</span> has decreased).</div></pre></td></tr></table></figure>
@@ -2909,47 +2995,56 @@ controller会导致崩溃">在didFinishLaunchingWithOptions结束后还没有设
 <p>本文总结自：<a href="http://sysmagazine.com/posts/166093/" target="_blank" rel="external">http://sysmagazine.com/posts/166093/</a></p>
 </blockquote>
 ]]></content>
+    
     <summary type="html">
-    <![CDATA[<h5 id="优点"><a href="#优点" class="headerlink" title="优点:"></a>优点:</h5><ul>
-<li>vector</li>
-<li>在所有大小分辨率屏幕上完美显示</li>
-<li>SVG图片更小</li>
-<li>一张图片可以更具需求多次使用？(One picture is used some times for different permissions)</li>
-<li>减少加载时间</li>
-</ul>]]>
+    
+      &lt;h5 id=&quot;优点&quot;&gt;&lt;a href=&quot;#优点&quot; class=&quot;headerlink&quot; title=&quot;优点:&quot;&gt;&lt;/a&gt;优点:&lt;/h5&gt;&lt;ul&gt;
+&lt;li&gt;vector&lt;/li&gt;
+&lt;li&gt;在所有大小分辨率屏幕上完美显示&lt;/li&gt;
+&lt;li&gt;SVG图片更小&lt;/li&gt;
+&lt;li&gt;一张图片可以更具需求多次使用？(One picture is used some times for different permissions)&lt;/li&gt;
+&lt;li&gt;减少加载时间&lt;/li&gt;
+&lt;/ul&gt;
     
     </summary>
     
-      <category term="Android" scheme="https://wait.im/tags/Android/"/>
     
       <category term="JAVA" scheme="https://wait.im/tags/JAVA/"/>
+    
+      <category term="Android" scheme="https://wait.im/tags/Android/"/>
     
   </entry>
   
   <entry>
-    <title><![CDATA[Hexo上的第一篇博文]]></title>
+    <title>Hexo上的第一篇博文</title>
     <link href="https://wait.im/2014/03/02/Hexo%E4%B8%8A%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E6%96%87/"/>
     <id>https://wait.im/2014/03/02/Hexo上第一篇博文/</id>
     <published>2014-03-01T16:18:36.000Z</published>
     <updated>2015-11-09T16:48:09.000Z</updated>
+    
     <content type="html"><![CDATA[<p>这是使用Hexo搭建的博客后写的第一篇博文，搭建的过程还算顺利，写代码也写了两年了，觉得去总结一下也挺好，以后会把自己平时遇到的一些问题总结出来，码农也要学会总结，去提高自己。</p>
 <p><a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>，特别感谢Hexo，上面的介绍已经非常详细了，感觉比搜出来的一些博文稍微靠谱一点。Node.js装环境的时候遇到不少问题，Hexo官网上都有非常好的解决方案，言简意赅。还要感谢前辈们的总结，在建博客的时候对我的帮助也不少。加油！！！</p>
 ]]></content>
+    
     <summary type="html">
-    <![CDATA[<p>这是使用Hexo搭建的博客后写的第一篇博文，搭建的过程还算顺利，写代码也写了两年了，觉得去总结一下也挺好，以后会把自己平时遇到的一些问题总结出来，码农也要学会总结，去提高自己。</p>
-<p><a href="https://hexo.io/" target="_blank]]>
+    
+      &lt;p&gt;这是使用Hexo搭建的博客后写的第一篇博文，搭建的过程还算顺利，写代码也写了两年了，觉得去总结一下也挺好，以后会把自己平时遇到的一些问题总结出来，码农也要学会总结，去提高自己。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank
+    
     </summary>
+    
     
       <category term="Hexo" scheme="https://wait.im/tags/Hexo/"/>
     
   </entry>
   
   <entry>
-    <title><![CDATA[Android清理内存]]></title>
+    <title>Android清理内存</title>
     <link href="https://wait.im/2013/10/25/Android%E6%B8%85%E7%90%86%E5%86%85%E5%AD%98/"/>
     <id>https://wait.im/2013/10/25/Android清理内存/</id>
     <published>2013-10-24T16:16:36.000Z</published>
     <updated>2017-02-06T10:58:04.000Z</updated>
+    
     <content type="html"><![CDATA[<p>Android内存清理，利用ActivityManager获取当前正在运行的进程，清理这些进程释放内存。</p>
 <p>可以根据importance的不同来判断前台或后台RunningAppProcessInfo 里面的常量IMOPORTANCE就是上面所说的前台后台，其实IMOPORTANCE是表示这个app进程的重要性，因为系统回收时候，会根据IMOPORTANCE来回收进程的。具体可以去看文档。。</p>
 <p>在配置文件中添加权限</p>
@@ -2959,15 +3054,18 @@ controller会导致崩溃">在didFinishLaunchingWithOptions结束后还没有设
 <a id="more"></a>
 <figure class="highlight zephir"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by thinkloki on 2013/8/20.</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SystemUtil</span> </span>&#123;</div><div class="line"> </div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 获取可用内存</div><div class="line">     *</div><div class="line">     * <span class="doctag">@param</span> context</div><div class="line">     * <span class="doctag">@return</span></div><div class="line">     */</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">long</span> getAvailMemory(Context context) &#123;</div><div class="line">        ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);</div><div class="line">        ActivityManager.MemoryInfo mi = <span class="keyword">new</span> ActivityManager.MemoryInfo();</div><div class="line">        am.getMemoryInfo(mi);</div><div class="line">        <span class="keyword">return</span> mi.availMem / (<span class="number">1024</span> * <span class="number">1024</span>);</div><div class="line"> </div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 获取总内存</div><div class="line">     *</div><div class="line">     * <span class="doctag">@param</span> context</div><div class="line">     * <span class="doctag">@return</span></div><div class="line">     */</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">long</span> getTotalMemory(Context context) &#123;</div><div class="line">        String str1 = <span class="string">"/proc/meminfo"</span>;<span class="comment">// 系统内存信息文件</span></div><div class="line">        String str2;</div><div class="line">        String[] arrayOfString;</div><div class="line">        <span class="keyword">long</span> initial_memory = <span class="number">0</span>;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            FileReader localFileReader = <span class="keyword">new</span> FileReader(str1);</div><div class="line">            BufferedReader localBufferedReader = <span class="keyword">new</span> BufferedReader(</div><div class="line">                    localFileReader, <span class="number">8192</span>);</div><div class="line">            str2 = localBufferedReader.readLine();<span class="comment">// 读取meminfo第一行，系统总内存大小</span></div><div class="line">            arrayOfString = str2.split(<span class="string">"\\s+"</span>);</div><div class="line">            initial_memory = Integer.valueOf(arrayOfString[<span class="number">1</span>]).intValue() * <span class="number">1024</span>;<span class="comment">// 获得系统总内存，单位是KB，乘以1024转换为Byte</span></div><div class="line">            localBufferedReader.close();</div><div class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> initial_memory / (<span class="number">1024</span> * <span class="number">1024</span>);</div><div class="line">    &#125;</div><div class="line"> </div><div class="line"><span class="comment">//    public static final int IMPORTANCE_BACKGROUND = 400//后台</span></div><div class="line"><span class="comment">//    public static final int IMPORTANCE_EMPTY = 500//空进程</span></div><div class="line"><span class="comment">//    public static final int IMPORTANCE_SERVICE = 300//在服务中</span></div><div class="line"><span class="comment">//    public static final int IMPORTANCE_VISIBLE = 200//在屏幕前端、获取不到焦点可理解为</span></div><div class="line"><span class="comment">//    public static final int IMPORTANCE_FOREGROUND = 100//在屏幕最前端、可获取到焦点 可理解为Activity生命周期的OnResume();</span></div><div class="line"> </div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 清理内存</div><div class="line">     *</div><div class="line">     * <span class="doctag">@param</span> context</div><div class="line">     */</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> void clearMemory(Context context) &#123;</div><div class="line">        ActivityManager activityManger = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);</div><div class="line">        <span class="keyword">List</span>&lt;ActivityManager.RunningAppProcessInfo&gt; <span class="keyword">list</span> = activityManger.getRunningAppProcesses();</div><div class="line">        <span class="keyword">if</span> (<span class="keyword">list</span> != <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="keyword">list</span>.size(); i++) &#123;</div><div class="line">                ActivityManager.RunningAppProcessInfo apinfo = <span class="keyword">list</span>.get(i);</div><div class="line">                String[] pkgList = apinfo.pkgList;</div><div class="line">                <span class="keyword">if</span> (apinfo.importance &gt; ActivityManager.RunningAppProcessInfo.IMPORTANCE_VISIBLE) &#123;</div><div class="line">                    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; pkgList.length; j++) &#123;</div><div class="line">                        <span class="comment">/**清理不可用的内容空间**/</span></div><div class="line">                        activityManger.killBackgroundProcesses(pkgList[j]);</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 获取每个APP占用的内存</div><div class="line">     *</div><div class="line">     * <span class="doctag">@param</span> context</div><div class="line">     */</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> void getEveryAppMemory(Context context) &#123;</div><div class="line">        ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);</div><div class="line">        <span class="keyword">List</span>&lt;ActivityManager.RunningAppProcessInfo&gt; <span class="keyword">list</span> = am.getRunningAppProcesses();</div><div class="line">        <span class="keyword">if</span> (<span class="keyword">list</span> != <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="keyword">list</span>.size(); i++) &#123;</div><div class="line">                ActivityManager.RunningAppProcessInfo appinfo = <span class="keyword">list</span>.get(i);</div><div class="line">                <span class="keyword">int</span>[] myMempid = <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;appinfo.pid&#125;;</div><div class="line">                Debug.MemoryInfo[] appMem = am.getProcessMemoryInfo(myMempid);</div><div class="line">                <span class="keyword">int</span> memSize = appMem[<span class="number">0</span>].dalvikPrivateDirty / <span class="number">1024</span>;</div><div class="line">                Log.e(<span class="string">"AppMemory"</span>, appinfo.processName + <span class="string">":"</span> + memSize);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 清理应用缓存</div><div class="line">     *</div><div class="line">     * <span class="doctag">@param</span> context</div><div class="line">     */</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> void clearAppCache(Context context) &#123;</div><div class="line">        File[] dir = context.getCacheDir().listFiles();</div><div class="line">        <span class="keyword">if</span> (dir != <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">for</span> (File f : dir) &#123;</div><div class="line">                f.delete();</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </uses-permission>]]></content>
+    
     <summary type="html">
-    <![CDATA[<p>Android内存清理，利用ActivityManager获取当前正在运行的进程，清理这些进程释放内存。</p>
-<p>可以根据importance的不同来判断前台或后台RunningAppProcessInfo 里面的常量IMOPORTANCE就是上面所说的前台后台，其实IMOPORTANCE是表示这个app进程的重要性，因为系统回收时候，会根据IMOPORTANCE来回收进程的。具体可以去看文档。。</p>
-<p>在配置文件中添加权限</p>
-<uses-permission android:name=”android.permission.KILL_BACKGROUND_PROCESSES”/>
+    
+      &lt;p&gt;Android内存清理，利用ActivityManager获取当前正在运行的进程，清理这些进程释放内存。&lt;/p&gt;
+&lt;p&gt;可以根据importance的不同来判断前台或后台RunningAppProcessInfo 里面的常量IMOPORTANCE就是上面所说的前台后台，其实IMOPORTANCE是表示这个app进程的重要性，因为系统回收时候，会根据IMOPORTANCE来回收进程的。具体可以去看文档。。&lt;/p&gt;
+&lt;p&gt;在配置文件中添加权限&lt;/p&gt;
+&lt;uses-permission android:name=”android.permission.KILL_BACKGROUND_PROCESSES”/&gt;
 
-<p>内存清理代码以及获取系统内存和各个APP占用内存代码如下：</p>]]>
+&lt;p&gt;内存清理代码以及获取系统内存和各个APP占用内存代码如下：&lt;/p&gt;
     
     </summary>
+    
     
       <category term="Android" scheme="https://wait.im/tags/Android/"/>
     
@@ -2976,11 +3074,12 @@ controller会导致崩溃">在didFinishLaunchingWithOptions结束后还没有设
   </entry>
   
   <entry>
-    <title><![CDATA[Android动画简单学习]]></title>
+    <title>Android动画简单学习</title>
     <link href="https://wait.im/2013/10/21/Android%E5%8A%A8%E7%94%BB%E7%AE%80%E5%8D%95%E5%AD%A6%E4%B9%A0/"/>
     <id>https://wait.im/2013/10/21/Android动画简单学习/</id>
     <published>2013-10-20T16:16:36.000Z</published>
     <updated>2017-02-06T10:57:50.000Z</updated>
+    
     <content type="html"><![CDATA[<blockquote>
 <p>再复杂的动画，都是简单动画的结合</p>
 </blockquote>
@@ -3095,135 +3194,57 @@ valueAnimator.setDuration(5000).start();
 <li><a href="http://blog.csdn.net/singwhatiwanna/article/details/17841165" target="_blank" rel="external">Android属性动画深入分析：让你成为动画牛人</a></li>
 </ul>
 ]]></content>
+    
     <summary type="html">
-    <![CDATA[<blockquote>
-<p>再复杂的动画，都是简单动画的结合</p>
-</blockquote>
-<h3 id="I-Tween-Animation-补间动画"><a href="#I-Tween-Animation-补间动画" class="headerlink" title="I. Tween Animation(补间动画)"></a>I. Tween Animation(补间动画)</h3><table>
-<thead>
-<tr>
-<th>形式</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>alpha</td>
-<td>渐变透明度</td>
-</tr>
-<tr>
-<td>scale</td>
-<td>渐变尺寸</td>
-</tr>
-<tr>
-<td>translate</td>
-<td>画面位置移动</td>
-</tr>
-<tr>
-<td>rotate</td>
-<td>画面旋转</td>
-</tr>
-</tbody>
-</table>]]>
+    
+      &lt;blockquote&gt;
+&lt;p&gt;再复杂的动画，都是简单动画的结合&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;I-Tween-Animation-补间动画&quot;&gt;&lt;a href=&quot;#I-Tween-Animation-补间动画&quot; class=&quot;headerlink&quot; title=&quot;I. Tween Animation(补间动画)&quot;&gt;&lt;/a&gt;I. Tween Animation(补间动画)&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;形式&lt;/th&gt;
+&lt;th&gt;备注&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;alpha&lt;/td&gt;
+&lt;td&gt;渐变透明度&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;scale&lt;/td&gt;
+&lt;td&gt;渐变尺寸&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;translate&lt;/td&gt;
+&lt;td&gt;画面位置移动&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;rotate&lt;/td&gt;
+&lt;td&gt;画面旋转&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
     
     </summary>
     
-      <category term="Android" scheme="https://wait.im/tags/Android/"/>
     
       <category term="JAVA" scheme="https://wait.im/tags/JAVA/"/>
+    
+      <category term="Android" scheme="https://wait.im/tags/Android/"/>
     
       <category term="动画" scheme="https://wait.im/tags/%E5%8A%A8%E7%94%BB/"/>
     
   </entry>
   
   <entry>
-    <title><![CDATA[多线程线程通讯和生产者]]></title>
-    <link href="https://wait.im/2012/07/30/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BA%BF%E7%A8%8B%E9%80%9A%E8%AE%AF%E5%92%8C%E7%94%9F%E4%BA%A7%E8%80%85/"/>
-    <id>https://wait.im/2012/07/30/多线程线程通讯和生产者/</id>
-    <published>2012-07-29T16:18:36.000Z</published>
-    <updated>2017-02-06T10:57:23.000Z</updated>
-    <content type="html"><![CDATA[<p>线程间通讯——等待唤醒机制<br>1，wait()；是让线程处于冻结状态，被wait线程会被存储到线程池中。<br>2,notify()；唤醒线程池中的一个线程(任意)。<br>3,notifyAll()；唤醒线程池中的所有线程，让线程具备了执行资格。<br>使用时要注意使用在同步中，因为只有同步才会具有锁。<br>调用时需要明确对象，明确是哪个监视器。<br>任意对象可以调用的方法定义在Object里面。</p>
-<p>锁可以是任意对象。<br>为什么这些操作线程方法要定义在Object类中：因为这些方法在操作同步中线程时，都必须要标识它们所操作线程特有的锁，<br>只有同一个锁上的被等待线程，可以被同一个锁上的notify唤醒。<br>不可以对不同锁中的线程进行唤醒。等待和唤醒必须是同一个锁。而锁的对象是任意的，所以可以被任意对象调用的方法定义在Object类中。<br><a id="more"></a><br>一、线程间通信：<br>class Res<br>{<br>private String name;<br>private String sex;<br>private boolean flag = false;</p>
-<p>public synchronized void set(String name,String sex)<br>{<br>if(flag)<br>try{this.wait();}catch(Exception e){}<br>this.name = name;</p>
-<p>this.sex = sex;<br>flag = true;<br>this.notify();<br>}<br>public synchronized void out()<br>{<br>if(!flag)<br>try{this.wait();}catch(Exception e){}<br>System.out.println(name+”……..”+sex);<br>flag = false;<br>this.notify();<br>}<br>}</p>
-<p>class Input implements Runnable<br>{<br>private Res r ;<br>Input(Res r)<br>{<br>this.r = r;<br>}<br>public void run()<br>{<br>int x = 0;<br>while(true)<br>{<br>if(x==0)<br>r.set(“mike”,”man”);<br>else<br>r.set(“丽丽”,”女女女女女”);<br>x = (x+1)%2;<br>}<br>}<br>}</p>
-<p>class Output implements Runnable<br>{<br>private Res r ;</p>
-<p>Output(Res r)<br>{<br>this.r = r;<br>}<br>public void run()<br>{<br>while(true)<br>{<br>r.out();<br>}<br>}<br>}</p>
-<p>class  InputOutputDemo2<br>{<br>public static void main(String[] args)<br>{<br>Res r = new Res();</p>
-<p>new Thread(new Input(r)).start();<br>new Thread(new Output(r)).start();<br>/*<br>Input in = new Input(r);<br>Output out = new Output(r);</p>
-<p>Thread t1 = new Thread(in);<br>Thread t2 = new Thread(out);</p>
-<p>t1.start();<br>t2.start();<br>*/<br>}<br>}<br>二、线程间通信-生产者和消费者<br>全部wait，生产和消费者多次判断，用while循环，唤醒时需要唤醒两方的人，这时我们用this.notifyAll().<br>对于多生产者和多消费者。<br>为什么要定义while判断标记。<br>原因：让被唤醒的线程在判断一次标记。<br>定义notifyAll，因为需要唤醒对方线程，只用notify，会出现只唤醒本方线程的情况。导致程序中所有线程都等待。<br>class ProducerConsumerDemo<br>{<br>public static void main(String[] args)<br>{<br>Resource r = new Resource();</p>
-<p>Producer pro = new Producer(r);<br>Consumer con = new Consumer(r);</p>
-<p>Thread t1 = new Thread(pro);<br>Thread t2 = new Thread(pro);<br>Thread t3 = new Thread(con);<br>Thread t4 = new Thread(con);</p>
-<p>t1.start();<br>t2.start();<br>t3.start();<br>t4.start();</p>
-<p>}<br>}</p>
-<p>/*<br>对于多个生产者和消费者。<br>为什么要定义while判断标记。<br>原因：让被唤醒的线程再一次判断标记。</p>
-<p>为什么定义notifyAll，<br>因为需要唤醒对方线程。<br>因为只用notify，容易出现只唤醒本方线程的情况。导致程序中的所有线程都等待。</p>
-<p>*/</p>
-<p>class Resource<br>{<br>private String name;<br>private int count = 1;<br>private boolean flag = false;<br>//  t1    t2<br>public synchronized void set(String name)<br>{<br>while(flag)<br>try{this.wait();}catch(Exception e){}//t1(放弃资格)  t2(获取资格)<br>this.name = name+”–”+count++;</p>
-<p>System.out.println(Thread.currentThread().getName()+”…生产者..”+this.name);<br>flag = true;<br>this.notifyAll();<br>}</p>
-<p>//  t3   t4<br>public synchronized void out()<br>{<br>while(!flag)<br>try{wait();}catch(Exception e){}//t3(放弃资格) t4(放弃资格)<br>System.out.println(Thread.currentThread().getName()+”…消费者………”+this.name);<br>flag = false;<br>this.notifyAll();<br>}<br>}</p>
-<p>class Producer implements Runnable<br>{<br>private Resource res;</p>
-<p>Producer(Resource res)<br>{<br>this.res = res;<br>}<br>public void run()<br>{<br>while(true)<br>{<br>res.set(“+商品+”);<br>}<br>}<br>}</p>
-<p>class Consumer implements Runnable<br>{<br>private Resource res;</p>
-<p>Consumer(Resource res)<br>{<br>this.res = res;<br>}<br>public void run()<br>{<br>while(true)<br>{<br>res.out();<br>}<br>}<br>}<br>三、JDK1.5中提供多线程解决方案。<br>将同步Synchronized替换成现实的Lock操作。<br>将Object中的wait，notify notifyAll，替换了Condition对象。<br>该对象可以Lock锁 进行获取。<br>该示例中，实现了本方只唤醒对方操作。<br>生产者、消费者有什么替代方案？<br>答：1.5版本以后，它提供了显示的锁机制以及显示的锁对象的等待唤醒操作机制，同时对等待唤醒进行了封装。一个锁可以对象多个Condition对象。<br>import java.util.concurrent.locks.*;</p>
-<p>class ProducerConsumerDemo2<br>{<br>public static void main(String[] args)<br>{<br>Resource r = new Resource();</p>
-<p>Producer pro = new Producer(r);<br>Consumer con = new Consumer(r);</p>
-<p>Thread t1 = new Thread(pro);<br>Thread t2 = new Thread(pro);<br>Thread t3 = new Thread(con);<br>Thread t4 = new Thread(con);</p>
-<p>t1.start();<br>t2.start();<br>t3.start();<br>t4.start();</p>
-<p>}<br>}</p>
-<p>/*<br>JDK1.5 中提供了多线程升级解决方案。<br>将同步Synchronized替换成现实Lock操作。<br>将Object中的wait，notify notifyAll，替换了Condition对象。<br>该对象可以Lock锁 进行获取。<br>该示例中，实现了本方只唤醒对方操作。</p>
-<p>Lock:替代了Synchronized<br>lock<br>unlock<br>newCondition()</p>
-<p>Condition：替代了Object wait notify notifyAll<br>await();<br>signal();<br>signalAll();<br>*/<br>class Resource<br>{<br>private String name;<br>private int count = 1;<br>private boolean flag = false;<br>//  t1    t2<br>private Lock lock = new ReentrantLock();</p>
-<p>private Condition condition_pro = lock.newCondition();<br>private Condition condition_con = lock.newCondition();</p>
-<p>public  void set(String name)throws InterruptedException<br>{<br>lock.lock();<br>try<br>{<br>while(flag)<br>condition_pro.await();//t1,t2<br>this.name = name+”–”+count++;</p>
-<p>System.out.println(Thread.currentThread().getName()+”…生产者..”+this.name);<br>flag = true;<br>condition_con.signal();<br>}<br>finally<br>{<br>lock.unlock();//释放锁的动作一定要执行。<br>}<br>}</p>
-<p>//  t3   t4<br>public  void out()throws InterruptedException<br>{<br>lock.lock();<br>try<br>{<br>while(!flag)<br>condition_con.await();<br>System.out.println(Thread.currentThread().getName()+”…消费者………”+this.name);<br>flag = false;<br>condition_pro.signal();<br>}<br>finally<br>{<br>lock.unlock();<br>}</p>
-<p>}<br>}</p>
-<p>class Producer implements Runnable<br>{<br>private Resource res;</p>
-<p>Producer(Resource res)<br>{<br>this.res = res;<br>}<br>public void run()<br>{<br>while(true)<br>{<br>try<br>{<br>res.set(“+商品+”);<br>}<br>catch (InterruptedException e)<br>{<br>}</p>
-<p>}<br>}<br>}</p>
-<p>class Consumer implements Runnable<br>{<br>private Resource res;</p>
-<p>Consumer(Resource res)<br>{<br>this.res = res;<br>}<br>public void run()<br>{<br>while(true)<br>{<br>try<br>{<br>res.out();<br>}<br>catch (InterruptedException e)<br>{<br>}<br>}<br>}<br>}</p>
-<p>四、停止线程<br>只有一种，run方法结束。<br>开启多线程运行，运行代码通常是循环结构。只要控制住循环，就可以让run方法结束，也就是线程结束。<br>特殊情况：<br>当线程处于了冻结状态。就不会读取到标记。那么线程就不会结束。<br>当没有指定的方式让冻结的线程恢复到运行状态是，这时需要对冻结进行清除。强制让线程恢复到运行状态中来。这样就可以操作标记让线程结束。<br>Thread类提供该方法 interrupt();<br>class StopThread implements Runnable<br>{<br>private boolean flag =true;<br>public  void run()<br>{<br>while(flag)<br>{</p>
-<p>System.out.println(Thread.currentThread().getName()+”….run”);<br>}<br>}<br>public void changeFlag()<br>{<br>flag = false;<br>}<br>}</p>
-<p>class  StopThreadDemo<br>{<br>public static void main(String[] args)<br>{<br>StopThread st = new StopThread();</p>
-<p>Thread t1 = new Thread(st);<br>Thread t2 = new Thread(st);</p>
-<p>t1.setDaemon(true);<br>t2.setDaemon(true);<br>t1.start();<br>t2.start();</p>
-<p>int num = 0;</p>
-<p>while(true)<br>{<br>if(num++ == 60)<br>{<br>//st.changeFlag();<br>//t1.interrupt();<br>//t2.interrupt();<br>break;<br>}<br>System.out.println(Thread.currentThread().getName()+”…….”+num);<br>}<br>System.out.println(“over”);<br>}<br>}<br>五、守护线程</p>
-<p>后台进程和前台进程共同抢夺CPU的执行权。</p>
-<p>在启动线程时调用，当正在运行的此案称都是守护线程时，java虚拟机退出。</p>
-<p>六.Join方法</p>
-<p>主线程在向下执行的时候，遇到了join的时候是要申请加入到运行中来（通常来讲就是要有限取得cpu的执行权）主线程的执行权就给了它，此时主线程执行就处于冻结状态，当join结束时，主线程才复活。</p>
-<p>join（）：当需要临时加入一个线程时。</p>
-<p>join的特点：</p>
-<p>当A线程执行到B线程的join（）方法时。A就会等待，等B线程都执行完，A才会执行，join可以用来临时加入线程执行。</p>
-<p>join可以用来临时加入线程执行。</p>
-<p>优先级&amp;yield方法</p>
-<p>线程默认的优先级是5（1—10级）</p>
-<p>MAX_PRIORITY 线程具有的最高优先级。</p>
-<p>MIN_PRIORITY 分配给线程的默认优先级。</p>
-<p>NORM_PRIORITY 线程可以具有的最低优先级。</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>线程间通讯——等待唤醒机制<br>1，wait()；是让线程处于冻结状态，被wait线程会被存储到线程池中。<br>2,notify()；唤醒线程池中的一个线程(任意)。<br>3,notifyAll()；唤醒线程池中的所有线程，让线程具备了执行资格。<br>使用时要注意使用在同步中，因为只有同步才会具有锁。<br>调用时需要明确对象，明确是哪个监视器。<br>任意对象可以调用的方法定义在Object里面。</p>
-<p>锁可以是任意对象。<br>为什么这些操作线程方法要定义在Object类中：因为这些方法在操作同步中线程时，都必须要标识它们所操作线程特有的锁，<br>只有同一个锁上的被等待线程，可以被同一个锁上的notify唤醒。<br>不可以对不同锁中的线程进行唤醒。等待和唤醒必须是同一个锁。而锁的对象是任意的，所以可以被任意对象调用的方法定义在Object类中。<br>]]>
-    
-    </summary>
-    
-      <category term="JAVA" scheme="https://wait.im/tags/JAVA/"/>
-    
-      <category term="多线程" scheme="https://wait.im/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[面对对象基础跟内部类]]></title>
+    <title>面对对象基础跟内部类</title>
     <link href="https://wait.im/2012/07/30/%E9%9D%A2%E5%AF%B9%E5%AF%B9%E8%B1%A1%E5%9F%BA%E7%A1%80%E8%B7%9F%E5%86%85%E9%83%A8%E7%B1%BB/"/>
     <id>https://wait.im/2012/07/30/面对对象基础跟内部类/</id>
     <published>2012-07-29T16:18:36.000Z</published>
     <updated>2017-02-06T10:57:29.000Z</updated>
+    
     <content type="html"><![CDATA[<p>一、面对对象的三大特征：封装、继承、多态。</p>
 <font color="#24130c" face="Arial, Helvetica, simsun, u5b8bu4f53">    <font size="3">抽象：</font></font><font size="3">把现实中需要处理的事物通过数据的方法表达出来就是抽象。将现实的东西编程计算机的模式。</font>
 
@@ -3350,20 +3371,109 @@ void&nbsp;inner_f1()
 
 <p><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'宋体';">&nbsp; &nbsp; &nbsp;</span><span style="line-height: 23px; font-family: 宋体; font-size: 10.5pt;">如果一个对象编译时的类型是接口，那么其运行的类型为实现这个接口的类。因匿名内部类无构造方法，所以其使用范围非常的有限。 &nbsp;</span></p>
 </div></div></div></div></div></div>]]></content>
+    
     <summary type="html">
-    <![CDATA[<p>一、面对对象的三大特征：封装、继承、多态。</p>
-<font color="#24130c"   face="Arial, Helvetica, simsun, u5b8bu4f53"   >    <font size="3"   >抽象：</font></font><font size="3"   >把现实中需要处理的事物通过数据的方法表达出来就是抽象。将现实的东西编程计算机的模式。</font>
+    
+      &lt;p&gt;一、面对对象的三大特征：封装、继承、多态。&lt;/p&gt;
+&lt;font color=&quot;#24130c&quot;   face=&quot;Arial, Helvetica, simsun, u5b8bu4f53&quot;   &gt;    &lt;font size=&quot;3&quot;   &gt;抽象：&lt;/font&gt;&lt;/font&gt;&lt;font size=&quot;3&quot;   &gt;把现实中需要处理的事物通过数据的方法表达出来就是抽象。将现实的东西编程计算机的模式。&lt;/font&gt;
 
-<font size="3"   ><font face="arial, courier new, courier, 宋体, monospace"   >    封装：</font>把事物的数据和方法用类的方式集合起来就是封装，封装的数据和方法通过继承来实现重用。</font>
+&lt;font size=&quot;3&quot;   &gt;&lt;font face=&quot;arial, courier new, courier, 宋体, monospace&quot;   &gt;    封装：&lt;/font&gt;把事物的数据和方法用类的方式集合起来就是封装，封装的数据和方法通过继承来实现重用。&lt;/font&gt;
 
-<font size="3"   ><font face="arial, courier new, courier, 宋体, monospace"   >    多态：</font>同一个方法通过方法的重载实现不同的逻辑即多态。</font>
+&lt;font size=&quot;3&quot;   &gt;&lt;font face=&quot;arial, courier new, courier, 宋体, monospace&quot;   &gt;    多态：&lt;/font&gt;同一个方法通过方法的重载实现不同的逻辑即多态。&lt;/font&gt;
 
-<p>二、面对对象软件开发的大体分为，面向对象的分析，面向对象的设计，面向对象的实现。</p>
-<p>分析用户的需求，从问题中抽取对象模型，细化模型，设计类，包括类的属性和类间的相互关系。同时观察是否有可以直接引用的已有的类或部件；使用Java语言，在开发中引入测试，并完善整个解决方案。<br>]]>
+&lt;p&gt;二、面对对象软件开发的大体分为，面向对象的分析，面向对象的设计，面向对象的实现。&lt;/p&gt;
+&lt;p&gt;分析用户的需求，从问题中抽取对象模型，细化模型，设计类，包括类的属性和类间的相互关系。同时观察是否有可以直接引用的已有的类或部件；使用Java语言，在开发中引入测试，并完善整个解决方案。&lt;br&gt;
     
     </summary>
     
+    
       <category term="JAVA" scheme="https://wait.im/tags/JAVA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>多线程线程通讯和生产者</title>
+    <link href="https://wait.im/2012/07/30/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BA%BF%E7%A8%8B%E9%80%9A%E8%AE%AF%E5%92%8C%E7%94%9F%E4%BA%A7%E8%80%85/"/>
+    <id>https://wait.im/2012/07/30/多线程线程通讯和生产者/</id>
+    <published>2012-07-29T16:18:36.000Z</published>
+    <updated>2017-02-06T10:57:23.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>线程间通讯——等待唤醒机制<br>1，wait()；是让线程处于冻结状态，被wait线程会被存储到线程池中。<br>2,notify()；唤醒线程池中的一个线程(任意)。<br>3,notifyAll()；唤醒线程池中的所有线程，让线程具备了执行资格。<br>使用时要注意使用在同步中，因为只有同步才会具有锁。<br>调用时需要明确对象，明确是哪个监视器。<br>任意对象可以调用的方法定义在Object里面。</p>
+<p>锁可以是任意对象。<br>为什么这些操作线程方法要定义在Object类中：因为这些方法在操作同步中线程时，都必须要标识它们所操作线程特有的锁，<br>只有同一个锁上的被等待线程，可以被同一个锁上的notify唤醒。<br>不可以对不同锁中的线程进行唤醒。等待和唤醒必须是同一个锁。而锁的对象是任意的，所以可以被任意对象调用的方法定义在Object类中。<br><a id="more"></a><br>一、线程间通信：<br>class Res<br>{<br>private String name;<br>private String sex;<br>private boolean flag = false;</p>
+<p>public synchronized void set(String name,String sex)<br>{<br>if(flag)<br>try{this.wait();}catch(Exception e){}<br>this.name = name;</p>
+<p>this.sex = sex;<br>flag = true;<br>this.notify();<br>}<br>public synchronized void out()<br>{<br>if(!flag)<br>try{this.wait();}catch(Exception e){}<br>System.out.println(name+”……..”+sex);<br>flag = false;<br>this.notify();<br>}<br>}</p>
+<p>class Input implements Runnable<br>{<br>private Res r ;<br>Input(Res r)<br>{<br>this.r = r;<br>}<br>public void run()<br>{<br>int x = 0;<br>while(true)<br>{<br>if(x==0)<br>r.set(“mike”,”man”);<br>else<br>r.set(“丽丽”,”女女女女女”);<br>x = (x+1)%2;<br>}<br>}<br>}</p>
+<p>class Output implements Runnable<br>{<br>private Res r ;</p>
+<p>Output(Res r)<br>{<br>this.r = r;<br>}<br>public void run()<br>{<br>while(true)<br>{<br>r.out();<br>}<br>}<br>}</p>
+<p>class  InputOutputDemo2<br>{<br>public static void main(String[] args)<br>{<br>Res r = new Res();</p>
+<p>new Thread(new Input(r)).start();<br>new Thread(new Output(r)).start();<br>/*<br>Input in = new Input(r);<br>Output out = new Output(r);</p>
+<p>Thread t1 = new Thread(in);<br>Thread t2 = new Thread(out);</p>
+<p>t1.start();<br>t2.start();<br>*/<br>}<br>}<br>二、线程间通信-生产者和消费者<br>全部wait，生产和消费者多次判断，用while循环，唤醒时需要唤醒两方的人，这时我们用this.notifyAll().<br>对于多生产者和多消费者。<br>为什么要定义while判断标记。<br>原因：让被唤醒的线程在判断一次标记。<br>定义notifyAll，因为需要唤醒对方线程，只用notify，会出现只唤醒本方线程的情况。导致程序中所有线程都等待。<br>class ProducerConsumerDemo<br>{<br>public static void main(String[] args)<br>{<br>Resource r = new Resource();</p>
+<p>Producer pro = new Producer(r);<br>Consumer con = new Consumer(r);</p>
+<p>Thread t1 = new Thread(pro);<br>Thread t2 = new Thread(pro);<br>Thread t3 = new Thread(con);<br>Thread t4 = new Thread(con);</p>
+<p>t1.start();<br>t2.start();<br>t3.start();<br>t4.start();</p>
+<p>}<br>}</p>
+<p>/*<br>对于多个生产者和消费者。<br>为什么要定义while判断标记。<br>原因：让被唤醒的线程再一次判断标记。</p>
+<p>为什么定义notifyAll，<br>因为需要唤醒对方线程。<br>因为只用notify，容易出现只唤醒本方线程的情况。导致程序中的所有线程都等待。</p>
+<p>*/</p>
+<p>class Resource<br>{<br>private String name;<br>private int count = 1;<br>private boolean flag = false;<br>//  t1    t2<br>public synchronized void set(String name)<br>{<br>while(flag)<br>try{this.wait();}catch(Exception e){}//t1(放弃资格)  t2(获取资格)<br>this.name = name+”–”+count++;</p>
+<p>System.out.println(Thread.currentThread().getName()+”…生产者..”+this.name);<br>flag = true;<br>this.notifyAll();<br>}</p>
+<p>//  t3   t4<br>public synchronized void out()<br>{<br>while(!flag)<br>try{wait();}catch(Exception e){}//t3(放弃资格) t4(放弃资格)<br>System.out.println(Thread.currentThread().getName()+”…消费者………”+this.name);<br>flag = false;<br>this.notifyAll();<br>}<br>}</p>
+<p>class Producer implements Runnable<br>{<br>private Resource res;</p>
+<p>Producer(Resource res)<br>{<br>this.res = res;<br>}<br>public void run()<br>{<br>while(true)<br>{<br>res.set(“+商品+”);<br>}<br>}<br>}</p>
+<p>class Consumer implements Runnable<br>{<br>private Resource res;</p>
+<p>Consumer(Resource res)<br>{<br>this.res = res;<br>}<br>public void run()<br>{<br>while(true)<br>{<br>res.out();<br>}<br>}<br>}<br>三、JDK1.5中提供多线程解决方案。<br>将同步Synchronized替换成现实的Lock操作。<br>将Object中的wait，notify notifyAll，替换了Condition对象。<br>该对象可以Lock锁 进行获取。<br>该示例中，实现了本方只唤醒对方操作。<br>生产者、消费者有什么替代方案？<br>答：1.5版本以后，它提供了显示的锁机制以及显示的锁对象的等待唤醒操作机制，同时对等待唤醒进行了封装。一个锁可以对象多个Condition对象。<br>import java.util.concurrent.locks.*;</p>
+<p>class ProducerConsumerDemo2<br>{<br>public static void main(String[] args)<br>{<br>Resource r = new Resource();</p>
+<p>Producer pro = new Producer(r);<br>Consumer con = new Consumer(r);</p>
+<p>Thread t1 = new Thread(pro);<br>Thread t2 = new Thread(pro);<br>Thread t3 = new Thread(con);<br>Thread t4 = new Thread(con);</p>
+<p>t1.start();<br>t2.start();<br>t3.start();<br>t4.start();</p>
+<p>}<br>}</p>
+<p>/*<br>JDK1.5 中提供了多线程升级解决方案。<br>将同步Synchronized替换成现实Lock操作。<br>将Object中的wait，notify notifyAll，替换了Condition对象。<br>该对象可以Lock锁 进行获取。<br>该示例中，实现了本方只唤醒对方操作。</p>
+<p>Lock:替代了Synchronized<br>lock<br>unlock<br>newCondition()</p>
+<p>Condition：替代了Object wait notify notifyAll<br>await();<br>signal();<br>signalAll();<br>*/<br>class Resource<br>{<br>private String name;<br>private int count = 1;<br>private boolean flag = false;<br>//  t1    t2<br>private Lock lock = new ReentrantLock();</p>
+<p>private Condition condition_pro = lock.newCondition();<br>private Condition condition_con = lock.newCondition();</p>
+<p>public  void set(String name)throws InterruptedException<br>{<br>lock.lock();<br>try<br>{<br>while(flag)<br>condition_pro.await();//t1,t2<br>this.name = name+”–”+count++;</p>
+<p>System.out.println(Thread.currentThread().getName()+”…生产者..”+this.name);<br>flag = true;<br>condition_con.signal();<br>}<br>finally<br>{<br>lock.unlock();//释放锁的动作一定要执行。<br>}<br>}</p>
+<p>//  t3   t4<br>public  void out()throws InterruptedException<br>{<br>lock.lock();<br>try<br>{<br>while(!flag)<br>condition_con.await();<br>System.out.println(Thread.currentThread().getName()+”…消费者………”+this.name);<br>flag = false;<br>condition_pro.signal();<br>}<br>finally<br>{<br>lock.unlock();<br>}</p>
+<p>}<br>}</p>
+<p>class Producer implements Runnable<br>{<br>private Resource res;</p>
+<p>Producer(Resource res)<br>{<br>this.res = res;<br>}<br>public void run()<br>{<br>while(true)<br>{<br>try<br>{<br>res.set(“+商品+”);<br>}<br>catch (InterruptedException e)<br>{<br>}</p>
+<p>}<br>}<br>}</p>
+<p>class Consumer implements Runnable<br>{<br>private Resource res;</p>
+<p>Consumer(Resource res)<br>{<br>this.res = res;<br>}<br>public void run()<br>{<br>while(true)<br>{<br>try<br>{<br>res.out();<br>}<br>catch (InterruptedException e)<br>{<br>}<br>}<br>}<br>}</p>
+<p>四、停止线程<br>只有一种，run方法结束。<br>开启多线程运行，运行代码通常是循环结构。只要控制住循环，就可以让run方法结束，也就是线程结束。<br>特殊情况：<br>当线程处于了冻结状态。就不会读取到标记。那么线程就不会结束。<br>当没有指定的方式让冻结的线程恢复到运行状态是，这时需要对冻结进行清除。强制让线程恢复到运行状态中来。这样就可以操作标记让线程结束。<br>Thread类提供该方法 interrupt();<br>class StopThread implements Runnable<br>{<br>private boolean flag =true;<br>public  void run()<br>{<br>while(flag)<br>{</p>
+<p>System.out.println(Thread.currentThread().getName()+”….run”);<br>}<br>}<br>public void changeFlag()<br>{<br>flag = false;<br>}<br>}</p>
+<p>class  StopThreadDemo<br>{<br>public static void main(String[] args)<br>{<br>StopThread st = new StopThread();</p>
+<p>Thread t1 = new Thread(st);<br>Thread t2 = new Thread(st);</p>
+<p>t1.setDaemon(true);<br>t2.setDaemon(true);<br>t1.start();<br>t2.start();</p>
+<p>int num = 0;</p>
+<p>while(true)<br>{<br>if(num++ == 60)<br>{<br>//st.changeFlag();<br>//t1.interrupt();<br>//t2.interrupt();<br>break;<br>}<br>System.out.println(Thread.currentThread().getName()+”…….”+num);<br>}<br>System.out.println(“over”);<br>}<br>}<br>五、守护线程</p>
+<p>后台进程和前台进程共同抢夺CPU的执行权。</p>
+<p>在启动线程时调用，当正在运行的此案称都是守护线程时，java虚拟机退出。</p>
+<p>六.Join方法</p>
+<p>主线程在向下执行的时候，遇到了join的时候是要申请加入到运行中来（通常来讲就是要有限取得cpu的执行权）主线程的执行权就给了它，此时主线程执行就处于冻结状态，当join结束时，主线程才复活。</p>
+<p>join（）：当需要临时加入一个线程时。</p>
+<p>join的特点：</p>
+<p>当A线程执行到B线程的join（）方法时。A就会等待，等B线程都执行完，A才会执行，join可以用来临时加入线程执行。</p>
+<p>join可以用来临时加入线程执行。</p>
+<p>优先级&amp;yield方法</p>
+<p>线程默认的优先级是5（1—10级）</p>
+<p>MAX_PRIORITY 线程具有的最高优先级。</p>
+<p>MIN_PRIORITY 分配给线程的默认优先级。</p>
+<p>NORM_PRIORITY 线程可以具有的最低优先级。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;线程间通讯——等待唤醒机制&lt;br&gt;1，wait()；是让线程处于冻结状态，被wait线程会被存储到线程池中。&lt;br&gt;2,notify()；唤醒线程池中的一个线程(任意)。&lt;br&gt;3,notifyAll()；唤醒线程池中的所有线程，让线程具备了执行资格。&lt;br&gt;使用时要注意使用在同步中，因为只有同步才会具有锁。&lt;br&gt;调用时需要明确对象，明确是哪个监视器。&lt;br&gt;任意对象可以调用的方法定义在Object里面。&lt;/p&gt;
+&lt;p&gt;锁可以是任意对象。&lt;br&gt;为什么这些操作线程方法要定义在Object类中：因为这些方法在操作同步中线程时，都必须要标识它们所操作线程特有的锁，&lt;br&gt;只有同一个锁上的被等待线程，可以被同一个锁上的notify唤醒。&lt;br&gt;不可以对不同锁中的线程进行唤醒。等待和唤醒必须是同一个锁。而锁的对象是任意的，所以可以被任意对象调用的方法定义在Object类中。&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="JAVA" scheme="https://wait.im/tags/JAVA/"/>
+    
+      <category term="多线程" scheme="https://wait.im/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
     
   </entry>
   
